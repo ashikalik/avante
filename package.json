@@ -22,6 +22,8 @@
     "@angular/router": "~7.0.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
+    "@auth0/angular-jwt": "^2.0.0",
+    "zone.js": "~0.8.26"
     "bootstrap": "^4.2.1",
     "zone.js": "~0.8.26",
     "jquery": "^3.3.1"
