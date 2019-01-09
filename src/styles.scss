@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "./sass/_variables.scss";
+@import "./sass/_mixins.scss";
+@import './sass/_direction-ltr.scss';
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./sass/main.scss";
+@import "./sass/about_us.scss";
+@import "./sass/auth.scss";
+@import "./sass/buy_ticket.scss";
+@import "./sass/calendar.scss";
+@import "./sass/contact.scss";
+@import "./sass/event.scss";
+@import "./sass/footer.scss";
+@import "./sass/header.scss";
+@import "./sass/home.scss";
+@import "./sass/search.scss";
+
+
+
+body {
+    direction: $direction;
+    text-align: $start-direction;
+} 

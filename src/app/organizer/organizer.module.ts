@@ -21,8 +21,29 @@ import { SalesStaffComponent } from './sales-staff/sales-staff.component';
 import { SoldTicketsComponent } from './sold-tickets/sold-tickets.component';
 import { OrganizerRootComponent } from './organizer-root/organizer-root.component';
 
+
+
 @NgModule({
-  declarations: [PricesComponent, MyEventsComponent, AddEventComponent, EventDetailsComponent, EventSettingsComponent, EventTermsComponent, EventBadgeComponent, EventSupervisorsComponent, LinkWithGeaComponent, QuestionsComponent, ApplicationsComponent, InterviewResultsComponent, EvaluationsComponent, FinalEvaluationsComponent, TicketPackagesComponent, SalesStaffComponent, SoldTicketsComponent, OrganizerRootComponent],
+  declarations: [
+    PricesComponent,
+    MyEventsComponent,
+    AddEventComponent,
+    EventDetailsComponent,
+    EventSettingsComponent,
+    EventTermsComponent,
+    EventBadgeComponent,
+    EventSupervisorsComponent,
+    LinkWithGeaComponent,
+    QuestionsComponent,
+    ApplicationsComponent,
+    InterviewResultsComponent,
+    EvaluationsComponent,
+    FinalEvaluationsComponent,
+    TicketPackagesComponent,
+    SalesStaffComponent,
+    SoldTicketsComponent,
+    OrganizerRootComponent
+  ],
   imports: [
     CommonModule,
     OrganizerRoutingModule

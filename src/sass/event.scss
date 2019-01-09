@@ -1,0 +1,55 @@
+
+.detail-container {
+	padding-top: 50px;
+	.eventdetail {
+		div {
+			float: left;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.event {
+			.custom_tab {
+				width: 100%;
+			}
+			.tab-content {
+				width: 100%;
+				height: auto;
+				.content {
+					width: 100%;
+					.tab_img_content {
+						width: 100%;
+						height: auto;
+						overflow: hidden;
+						img {
+							width: inherit;
+				  			height: auto;
+				  			max-height: 340px;
+						}
+					}
+				}
+			}
+		}
+		h4 {
+			font-size: 1.3rem;
+		}		
+		.underline {
+			border-bottom: 1px solid #9e9e9e;
+		}
+		.share i {
+			font-size: 24px;
+			margin-left: 8.5px;
+			margin-right: 8.5px;
+		}
+		.ticket {
+			padding: 15px 38px 9px 38px;
+			box-shadow: 1px 4px 10px #9fa4a9;
+			border-radius: 20px;
+			span {
+				font-size: 12px;
+			}
+		}
+		.ticket.hasborder {
+			border: 1px solid #9e9e9e;
+		}
+	}
+}
