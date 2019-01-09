@@ -1,0 +1,26 @@
+// src/app/app.component.scss
+
+@import '../styles.scss';
+@import '../sass/header.scss';
+@import '../sass/main.scss';
+@import '../sass/footer.scss';
+
+
+body {
+  direction: $direction !important;
+  text-align: $start-direction !important;
+}
+
+@media (max-width: 768px) {
+  
+}
+@media (min-width: 768px) {
+
+}
+@media (min-width: 992px) {
+
+}
+@media (min-width: 1200px) {
+
+}    
+
