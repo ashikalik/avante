@@ -1,0 +1,15 @@
+/*** LTR websites ***/
+$direction           :ltr;
+$opposite-direction   :rtl;
+
+$start-direction     :left;
+$end-direction       :right;
+
+$transform-direction :1;
+
+.fas.fa-chevron-down.embed {
+	right: 20px;	
+}
+.border-left-right {
+	border-left: 1px solid #9e9e9e;
+}
