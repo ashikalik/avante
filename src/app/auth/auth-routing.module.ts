@@ -1,12 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { RegisterUserComponent } from './register-user/register-user.component';
-import { RegisterCompanyComponent } from './register-company/register-company.component';
-import { RegisterVoluComponent } from './register-volu/register-volu.component';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
