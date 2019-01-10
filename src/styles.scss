@@ -17,8 +17,13 @@
 @import "./sass/search.scss";
 
 
+@font-face {
+    font-family: bahnschrift;
+    src: url(/assets/font/bahnschrift.ttf) format("bahnschrift");
+}
 
 body {
+    font-family: Ubuntu, sans-serif;
     direction: $direction;
     text-align: $start-direction;
 } 
