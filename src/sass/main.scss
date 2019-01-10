@@ -215,9 +215,9 @@
 }
 
 .signup_content {
-	width: 280px;
-	margin-left: auto;
-	margin-right: auto;
+	width: auto;
+	// margin-left: auto;
+	// margin-right: auto;
 	.signup_ques {
 		color: #aaa;
 		margin-bottom: 2rem;
@@ -254,7 +254,7 @@
 	font-size: 13px;
 }
 .width_220 {
-	width: 220px;
+	width: 300px;
 }
 .width_120 {
 	width: 120px;
