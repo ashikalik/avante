@@ -48,6 +48,10 @@ const routes: Routes = [
     path: 'organizer',
     loadChildren: './organizer/organizer.module#OrganizerModule',   
   },
+  {
+    path: 'auth',
+    loadChildren: './auth/auth.module#AuthModule',   
+  },
   // {
   //     path: 'seller',
   //     loadChildren: './seller/seller.module#SellerModule',       
