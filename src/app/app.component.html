@@ -6,11 +6,11 @@
     </div>
     <div class="menu menu_item">
       <ul class="d-flex">
-        <a href="/home"><li>Home</li></a>
-        <a href="/aboutus"><li>About US</li></a>
-        <a href="/contact"><li>Contact US</li></a>
-        <a href="/calendar"><li>Calendar</li></a>
-        <a href="/organize"><li>Organize</li></a>
+        <a href="/home"><li translate>Home</li></a>
+        <a href="/aboutus"><li translate>About US</li></a>
+        <a href="/contact"><li translate>Contact US</li></a>
+        <a href="/calendar"><li translate>Calendar</li></a>
+        <a href="/organize"><li translate>Organize</li></a>
       </ul>
     </div>
     <div class="header_right menu_item ml-auto">
@@ -18,23 +18,23 @@
         <li class="position-relative user-list">
           <i class="far fa-user"></i>&nbsp; Ahmed &nbsp;<i class="fas fa-chevron-down"></i>
           <div class="user">
-            <a href=""><p><i class="far fa-user"></i>&nbsp; My account</p></a>
-            <a href=""><p><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
-            <a href=""><p><i class="fas fa-sliders-h"></i>&nbsp; Settings</p></a>
-            <a href=""><p><i class="far fa-question-circle"></i>&nbsp; Help</p></a>
-            <a href="/logout"><p><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</p></a>
+            <a href=""><p translate><i class="far fa-user"></i>&nbsp; My account</p></a>
+            <a href=""><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
+            <a href=""><p translate><i class="fas fa-sliders-h"></i>&nbsp; Settings</p></a>
+            <a href=""><p translate><i class="far fa-question-circle"></i>&nbsp; Help</p></a>
+            <a href="/logout"><p translate><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</p></a>
           </div>
         </li>
-        <li class="position-relative notification-list">
-          <i class="far fa-bell position-relative"><span class="badge bg-danger">2</span></i>&nbsp;&nbsp;<i class="fas fa-chevron-down"></i>
-          <div class="notification mr--20">
-            <a href=""><p><i class="fas fa-dollar-sign"></i>&nbsp; <span>Your payment was successful completed</span></p></a>
-            <a href=""><p><i class="far fa-credit-card"></i>&nbsp; <span>Your order <span class="text-danger">#89792 </span> is processing. Thanks for buying!</span></p></a>
-            <a href=""><p><i class="fas fa-phone"></i>&nbsp; <span>Your phone number was successfully completed</span></p></a>
-            <a href=""><p><i class="far fa-envelope"></i>&nbsp; <span>Your E-mail is now confirmed!</span></p></a>
-            <a href=""><p><i class="fas fa-dollar-sign"></i>&nbsp; <span>Your payment was successful completed</span></p></a>
-          </div>
-        </li>
+        <!--<li class="position-relative notification-list">-->
+          <!--<i class="far fa-bell position-relative"><span class="badge bg-danger">2</span></i>&nbsp;&nbsp;<i class="fas fa-chevron-down"></i>-->
+          <!--<div class="notification mr&#45;&#45;20">-->
+            <!--<a href=""><p><i class="fas fa-dollar-sign"></i>&nbsp; <span>Your payment was successful completed</span></p></a>-->
+            <!--<a href=""><p><i class="far fa-credit-card"></i>&nbsp; <span>Your order <span class="text-danger">#89792 </span> is processing. Thanks for buying!</span></p></a>-->
+            <!--<a href=""><p><i class="fas fa-phone"></i>&nbsp; <span>Your phone number was successfully completed</span></p></a>-->
+            <!--<a href=""><p><i class="far fa-envelope"></i>&nbsp; <span>Your E-mail is now confirmed!</span></p></a>-->
+            <!--<a href=""><p><i class="fas fa-dollar-sign"></i>&nbsp; <span>Your payment was successful completed</span></p></a>-->
+          <!--</div>-->
+        <!--</li>-->
         <li class="position-relative nav_toggle">
           <i class="fas fa-bars" (click)="onMenuView($event)"></i>
           <i class="fas fa-times" (click)="onMenuHide($event)" style="display: none;"></i>
@@ -47,7 +47,7 @@
         <a href="login-rtl" class="btn btn-warning btn-sm ml-1 mr-1">Arabic</a> -->
         <div class="btn-group pl-1 pr-1 ml-1 mr-1 btn-group-sm">
           <button type="button" class="btn btn-primary" (click)="onLtrStyle($event)">English</button>
-          <button type="button" class="btn btn-warning" (click)="onRtlStyle($event)">Arabic</button>
+          <button type="button" class="btn btn-warning" (click)="onRtlStyle($event)">العربية</button>
         </div>
       </i>
     </div>
@@ -92,16 +92,16 @@
     <div class="container_footer">
       <div class="row">
         <div class="col-lg-8 col-sm-8 col-12">
-          <p class="text_label">Subscribe be in touch with the latest event</p>
+          <p class="text_label" translate>Subscribe be in touch with the latest event</p>
           <div class="form-group d-flex">
-            <input type="text" class="form-control evento_input mr-4" placeholder="Event Name" style="min-width: 130px;">
-            <input type="button" class="btn btn-danger md-49 pd-49" value="SUBSCRIBE">
+            <input type="text" class="form-control evento_input mr-4" placeholder="{{ 'Your Email' | translate }}" style="min-width: 130px;">
+            <input type="button" class="btn btn-danger md-49 pd-49" value="{{ 'SUBSCRIBE' | translate }}">
           </div>
         </div>
         <div class="col-lg-4 col-sm-4 col-12">
           <div class="form-group">
             <div class="social_icons">
-              <p class="text_label text-center">Follow us on</p>
+              <p class="text_label text-center" translate>Follow us on</p>
               <div class="text-center">
                 <i class="fab fa-youtube"></i>
                 <i class="fab fa-twitter"></i>
@@ -119,17 +119,17 @@
     <div class="container_footer">
       <div class="row">
         <div class="col-lg-4 col-sm-4 col-12 pt-1">
-          <p class="text_label">Site Map</p>
-          <p class="text_label">About Evento</p>
-          <p class="text_label">Contact Us</p>
+          <p class="text_label" translate>Site Map</p>
+          <p class="text_label" translate>About Evento</p>
+          <p class="text_label" translate>Contact US</p>
         </div>
         <div class="col-lg-4 col-sm-4 col-12  pt-1">
-          <p class="text_label">Q&A</p>
-          <p class="text_label">Privacy Policy</p>
-          <p class="text_label">Terms & Conditions</p>
+          <p class="text_label" translate>Q&A</p>
+          <p class="text_label" translate>Privacy Policy</p>
+          <p class="text_label" translate>Terms & Conditions</p>
         </div>
         <div class="col-lg-4 col-sm-4 col-12  pt-1">
-          <p class="text_label">Pay Safelyusing</p>
+          <p class="text_label" translate>Pay Safelyusing</p>
           <div style=" font-size: 26px;">
             <i class="fab fa-cc-visa mr-3"></i>
             <i class="fab fa-cc-mastercard mr-3"></i>
@@ -140,7 +140,7 @@
       </div>
     </div>
   </div>
-  <div class="footer_bottom text-center p-3 text-uppercase font-weight-bold" style="font-size: 14px">
-    Copyright © 2018 EVENTO  Inc. All rights reserved
+  <div class="footer_bottom text-center p-3 text-uppercase font-weight-bold" style="font-size: 14px" translate>
+    Copyright
   </div>
 </div>
