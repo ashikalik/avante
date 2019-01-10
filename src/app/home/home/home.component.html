@@ -1,20 +1,25 @@
 <div class="main_container">
   <div class="container-fluid">
     <div class="row main-content">
-      <div class="col-lg-7 col-sm-12">
-        <h2 class="text-center"><span class="text-warning">SEARCH, &nbsp;</span><span class="text-danger">CHOOSE, &nbsp;</span><span class="text-primary">BOOK&nbsp;</span><span class="text-dark">AND ENJOY</span></h2>
+      <div class="col-lg-6 col-sm-12">
+        <h2 class="text-center">
+          <span class="text-warning">{{ 'SEARCH' | translate}} ,</span>
+          <span class="text-danger">{{ 'CHOOSE' | translate}} ,</span>
+          <span class="text-primary">{{ 'BOOK' | translate}}&nbsp;</span>
+          <span class="text-dark">{{ 'AND ENJOY' | translate}}</span>
+        </h2>
         <div class="row form-row d-flex justify-content-center">
           <div class="col-sm-offset-1 col-sm-10">
             <div class="row">
-              <div class="col-sm-4 pd-49">
+              <div class="col-sm-4">
                 <div class="form-group">
-                  <input type="text" class="form-control evento_input" placeholder="Event Name">
+                  <input type="text" class="form-control evento_input" placeholder="{{ 'Event Name' | translate}}">
                 </div>
               </div>
-              <div class="col-sm-4 pd-49">
+              <div class="col-sm-4">
                 <div class="form-group position-relative">
                   <select class="form-control evento_input evento_select" name="sellist">
-                    <option disabled selected hidden>Choose City</option>
+                    <option disabled selected hidden translate>Choose City</option>
                     <option>Abha</option>
                     <option>Ad-Dilam</option>
                     <option>Al-Abwa</option>
@@ -25,10 +30,10 @@
                   <i class="fas fa-chevron-down embed"></i>
                 </div>
               </div>
-              <div class="col-sm-4 pd-49">
+              <div class="col-sm-4">
                 <div class="form-group position-relative">
                   <select class="form-control evento_input evento_select" name="sellist">
-                    <option disabled selected hidden>Event Type</option>
+                    <option disabled selected hidden translate>Event Type</option>
                     <option>Meeting</option>
                     <option>Driving</option>
                     <option>Dating</option>
@@ -44,28 +49,28 @@
         <div class="row find-row d-flex justify-content-center">
           <div class="col-sm-12">
             <div class="form-group d-flex justify-content-center">
-              <button type="button" class="btn btn-dark md-49 pd-60">Find</button>
-              <button type="button" class="btn btn-danger md-49 pd-100">See All Events</button>
+              <button type="button" class="btn btn-dark md-49 pd-60" translate>Find</button>
+              <button type="button" class="btn btn-danger md-49 pd-100" translate>See All Events</button>
             </div>
           </div>
         </div>
 
-        <div class="row click-row justify-content-center">
-          <div class="col-sm-12">
-            <div class="form-group text-center">
-              <span style="margin-right: 10px;">Feeling Lucky? Let Evento Help you find one </span>
-              <button type="button" class="btn btn-outline-dark btn-sm pd-40 mob-pd">Click Here</button>
-            </div>
-          </div>
-        </div>
+        <!--<div class="row click-row justify-content-center">-->
+          <!--<div class="col-sm-12">-->
+            <!--<div class="form-group text-center">-->
+              <!--<span style="margin-right: 10px;">Feeling Lucky? Let Evento Help you find one </span>-->
+              <!--<button type="button" class="btn btn-outline-dark btn-sm pd-40 mob-pd">Click Here</button>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
       </div>
-      <div class="col-lg-5 col-sm-12">
-        <h2 class="text-center"><span>OR PLAN YOUR OWN EVENTS!</span></h2>
+      <div class="col-lg-6 col-sm-12">
+        <h2 class="text-center"><span translate>OR PLAN YOUR OWN EVENTS!</span></h2>
         <div class="text-center border-left-right"><img class="img_responsive" src="assets/VectorSmartObject_0.png" alt=""/></div>
         <div class="form-group d-flex justify-content-center">
-          <button type="button" class="btn btn-outline-dark btn-create pd-60 position-relative">
+          <button type="button" class="btn btn-outline-dark btn-create pd-60 position-relative" translate>
             CREATE YOUR EVENT&nbsp;
-            <i class="fas fa-chevron-right"></i>
+            <i class="fas fa-chevron-left"></i>
           </button>
         </div>
       </div>
@@ -77,10 +82,10 @@
         <img class="img_responsive" src="assets/VectorSmartObject.png" alt=""/>
       </div>
       <div class="col-lg-6 col-sm-12 md-top-70">
-        <h3>ARE YOU LOOKING FOR JOB AS A EVENT STAFF?</h3>
+        <h3 translate>ARE YOU LOOKING FOR JOB AS A EVENT STAFF?</h3>
         <P>Lorum lpsum is simply dummy text of the printing and<br> typesetting industry.Lorum lpsum has been the industry's<br> standard dummy text ever since the 1500s</P>
         <div class="form-group">
-          <button type="button" class="btn btn-outline-dark pd-60 position-relative">APPLY NOW</button>
+          <button type="button" class="btn btn-outline-dark pd-60 position-relative" translate>APPLY NOW</button>
         </div>
       </div>
     </div>
@@ -254,17 +259,14 @@
     </div>
   </div>
   <div class="container-fluid tabs-container">
-    <h2 class="text-center">LATEST EVENTS</h2>
+    <h2 class="text-center" translate>LATEST EVENTS</h2>
     <div class="row mt-3">
       <div class="col-lg-6 col-sm-12 col-12">
         <div class="custom_tab mt-2">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs small justify-content-end" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active bg-danger position-relative" data-toggle="tab" href="#education">EDUCATION</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link bg-warning position-relative" data-toggle="tab" href="#culture">CULTURE</a>
+              <a class="nav-link active bg-danger position-relative" data-toggle="tab" href="">EDUCATION</a>
             </li>
           </ul>
           <!-- Tab panes -->
@@ -275,14 +277,14 @@
               </div>
               <div class="tab_desc">
                 <div class="tab_desc_inner">
-                  <h3>FM EXPO SAUDI 2019</h3>
-                  <p style="color:#b0b0b0;">Lorem lpsum is simply dummy text of the printing and typesetting industry. Lorem lpsum has...</p>
+                  <h3>هيئة الترفيه</h3>
+                  <p style="color:#b0b0b0;">وصف الفعالية</p>
                   <div class="row">
                     <div class="col-sm-7 col-lg-7">
-                      <p class="local_desc"><i class="fa fa-map-marker"></i> Riyadh international<br>&nbsp;&nbsp; Convention & Exhibition Center</p>
+                      <p class="local_desc"><i class="fa fa-map-marker"></i>الرياض مركز المعارض والمؤتمرات</p>
                     </div>
                     <div class="col-sm-5 col-lg-5 text-center">
-                      <button type="button" class="btn btn-outline-dark btn-bold">SEE MORE</button>
+                      <button type="button" class="btn btn-outline-dark btn-bold" translate>SEE MORE</button>
                     </div>
                   </div>
                 </div>
@@ -300,10 +302,7 @@
           <!-- Nav tabs -->
           <ul class="nav nav-tabs small justify-content-end" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active bg-dark position-relative" data-toggle="tab" href="#food">FOOD</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link bg-warning position-relative" data-toggle="tab" href="#culture">CULTURE</a>
+              <a class="nav-link active bg-dark position-relative" data-toggle="tab">FOOD</a>
             </li>
           </ul>
           <!-- Tab panes -->
@@ -314,14 +313,14 @@
               </div>
               <div class="tab_desc">
                 <div class="tab_desc_inner">
-                  <h3>FM EXPO SAUDI 2019</h3>
-                  <p style="color:#b0b0b0;">Lorem lpsum is simply dummy text of the printing and typesetting industry. Lorem lpsum has...</p>
+                  <h3>فعالية هيئة الترفية</h3>
+                  <p style="color:#b0b0b0;">وصف الفعالية</p>
                   <div class="row">
                     <div class="col-sm-7 col-lg-7">
-                      <p class="local_desc"><i class="fa fa-map-marker"></i> Riyadh international<br>&nbsp;&nbsp; Convention & Exhibition Center</p>
+                      <p class="local_desc"><i class="fa fa-map-marker"></i> الرياض مركز المعارض والمؤتمرات</p>
                     </div>
                     <div class="col-sm-5 col-lg-5 text-center">
-                      <button type="button" class="btn btn-outline-dark btn-bold">SEE MORE</button>
+                      <button type="button" class="btn btn-outline-dark btn-bold" translate>SEE MORE</button>
                     </div>
                   </div>
                 </div>
@@ -350,14 +349,14 @@
               </div>
               <div class="tab_desc">
                 <div class="tab_desc_inner">
-                  <h3>FM EXPO SAUDI 2019</h3>
-                  <p style="color:#b0b0b0;">Lorem lpsum is simply dummy text of the printing and typesetting industry. Lorem lpsum has...</p>
+                  <h3>فعالية هيئة الترفية</h3>
+                  <p style="color:#b0b0b0;">وصف الفعالية</p>
                   <div class="row">
                     <div class="col-sm-7 col-lg-7">
-                      <p class="local_desc"><i class="fa fa-map-marker"></i> Riyadh international<br>&nbsp;&nbsp; Convention & Exhibition Center</p>
+                      <p class="local_desc"><i class="fa fa-map-marker"></i> الرياض مركز المعارض والمؤتمرات</p>
                     </div>
                     <div class="col-sm-5 col-lg-5 text-center">
-                      <button type="button" class="btn btn-outline-dark btn-bold">SEE MORE</button>
+                      <button type="button" class="btn btn-outline-dark btn-bold" translate>SEE MORE</button>
                     </div>
                   </div>
                 </div>
@@ -386,14 +385,14 @@
               </div>
               <div class="tab_desc">
                 <div class="tab_desc_inner">
-                  <h3>FM EXPO SAUDI 2019</h3>
-                  <p style="color:#b0b0b0;">Lorem lpsum is simply dummy text of the printing and typesetting industry. Lorem lpsum has...</p>
+                  <h3>فعالية هيئة الترفية</h3>
+                  <p style="color:#b0b0b0;">وصف الفعالية</p>
                   <div class="row">
                     <div class="col-sm-7 col-lg-7">
-                      <p class="local_desc"><i class="fa fa-map-marker"></i> Riyadh international<br>&nbsp;&nbsp; Convention & Exhibition Center</p>
+                      <p class="local_desc"><i class="fa fa-map-marker"></i> الرياض مركز المعارض والمؤتمرات</p>
                     </div>
-                    <div class="col-sm-5 col-lg-5 text-center">
-                      <button type="button" class="btn btn-outline-dark btn-bold">SEE MORE</button>
+                    <div class="col-sm-5 col-lg-5 text-center ">
+                      <button type="button" class="btn btn-outline-dark btn-bold" translate>SEE MORE</button>
                     </div>
                   </div>
                 </div>
@@ -406,8 +405,8 @@
         </div>
       </div>
       <div class="col-sm-12">
-        <div class="form-group d-flex justify-content-center">
-          <button type="button" class="btn btn-outline-dark pd-100 position-relative">VIEW ALL</button>
+        <div class="form-group d-flex justify-content-center mt-5">
+          <button type="button" class="btn btn-outline-dark pd-100 position-relative" translate>VIEW ALL</button>
         </div>
       </div>
     </div>
