@@ -1,22 +1,146 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="header">
+  <div class="container_header d-flex">
+    <div class="logo">
+      <img *ngIf="direction == 'rtl'" src="assets/LogoAR.png" />
+      <img *ngIf="direction == 'ltr'" src="assets/LogoEN.png" />
+    </div>
+    <div class="menu menu_item">
+      <ul class="d-flex">
+        <a href="/home"><li>Home</li></a>
+        <a href="/aboutus"><li>About US</li></a>
+        <a href="/contact"><li>Contact US</li></a>
+        <a href="/calendar"><li>Calendar</li></a>
+        <a href="/organize"><li>Organize</li></a>
+      </ul>
+    </div>
+    <div class="header_right menu_item ml-auto">
+      <ul class="d-flex">
+        <li class="position-relative user-list">
+          <i class="far fa-user"></i>&nbsp; Ahmed &nbsp;<i class="fas fa-chevron-down"></i>
+          <div class="user">
+            <a href=""><p><i class="far fa-user"></i>&nbsp; My account</p></a>
+            <a href=""><p><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
+            <a href=""><p><i class="fas fa-sliders-h"></i>&nbsp; Settings</p></a>
+            <a href=""><p><i class="far fa-question-circle"></i>&nbsp; Help</p></a>
+            <a href="/logout"><p><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</p></a>
+          </div>
+        </li>
+        <li class="position-relative notification-list">
+          <i class="far fa-bell position-relative"><span class="badge bg-danger">2</span></i>&nbsp;&nbsp;<i class="fas fa-chevron-down"></i>
+          <div class="notification mr--20">
+            <a href=""><p><i class="fas fa-dollar-sign"></i>&nbsp; <span>Your payment was successful completed</span></p></a>
+            <a href=""><p><i class="far fa-credit-card"></i>&nbsp; <span>Your order <span class="text-danger">#89792 </span> is processing. Thanks for buying!</span></p></a>
+            <a href=""><p><i class="fas fa-phone"></i>&nbsp; <span>Your phone number was successfully completed</span></p></a>
+            <a href=""><p><i class="far fa-envelope"></i>&nbsp; <span>Your E-mail is now confirmed!</span></p></a>
+            <a href=""><p><i class="fas fa-dollar-sign"></i>&nbsp; <span>Your payment was successful completed</span></p></a>
+          </div>
+        </li>
+        <li class="position-relative nav_toggle">
+          <i class="fas fa-bars" (click)="onMenuView($event)"></i>
+          <i class="fas fa-times" (click)="onMenuHide($event)" style="display: none;"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="setting bg-dark">
+      <i class="fas fa-cog d-flex" style="color: white; font-size: 32px;">
+        <!-- <a href="login" class="btn btn-info btn-sm ml-1 mr-1">English</a>
+        <a href="login-rtl" class="btn btn-warning btn-sm ml-1 mr-1">Arabic</a> -->
+        <div class="btn-group pl-1 pr-1 ml-1 mr-1 btn-group-sm">
+          <button type="button" class="btn btn-primary" (click)="onLtrStyle($event)">English</button>
+          <button type="button" class="btn btn-warning" (click)="onRtlStyle($event)">Arabic</button>
+        </div>
+      </i>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
- 
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<div class="menu_toggle">
+  <a href="/home">
+    <div class="d-flex">
+      <p class="mr-auto">Home</p>
+      <i class="fas fa-plus-circle d-flex align-items-center"></i>
+    </div>
+  </a>
+  <a href="/aboutus">
+    <div class="d-flex">
+      <p class="mr-auto">About US</p>
+      <i class="fas fa-plus-circle d-flex align-items-center"></i>
+    </div>
+  </a>
+  <a href="/contact">
+    <div class="d-flex">
+      <p class="mr-auto">Contact US</p>
+      <i class="fas fa-plus-circle d-flex align-items-center"></i>
+    </div>
+  </a>
+  <a href="/calendar">
+    <div class="d-flex">
+      <p class="mr-auto">Calendar</p>
+      <i class="fas fa-plus-circle d-flex align-items-center"></i>
+    </div>
+  </a>
+  <a href="/organize">
+    <div class="d-flex">
+      <p class="mr-auto">Organize</p>
+      <i class="fas fa-plus-circle d-flex align-items-center"></i>
+    </div>
+  </a>
+</div>
 <router-outlet></router-outlet>
+
+<div class="footer container-fluid">
+  <div class="footer_top pl-4 pr-4">
+    <div class="container_footer">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8 col-12">
+          <p class="text_label">Subscribe be in touch with the latest event</p>
+          <div class="form-group d-flex">
+            <input type="text" class="form-control evento_input mr-4" placeholder="Event Name" style="min-width: 130px;">
+            <input type="button" class="btn btn-danger md-49 pd-49" value="SUBSCRIBE">
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-12">
+          <div class="form-group">
+            <div class="social_icons">
+              <p class="text_label text-center">Follow us on</p>
+              <div class="text-center">
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-snapchat-ghost"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer_content p-4">
+    <div class="container_footer">
+      <div class="row">
+        <div class="col-lg-4 col-sm-4 col-12 pt-1">
+          <p class="text_label">Site Map</p>
+          <p class="text_label">About Evento</p>
+          <p class="text_label">Contact Us</p>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-12  pt-1">
+          <p class="text_label">Q&A</p>
+          <p class="text_label">Privacy Policy</p>
+          <p class="text_label">Terms & Conditions</p>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-12  pt-1">
+          <p class="text_label">Pay Safelyusing</p>
+          <div style=" font-size: 26px;">
+            <i class="fab fa-cc-visa mr-3"></i>
+            <i class="fab fa-cc-mastercard mr-3"></i>
+            <i class="fas fa-university mr-3"></i>
+            <i class="fas fa-credit-card mr-3"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer_bottom text-center p-3 text-uppercase font-weight-bold" style="font-size: 14px">
+    Copyright © 2018 EVENTO  Inc. All rights reserved
+  </div>
+</div>
