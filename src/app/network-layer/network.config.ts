@@ -6,7 +6,6 @@ export const NetworkConfig = {
     FORGET_PASSWORD         : '/auth/forgot_password',
     RESET_PASSWORD          : '/auth/reset_password/',
     ACTIVATE_ACCOUNT        : '/auth/activate_account/',
-    SIGN_UP_USER            : '/users',
     EVENT                   : '/event',
     UPDATE_EVENT_INFO       : '/event/update_info/',
     UPDATE_EVENT_SETTING    : '/event/update_setting/',

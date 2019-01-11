@@ -1,6 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {City} from "../../models/city";
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -10,11 +12,11 @@ import { Router } from '@angular/router';
 })
 export class RegisterCompanyComponent implements OnInit {
 
+  @Input() cities$ :Observable<City>;   
   @Output() onCancel: EventEmitter<any> = new EventEmitter();
   @Output() onRegister: EventEmitter<any> = new EventEmitter();
 
   public signupForm: FormGroup;
-  public isSignupCompleted: boolean;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -39,7 +41,7 @@ export class RegisterCompanyComponent implements OnInit {
         'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
         'confirm_password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
         'agreementChecked': [false, Validators.pattern('true')],
-        // 'recaptcha': ['', Validators.compose([Validators.required])],
+        'recaptcha': ['', Validators.compose([Validators.required])],
 
       },
       {
@@ -57,7 +59,9 @@ export class RegisterCompanyComponent implements OnInit {
     this.onCancel.emit();
   }
 
+
   onRegisterButton(form: any) {
+    console.log(form.value);
     const body = {
       first_name: form.value.first_name,
       last_name: form.value.last_name,
@@ -72,7 +76,6 @@ export class RegisterCompanyComponent implements OnInit {
       gender: form.value.gender,
       recaptcha: form.value.recaptcha
     };
-    
     this.onRegister.emit(body);
   }
 
