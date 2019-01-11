@@ -1,13 +1,15 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import * as $ from 'jquery';
-import {CoreModule} from "./core/core.module";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import { CoreModule } from "./core/core.module";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings, RECAPTCHA_LANGUAGE } from 'ng-recaptcha';
+import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -24,6 +26,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        RecaptchaModule.forRoot(),
+        RecaptchaFormsModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -32,7 +36,16 @@ export function HttpLoaderFactory(http: HttpClient) {
             }
         })
     ],
-    providers: [],
+    providers: [
+        {
+            provide: RECAPTCHA_SETTINGS,
+            useValue: { siteKey: '6LfoDokUAAAAABirpPJC2G6akcdZ6N9jwXPrYvid' } as RecaptchaSettings,
+        },
+        {
+            provide: RECAPTCHA_LANGUAGE,
+            useValue: 'ar',
+        },
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
