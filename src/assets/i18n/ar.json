@@ -80,6 +80,19 @@
   "A Verification email was sent to you": "بريد التحقق تم إرساله لبريدكم المسجل",
   "Your account has been created successfuly!":"تم إنشاء حسابك بنجاح!",
   "If you did not receive this email, please check your junk/spam folder":"في حال لم يتم إستقبال الإيميل، الرجاء التحقق من ملفات السبام او التواصل معنا",
-  "Signin":"تسجيل الدخول"
-
+  "Signin":"تسجيل الدخول",
+  "Your Email": "بريدك الإلكتروني",
+  "DESCRIPTION": "تفاصيل الفعالية",
+  "ABOUT": "عن",
+  "LOCATION": "الموقع",
+  "RULES": "الشروط والأحكام",
+  "TIME AND DATE": "التاريخ والوقت",
+  "Tickets": "التذاكر",
+  "SPONSORS": "الرعاة",
+  "SHARE THIS EVENT": "شارك الفعالية",
+  "Buy Your Ticket": "اشتر تذكرتك",
+  "APPLY NOW AS A ORGANIZER": "قدم الآن كمنظم",
+  "SHOW MORE": "معلومات أكثر",
+  "Buy Now": "اشتر الآن",
+  "ORGANIZER:": "المنظم : "
 }
