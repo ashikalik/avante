@@ -48,7 +48,7 @@
   <div *ngIf="member">
     <app-register-user></app-register-user>
   </div>
-  <div *ngIf="company">
-    <app-register-company></app-register-company>
+  <div [hidden]="!company">
+    <app-register-company (onCancel)='onCancel($event)'  (onRegister)='onCancel($event)'></app-register-company>
   </div>
 </div>
