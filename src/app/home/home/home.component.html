@@ -20,7 +20,7 @@
                 <div class="form-group position-relative">
                   <select class="form-control evento_input evento_select" name="sellist">
                     <option disabled selected hidden translate>Choose City</option>
-                    <option *ngFor="let city of (city$ | async)?.data" [value]="city.id">{{ city.name }}</option>
+                    <option *ngFor="let city of (city$ | async).data">{{ city.name }}</option>
                   </select>
                   <i class="fas fa-chevron-down embed"></i>
                 </div>
