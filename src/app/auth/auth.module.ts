@@ -13,7 +13,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { AuthRootComponent } from './auth-root/auth-root.component';
 
 
-import {AuthService} from '../services/auth.service';
+import {AuthService} from '../api-services/auth.service';
 
 @NgModule({
   declarations: [

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ContactUsRoutingModule } from './contact-us-routing.module';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { ContactUsService } from '../services/contact-us.service';
+import { ContactUsService } from '../api-services/contact-us.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({

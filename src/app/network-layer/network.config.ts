@@ -1,6 +1,6 @@
 export const NetworkConfig = {
     // BASE: 'http://localhost:8000/api/v1/',
-    BASE_URL                : 'https://www.apidev.eventoapps.com',
+    BASE_URL                : 'http://localhost:6021',
     LOGIN_URL               : '/auth',
     LOGOUT_URL              : '/auth/logout',
     FORGET_PASSWORD         : '/auth/forgot_password',
@@ -69,4 +69,4 @@ export const NetworkConfig = {
     UPDATE_EVENT_INVOICE    : '/event/update_invoice/',
     RATING_ORGANIZERS       : '/rating_organizers/',
     VALIDATE_PACKAGE        : '/home/validate-package/'
-}; 
+};

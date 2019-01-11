@@ -1,7 +1,7 @@
 <div class="main_container">
   <div class="container-fluid">
-    <div class="row main-content">
-      <div class="col-lg-6 col-sm-12">
+    <div class="row main-content mobile-container">
+      <div class="col-lg-6 col-md-12 col-sm-12">
         <h2 class="text-center">
           <span class="text-warning">{{ 'SEARCH' | translate}} ,</span>
           <span class="text-danger">{{ 'CHOOSE' | translate}} ,</span>
@@ -11,26 +11,21 @@
         <div class="row form-row d-flex justify-content-center">
           <div class="col-sm-offset-1 col-sm-10">
             <div class="row">
-              <div class="col-sm-4">
+              <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="form-group">
                   <input type="text" class="form-control evento_input" placeholder="{{ 'Event Name' | translate}}">
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="form-group position-relative">
                   <select class="form-control evento_input evento_select" name="sellist">
                     <option disabled selected hidden translate>Choose City</option>
-                    <option>Abha</option>
-                    <option>Ad-Dilam</option>
-                    <option>Al-Abwa</option>
-                    <option>Al Artaweeiyah</option>
-                    <option>Badr</option>
-                    <option>Dammam</option>
+                    <option *ngFor="let city of (city$ | async).data">{{ city.name }}</option>
                   </select>
                   <i class="fas fa-chevron-down embed"></i>
                 </div>
               </div>
-              <div class="col-sm-4">
+              <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="form-group position-relative">
                   <select class="form-control evento_input evento_select" name="sellist">
                     <option disabled selected hidden translate>Event Type</option>
@@ -64,7 +59,7 @@
           <!--</div>-->
         <!--</div>-->
       </div>
-      <div class="col-lg-6 col-sm-12">
+      <div class="col-lg-6 col-md-12 col-sm-12">
         <h2 class="text-center"><span translate>OR PLAN YOUR OWN EVENTS!</span></h2>
         <div class="text-center border-left-right"><img class="img_responsive" src="assets/VectorSmartObject_0.png" alt=""/></div>
         <div class="form-group d-flex justify-content-center">
