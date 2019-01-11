@@ -1,38 +1,39 @@
-<div class="main_container mb-5">
-  <div class="container-fluid">
-    <div class="row main-content">
-      <div class="col-lg-6 col-sm-6">
-        <div class="text-center border-left-right"><img class="img_responsive" src="assets/signupmember.png" alt="" /></div>
-      </div>
-      <div class="col-lg-6 col-sm-6">
-        <div class="signup_content mt-3 text-center">
-          <h3>Let's Get Started</h3>
-          <p class="signup_ques">Already a member? <span><a href="login" style="color: red;">Sign in</a></span></p>
-          <div class="row">
-            <input type="button" class="btn signup_select_btn mb-4 width_220 text-left" value="member" />
-          </div>
-          <div class="row">
-            <input type="button" class="btn signup_select_btn mb-4 width_220 text-left" value="Organizer" />
-          </div>
-          <div class="row">
-            <input type="button" class="btn signup_select_btn mb-4 width_220 text-left" value="Organization Company" />
-          </div>
-          <div class="row">
+<div *ngIf="!showRegForm">
+  <div class="main_container mb-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-sm-6">
+          <div class="text-center border-left-right"><img class="img_responsive" src="assets/signupmember.png" alt="" /></div>
+        </div>
+        <div class="col-lg-6 col-sm-6">
+          <div class="signup_content mt-3 text-center">
+            <h3>Let's Get Started</h3>
+            <p class="signup_ques">Already a member? <span><a href="login" style="color: red;">Sign in</a></span></p>
+
             <div class="form-group d-flex mb-4 gender-items">
-              <label class="form-label mr-2 mb-0 align-items-center">Gender</label>
               <div class="form position-relative">
-                <input type="radio" class="form-check-input" name="gender" checked>
-                <button class="btn signup_select_btn width_100 mr-1 ml-1">Male</button>
-              </div>
-              <div class="form position-relative">
-                <input type="radio" class="form-check-input" name="gender">
-                <button class="btn signup_select_btn width_100 mr-1 ml-1">Female</button>
+                <input (click)="onMember()" type="radio" class="form-check-input" name="userType">
+                <button type="button" class="btn signup_select_btn width_220 mr-1 ml-1">Member</button>
               </div>
             </div>
+
+            <div class="form-group d-flex mb-4 gender-items">
+              <div class="form position-relative">
+                <input (click)="onOrganizer()" type="radio" class="form-check-input" name="userType">
+                <button class="btn signup_select_btn width_220 mr-1 ml-1">Organizer</button>
+              </div>
+            </div>
+
+            <div class="form-group d-flex mb-4 gender-items">
+              <div class="form position-relative">
+                <input (click)="onCompany()" type="radio" class="form-check-input" name="userType">
+                <button class="btn signup_select_btn width_220 mr-1 ml-1">Company</button>
+              </div>
+            </div>
+
+            <input type="button" (click)="onNext()" class="btn width_120 signup_btn mt-3 mr-2 ml-2" value="Back" [disabled]="!organizer && !member && !company"
+            />
           </div>
-
-
-          <a href="signup/member"><input type="button" class="btn signup_btn mt-3 width_120" value="Next" /></a>
         </div>
       </div>
     </div>
@@ -40,4 +41,14 @@
 </div>
 
 
-<app-register-company></app-register-company>
+<div *ngIf="showRegForm">
+  <div *ngIf="organizer">
+    <app-register-volu ></app-register-volu>
+  </div>
+  <div *ngIf="member">
+    <app-register-user></app-register-user>
+  </div>
+  <div *ngIf="company">
+    <app-register-company></app-register-company>
+  </div>
+</div>

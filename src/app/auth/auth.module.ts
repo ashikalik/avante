@@ -13,6 +13,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { AuthRootComponent } from './auth-root/auth-root.component';
 
 
+import {AuthService} from '../services/auth.service';
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -28,6 +30,9 @@ import { AuthRootComponent } from './auth-root/auth-root.component';
   imports: [
     CommonModule,
     AuthRoutingModule
+  ],
+  providers:[
+    AuthService
   ]
 })
 export class AuthModule { }

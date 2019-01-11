@@ -1,4 +1,5 @@
 .evento_input, .evento_select {
+	display: inline !important; 
 	border-radius: calc(1.125rem + 1px);
 	border-color: $input-color;
 	min-width: $input-min-width;
@@ -215,9 +216,9 @@
 }
 
 .signup_content {
-	width: auto;
-	// margin-left: auto;
-	// margin-right: auto;
+	width: 280px;
+	margin-left: auto;
+	margin-right: auto;
 	.signup_ques {
 		color: #aaa;
 		margin-bottom: 2rem;
