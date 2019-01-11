@@ -7,6 +7,7 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {CommonService} from "../api-services/common.service";
 import {NetworkLayerModule} from "../network-layer/network-layer.module";
+import {EventService} from "../api-services/event.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -30,7 +31,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         })
     ],
     providers: [
-        CommonService
+        CommonService,
+        EventService
     ]
 })
 export class HomeModule {
