@@ -20,7 +20,7 @@
                 <div class="form-group position-relative">
                   <select class="form-control evento_input evento_select" name="sellist">
                     <option disabled selected hidden translate>Choose City</option>
-                    <option *ngFor="let city of (city$ | async)?.data">{{ city.name }}</option>
+                    <option *ngFor="let city of (city$ | async).data">{{ city.name }}</option>
                   </select>
                   <i class="fas fa-chevron-down embed"></i>
                 </div>
@@ -29,10 +29,7 @@
                 <div class="form-group position-relative">
                   <select class="form-control evento_input evento_select" name="sellist">
                     <option disabled selected hidden translate>Event Type</option>
-                    <option>Meeting</option>
-                    <option>Driving</option>
-                    <option>Dating</option>
-                    <option>Sleeping</option>
+                      <option *ngFor="let type of (eventTypes$ | async)?.data" [value]="type.id">{{ type.name }}</option>
                   </select>
                   <i class="fas fa-chevron-down embed"></i>
                 </div>

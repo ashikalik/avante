@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {NetworkConfig} from '../network-layer/network.config';
 import {City} from "../models/city";
+import {EventType} from "../models/event-type";
 
 @Injectable()
 export class CommonService {
@@ -16,6 +17,12 @@ export class CommonService {
         const url = NetworkConfig.BASE_URL + NetworkConfig.CITY_LIST;
         return this.httpClient
             .get<City>(url);
+    }
+
+    getEventType(): Observable<EventType> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.EVENT_TYPE;
+        return this.httpClient
+            .get<EventType>(url);
     }
 
 }
