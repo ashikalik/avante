@@ -2,8 +2,8 @@
 	<div class="container-fluid login-container">
 		<div class="row justify-content-center">
 			<div class="col-lg-3 col-md-6 col-sm-12 text-center">
-				<h2 class="text-center">Sign in</h2>
-				<p>Don't have an account yet? <a href="/signup" class="text-danger">Sign up</a></p>			
+				<h2 class="text-center" translate>Signin</h2>
+				<p>Don't have an account yet? <a  [routerLink]="['/auth/register']" class="text-danger">Sign up</a></p>			
                 <div class="form-group">
                   <input type="text" class="form-control evento_input" placeholder="Email address">
                 </div>			

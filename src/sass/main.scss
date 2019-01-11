@@ -1,3 +1,8 @@
+.error {
+    color: red;
+	font-size: 13px;
+  }
+
 .evento_input, .evento_select {
 	display: inline !important; 
 	border-radius: calc(1.125rem + 1px);
@@ -7,6 +12,10 @@
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+}
+
+.form-check-label{
+	margin-right: 30px;
 }
 
 .fas.fa-chevron-down.embed {
