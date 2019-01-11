@@ -61,6 +61,14 @@ export class RegisterComponent implements OnInit {
     this.company = true;
     }
 
+    onCancel(){
+      this.organizer = false;
+      this.member = false;
+      this.company = false;
+
+      this.onNext();
+    }
+
 
 
   public signup(form: any) {
