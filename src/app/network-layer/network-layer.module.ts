@@ -4,6 +4,8 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthorizationInterceptor} from "./authorization-interceptor";
 import {LanguageInterceptor} from "./language-interceptor";
 import {ErrorHandlerInterceptor} from "./error-handler-interceptor";
+import {VersionInterceptor} from "./version-interceptor";
+import {KeyInterceptor} from "./key-interceptor";
 
 @NgModule({
     declarations: [],
@@ -25,6 +27,16 @@ import {ErrorHandlerInterceptor} from "./error-handler-interceptor";
         {
             provide: HTTP_INTERCEPTORS,
             useClass: ErrorHandlerInterceptor,
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: VersionInterceptor,
+            multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: KeyInterceptor,
             multi: true,
         }
     ]

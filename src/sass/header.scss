@@ -177,6 +177,8 @@
     }
     .header_right {
       padding: 10px;
+      margin-left: unset !important;
+
       .nav_toggle {
         font-size: 18px;
         display: block;
@@ -217,20 +219,22 @@
 
 @media (min-width: 769px) and (max-width: 991px) {
   .container_header {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 30px;
+    margin-right: 30px;
     height: 50px;
   }
   .header {
     height: 80px;
     .logo {
       width: 120px;
+      margin-left: 45px;
+
     }
     .logo img{
-      height: 30px;
+      height: 80px;
     }
     .menu {
-      padding: 10px 0;
+      padding: 27px 0;
     }
     .menu_item li {
       line-height: 30px;
@@ -238,7 +242,8 @@
       margin-left: 30px;
     }
     .header_right {
-      padding: 10px;
+      padding: 27px 0;
+      margin-left: unset !important;
     }
   }
 }
@@ -282,6 +287,7 @@
     height: 80px;
     .logo {
       width: 120px;
+      margin-left: 45px;
     }
     .logo img{
       height: 80px;
@@ -295,6 +301,7 @@
     }
     .header_right {
       padding: 33px 0;
+      margin-left: unset !important;
     }
   }
 }
@@ -309,6 +316,7 @@
     height: 80px;
     .logo {
       width: 120px;
+      margin-left: 45px;
     }
     .logo img{
       height: 80px;
@@ -323,6 +331,7 @@
     }
     .header_right {
       padding: 33px 0;
+      margin-left: unset !important;
     }
   }
 }
