@@ -41,7 +41,7 @@ const routes: Routes = [
     loadChildren: './search-events/search-events.module#SearchEventsModule',
   },
   {
-    path: 'view-event',
+    path: 'event',
     loadChildren: './view-event/view-event.module#ViewEventModule',
   },
   {

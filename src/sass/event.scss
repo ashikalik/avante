@@ -1,6 +1,6 @@
 
 .detail-container {
-	padding-top: 50px;
+	padding-top: 100px;
 	.eventdetail {
 		div {
 			float: left;
@@ -51,5 +51,13 @@
 		.ticket.hasborder {
 			border: 1px solid #9e9e9e;
 		}
+	}
+}
+
+
+@media (min-width: 769px){
+	.detail-container {
+		padding-right: 10%;
+		padding-left: 10%;
 	}
 }
