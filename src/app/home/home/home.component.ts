@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit {
     }
 
     public onMoreDetails(eventKey: string) {
+        console.log(eventKey)
         this.router.navigate(['/event/' + eventKey]);
     }
 
