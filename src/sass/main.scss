@@ -346,6 +346,11 @@ input[type="checkbox"]:focus {
 	}
 
 }
+@media (max-width: 577px){
+	.main-content {
+		padding-top: 90px;
+	}
+}
 
 @media (min-width: 577px) and (max-width: 768px) {
 	.main_container {
