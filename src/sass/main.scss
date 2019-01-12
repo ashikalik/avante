@@ -115,7 +115,7 @@
     border-top-right-radius: 1.5rem;
     margin-right: -10px;
     color: white;
-    letter-spacing: 3px;
+    //
     padding: 0 1rem;
     font-weight: 500;
     font-size: large;
@@ -467,4 +467,10 @@ input[type="checkbox"]:focus {
 	.tabs-container {
 		padding: 40px 122.5px;
 	}
+}
+
+
+.latest-event {
+	background-color: #f7f7f7;
+
 }

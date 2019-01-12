@@ -1,6 +1,6 @@
 export const NetworkConfig = {
     // BASE: 'http://localhost:8000/api/v1/',
-    BASE_URL                : 'http://www.apidev.eventoapps.com',
+    BASE_URL                : 'https://apidev.eventoapps.com',
     LOGIN_URL               : '/auth',
     LOGOUT_URL              : '/auth/logout',
     FORGET_PASSWORD         : '/auth/forgot_password',

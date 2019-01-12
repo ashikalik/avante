@@ -18,12 +18,12 @@
 
 
 @font-face {
-    font-family: bahnschrift;
-    src: url(/assets/font/bahnschrift.ttf) format("bahnschrift");
+    font-family: Sky;
+    src: url(/assets/font/sky.ttf) format("truetype");
 }
 
 body {
-    font-family: Ubuntu, sans-serif;
+    font-family: Sky;
     direction: $direction;
     text-align: $start-direction;
 } 
