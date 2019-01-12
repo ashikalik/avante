@@ -81,7 +81,6 @@
   "Your account has been created successfuly!":"تم إنشاء حسابك بنجاح!",
   "If you did not receive this email, please check your junk/spam folder":"في حال لم يتم إستقبال الإيميل، الرجاء التحقق من ملفات السبام او التواصل معنا",
   "Signin":"تسجيل الدخول",
-  "Your Email": "بريدك الإلكتروني",
   "DESCRIPTION": "تفاصيل الفعالية",
   "ABOUT": "عن",
   "LOCATION": "الموقع",
@@ -94,5 +93,9 @@
   "APPLY NOW AS A ORGANIZER": "قدم الآن كمنظم",
   "SHOW MORE": "معلومات أكثر",
   "Buy Now": "اشتر الآن",
-  "ORGANIZER:": "المنظم : "
+  "ORGANIZER:": "المنظم : ",
+  "Don't have an account yet?": "لاتملك حساب حتى الان؟؟",
+  "Sign up":"التسجيل",
+  "Forgot Your Password?":"هل نسيت كلمة المرور؟؟",
+  "Login":"تسجيل الدخول"
 }
