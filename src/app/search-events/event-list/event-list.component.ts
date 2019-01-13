@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
+import {Observable} from "rxjs";
+import { LatestEvent } from "../../models/latest-event";
 
 @Component({
   selector: 'app-event-list',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventListComponent implements OnInit {
 
+  @Input() latestEvent$ :Observable<LatestEvent>;   
+  
   constructor() { }
 
   ngOnInit() {

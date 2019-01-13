@@ -6,11 +6,11 @@
     </div>
     <div class="menu menu_item">
       <ul class="d-flex">
-        <a href="/home"><li translate>Home</li></a>
-        <a href="/about-us"><li translate>About US</li></a>
-        <a href="/contact-us"><li translate>Contact US</li></a>
-        <a href="/calendar"><li translate>Calendar</li></a>
-        <a href="/organize"><li translate>Organize</li></a>
+        <a [routerLink]="['/home']"><li translate>Home</li></a>
+        <a [routerLink]="['/about-us']" ><li translate>About US</li></a>
+        <a [routerLink]="['/contact-us']" ><li translate>Contact US</li></a>
+        <a [routerLink]="['/calendar']" ><li translate>Calendar</li></a>
+        <a [routerLink]="['/organize']" ><li translate>Organize</li></a>
       </ul>
     </div>
     <div class="header_right menu_item ml-auto">
@@ -54,31 +54,31 @@
   </div>
 </div>
 <div class="menu_toggle">
-  <a href="/home">
+  <a [routerLink]="['/home']">
     <div class="d-flex">
       <p class="mr-auto">Home</p>
       <i class="fas fa-plus-circle d-flex align-items-center"></i>
     </div>
   </a>
-  <a href="/aboutus">
+  <a [routerLink]="['/about-us']">
     <div class="d-flex">
       <p class="mr-auto">About US</p>
       <i class="fas fa-plus-circle d-flex align-items-center"></i>
     </div>
   </a>
-  <a href="/contact">
+  <a [routerLink]="['/contact-us']">
     <div class="d-flex">
       <p class="mr-auto">Contact US</p>
       <i class="fas fa-plus-circle d-flex align-items-center"></i>
     </div>
   </a>
-  <a href="/calendar">
+  <a [routerLink]="['/calendar']">
     <div class="d-flex">
       <p class="mr-auto">Calendar</p>
       <i class="fas fa-plus-circle d-flex align-items-center"></i>
     </div>
   </a>
-  <a href="/organize">
+  <a [routerLink]="['/organize']">
     <div class="d-flex">
       <p class="mr-auto">Organize</p>
       <i class="fas fa-plus-circle d-flex align-items-center"></i>

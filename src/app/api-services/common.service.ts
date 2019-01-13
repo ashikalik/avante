@@ -19,6 +19,12 @@ export class CommonService {
             .get<City>(url);
     }
 
+    getRegion(): Observable<City> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.REGION_LIST;
+        return this.httpClient
+            .get<City>(url);
+    }
+
     getEventType(): Observable<EventType> {
         const url = NetworkConfig.BASE_URL + NetworkConfig.EVENT_TYPE;
         return this.httpClient

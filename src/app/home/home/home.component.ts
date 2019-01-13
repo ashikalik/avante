@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonService} from "../../api-services/common.service";
-import {City} from "../../models/city";
+import {Region} from "../../models/region";
 import {Observable} from "rxjs";
 import {EventType} from "../../models/event-type";
 import {EventService} from "../../api-services/event.service";
@@ -14,7 +14,7 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-    public city$: Observable<City>;
+    public region$: Observable<Region>;
     public eventTypes$: Observable<EventType>;
     public latestEvent$: Observable<LatestEvent>;
 
@@ -24,13 +24,13 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getCity();
+        this.getRegion();
         this.getEventType();
         this.getLatestEvent();
     }
 
-    getCity(): void {
-        this.city$ = this.commonService.getCity().pipe();
+    getRegion(): void {
+        this.region$ = this.commonService.getRegion().pipe();
     }
 
     getEventType(): void {
