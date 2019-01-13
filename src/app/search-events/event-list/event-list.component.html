@@ -1,59 +1,60 @@
-<!-- <div class="col-lg-10 col-md-10 col-sm-12 col-12 text-left justify-content-start events"> -->
-<div class="row">
-  <div class="col-lg-6 col-sm-12 col-md-12  mt-3 mb-3 " *ngFor="let event of [1,2,3,4,5]">
-    <div class="event_padding custom_tab mt-2">
+<div class="row mt-3">
+  <div class="col-lg-6 col-sm-12 col-12" *ngFor="let event of (latestEvent$ | async)?.data  | paginate: { itemsPerPage: limit, currentPage: page , totalItems: 10}">
+    <div class="custom_tab mt-2">
       <!-- Nav tabs -->
       <ul class="nav nav-tabs small justify-content-end" role="tablist">
         <li class="nav-item">
-          <a class="nav-link bg-warning position-relative" data-toggle="tab" href="#culture">CULTURE</a>
+          <a class="nav-link active bg-danger position-relative" data-toggle="tab" href="">{{ event.type }}</a>
         </li>
       </ul>
       <!-- Tab panes -->
       <div class="tab-content">
         <div id="education" class="d-flex">
           <div class="tab_img_content">
-            <img src="assets/layer_2.png" alt="" />
+            <img src="assets/dx34459.png" alt="" />
           </div>
           <div class="tab_desc">
             <div class="tab_desc_inner">
-              <h3>FM EXPO SAUDI 2019</h3>
-              <p style="color:#b0b0b0;">Lorem lpsum is simply dummy text of the printing and typesetting industry. Lorem lpsum has...</p>
+              <h3>{{ event.name }}</h3>
+              <p style="color:#b0b0b0;">{{ event.details }}</p>
               <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-7 ">
-                  <p class="local_desc"><i class="fa fa-map-marker"></i> Riyadh international</p>
-                  <p class="text-center grey-color">07.12.2019 | 03:45 PM</p>
+                <div class="col-sm-7 col-lg-7">
+                  <p class="local_desc"><i class="fa fa-map-marker"></i>{{ event.city }} , {{ event.address }}</p>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-5  text-center">
-                  <button type="button" class="btn btn-outline-dark btn-bold">SEE MORE</button>
+                <div class="col-sm-5 col-lg-5 text-center">
+                  <button type="button" class="btn btn-outline-dark btn-bold" (click)="onMoreDetails(event.event_key);" translate>SEE MORE</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="tab_date">
+        <p class="text-center grey-color">{{ event.from_date }} | {{ event.from_time }}</p>
+      </div>
     </div>
   </div>
+</div>
 
 
-  <div class="col-lg-12 col-sm-12 col-12 text-center justify-content-center pagenation">
-    <div class="col-lg-12 col-sm-12 col-12 text-center d-flex justify-content-center">
-      <button type="button" class="btn btn-sm btn-outline-dark ml-1 mr-1">1</button>
-      <button type="button" class="btn btn-sm ml-1 mr-1">2</button>
-      <button type="button" class="btn btn-sm ml-1 mr-1">3</button>
-      <button type="button" class="btn btn-sm ml-1 mr-1">4</button>
-      <button type="button" class="btn btn-sm ml-1 mr-1">5</button>
-      <button type="button" class="btn btn-sm ml-1 mr-1">6</button> ...
-      <button type="button" class="btn btn-sm ml-1 mr-1">25</button>
-    </div>
-    <div class="col-lg-12 col-sm-12 col-12 text-center d-flex justify-content-center mt-4 mb-5">
-      <button type="button" class="btn btn-outline-dark btn-create pd-40 mr-1 ml-1 position-relative">
-        <i class="fas fa-chevron-left"></i>&nbsp;
-        Previous
-      </button>
-      <button type="button" class="btn btn-outline-dark btn-create pd-60 mr-1 ml-1 position-relative">
-        Next
-        &nbsp;<i class="fas fa-chevron-right"></i>
-      </button>
-    </div>
+<div class="col-lg-12 col-sm-12 col-12 text-center justify-content-center pagenation">
+  <div class="col-lg-12 col-sm-12 col-12 text-center d-flex justify-content-center">
+    <button type="button" class="btn btn-sm btn-outline-dark ml-1 mr-1">1</button>
+    <button type="button" class="btn btn-sm ml-1 mr-1">2</button>
+    <button type="button" class="btn btn-sm ml-1 mr-1">3</button>
+    <button type="button" class="btn btn-sm ml-1 mr-1">4</button>
+    <button type="button" class="btn btn-sm ml-1 mr-1">5</button>
+    <button type="button" class="btn btn-sm ml-1 mr-1">6</button> ...
+    <button type="button" class="btn btn-sm ml-1 mr-1">25</button>
+  </div>
+  <div class="col-lg-12 col-sm-12 col-12 text-center d-flex justify-content-center mt-4 mb-5">
+    <button type="button" class="btn btn-outline-dark btn-create pd-40 mr-1 ml-1 position-relative">
+          <i class="fas fa-chevron-left"></i>&nbsp;
+          Previous
+        </button>
+    <button type="button" class="btn btn-outline-dark btn-create pd-60 mr-1 ml-1 position-relative">
+          Next
+          &nbsp;<i class="fas fa-chevron-right"></i>
+        </button>
   </div>
 </div>

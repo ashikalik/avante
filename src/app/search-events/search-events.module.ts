@@ -6,6 +6,8 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {CommonService} from "../api-services/common.service";
 import {NetworkLayerModule} from "../network-layer/network-layer.module";
 import {EventService} from "../api-services/event.service";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 import { SearchEventsRoutingModule } from './search-events-routing.module';
@@ -25,6 +27,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     HttpClientModule,
     NetworkLayerModule,
+    FormsModule,
+    NgxPaginationModule,
     TranslateModule.forChild({
         loader: {
             provide: TranslateLoader,

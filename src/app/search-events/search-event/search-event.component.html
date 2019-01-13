@@ -1,4 +1,4 @@
-<div class="main_container">
+<div class="main_container ">
   <div class="container-fluid">
     <div class="row main-content d-flex text-center justify-content-center">
       <div class="col-lg-7 col-sm-12 col-12">
@@ -6,20 +6,20 @@
           <span class="text-dark">AND ENJOY</span>
         </h2>
         <div class="row form-row d-flex justify-content-center">
-          <div class="col-sm-offset-1 col-sm-10">     
+          <div class="col-sm-offset-1 col-sm-10">
             <div class="row">
-              
+
               <div class="col-sm-4 pd-49">
                 <div class="form-group">
-                  <input type="text" class="form-control evento_input" placeholder="{{ 'Event Name' | translate }}">
+                  <input [(ngModel)]="name" type="text" class="form-control evento_input" placeholder="{{ 'Event Name' | translate }}">
                 </div>
               </div>
 
               <div class="col-sm-4 pd-49">
                 <div class="form-group position-relative">
-                  <select class="form-control evento_input evento_select" name="sellist">
-                        <option disabled selected hidden translate>Choose City</option>
-                        <option *ngFor="let city of (city$ | async)?.data">{{ city.name }}</option>
+                  <select class="form-control evento_input evento_select" name="sellist" (change)="filterRegion($event.target.value)">
+                        <option disabled selected hidden translate>Choose Region</option>
+                        <option *ngFor="let region of (region$ | async)?.data" [value]="region.region_id">{{ region.name }}</option>
                       </select>
                   <i class="fas fa-chevron-down embed"></i>
                 </div>
@@ -27,9 +27,9 @@
 
               <div class="col-sm-4 pd-49">
                 <div class="form-group position-relative">
-                  <select class="form-control evento_input evento_select" name="sellist">
+                  <select class="form-control evento_input evento_select" name="sellist" (change)="filterType($event.target.value)">
                         <option disabled selected hidden translate>Event Type</option>
-                          <option *ngFor="let type of (eventTypes$ | async)?.data" [value]="type.id">{{ type.name }}</option>
+                          <option *ngFor="let type of (eventTypes$ | async)?.data" [value]="type.id" >{{ type.name }}</option>
                       </select>
                   <i class="fas fa-chevron-down embed"></i>
                 </div>
@@ -38,11 +38,13 @@
             </div>
           </div>
         </div>
-        <div class="row find-row d-flex justify-content-center">
-          <div class="col-sm-12">
-            <div class="form-group d-flex justify-content-center">
-              <button type="button" class="btn btn-dark md-49 pd-60" translate>Find</button>
-              <button type="button" class="btn btn-danger md-49 pd-100" translate>See All Events</button>
+        <div class="row find-row justify-content-center">
+          <div class="form-group d-sm-flex justify-content-center">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <button type="button" class="btn btn-dark mb-2 pd-100" (click)="search()" translate>Find</button>                
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <button type="button" class="btn btn-danger mb-2 pd-100" (click)="searchAll()" translate>See All Events</button>
             </div>
           </div>
         </div>
@@ -59,11 +61,11 @@
   </div>
   <div class="container-fluid search-container">
     <div class="row">
-      <div class="col-lg-3 col-md-12 col-sm-12 text-center justify-content-center">
+      <!-- <div class="col-lg-3 col-md-12 col-sm-12 text-center justify-content-center">
         <app-search-bar></app-search-bar>
-      </div>
-      <div class="col-lg-9 col-md-12 col-sm-12 text-left justify-content-start">
-        <app-event-list></app-event-list>
+      </div> -->
+      <div class="col-lg-12 col-md-12 col-sm-12 text-left justify-content-start">
+        <app-event-list [latestEvent$]="latestEvent$"></app-event-list>
       </div>
     </div>
   </div>
