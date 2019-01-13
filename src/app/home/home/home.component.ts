@@ -46,6 +46,10 @@ export class HomeComponent implements OnInit {
         this.router.navigate(['/event/' + eventKey]);
     }
 
+    public onSearch() {
+        this.router.navigate(['/search']);
+    }
+
 
 
 }

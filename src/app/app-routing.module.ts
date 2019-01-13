@@ -37,7 +37,7 @@ const routes: Routes = [
     loadChildren: './my-profile/my-profile.module#MyProfileModule',
   },
   {
-    path: 'search-events',
+    path: 'search',
     loadChildren: './search-events/search-events.module#SearchEventsModule',
   },
   {
