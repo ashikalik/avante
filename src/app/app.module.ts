@@ -10,6 +10,7 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings, RECAPTCHA_LANGUAGE } from 'ng-recaptcha';
 import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
+import {AgmCoreModule} from '@agm/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -28,6 +29,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         HttpClientModule,
         RecaptchaModule.forRoot(),
         RecaptchaFormsModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyBF36FxPdKs1lbLJUJ_krEwT3uyjK1_1cM'
+        }),
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

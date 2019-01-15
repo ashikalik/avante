@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewEventComponent } from './view-event.component';
+import { EventHeaderComponent } from './event-header.component';
 
-describe('ViewEventComponent', () => {
-  let component: ViewEventComponent;
-  let fixture: ComponentFixture<ViewEventComponent>;
+describe('EventHeaderComponent', () => {
+  let component: EventHeaderComponent;
+  let fixture: ComponentFixture<EventHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewEventComponent ]
+      declarations: [ EventHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewEventComponent);
+    fixture = TestBed.createComponent(EventHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
