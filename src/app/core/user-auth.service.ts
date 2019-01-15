@@ -44,9 +44,13 @@ export class UserAuthService {
 
     public getUserProfile() {
         const token: string = localStorage.getItem(this.tokenKey);
-        const helper = new JwtHelperService();
-        const decodedToken = helper.decodeToken(token);
-        return decodedToken;
+        if(token) {
+            const helper = new JwtHelperService();
+            const decodedToken = helper.decodeToken(token);
+            return decodedToken;
+        }
+
+        return null;
     }
 
 
