@@ -1,0 +1,51 @@
+<div class="main_container">
+  <div class="container-fluid ticket-container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10 col-sm-12 text-center justify-content-center">
+        <h3 class="text_left" translate>BUY YOUR TICKETS!</h3>
+        <p class="explain text_left" translate>You are minutes from getting your tickets. Please fill the steps below</p>
+        <div class="">
+          <div class="col-lg-2 col-md-2 col-sm-2 col-12 text-center justify-content-start steps span-left">
+            <div class="ticket-div active">
+              <img class="img-fluid" src="assets/ticket-icons/42x24-ticket-icon-Orange.png" alt=""/>
+              <p class="step-text" style="color:#f8a027;" translate>Step 1</p>
+              <span translate>Pick your Tickets</span>
+            </div>
+            <div class="ticket-gap">
+              <i class="fas fa-chevron-down embed"></i>
+              <i class="fas fa-chevron-right embed"></i>
+            </div>
+            <div class="ticket-div">
+              <img class="img-fluid" src="assets/ticket-icons/32x31-user-icon-grey.png" alt=""/>
+              <p class="step-text" translate>Step 2</p>
+              <span translate>Tickets Info</span>
+            </div>
+            <div class="ticket-gap">
+              <i class="fas fa-chevron-down embed grey-color"></i>
+              <i class="fas fa-chevron-right embed grey-color"></i>
+            </div>
+            <div class="ticket-div">
+              <img class="img-fluid" src="assets/ticket-icons/32x31-check-icon-grey.png" alt=""/>
+              <p class="step-text" translate>Step 3</p>
+              <span translate>Tickets Review</span>
+            </div>
+            <div class="ticket-gap">
+              <i class="fas fa-chevron-down embed grey-color"></i>
+              <i class="fas fa-chevron-right embed grey-color"></i>
+            </div>
+            <div class="ticket-div">
+              <img class="img-fluid" src="assets/ticket-icons/30x32-payment-icon-grey.png" alt=""/>
+              <p class="step-text" translate>Step 4</p>
+              <span translate>Payment</span>
+            </div>
+          </div>
+
+          <app-pick-ticket  *ngIf="setps[0] === true" (onNextTicketInfo)="changeStep($event)"></app-pick-ticket>
+          <app-ticket-info  *ngIf="setps[1] === true"></app-ticket-info>
+          <app-ticket-review *ngIf="setps[2] === true"></app-ticket-review>
+          <app-payment *ngIf="setps[3] === true"></app-payment>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

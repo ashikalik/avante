@@ -36,8 +36,8 @@ export class LanguageSettingService {
   public getLanguage() {
     const language: string = localStorage.getItem(this.languageKey);
     if (!language) {
-      this.setLanguage('en');
-      return 'en';
+      this.setLanguage('ar');
+      return 'ar';
     }
     return language;
   }
@@ -68,8 +68,8 @@ export class LanguageSettingService {
   public getDirection() {
     const direction: string = localStorage.getItem(this.directionKey);
     if (!direction) {
-      this.setLanguage('rtl');
-      return 'rtl';
+      this.setLanguage('ar');
+      return 'ar';
     }
     return direction;
   }
@@ -101,8 +101,8 @@ export class LanguageSettingService {
   public getStartDirection() {
     const direction: string = localStorage.getItem(this.startDirectionKey);
     if (!direction) {
-      this.setLanguage('rtl');
-      return 'rtl';
+      this.setLanguage('ar');
+      return 'ar';
     }
     return direction;
   }

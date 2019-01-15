@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ViewEventComponent} from "./view-event/view-event.component";
+import {RootComponent} from "./root/root.component";
 
 const routes: Routes = [
     {
         path: ':id',
-        component: ViewEventComponent,
+        component: RootComponent,
     }
 ];
 
