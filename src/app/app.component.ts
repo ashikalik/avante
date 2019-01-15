@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {LanguageSettingService} from "./core/language-setting.service";
 import {TranslateService} from "@ngx-translate/core";
+import {UserAuthService} from "./core/user-auth.service";
+import {NavigationStart, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -11,8 +13,24 @@ export class AppComponent {
     title = 'Evento';
 
     public direction: string;
+    public isAuthinticated: boolean;
 
-    constructor(public languageSettingService: LanguageSettingService, private translate: TranslateService) {
+    constructor(public languageSettingService: LanguageSettingService,
+                private translate: TranslateService,
+                public userAuthService: UserAuthService,
+                private router: Router) {
+
+        router.events.forEach((event) => {
+            if (event instanceof NavigationStart) {
+                if(this.userAuthService.getToken()) {
+                    this.isAuthinticated = true;
+                } else {
+                    this.isAuthinticated = false;
+                }
+            }
+        });
+
+
 
     }
 

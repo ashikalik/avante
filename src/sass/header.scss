@@ -335,3 +335,29 @@
     }
   }
 }
+
+
+.login-btn {
+  font-size: 18px;
+  color: #0b1c2b;
+}
+
+.login-btn:hover {
+  color: #e03c4f;
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-out;
+  -moz-transition: color 0.3s ease-out;
+  -o-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+
+
+.menu-link:hover {
+  color: #e03c4f !important;
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-out;
+  -moz-transition: color 0.3s ease-out;
+  -o-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+
+}
