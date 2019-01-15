@@ -40,7 +40,7 @@
             </div>
           </div>
 
-          <app-pick-ticket  *ngIf="setps[0] === true" (onNextTicketInfo)="changeStep($event)"></app-pick-ticket>
+          <app-pick-ticket  *ngIf="setps[0] === true" [eventDetail$]="eventDetail$"  (onNextTicketInfo)="changeStep($event)"></app-pick-ticket>
           <app-ticket-info  *ngIf="setps[1] === true"></app-ticket-info>
           <app-ticket-review *ngIf="setps[2] === true"></app-ticket-review>
           <app-payment *ngIf="setps[3] === true"></app-payment>

@@ -5,10 +5,8 @@
       <div class="form-group position-relative">
         <select class="form-control evento_input evento_select" name="sellist">
           <option disabled selected hidden translate>Pick your tickets</option>
-          <option>Basic General Tickets</option>
-          <option>Golden General Tickets</option>
-          <option>Platium General Tickets</option>
-        </select>
+          <option [value]="package.package_id" *ngFor="let package of (eventDetail$ | async)?.data.packages" >{{ package.name }}</option>
+        </select> 
         <i class="fas fa-chevron-down embed"></i>
       </div>
     </div>
