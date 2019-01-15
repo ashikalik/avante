@@ -1,4 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
+import { Observable } from "rxjs";
+import { EventDetails } from "../../models/event-details";
 
 @Component({
     selector: 'app-pick-ticket',
@@ -7,8 +9,9 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class PickTicketComponent implements OnInit {
 
+    @Input() eventDetail$ :Observable<EventDetails>;       
     @Output() onNextTicketInfo: EventEmitter<any> = new EventEmitter();
-
+    
 
     constructor() {
     }

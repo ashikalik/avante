@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: './about-us/about-us.module#AboutUsModule',
   },
   {
-    path: 'buy-ticket/:event_key',
+    path: 'buy-ticket',
     loadChildren: './buy-ticket/buy-ticket.module#BuyTicketModule',
   },
   {

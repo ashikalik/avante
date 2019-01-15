@@ -4,7 +4,7 @@ import {RootComponent} from "./root/root.component";
 
 const routes: Routes = [
     {
-        path: '',
+        path: ':id',
         component: RootComponent,
     }
 ];
