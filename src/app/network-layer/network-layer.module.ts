@@ -6,6 +6,7 @@ import {LanguageInterceptor} from "./language-interceptor";
 import {ErrorHandlerInterceptor} from "./error-handler-interceptor";
 import {VersionInterceptor} from "./version-interceptor";
 import {KeyInterceptor} from "./key-interceptor";
+import {LoaderInterceptorService} from "./loader-interceptor";
 
 @NgModule({
     declarations: [],
@@ -38,6 +39,11 @@ import {KeyInterceptor} from "./key-interceptor";
             provide: HTTP_INTERCEPTORS,
             useClass: KeyInterceptor,
             multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoaderInterceptorService,
+            multi: true
         }
     ]
 })

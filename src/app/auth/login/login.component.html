@@ -1,34 +1,4 @@
-<!-- <div class="main_container">
-	<div class="container-fluid login-container">
-		<div class="row justify-content-center">
-			<div class="col-lg-3 col-md-6 col-sm-12 text-center">
-				<h2 class="text-center" translate>Signin</h2>
-				<p>Don't have an account yet? <a [routerLink]="['/auth/register']" class="text-danger">Sign up</a></p>
-				<div class="form-group">
-					<input type="text" class="form-control evento_input" placeholder="Email address">
-				</div>
-				<div class="form-group">
-					<input type="password" class="form-control evento_input" placeholder="Password">
-				</div>
-				<div class="form-check-inline">
-					<label class="form-check-label">
-				    <input type="checkbox" class="form-check-input" value=""> Remember me on this computer
-				  </label>
-				</div>
-				<img src="assets/captcha.png" alt="" />
-				<div class="form-group d-flex justify-content-center">
-					<button type="button" class="btn btn-dark">LOGIN</button>
-				</div>
-				<a href="/forgot">Forgot Your Password?</a>
-			</div>
-		</div>
-	</div>
-</div> -->
-
-
-
-
-<div class="main_container mb-5 pt-5">
+<div class="main_container mb-5 pt-5" >
 	<div class="container-fluid pt-5">
 		<div class="row">
 			<div class="col-lg-6 col-sm-6">
@@ -45,24 +15,35 @@
 					<h2 class="text-center" translate>Signin</h2>
 					<p translate>Don't have an account yet?<a [routerLink]="['/auth/register']" class="text-danger" translate>Sign up</a></p>
 
-					<form [formGroup]="loginForm">
 
-						<div class="form-group">
-							<input formControlName="username" type="input" class="form-control evento_input  mt-3" placeholder="{{ 'Email Address' | translate}}"
-							/>
-						</div>
-						<div class="form-group">
-							<input formControlName="password" type="password" class="form-control evento_input  mt-3" placeholder="{{ 'Password' | translate}}"
-							/>
-						</div>
 
-						<!-- <div class="form-group d-flex justify-content-center mt-2">
-							<button type="button" class="btn btn-dark" translate>Login</button>
-						</div> -->
-						<input (click)="login(loginForm)" type="button" class="btn btn-danger width_120 mt-3 mb-2 mr-2 ml-2" value="{{ 'Login' | translate }}"
-						 [disabled]="!loginForm.valid" />
-					</form>
-					<a [routerLink]="['/auth/forget_password']" translate>Forgot Your Password?</a>
+					<div *ngIf="loadingError$ | async;">
+						Error loading the list of users. Please try again later.
+					</div>
+
+
+					<div *ngIf="!(login$ | async)">
+						<form [formGroup]="loginForm">
+
+							<div class="form-group">
+								<input formControlName="username" type="input" class="form-control evento_input  mt-3" placeholder="{{ 'Email Address' | translate}}"
+								/>
+							</div>
+							<div class="form-group">
+								<input formControlName="password" type="password" class="form-control evento_input  mt-3" placeholder="{{ 'Password' | translate}}"
+								/>
+							</div>
+
+							<!-- <div class="form-group d-flex justify-content-center mt-2">
+                                <button type="button" class="btn btn-dark" translate>Login</button>
+                            </div> -->
+							<input (click)="login(loginForm)" type="button" class="btn btn-danger width_120 mt-3 mb-2 mr-2 ml-2" value="{{ 'Login' | translate }}"
+								   [disabled]="!loginForm.valid" />
+						</form>
+						<a [routerLink]="['/auth/forget_password']" translate>Forgot Your Password?</a>
+
+					</div>
+
 
 				</div>
 			</div>

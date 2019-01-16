@@ -1,31 +1,37 @@
-import { Component } from '@angular/core';
+import {AfterViewChecked, ChangeDetectorRef, Component} from '@angular/core';
 import {LanguageSettingService} from "./core/language-setting.service";
 import {TranslateService} from "@ngx-translate/core";
 import {UserAuthService} from "./core/user-auth.service";
 import {NavigationStart, Router} from "@angular/router";
+import {LoaderService} from "./loader-service.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewChecked{
     title = 'Evento';
 
     public direction: string;
-    public isAuthinticated: boolean;
+    public isAuthenticated: boolean;
+    show = false;
+
 
     constructor(public languageSettingService: LanguageSettingService,
                 private translate: TranslateService,
                 public userAuthService: UserAuthService,
+                public loaderService: LoaderService,
+                private cdRef : ChangeDetectorRef,
                 private router: Router) {
+
 
         router.events.forEach((event) => {
             if (event instanceof NavigationStart) {
                 if(this.userAuthService.getToken()) {
-                    this.isAuthinticated = true;
+                    this.isAuthenticated = true;
                 } else {
-                    this.isAuthinticated = false;
+                    this.isAuthenticated = false;
                 }
             }
         });
@@ -33,6 +39,15 @@ export class AppComponent {
 
 
     }
+
+    ngAfterViewChecked() {
+        let show = this.loaderService.loaderStatus;
+        if (show != this.show) { // check if it change, tell CD update view
+            this.show = show;
+            this.cdRef.detectChanges();
+        }
+    }
+
 
     ngOnInit() {
         console.log(this.languageSettingService.getLanguage())
