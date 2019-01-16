@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { NetworkConfig } from '../network-layer/network.config';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {LoginBody, LoginResponse} from "../models/login";
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,10 @@ export class AuthService {
   }
 
 
-  public login(body: any): Observable<any> {
+  public login(body: LoginBody): Observable<any> {
+    console.log('try login')
     const url = NetworkConfig.BASE_URL + NetworkConfig.LOGIN_URL;
-    return this.httpClient.post<any>(url, body);
+    return this.httpClient.post<LoginResponse>(url, body);
   }
 
 

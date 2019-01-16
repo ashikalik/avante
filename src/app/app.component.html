@@ -1,3 +1,5 @@
+<div class="loading" *ngIf="show">Loading&#8230;</div>
+
 <div class="header">
   <div class="container_header d-flex">
     <div class="logo">
@@ -14,12 +16,12 @@
       </ul>
     </div>
     <div class="header_right menu_item ml-auto">
-      <ul class="d-flex" *ngIf="!isAuthinticated">
+      <ul class="d-flex" *ngIf="!isAuthenticated">
         <li class="position-relative user-list" >
           <a [routerLink]="['/auth/login']" class="login-btn" translate><i class="far fa-user" aria-hidden="true"></i>&nbsp; Login</a>
         </li>
       </ul>
-      <ul class="d-flex" *ngIf="isAuthinticated">
+      <ul class="d-flex" *ngIf="isAuthenticated">
         <li class="position-relative user-list">
           <i class="far fa-user"></i>&nbsp; Ahmed &nbsp;<i class="fas fa-chevron-down"></i>
           <div class="user">
