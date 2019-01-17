@@ -17,32 +17,27 @@
 
 
 
-					<div *ngIf="loadingError$ | async;">
-						Error loading the list of users. Please try again later.
-					</div>
 
+					<app-errors [errors]="errorsLogin" *ngIf="errorsLogin"></app-errors>
 
-					<div *ngIf="!(login$ | async)">
-						<form [formGroup]="loginForm">
+					<form [formGroup]="loginForm" (ngSubmit)="onlogin(loginForm)">
 
-							<div class="form-group">
-								<input formControlName="username" type="input" class="form-control evento_input  mt-3" placeholder="{{ 'Email Address' | translate}}"
-								/>
-							</div>
-							<div class="form-group">
-								<input formControlName="password" type="password" class="form-control evento_input  mt-3" placeholder="{{ 'Password' | translate}}"
-								/>
-							</div>
+						<div class="form-group">
+							<input formControlName="username" type="input" class="form-control evento_input  mt-3" placeholder="{{ 'Email Address' | translate}}"
+							/>
+						</div>
+						<div class="form-group">
+							<input formControlName="password" type="password" class="form-control evento_input  mt-3" placeholder="{{ 'Password' | translate}}"
+							/>
+						</div>
 
-							<!-- <div class="form-group d-flex justify-content-center mt-2">
-                                <button type="button" class="btn btn-dark" translate>Login</button>
-                            </div> -->
-							<input (click)="login(loginForm)" type="button" class="btn btn-danger width_120 mt-3 mb-2 mr-2 ml-2" value="{{ 'Login' | translate }}"
-								   [disabled]="!loginForm.valid" />
-						</form>
-						<a [routerLink]="['/auth/forget_password']" translate>Forgot Your Password?</a>
-
-					</div>
+						<!-- <div class="form-group d-flex justify-content-center mt-2">
+                            <button type="button" class="btn btn-dark" translate>Login</button>
+                        </div> -->
+						<input type="submit" class="btn btn-danger width_120 mt-3 mb-2 mr-2 ml-2" value="{{ 'Login' | translate }}"
+							   [disabled]="!loginForm.valid" />
+					</form>
+					<a [routerLink]="['/auth/forget_password']" translate>Forgot Your Password?</a>
 
 
 				</div>

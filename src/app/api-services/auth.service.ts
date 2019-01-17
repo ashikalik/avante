@@ -19,7 +19,7 @@ export class AuthService {
   }
 
 
-  public login(body: LoginBody): Observable<any> {
+  public login(body: LoginBody): Observable<LoginResponse> {
     console.log('try login')
     const url = NetworkConfig.BASE_URL + NetworkConfig.LOGIN_URL;
     return this.httpClient.post<LoginResponse>(url, body);

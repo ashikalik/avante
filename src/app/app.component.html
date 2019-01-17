@@ -2,7 +2,7 @@
 
 <div class="header">
   <div class="container_header d-flex">
-    <div class="logo">
+    <div class="logo" (click)="goHome();">
       <img *ngIf="direction == 'rtl'" src="assets/LogoAR.png" />
       <img *ngIf="direction == 'ltr'" src="assets/LogoEN.png" />
     </div>
@@ -20,16 +20,21 @@
         <li class="position-relative user-list" >
           <a [routerLink]="['/auth/login']" class="login-btn" translate><i class="far fa-user" aria-hidden="true"></i>&nbsp; Login</a>
         </li>
+        <li class="position-relative nav_toggle">
+          <i class="fas fa-bars" (click)="onMenuView($event)"></i>
+          <i class="fas fa-times" (click)="onMenuHide($event)" style="display: none;"></i>
+        </li>
+
       </ul>
       <ul class="d-flex" *ngIf="isAuthenticated">
         <li class="position-relative user-list">
-          <i class="far fa-user"></i>&nbsp; Ahmed &nbsp;<i class="fas fa-chevron-down"></i>
+          <i class="far fa-user"></i>&nbsp; {{ username }} &nbsp;<i class="fas fa-chevron-down"></i>
           <div class="user">
             <a href=""><p translate><i class="far fa-user"></i>&nbsp; My account</p></a>
-            <a href=""><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
-            <a href=""><p translate><i class="fas fa-sliders-h"></i>&nbsp; Settings</p></a>
-            <a href=""><p translate><i class="far fa-question-circle"></i>&nbsp; Help</p></a>
-            <a href="/logout"><p translate><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</p></a>
+            <a href="" *ngIf="userType === 2"><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
+            <!--<a href=""><p translate><i class="fas fa-sliders-h"></i>&nbsp; Settings</p></a>-->
+            <!--<a href=""><p translate><i class="far fa-question-circle"></i>&nbsp; Help</p></a>-->
+            <a href="" (click)="logout()"><p translate><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</p></a>
           </div>
         </li>
         <!--<li class="position-relative notification-list">-->
@@ -61,34 +66,29 @@
   </div>
 </div>
 <div class="menu_toggle">
-  <a [routerLink]="['/home']">
+  <a [routerLink]="['/home']" (click)="onMenuHide($event)">
     <div class="d-flex">
-      <p class="mr-auto">Home</p>
-      <i class="fas fa-plus-circle d-flex align-items-center"></i>
+      <p class="mr-auto" translate>Home</p>
     </div>
   </a>
-  <a [routerLink]="['/about-us']">
+  <a [routerLink]="['/about-us']" (click)="onMenuHide($event)">
     <div class="d-flex">
-      <p class="mr-auto">About US</p>
-      <i class="fas fa-plus-circle d-flex align-items-center"></i>
+      <p class="mr-auto" translate>About US</p>
     </div>
   </a>
-  <a [routerLink]="['/contact-us']">
+  <a [routerLink]="['/contact-us']" (click)="onMenuHide($event)">
     <div class="d-flex">
-      <p class="mr-auto">Contact US</p>
-      <i class="fas fa-plus-circle d-flex align-items-center"></i>
+      <p class="mr-auto" translate>Contact US</p>
     </div>
   </a>
-  <a [routerLink]="['/calendar']">
+  <a [routerLink]="['/calendar']" (click)="onMenuHide($event)">
     <div class="d-flex">
-      <p class="mr-auto">Calendar</p>
-      <i class="fas fa-plus-circle d-flex align-items-center"></i>
+      <p class="mr-auto" translate>Calendar</p>
     </div>
   </a>
-  <a [routerLink]="['/organize']">
+  <a [routerLink]="['/organize']" (click)="onMenuHide($event)">
     <div class="d-flex">
-      <p class="mr-auto">Organize</p>
-      <i class="fas fa-plus-circle d-flex align-items-center"></i>
+      <p class="mr-auto" translate>Organize</p>
     </div>
   </a>
 </div>

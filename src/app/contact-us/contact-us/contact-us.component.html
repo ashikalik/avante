@@ -1,83 +1,156 @@
 <div class="main_container">
-  <div class="container-fluid contact-us-container">
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-        <h4>Home/Contact us</h4>
-      </div>
-    </div>
+    <div class="container-fluid contact-us-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12 text-center">
+                <div class="contact-main justify-content-center">
+                    <img src="assets/illustration.png" alt=""/>
+                    <h2 class="text-center" translate>Get in touch with us</h2>
+                    <p translate>For inquiries please contact us</p>
+
+                    <app-errors [errors]="contactError" *ngIf="contactError"></app-errors>
+
+                    <form [formGroup]="questionForm" (ngSubmit)="sendQuestion(questionForm)">
+
+                        <div class="form-group">
+                            <input formControlName="name" type="text" class="form-control evento_input"
+                                   placeholder="{{ 'Full Name' | translate }}">
+                            <div class="error"
+                                 *ngIf="questionForm.controls['name'].hasError('required') && !questionForm.controls['name'].pristine"
+                                 translate>
+                                This field is required
+                            </div>
+                            <div class="error"
+                                 *ngIf="questionForm.controls['name'].hasError('minlength') && !questionForm.controls['name'].pristine"
+                                 translate>
+                                Name should be at least 2 characters
+                            </div>
+                            <div class="error"
+                                 *ngIf="questionForm.controls['name'].hasError('maxlength') && !questionForm.controls['name'].pristine"
+                                 translate>
+                                Name should be at most 20 characters
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <input formControlName="email" type="email" class="form-control evento_input"
+                                   placeholder="{{ 'Your Email' | translate }}">
+                            <div class="error"
+                                 *ngIf="questionForm.controls['email'].hasError('required') && !questionForm.controls['email'].pristine"
+                                 translate>
+                                This field is required
+                            </div>
+                            <div class="error"
+                                 *ngIf="questionForm.controls['email'].hasError('email') && !questionForm.controls['email'].pristine"
+                                 translate>
+                                Email format is not valid
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <input formControlName="mobile" type="text" class="form-control evento_input"
+                                   placeholder="{{ 'Phone Number' | translate }}">
+                            <div class="error"
+                                 *ngIf="questionForm.controls['mobile'].hasError('required') && !questionForm.controls['mobile'].pristine"
+                                 translate>
+                                This field is required
+                            </div>
+                            <div class="error"
+                                 *ngIf="questionForm.controls['mobile'].hasError('pattern') && !questionForm.controls['mobile'].pristine"
+                                 translate>
+                                Mobile number is invalid
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input formControlName="subject" type="text" class="form-control evento_input"
+                                   placeholder="{{ 'Subject' | translate }}">
+                            <div class="error"
+                                 *ngIf="questionForm.controls['subject'].hasError('required') && !questionForm.controls['subject'].pristine"
+                                 translate>
+                                This field is required
+                            </div>
+                            <div class="error"
+                                 *ngIf="questionForm.controls['subject'].hasError('minlength') && !questionForm.controls['subject'].pristine"
+                                 translate>
+                                Field should be at least 6 characters
+                            </div>
+                            <div class="error"
+                                 *ngIf="questionForm.controls['subject'].hasError('maxlength') && !questionForm.controls['subject'].pristine"
+                                 translate>
+                                Field should be at most 200 characters
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea formControlName="message" rows="4" cols="50" class="form-control evento_input"
+                                      placeholder="{{ 'Your message' | translate }}"></textarea>
+                            <div class="error"
+                                 *ngIf="questionForm.controls['message'].hasError('required') && !questionForm.controls['message'].pristine"
+                                 translate>
+                                This field is required
+                            </div>
+                            <div class="error"
+                                 *ngIf="questionForm.controls['message'].hasError('minlength') && !questionForm.controls['message'].pristine"
+                                 translate>
+                                Field should be at least 6 characters
+                            </div>
+                            <div class="error"
+                                 *ngIf="questionForm.controls['message'].hasError('maxlength') && !questionForm.controls['message'].pristine"
+                                 translate>
+                                Field should be at most 400 characters
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <re-captcha #captchaRef formControlName="recaptcha"></re-captcha>
+
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6 col-md-9 col-sm-12 form-group">
+                                <button type="submit" class="btn btn-info" [disabled]="!questionForm.valid" translate>
+                                    send
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
 
-    <div class="row justify-content-center">
-      <div class="col-lg-8 col-md-10 col-sm-12 text-center">
-        <div class="contact-main justify-content-center">
-          <img src="assets/illustration.png" alt="" />
-          <h2 class="text-center">Get in touch with us</h2>
-          <p>For inquiries please contact us</p>
-
-          <form [formGroup]="questionForm" (ngSubmit)="sendQuestion(questionForm)">
-
-            <div class="form-group">
-              <input formControlName="name" type="text" class="form-control evento_input" placeholder="First name">
+                <div class="row justify-content-center contact-info">
+                    <div class="col-lg-3 col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-2 col-2">
+                                <i class="fas fa-phone text-danger"></i>
+                            </div>
+                            <div class="col-sm-10 col-10">
+                                <p style="direction: ltr">+966-55-487-2358</p>
+                                <p style="direction: ltr;">+966-53-055-4898</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-2 col-2">
+                                <i class="fas fa-envelope text-danger"></i>
+                            </div>
+                            <div class="col-sm-10 col-10">
+                                <p>info@eventoapps.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-2 col-2">
+                                <i class="fas fa-map-marker-alt text-danger"></i>
+                            </div>
+                            <div class="col-sm-10 col-10">
+                                <p translate>Riyadh. Saudi Arabia</p>
+                                <p translate>King Fahad Rd</p>
+                                <p translate="">Tatweer Tower 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-              <input formControlName="email" type="email" class="form-control evento_input" placeholder="Email address">
-            </div>
-            <div class="form-group">
-              <input formControlName="mobile" type="text" class="form-control evento_input" placeholder="Phone number">
-            </div>
-            <br>
-            <div class="form-group">
-              <input formControlName="subject" type="text" class="form-control evento_input" placeholder="Subject">
-            </div>
-            <div class="form-group">
-              <textarea formControlName="message" rows="4" cols="50" class="form-control evento_input" placeholder="Your message"></textarea>
-            </div>
-            <img class="captcha" src="assets/captcha.png" alt="" />
-            <div class="row justify-content-center">
-              <div class="col-lg-6 col-md-9 col-sm-12 form-group">
-                <button type="submit" class="btn btn-info" [disabled]="!questionForm.valid">send</button>
-              </div>
-            </div>
-          </form>
         </div>
-
-
-        <div class="row justify-content-center contact-info">
-          <div class="col-lg-3 col-sm-10">
-            <div class="row">
-              <div class="col-sm-2 col-2">
-                <i class="fas fa-phone text-danger"></i>
-              </div>
-              <div class="col-sm-10 col-10">
-                <p>+966-55-487-2358</p>
-                <p>+966-53-055-4898</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-10">
-            <div class="row">
-              <div class="col-sm-2 col-2">
-                <i class="fas fa-envelope text-danger"></i>
-              </div>
-              <div class="col-sm-10 col-10">
-                <p>info@eventoapps.com</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-sm-10">
-            <div class="row">
-              <div class="col-sm-2 col-2">
-                <i class="fas fa-map-marker-alt text-danger"></i>
-              </div>
-              <div class="col-sm-10 col-10">
-                <p>King Fahad Rd</p>
-                <p>Tatweer Tower 3</p>
-                <p>Riyadh. Saudi Arabia</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>

@@ -136,5 +136,21 @@
   "Card holder Name":"اسم حامل البطاقة",
   "Card Number":"رقم البطاقة",
   "ExpirationDate:":"تاريخ إنتهاء البطاقة:",
-  "Login:":"تسجيل الدخول:"
+  "Login:":"تسجيل الدخول:",
+  "Get in touch with us":"ابق على تواصل معنا",
+  "For inquiries please contact us":"للاستفسار يرجى الاتصال بنا",
+  "WHO ARE WE?":"من نحن؟",
+  "Subject":"عنوان الرسالة",
+  "Your message":"رسالتك",
+  "send":"إرسال",
+  "Riyadh. Saudi Arabia":"المملكة العربية السعودية ، الرياض",
+  "King Fahad Rd":"طريق الملك فهد",
+  "Tatweer Tower 3":"برج تطوير المبنى 3",
+  "Full Name":"الاسم",
+  "Name should be at least 2 characters":"الاسم يجب أن لايقل عن حرفين",
+  "Field should be at least 6 characters":"الحقل يجب أن لايقل عن ٦احرف",
+  "Name should be at most 20 characters":"الاسم يجب أن لايزيد عن ٢٠ حرف",
+  "Field should be at most 200 characters":"الحقل يجب أن لايزيد عن ٢٠٠ حرف",
+  "Field should be at most 400 characters":"الحقل يجب أن لايزيد عن ٤٠٠ حرف",
+  "Mobile number is invalid":"صيغة رقم الجوال غير صحيحة"
 }
