@@ -19,4 +19,8 @@ export class PickTicketComponent implements OnInit {
     ngOnInit() {
     }
 
+
+    onChangePackage(event){
+        console.log(event)
+    }
 }
