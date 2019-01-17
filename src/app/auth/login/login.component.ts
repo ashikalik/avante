@@ -5,7 +5,7 @@ import {AuthService} from 'src/app/api-services/auth.service';
 import {UserAuthService} from '../../core/user-auth.service';
 import {Observable, of, Subject} from "rxjs";
 import {LoginBody, LoginResponse} from "../../models/login";
-import {catchError} from "rxjs/operators";
+import {EventoError} from "../../models/error";
 
 
 @Component({
@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
 
 
     public loginForm: FormGroup;
-    public login$: Observable<LoginResponse>;
-    public loadingError$ = new Subject<boolean>();
+    public login: LoginResponse;
+    public errorsLogin: EventoError;
 
 
     constructor(public formBuilder: FormBuilder,
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     }
 
 
-    public login(form: any) {
+    public onlogin(form: any) {
 
         const body: LoginBody = {
             'username': form.value.username,
@@ -51,15 +51,12 @@ export class LoginComponent implements OnInit {
         };
 
 
-        console.log('login')
-        this.login$ = this.authService.login(body)
-            .pipe(
-                catchError((error) => {
-
-                    this.loadingError$.next(true);
-                    return of();
-                })
-            );
+        this.authService.login(body).subscribe(res => {
+            this.userAuthService.setToken(res.token);
+            this.router.navigate(['/home'])
+        }, err => {
+            this.errorsLogin = err.value.error;
+        });
     }
 
 

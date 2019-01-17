@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CommonService} from "../../api-services/common.service";
 import {Region} from "../../models/region";
-import {Observable} from "rxjs";
 import {EventType} from "../../models/event-type";
 import {EventService} from "../../api-services/event.service";
 import {LatestEvent} from "../../models/latest-event";
@@ -12,11 +11,11 @@ import {Router} from "@angular/router";
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
-    public region$: Observable<Region>;
-    public eventTypes$: Observable<EventType>;
-    public latestEvent$: Observable<LatestEvent>;
+    public region: Region;
+    public eventTypes: EventType;
+    public latestEvent: LatestEvent;
 
     constructor(public commonService: CommonService,
                 public eventService: EventService,
@@ -29,16 +28,32 @@ export class HomeComponent implements OnInit {
         this.getLatestEvent();
     }
 
+
+    ngOnDestroy(): void {
+    }
+
     getRegion(): void {
-        this.region$ = this.commonService.getRegion().pipe();
+       this.commonService.getRegion().subscribe(res => {
+           this.region = res;
+       }, err => {
+
+       })
     }
 
     getEventType(): void {
-        this.eventTypes$ = this.commonService.getEventType().pipe();
+        this.commonService.getEventType().subscribe(res => {
+            this.eventTypes = res;
+        }, err => {
+
+        })
     }
 
     getLatestEvent(): void {
-        this.latestEvent$ = this.eventService.getLatestEvent().pipe();
+        this.eventService.getLatestEvent().subscribe(res => {
+            this.latestEvent = res;
+        }, err => {
+
+        });
     }
 
     public onMoreDetails(eventKey: string) {

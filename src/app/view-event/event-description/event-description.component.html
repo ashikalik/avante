@@ -2,11 +2,11 @@
     <div class="col-lg-12 col-sm-12 col-12 underline mb-3">
         <h5 translate>DESCRIPTION</h5>
     </div>
-    <p class="grey-color mt-3 mb-3" translate>{{ 'ABOUT' | translate }} {{ eventDetails.details.name }}</p>
-    <p class="grey-color">{{ eventDetails.details.details }}</p>
+    <p class="grey-color mt-3 mb-3" translate>{{ 'ABOUT' | translate }} {{ eventDetails.data.details.name }}</p>
+    <p class="grey-color">{{ eventDetails.data.details.details }}</p>
 
     <div class="col-md-12 mt-3 mb-3">
-        <b translate>ORGANIZER:</b> <span class="grey-color">{{ eventDetails.details.company_name }}</span>
+        <b translate>ORGANIZER:</b> <span class="grey-color">{{ eventDetails.data.details.company_name }}</span>
     </div>
 
     <b class="mt-5 mb-3" translate>SPONSORS</b>
@@ -28,18 +28,18 @@
         <h5 translate>LOCATION</h5>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-12 text_left justify-content-start">
-        <p class="mb-5"><i class="fas fa-map-marker-alt text-danger"></i> {{ eventDetails.details.city }} , {{
-            eventDetails.details.address }}</p>
+        <p class="mb-5"><i class="fas fa-map-marker-alt text-danger"></i> {{ eventDetails.data.details.city }} , {{
+            eventDetails.data.details.address }}</p>
     </div>
     <!--<div class="col-lg-6 col-md-6 col-sm-12 col-12 text-right justify-content-end">-->
         <!--<button type="button" class="btn btn-success btn-sm mt-1" (click)="navigate()" translate>NAVIGATE</button>-->
     <!--</div>-->
     <div class="col-lg-12 col-sm-12 col-12 text_left mb-5 justify-content-start" style="display: block !important;">
         <!--<img class="img-fluid" src="assets/map.png" alt=""/>-->
-        <agm-map [latitude]="eventDetails.details.lat" [longitude]="eventDetails.details.lng"
+        <agm-map [latitude]="eventDetails.data.details.lat" [longitude]="eventDetails.data.details.lng"
                  [zoom]="14">
-            <agm-marker [latitude]="eventDetails.details.lat"
-                        [longitude]="eventDetails.details.lng"></agm-marker>
+            <agm-marker [latitude]="eventDetails.data.details.lat"
+                        [longitude]="eventDetails.data.details.lng"></agm-marker>
         </agm-map>
     </div>
     <div class="col-lg-12 col-sm-12 col-12 text_left justify-content-start mt-5 mb-3">

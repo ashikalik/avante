@@ -1,401 +1,423 @@
 <div class="main_container">
-  <div class="container-fluid">
-    <div class="row main-content mobile-container">
-      <div class="col-lg-6 col-md-12 col-sm-12">
-        <h2 class="text-center">
-          <span class="text-warning">{{ 'SEARCH' | translate}} ,</span>
-          <span class="text-danger">{{ 'CHOOSE' | translate}} ,</span>
-          <span class="text-primary">{{ 'BOOK' | translate}}&nbsp;</span>
-          <span class="text-dark">{{ 'AND ENJOY' | translate}}</span>
-        </h2>
-        <div class="row form-row d-flex justify-content-center">
-          <div class="col-sm-offset-1 col-sm-10">
-            <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-4">
+    <div class="container-fluid">
+        <div class="row main-content mobile-container">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <h2 class="text-center">
+                    <span class="text-warning">{{ 'SEARCH' | translate}} ,</span>
+                    <span class="text-danger">{{ 'CHOOSE' | translate}} ,</span>
+                    <span class="text-primary">{{ 'BOOK' | translate}}&nbsp;</span>
+                    <span class="text-dark">{{ 'AND ENJOY' | translate}}</span>
+                </h2>
+                <div class="row form-row d-flex justify-content-center">
+                    <div class="col-sm-offset-1 col-sm-10">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="form-group">
+                                    <input type="text" class="form-control evento_input"
+                                           placeholder="{{ 'Event Name' | translate}}">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="form-group position-relative">
+                                    <select class="form-control evento_input evento_select" name="sellist">
+                                        <option disabled selected hidden translate>Choose City</option>
+                                        <ng-container *ngIf="region">
+                                            <option *ngFor="let region of region.data">{{ region.name }}</option>
+                                        </ng-container>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-4">
+                                <div class="form-group position-relative">
+                                    <select class="form-control evento_input evento_select" name="sellist">
+                                        <option disabled selected hidden translate>Event Type</option>
+                                        <ng-container *ngIf="eventTypes">
+                                            <option *ngFor="let type of eventTypes.data" [value]="type.id">{{ type.name
+                                                }}
+                                            </option>
+                                        </ng-container>
+
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row find-row d-flex justify-content-center">
+                    <div class="col-sm-12">
+                        <div class="form-group d-flex justify-content-center">
+                            <button type="button" class="btn btn-dark md-49 pd-60" translate (click)="onSearch()">Find
+                            </button>
+                            <button type="button" class="btn btn-danger md-49 pd-100" translate>See All Events</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="row click-row justify-content-center">-->
+                <!--<div class="col-sm-12">-->
+                <!--<div class="form-group text-center">-->
+                <!--<span style="margin-right: 10px;">Feeling Lucky? Let Evento Help you find one </span>-->
+                <!--<button type="button" class="btn btn-outline-dark btn-sm pd-40 mob-pd">Click Here</button>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <h2 class="text-center"><span translate>OR PLAN YOUR OWN EVENTS!</span></h2>
+                <div class="text-center border-left-right"><img class="img_responsive"
+                                                                src="assets/VectorSmartObject_0.png" alt=""/></div>
+                <div class="form-group d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-dark btn-create pd-60 position-relative" translate>
+                        CREATE YOUR EVENT&nbsp;
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid apply-container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 text-center">
+                <img class="img_responsive" src="assets/VectorSmartObject.png" alt=""/>
+            </div>
+            <div class="col-lg-6 col-sm-12 md-top-70">
+                <h3 translate>ARE YOU LOOKING FOR JOB AS A EVENT STAFF?</h3>
+                <P>Lorum lpsum is simply dummy text of the printing and<br> typesetting industry.Lorum lpsum has been
+                    the industry's<br> standard dummy text ever since the 1500s</P>
                 <div class="form-group">
-                  <input type="text" class="form-control evento_input" placeholder="{{ 'Event Name' | translate}}">
+                    <button type="button" class="btn btn-outline-dark pd-60 position-relative" translate>APPLY NOW
+                    </button>
                 </div>
-              </div>
-              <div class="col-sm-12 col-md-12 col-lg-4">
-                <div class="form-group position-relative">
-                  <select class="form-control evento_input evento_select" name="sellist">
-                    <option disabled selected hidden translate>Choose City</option>
-                    <option *ngFor="let region of (region$ | async)?.data">{{ region.name }}</option>
-                  </select>
-                  <i class="fas fa-chevron-down embed"></i>
-                </div>
-              </div>
-              <div class="col-sm-12 col-md-12 col-lg-4">
-                <div class="form-group position-relative">
-                  <select class="form-control evento_input evento_select" name="sellist">
-                    <option disabled selected hidden translate>Event Type</option>
-                      <option *ngFor="let type of (eventTypes$ | async)?.data" [value]="type.id">{{ type.name }}</option>
-                  </select>
-                  <i class="fas fa-chevron-down embed"></i>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-
-        <div class="row find-row d-flex justify-content-center">
-          <div class="col-sm-12">
-            <div class="form-group d-flex justify-content-center">
-              <button type="button" class="btn btn-dark md-49 pd-60" translate (click)="onSearch()">Find</button>
-              <button type="button" class="btn btn-danger md-49 pd-100" translate>See All Events</button>
-            </div>
-          </div>
-        </div>
-
-        <!--<div class="row click-row justify-content-center">-->
-          <!--<div class="col-sm-12">-->
-            <!--<div class="form-group text-center">-->
-              <!--<span style="margin-right: 10px;">Feeling Lucky? Let Evento Help you find one </span>-->
-              <!--<button type="button" class="btn btn-outline-dark btn-sm pd-40 mob-pd">Click Here</button>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      </div>
-      <div class="col-lg-6 col-md-12 col-sm-12">
-        <h2 class="text-center"><span translate>OR PLAN YOUR OWN EVENTS!</span></h2>
-        <div class="text-center border-left-right"><img class="img_responsive" src="assets/VectorSmartObject_0.png" alt=""/></div>
-        <div class="form-group d-flex justify-content-center">
-          <button type="button" class="btn btn-outline-dark btn-create pd-60 position-relative" translate>
-            CREATE YOUR EVENT&nbsp;
-            <i class="fas fa-chevron-left"></i>
-          </button>
-        </div>
-      </div>
     </div>
-  </div>
-  <div class="container-fluid apply-container">
-    <div class="row">
-      <div class="col-lg-6 col-sm-12 text-center">
-        <img class="img_responsive" src="assets/VectorSmartObject.png" alt=""/>
-      </div>
-      <div class="col-lg-6 col-sm-12 md-top-70">
-        <h3 translate>ARE YOU LOOKING FOR JOB AS A EVENT STAFF?</h3>
-        <P>Lorum lpsum is simply dummy text of the printing and<br> typesetting industry.Lorum lpsum has been the industry's<br> standard dummy text ever since the 1500s</P>
-        <div class="form-group">
-          <button type="button" class="btn btn-outline-dark pd-60 position-relative" translate>APPLY NOW</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--<div class="container-fluid slider-accordion-container">-->
+    <!--<div class="container-fluid slider-accordion-container">-->
     <!--<div class="row justify-content-center">-->
-      <!--<div class="col-lg-10 col-12 col-sm-12 d-flex justify-content-center">-->
-        <!--<div class="slider-arrow d-flex align-items-center" style="/*position: absolute; left: 10%;*/">-->
-          <!--<div class="form-group d-flex align-items-center justify-content-center">-->
-            <!--<button type="button" (click)="onPreClick($event)" class="btn btn-outline-dark btn-slider position-relative" style="float: right;">-->
-              <!--<i class="fas fa-chevron-left"></i>-->
-            <!--</button>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="slider-accordion" id="slider_accordion">-->
-          <!--<ul>-->
-            <!--<li>-->
-              <!--<input type="radio" name="select" class="slider-accordion-select" />-->
-              <!--<div class="slider-accordion-title">-->
-                <!--<h3><span>MUSIC</span></h3>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-content">-->
-                <!--<h1 class="d-flex justify-content-center"><b>MUSIC</b></h1>-->
-                <!--<p class="d-flex justify-content-center">55</p>-->
-                <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
-                <!--<div class="d-flex justify-content-center">-->
-                  <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
-                    <!--SEE EVENTS&nbsp;-->
-                    <!--<i class="fas fa-chevron-right"></i>-->
-                  <!--</button>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-separator"></div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<input type="radio" name="select" class="slider-accordion-select" />-->
-              <!--<div class="slider-accordion-title">-->
-                <!--<h3><span>ART AND DESIGN</span></h3>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-content">-->
-                <!--<h1 class="d-flex justify-content-center"><b>ART AND DESIGN</b></h1>-->
-                <!--<p class="d-flex justify-content-center">88</p>-->
-                <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
-                <!--<div class="d-flex justify-content-center">-->
-                  <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
-                    <!--SEE EVENTS&nbsp;-->
-                    <!--<i class="fas fa-chevron-right"></i>-->
-                  <!--</button>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-separator"></div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<input type="radio" name="select" class="slider-accordion-select" />-->
-              <!--<div class="slider-accordion-title">-->
-                <!--<h3><span>EDUCATION</span></h3>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-content">-->
-                <!--<h1 class="d-flex justify-content-center"><b>EDUCATION</b></h1>-->
-                <!--<p class="d-flex justify-content-center">67</p>-->
-                <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
-                <!--<div class="d-flex justify-content-center">-->
-                  <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
-                    <!--SEE EVENTS&nbsp;-->
-                    <!--<i class="fas fa-chevron-right"></i>-->
-                  <!--</button>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-separator"></div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<input type="radio" name="select" class="slider-accordion-select" checked />-->
-              <!--<div class="slider-accordion-title">-->
-                <!--<h3><span>CULTURE</span></h3>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-content">-->
-                <!--<h1 class="d-flex justify-content-center"><b>CULTURE</b></h1>-->
-                <!--<p class="d-flex justify-content-center">15</p>-->
-                <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
-                <!--<div class="d-flex justify-content-center">-->
-                  <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
-                    <!--SEE EVENTS&nbsp;-->
-                    <!--<i class="fas fa-chevron-right"></i>-->
-                  <!--</button>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-separator"></div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<input type="radio" name="select" class="slider-accordion-select" />-->
-              <!--<div class="slider-accordion-title">-->
-                <!--<h3><span>SPORTING EVENTS</span></h3>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-content">-->
-                <!--<h1 class="d-flex justify-content-center"><b>SPORTING EVENTS</b></h1>-->
-                <!--<p class="d-flex justify-content-center">10</p>-->
-                <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
-                <!--<div class="d-flex justify-content-center">-->
-                  <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
-                    <!--SEE EVENTS&nbsp;-->
-                    <!--<i class="fas fa-chevron-right"></i>-->
-                  <!--</button>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-separator"></div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<input type="radio" name="select" class="slider-accordion-select" />-->
-              <!--<div class="slider-accordion-title">-->
-                <!--<h3><span>TECHNOLOGY</span></h3>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-content">-->
-                <!--<h1 class="d-flex justify-content-center"><b>TECHNOLOGY</b></h1>-->
-                <!--<p class="d-flex justify-content-center">12</p>-->
-                <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
-                <!--<div class="d-flex justify-content-center">-->
-                  <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
-                    <!--SEE EVENTS&nbsp;-->
-                    <!--<i class="fas fa-chevron-right"></i>-->
-                  <!--</button>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-separator"></div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<input type="radio" name="select" class="slider-accordion-select" />-->
-              <!--<div class="slider-accordion-title">-->
-                <!--<h3><span>RELIGIOUS</span></h3>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-content">-->
-                <!--<h1 class="d-flex justify-content-center"><b>RELIGIOUS</b></h1>-->
-                <!--<p class="d-flex justify-content-center">6</p>-->
-                <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
-                <!--<div class="d-flex justify-content-center">-->
-                  <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
-                    <!--SEE EVENTS&nbsp;-->
-                    <!--<i class="fas fa-chevron-right"></i>-->
-                  <!--</button>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-separator"></div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<input type="radio" name="select" class="slider-accordion-select" />-->
-              <!--<div class="slider-accordion-title">-->
-                <!--<h3><span>ENTERTAINMENT</span></h3>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-content">-->
-                <!--<h1 class="d-flex justify-content-center"><b>ENTERTAINMENT</b></h1>-->
-                <!--<p class="d-flex justify-content-center">33</p>-->
-                <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
-                <!--<div class="d-flex justify-content-center">-->
-                  <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
-                    <!--SEE EVENTS&nbsp;-->
-                    <!--<i class="fas fa-chevron-right"></i>-->
-                  <!--</button>-->
-                <!--</div>-->
-              <!--</div>-->
-              <!--<div class="slider-accordion-separator"></div>-->
-            <!--</li>-->
-          <!--</ul>-->
-        <!--</div>-->
-        <!--<div class="slider-arrow d-flex align-items-center" style="/*position: absolute; right: 10%;*/">-->
-          <!--<div class="form-group d-flex align-items-center justify-content-center">-->
-            <!--<button type="button" (click)="onNextClick($event)" class="btn btn-outline-dark btn-slider position-relative">-->
-              <!--<i class="fas fa-chevron-right"></i>-->
-            <!--</button>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
+    <!--<div class="col-lg-10 col-12 col-sm-12 d-flex justify-content-center">-->
+    <!--<div class="slider-arrow d-flex align-items-center" style="/*position: absolute; left: 10%;*/">-->
+    <!--<div class="form-group d-flex align-items-center justify-content-center">-->
+    <!--<button type="button" (click)="onPreClick($event)" class="btn btn-outline-dark btn-slider position-relative" style="float: right;">-->
+    <!--<i class="fas fa-chevron-left"></i>-->
+    <!--</button>-->
     <!--</div>-->
-  <!--</div>-->
-  <div class="container-fluid tabs-container latest-event">
-    <h2 class="text-center" translate>LATEST EVENTS</h2>
-    <div class="row mt-3">
-      <div class="col-lg-6 col-sm-12 col-12" *ngFor="let event of (latestEvent$ | async)?.data">
-        <div class="custom_tab mt-2">
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs small justify-content-end" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active bg-danger position-relative" data-toggle="tab" href="">{{ event.type }}</a>
-            </li>
-          </ul>
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div id="education" class="d-flex">
-              <div class="tab_img_content">
-                <img src="assets/dx34459.png" alt=""/>
-              </div>
-              <div class="tab_desc">
-                <div class="tab_desc_inner">
-                  <h3>{{ event.name }}</h3>
-                  <p style="color:#b0b0b0;">{{ event.details }}</p>
-                  <div class="row">
-                    <div class="col-sm-7 col-lg-7">
-                      <p class="local_desc"><i class="fa fa-map-marker"></i>{{ event.city }} , {{ event.address }}</p>
-                    </div>
-                    <div class="col-sm-5 col-lg-5 text-center">
-                      <button type="button" class="btn btn-outline-dark btn-bold" (click)="onMoreDetails(event.event_key)" translate>SEE MORE</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="tab_date">
-            <p class="text-center grey-color">{{ event.from_date }}  |  {{ event.from_time }}</p>
-          </div>
-        </div>
-      </div>
+    <!--</div>-->
+    <!--<div class="slider-accordion" id="slider_accordion">-->
+    <!--<ul>-->
+    <!--<li>-->
+    <!--<input type="radio" name="select" class="slider-accordion-select" />-->
+    <!--<div class="slider-accordion-title">-->
+    <!--<h3><span>MUSIC</span></h3>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-content">-->
+    <!--<h1 class="d-flex justify-content-center"><b>MUSIC</b></h1>-->
+    <!--<p class="d-flex justify-content-center">55</p>-->
+    <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
+    <!--<div class="d-flex justify-content-center">-->
+    <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
+    <!--SEE EVENTS&nbsp;-->
+    <!--<i class="fas fa-chevron-right"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-separator"></div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<input type="radio" name="select" class="slider-accordion-select" />-->
+    <!--<div class="slider-accordion-title">-->
+    <!--<h3><span>ART AND DESIGN</span></h3>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-content">-->
+    <!--<h1 class="d-flex justify-content-center"><b>ART AND DESIGN</b></h1>-->
+    <!--<p class="d-flex justify-content-center">88</p>-->
+    <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
+    <!--<div class="d-flex justify-content-center">-->
+    <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
+    <!--SEE EVENTS&nbsp;-->
+    <!--<i class="fas fa-chevron-right"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-separator"></div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<input type="radio" name="select" class="slider-accordion-select" />-->
+    <!--<div class="slider-accordion-title">-->
+    <!--<h3><span>EDUCATION</span></h3>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-content">-->
+    <!--<h1 class="d-flex justify-content-center"><b>EDUCATION</b></h1>-->
+    <!--<p class="d-flex justify-content-center">67</p>-->
+    <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
+    <!--<div class="d-flex justify-content-center">-->
+    <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
+    <!--SEE EVENTS&nbsp;-->
+    <!--<i class="fas fa-chevron-right"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-separator"></div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<input type="radio" name="select" class="slider-accordion-select" checked />-->
+    <!--<div class="slider-accordion-title">-->
+    <!--<h3><span>CULTURE</span></h3>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-content">-->
+    <!--<h1 class="d-flex justify-content-center"><b>CULTURE</b></h1>-->
+    <!--<p class="d-flex justify-content-center">15</p>-->
+    <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
+    <!--<div class="d-flex justify-content-center">-->
+    <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
+    <!--SEE EVENTS&nbsp;-->
+    <!--<i class="fas fa-chevron-right"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-separator"></div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<input type="radio" name="select" class="slider-accordion-select" />-->
+    <!--<div class="slider-accordion-title">-->
+    <!--<h3><span>SPORTING EVENTS</span></h3>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-content">-->
+    <!--<h1 class="d-flex justify-content-center"><b>SPORTING EVENTS</b></h1>-->
+    <!--<p class="d-flex justify-content-center">10</p>-->
+    <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
+    <!--<div class="d-flex justify-content-center">-->
+    <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
+    <!--SEE EVENTS&nbsp;-->
+    <!--<i class="fas fa-chevron-right"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-separator"></div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<input type="radio" name="select" class="slider-accordion-select" />-->
+    <!--<div class="slider-accordion-title">-->
+    <!--<h3><span>TECHNOLOGY</span></h3>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-content">-->
+    <!--<h1 class="d-flex justify-content-center"><b>TECHNOLOGY</b></h1>-->
+    <!--<p class="d-flex justify-content-center">12</p>-->
+    <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
+    <!--<div class="d-flex justify-content-center">-->
+    <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
+    <!--SEE EVENTS&nbsp;-->
+    <!--<i class="fas fa-chevron-right"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-separator"></div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<input type="radio" name="select" class="slider-accordion-select" />-->
+    <!--<div class="slider-accordion-title">-->
+    <!--<h3><span>RELIGIOUS</span></h3>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-content">-->
+    <!--<h1 class="d-flex justify-content-center"><b>RELIGIOUS</b></h1>-->
+    <!--<p class="d-flex justify-content-center">6</p>-->
+    <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
+    <!--<div class="d-flex justify-content-center">-->
+    <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
+    <!--SEE EVENTS&nbsp;-->
+    <!--<i class="fas fa-chevron-right"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-separator"></div>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<input type="radio" name="select" class="slider-accordion-select" />-->
+    <!--<div class="slider-accordion-title">-->
+    <!--<h3><span>ENTERTAINMENT</span></h3>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-content">-->
+    <!--<h1 class="d-flex justify-content-center"><b>ENTERTAINMENT</b></h1>-->
+    <!--<p class="d-flex justify-content-center">33</p>-->
+    <!--<h2 class="d-flex justify-content-center">EVENTS</h2>-->
+    <!--<div class="d-flex justify-content-center">-->
+    <!--<button type="button" class="btn btn-outline-dark btn-bold pd-60 position-relative">-->
+    <!--SEE EVENTS&nbsp;-->
+    <!--<i class="fas fa-chevron-right"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="slider-accordion-separator"></div>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="slider-arrow d-flex align-items-center" style="/*position: absolute; right: 10%;*/">-->
+    <!--<div class="form-group d-flex align-items-center justify-content-center">-->
+    <!--<button type="button" (click)="onNextClick($event)" class="btn btn-outline-dark btn-slider position-relative">-->
+    <!--<i class="fas fa-chevron-right"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <ng-container *ngIf="latestEvent">
 
-      <div class="col-sm-12">
-        <div class="form-group d-flex justify-content-center mt-5">
-          <button type="button" class="btn btn-outline-dark pd-100 position-relative" translate>VIEW ALL</button>
+        <div class="container-fluid tabs-container latest-event">
+            <h2 class="text-center" translate>LATEST EVENTS</h2>
+            <div class="row mt-3">
+
+                <div class="col-lg-6 col-sm-12 col-12" *ngFor="let event of latestEvent.data">
+                    <div class="custom_tab mt-2">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs small justify-content-end" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active bg-danger position-relative" data-toggle="tab" href="">{{
+                                    event.type }}</a>
+                            </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div id="education" class="d-flex">
+                                <div class="tab_img_content">
+                                    <img src="assets/dx34459.png" alt=""/>
+                                </div>
+                                <div class="tab_desc">
+                                    <div class="tab_desc_inner">
+                                        <h3>{{ event.name }}</h3>
+                                        <p style="color:#b0b0b0;">{{ event.details }}</p>
+                                        <div class="row">
+                                            <div class="col-sm-7 col-lg-7">
+                                                <p class="local_desc"><i class="fa fa-map-marker"></i>{{ event.city }} ,
+                                                    {{ event.address }}</p>
+                                            </div>
+                                            <div class="col-sm-5 col-lg-5 text-center">
+                                                <button type="button" class="btn btn-outline-dark btn-bold"
+                                                        (click)="onMoreDetails(event.event_key);" translate>SEE MORE
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab_date">
+                            <p class="text-center grey-color">{{ event.from_date }} | {{ event.from_time }}</p>
+                        </div>
+                    </div>
+
+
+                <div class="col-sm-12">
+                    <div class="form-group d-flex justify-content-center mt-5">
+                        <button type="button" class="btn btn-outline-dark pd-100 position-relative" translate>VIEW ALL
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <!--<div class="container-fluid partner-container">-->
+    </ng-container>
+
+    <!--<div class="container-fluid partner-container">-->
     <!--<h2 class="text-center">PARTNERS</h2>-->
     <!--<div class="row d-flex justify-content-center position-relative">-->
-      <!--<div class="slider-overlay-left"></div>-->
-      <!--<div class="col-lg-10 col-sm-10 col-10 d-flex justify-content-center">-->
-        <!--<div class="col-sm-1 slider-arrow">-->
-          <!--<div class="form-group align-items-center d-flex justify-content-center">-->
-            <!--<button type="button" (click)="onPartnerPreClick($event)" class="btn btn-outline-dark btn-slider position-relative">-->
-              <!--<i class="fas fa-chevron-left"></i>-->
-            <!--</button>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-sm-12 col-12 d-flex align-items-center partner-items">-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo8.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo7.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo6.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center active">-->
-            <!--<img class="img-responsive" src="assets/Logo5.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo4.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo3.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo2.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo1.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo8.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo7.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo6.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo5.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo4.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo3.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo2.png" alt=""/>-->
-          <!--</div>-->
-          <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
-            <!--<img class="img-responsive" src="assets/Logo1.png" alt=""/>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-sm-1 slider-arrow">-->
-          <!--<div class="form-group align-items-center d-flex justify-content-center">-->
-            <!--<button type="button" (click)="onPartnerNextClick($event)" class="btn btn-outline-dark btn-slider position-relative">-->
-              <!--<i class="fas fa-chevron-right"></i>-->
-            <!--</button>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="slider-overlay-right"></div>-->
+    <!--<div class="slider-overlay-left"></div>-->
+    <!--<div class="col-lg-10 col-sm-10 col-10 d-flex justify-content-center">-->
+    <!--<div class="col-sm-1 slider-arrow">-->
+    <!--<div class="form-group align-items-center d-flex justify-content-center">-->
+    <!--<button type="button" (click)="onPartnerPreClick($event)" class="btn btn-outline-dark btn-slider position-relative">-->
+    <!--<i class="fas fa-chevron-left"></i>-->
+    <!--</button>-->
     <!--</div>-->
-  <!--</div>-->
-  <!--<div class="container-fluid statistics-container">-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 d-flex align-items-center partner-items">-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo8.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo7.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo6.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center active">-->
+    <!--<img class="img-responsive" src="assets/Logo5.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo4.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo3.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo2.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo1.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo8.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo7.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo6.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo5.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo4.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo3.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo2.png" alt=""/>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 col-12 col-lg-1 d-flex align-items-center">-->
+    <!--<img class="img-responsive" src="assets/Logo1.png" alt=""/>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-1 slider-arrow">-->
+    <!--<div class="form-group align-items-center d-flex justify-content-center">-->
+    <!--<button type="button" (click)="onPartnerNextClick($event)" class="btn btn-outline-dark btn-slider position-relative">-->
+    <!--<i class="fas fa-chevron-right"></i>-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="slider-overlay-right"></div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="container-fluid statistics-container">-->
     <!--<h2 class="text-center">STATISTICS</h2>-->
     <!--<div class="row justify-content-center">-->
-      <!--<div class="col-lg-9 col-sm-12">-->
-        <!--<div class="row">-->
-          <!--<div class="col-lg-3 col-sm-6 col-12">-->
-            <!--<img class="img-responsive md-170 d-flex justify-content-center" src="assets/tickets.png" alt=""/>-->
-            <!--<h4 class="d-flex justify-content-center">SOLD TICKETS</h4>-->
-            <!--<h1 class="d-flex justify-content-center">9800</h1>-->
-          <!--</div>-->
-          <!--<div class="col-lg-3 col-sm-6 col-12">-->
-            <!--<img class="img-responsive md-170 d-flex justify-content-center" src="assets/fireworks.png" alt=""/>-->
-            <!--<h4 class="d-flex justify-content-center text-info">EVENTS</h4>-->
-            <!--<h1 class="d-flex justify-content-center text-info">1300</h1>-->
-          <!--</div>-->
-          <!--<div class="col-lg-3 col-sm-6 col-12">-->
-            <!--<img class="img-responsive md-170 d-flex justify-content-center" src="assets/team.png" alt=""/>-->
-            <!--<h4 class="d-flex justify-content-center text-danger">USERS</h4>-->
-            <!--<h1 class="d-flex justify-content-center text-danger">10928</h1>-->
-          <!--</div>-->
-          <!--<div class="col-lg-3 col-sm-6 col-12">-->
-            <!--<img class="img-responsive md-170 d-flex justify-content-center" src="assets/network.png" alt=""/>-->
-            <!--<h4 class="d-flex justify-content-center text-warning">ORGANIZERS</h4>-->
-            <!--<h1 class="d-flex justify-content-center text-warning">1490</h1>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
+    <!--<div class="col-lg-9 col-sm-12">-->
+    <!--<div class="row">-->
+    <!--<div class="col-lg-3 col-sm-6 col-12">-->
+    <!--<img class="img-responsive md-170 d-flex justify-content-center" src="assets/tickets.png" alt=""/>-->
+    <!--<h4 class="d-flex justify-content-center">SOLD TICKETS</h4>-->
+    <!--<h1 class="d-flex justify-content-center">9800</h1>-->
     <!--</div>-->
-  <!--</div>-->
+    <!--<div class="col-lg-3 col-sm-6 col-12">-->
+    <!--<img class="img-responsive md-170 d-flex justify-content-center" src="assets/fireworks.png" alt=""/>-->
+    <!--<h4 class="d-flex justify-content-center text-info">EVENTS</h4>-->
+    <!--<h1 class="d-flex justify-content-center text-info">1300</h1>-->
+    <!--</div>-->
+    <!--<div class="col-lg-3 col-sm-6 col-12">-->
+    <!--<img class="img-responsive md-170 d-flex justify-content-center" src="assets/team.png" alt=""/>-->
+    <!--<h4 class="d-flex justify-content-center text-danger">USERS</h4>-->
+    <!--<h1 class="d-flex justify-content-center text-danger">10928</h1>-->
+    <!--</div>-->
+    <!--<div class="col-lg-3 col-sm-6 col-12">-->
+    <!--<img class="img-responsive md-170 d-flex justify-content-center" src="assets/network.png" alt=""/>-->
+    <!--<h4 class="d-flex justify-content-center text-warning">ORGANIZERS</h4>-->
+    <!--<h1 class="d-flex justify-content-center text-warning">1490</h1>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
 </div>

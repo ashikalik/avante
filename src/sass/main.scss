@@ -1,6 +1,7 @@
 .error {
     color: red;
 	font-size: 13px;
+	padding-top: 10px;
   }
 
 .evento_input, .evento_select {
@@ -225,7 +226,7 @@
 }
 
 .signup_content {
-	width: 280px;
+	max-width: 350px;
 	margin-left: auto;
 	margin-right: auto;
 	.signup_ques {
@@ -261,7 +262,7 @@
 }
 .signup_ques_small_1 {
 	color: #aaa;
-	font-size: 13px;
+	font-size: 18px;
 }
 .width_220 {
 	width: 300px;

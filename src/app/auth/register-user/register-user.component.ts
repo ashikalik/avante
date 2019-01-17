@@ -32,7 +32,7 @@ export class RegisterUserComponent implements OnInit {
         'mobile': ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
         'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
         'confirm_password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-        // 'recaptcha': ['', Validators.compose([Validators.required])],
+        'recaptcha': ['', Validators.compose([Validators.required])],
         'agreementChecked': [false, Validators.pattern('true')]
       },
       {
@@ -54,7 +54,6 @@ export class RegisterUserComponent implements OnInit {
 
 
   onRegisterButton(form: any) {
-    console.log(form.value);
     const body = {
       first_name: form.value.first_name,
       last_name: form.value.last_name,

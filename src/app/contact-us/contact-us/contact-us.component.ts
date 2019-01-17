@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactUsService } from '../../api-services/contact-us.service';
+import {EventoError} from "../../models/error";
 
 @Component({
   selector: 'app-contact-us',
@@ -11,6 +12,7 @@ export class ContactUsComponent implements OnInit {
 
   public questionForm: FormGroup;
   public sendQuestionSuccess: any;
+  public contactError: EventoError;
   
 
   constructor(public formBuilder: FormBuilder,
@@ -34,12 +36,13 @@ export class ContactUsComponent implements OnInit {
         'message': [null, Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(400)])],
         'mobile': [null, Validators.compose([Validators.required, Validators.pattern('^(05)[0-9]{8}$')])],
         'email': [null, Validators.compose([Validators.required, Validators.email])],
-        // 'recaptcha': [null, Validators.compose([Validators.required])],
+        'recaptcha': [null, Validators.compose([Validators.required])],
       });
 
   }
 
   public sendQuestion(form: any) {
+      console.log(form.value)
 
     this.sendQuestionSuccess = null;
 
@@ -49,6 +52,7 @@ export class ContactUsComponent implements OnInit {
         this.questionForm.reset();
       },
       err => {
+          this.contactError = err.value.error;
       }
     );
 
