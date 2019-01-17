@@ -1,6 +1,8 @@
-import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { Observable } from "rxjs";
-import { EventDetails } from "../../models/event-details";
+import { EventDetails, Package } from "../../models/event-details";
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BuyTicketService } from '../../api-services/buy-ticket.service';
 
 @Component({
     selector: 'app-pick-ticket',
@@ -9,14 +11,106 @@ import { EventDetails } from "../../models/event-details";
 })
 export class PickTicketComponent implements OnInit {
 
-    @Input() eventDetail$ :Observable<EventDetails>;       
-    @Output() onNextTicketInfo: EventEmitter<any> = new EventEmitter();
+    @Input() eventDetail: EventDetails;
+    @Input() payment: FormGroup;
+    @Output() onNext: EventEmitter<any> = new EventEmitter();
+    @Output() onBack: EventEmitter<any> = new EventEmitter();
     
+    public isSoldOut: boolean = true;
+    public isDateRequired: boolean;
+    public package: Package;
+    public validatePackageRes: any;
 
-    constructor() {
+    constructor(private buyTicketService: BuyTicketService) {
     }
 
     ngOnInit() {
     }
+
+
+    onChangePackage(event) {
+        this.package = this.eventDetail.data.packages.find(x => x.package_id == event);
+        console.log(this.package);
+        this.validatePackage(null, this.package.package_id);
+        this.isDateRequired = this.buyTicketService.isDateRequired(this.package);
+
+    }
+
+    onChangeDate(event) {
+
+    }
+
+    onButtonNext(){
+        console.log(this.payment)        
+        this.onNext.emit();        
+    }
+
+    onButtonBack(){
+        console.log(this.payment)        
+        this.onBack.emit();        
+    }
+
+    onChangeNumOfTickets(event){
+        
+    }
+
+    calcuateTotal(selectedPackage: Package): number{
+        let numbOfTickets = 2;
+        return numbOfTickets * selectedPackage.price;
+    }
+
+
+    public validatePackage(access_date: any, selectedPackage: any) {
+        const body = {
+            event_key: this.eventDetail.data.details.event_key,
+            package_id: selectedPackage,
+            access_date: "2019-12-16"
+        }
+        this.buyTicketService.validatePackage(body).subscribe(res => {
+            this.validatePackageRes = res.data;
+            if (this.validatePackageRes.left >= 1) {
+                this.isSoldOut = false;
+            }
+        })
+    }
+
+
+    // public onSelectPackage(event) {
+    //     this.invoiceVM.resetValidatePackage()
+    //     this.hideSelectTickets = true;
+
+    //     // when nothing has been selected set the package_id to null
+    //     if (event.target.value == null) {
+    //         this.payment.get('package_id').setValue(null);
+    //         this.access_date_required = false;
+    //         this.payment.get('access_date').setValue(null);
+
+    //     }
+
+
+    //     this.selectedPackage = this.listPackages.find(x => x.package_id == event.target.value);
+    //     console.log(this.selectedPackage);
+    //     if (this.selectedPackage && this.selectedPackage.specific_tickets) {
+    //         if (this.selectedPackage.specific_tickets == 1) {
+    //             this.access_date_required = true;
+    //             this.payment.get('access_date').setValidators([Validators.required]);
+    //             this.hideSelectTickets = true;
+    //         } else {
+    //             this.access_date_required = false;
+    //             this.payment.get('access_date').clearValidators();
+    //             this.payment.get('access_date').setValue(null);
+    //         }
+
+    //         if (this.selectedPackage.price > 0) {
+    //             this.isFreePackage = false;
+    //         } else {
+    //             this.isFreePackage = true;
+    //         }
+    //     } else {
+    //         this.isFreePackage = true;
+    //         this.validatePackage('');
+    //     }
+    //     this.payment.updateValueAndValidity();
+    // }
 
 }

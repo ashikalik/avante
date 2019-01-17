@@ -67,8 +67,8 @@
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0 mt-5">
           <div class="form-group text-center">
-            <button type="button" class="btn btn-dark pd-60 md-15" translate>Back</button>
-            <a href="buyticket/step4"><button type="button" class="btn btn-warning md-15" style="color:white;" >{{ 'Next Step' | translate }} &nbsp;<i class="fas fa-chevron-left"></i></button></a>
+            <button type="button" class="btn btn-dark pd-60 md-15" (click)="onButtonBack()" translate>Back</button>
+            <button type="button" class="btn btn-warning md-15" (click)="onButtonNext()" style="color:white;" >{{ 'Next Step' | translate }} &nbsp;<i class="fas fa-chevron-left"></i></button>
           </div>
         </div>
       </div>

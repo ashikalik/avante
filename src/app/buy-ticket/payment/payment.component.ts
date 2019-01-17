@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { Observable } from "rxjs";
+import { EventDetails, Package } from "../../models/event-details";
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-payment',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentComponent implements OnInit {
 
+  @Input() payment: FormGroup;
+  @Output() onNext: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
+  onButtonNext(){
+    console.log(this.payment)        
+    this.onNext.emit();        
+}
+
 
 }
