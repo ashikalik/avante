@@ -3,12 +3,13 @@ import {CommonModule} from '@angular/common';
 import {EventoDatePipe} from './evento-date.pipe';
 import {EventoTimePipe} from './evento-time.pipe';
 import {CoreModule} from "../core/core.module";
-import { EventoDayPipe } from './evento-day.pipe';
-import { EventoMonthPipe } from './evento-month.pipe';
-import { MinMaxPricePipe } from './min-max-price.pipe';
+import {EventoDayPipe} from './evento-day.pipe';
+import {EventoMonthPipe} from './evento-month.pipe';
+import {MinMaxPricePipe} from './min-max-price.pipe';
 import {HttpClient} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {ErrorsComponent} from './errors/errors.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -16,7 +17,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 
 @NgModule({
-    declarations: [EventoDatePipe, EventoTimePipe, EventoDayPipe, EventoMonthPipe, MinMaxPricePipe],
+    declarations: [EventoDatePipe, EventoTimePipe, EventoDayPipe, EventoMonthPipe, MinMaxPricePipe, ErrorsComponent],
     imports: [
         CommonModule,
         CoreModule,
@@ -34,7 +35,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         EventoTimePipe,
         EventoDayPipe,
         EventoMonthPipe,
-        MinMaxPricePipe
+        MinMaxPricePipe,
+        ErrorsComponent
     ]
 })
 export class SharedModule {

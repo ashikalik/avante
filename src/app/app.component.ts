@@ -15,6 +15,8 @@ export class AppComponent implements AfterViewChecked{
 
     public direction: string;
     public isAuthenticated: boolean;
+    public username: string;
+    public userType: number;
     show = false;
 
 
@@ -30,6 +32,9 @@ export class AppComponent implements AfterViewChecked{
             if (event instanceof NavigationStart) {
                 if(this.userAuthService.getToken()) {
                     this.isAuthenticated = true;
+                    let profile = this.userAuthService.getUserProfile();
+                    this.username = profile.data.first_name;
+                    this.userType = profile.data.user_type;
                 } else {
                     this.isAuthenticated = false;
                 }
@@ -65,6 +70,18 @@ export class AppComponent implements AfterViewChecked{
 
         }
     }
+
+    public logout() {
+        this.userAuthService.clearSession();
+        this.router.navigate(['/home']);
+    }
+
+
+    public goHome() {
+        this.router.navigate(['/home']);
+    }
+
+
     onMenuView(event) {
         console.log('menu view');
         $('.nav_toggle .fas.fa-bars').hide();
@@ -102,4 +119,6 @@ export class AppComponent implements AfterViewChecked{
         var rtlStyle = '.fas.fa-chevron-down.embed{right:auto !important; left:20px !important;}.border-left-right {border-left:none !important;  border-right:1px solid #9e9e9e !important;}.slider-accordion-title span{transform:rotate(90deg) !important;}.mr-auto{margin-right:unset !important; margin-left: auto !important;}.ml-auto{margin-left:unset !important; margin-right: auto !important;}.notification{right: auto !important; left: -46px !important;}.header .setting{right:auto !important;left:0px !important;border-radius: 0 8px 8px 0 !important;}.search-accodian .form-check-input{left:auto !important;right:0px !important;}.text_left{text-align: right !important;}.text_left label{margin: 0 20px !important;}.text-right{text-align: left !important;}.search-accodian ul li i{right: auto !important;left: 0 !important;}.steps-setting.float-not-left div:not(.float-not-left), .eventdetail div{float: right !important;}.steps-setting.float-not-left .float-not-left{float:left !important;}.signup_content .form-check-label input[type="checkbox"]{left:auto !important; right:-20px !important;}.badge{right:auto !important;left:-60% !important;}.float_left div{float:right !important;}.partner-items{left:auto;right:0px;}.calendar .back{right: 0px !important;  left:auto !important; float:right;}.calendar .back .fa-chevron-right{display: inline-block !important;}.calendar .back .fa-chevron-left{display: none !important;}.span-left{float:right !important;}@media (max-width: 768px) {.partner-items {animation: slider-mobile-right 15s 2s infinite normal backwards !important;}}';
         $('#langStyle').html(rtlStyle);
     }
+
+
 }

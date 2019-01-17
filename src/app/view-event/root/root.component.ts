@@ -12,7 +12,7 @@ import {EventDetails} from "../../models/event-details";
 export class RootComponent implements OnInit {
 
   public eventKey: string;
-  public eventDetail$: Observable<EventDetails>;
+  public eventDetail: EventDetails;
     lat: number = 51.678418;
     lng: number = 7.809007;
 
@@ -27,14 +27,17 @@ export class RootComponent implements OnInit {
 
   ngOnInit() {
     this.getEventDetail();
-    let date = new Date('2018-10-10');
-    console.log(date.toDateString());
-    // eventoDate
-
   }
 
   public getEventDetail() {
-    this.eventDetail$ = this.eventService.getEventDetail(this.eventKey).pipe()
+    this.eventService.getEventDetail(this.eventKey).subscribe(res => {
+      if(res.data.details == null)
+        this.router.navigate(['/home'])
+      this.eventDetail = res;
+    }, err => {
+      console.log(err)
+        this.router.navigate(['/home'])
+    });
   }
 
   public buyTicket() {
