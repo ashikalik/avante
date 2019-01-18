@@ -16,11 +16,12 @@ export class RootComponent implements OnInit {
 
   public setps: boolean[];
   public eventKey: string;
-  public eventDetail$: Observable<EventDetails>;
-  public isPaymentOpend: boolean
+  public eventDetail: EventDetails;
+  public isPaymentOpend: boolean;
+
   public payment: FormGroup;
-  
-  public packageStatus$: Observable<any>;
+  public visitors: FormArray
+
 
   constructor(public eventService: EventService,
     public buyTicketService: BuyTicketService,
@@ -34,21 +35,11 @@ export class RootComponent implements OnInit {
 
     //this.getEventDetail();
 
-    //to check if the payment is opned or not
-    // this.eventDetail$.subscribe(res => {
-    //   if (res.data.details.ticket_payment == 1) {
-    //     this.isPaymentOpend = true;
-    //   } else {
-    //     this.isPaymentOpend = false;
-    //     this.router.navigate(['/event/' + this.eventKey]);
-    //   }
-    // })
-
     this.setps = [true, false, false, false];
+    this.initForm();
   }
 
   ngOnInit() {
-    this.validateSelectedPackage(null);
   }
 
 
@@ -79,30 +70,48 @@ export class RootComponent implements OnInit {
   }
 
   public getEventDetail() {
-    this.eventDetail$ = this.eventService.getEventDetail(this.eventKey).toPromise();
+    this.eventService.getEventDetail(this.eventKey).subscribe(
+      res => {
+        this.eventDetail = res;
+
+        //to check if the payment is opned or not
+        if (this.eventDetail.data.details.ticket_payment == 1) {
+          this.isPaymentOpend = true;
+        } else {
+          this.isPaymentOpend = false;
+          this.router.navigate(['/event/' + this.eventKey]);
+        }
+      }
+    )
   }
 
 
-  public validateSelectedPackage(access_date: any) {
-    access_date = '2019-12-15'
-    this.packageStatus$ = this.buyTicketService.validatePackage(this.eventKey, 6, access_date);
 
-    this.packageStatus$.subscribe(res => {
-      console.log(res.data);
-    })
+  public changeStepForward(event: any) {
+    if(this.setps[0] == true){
+      this.setps = [false, true, false, false];      
+    }
+    else if (this.setps[1] == true){
+      this.setps = [false, false, true, false];      
+    }
+    else if (this.setps[2] == true){
+      this.setps = [false, false, false, true];      
+    }
+    else if (this.setps[3] == true){
+      this.setps = [false, false, false, false];      
+    }
   }
-
-
-
-  onChangeDate() {
-
-  }
-
-  onChangeNumOfTickets() {
-
-  }
-
-  public changeStep(event: any) {
+  
+  public changeStepBackward(event: any) {
+    if(this.setps[0] == true){
+      this.router.navigate(['/event/' + this.eventKey]);
+    }
+    else if (this.setps[1] == true){
+      this.setps = [true, false, false, false];
+    }
+    else if (this.setps[2] == true){
+      this.setps = [false, true, false, false];      
+    }
 
   }
 
