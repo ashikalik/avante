@@ -1,14 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import * as $ from 'jquery';
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings, RECAPTCHA_LANGUAGE } from 'ng-recaptcha';
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {HttpClient} from "@angular/common/http";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {RECAPTCHA_SETTINGS, RecaptchaSettings, RECAPTCHA_LANGUAGE} from 'ng-recaptcha';
 import {AgmCoreModule} from '@agm/core';
-import { BASE_MODULES } from './models/modules';
+import {BASE_MODULES} from './models/modules';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -36,7 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     providers: [
         {
             provide: RECAPTCHA_SETTINGS,
-            useValue: { siteKey: '6LfoDokUAAAAABirpPJC2G6akcdZ6N9jwXPrYvid' } as RecaptchaSettings,
+            useValue: {siteKey: '6LfoDokUAAAAABirpPJC2G6akcdZ6N9jwXPrYvid'} as RecaptchaSettings,
         },
         {
             provide: RECAPTCHA_LANGUAGE,
