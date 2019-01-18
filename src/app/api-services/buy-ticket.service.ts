@@ -14,12 +14,12 @@ export class BuyTicketService {
     constructor(private httpClient: HttpClient) {
     }
 
-    public isDateRequired(selectedPackage: Package): boolean{
+    public isDateRequired(selectedPackage: Package): boolean {
         console.log(selectedPackage)
-        if(selectedPackage.specific_tickets ===  1){
+        if (selectedPackage.specific_tickets === 1) {
             return true;
         }
-        else{
+        else {
             return false;
         }
     }
@@ -28,11 +28,32 @@ export class BuyTicketService {
         const body = {
             event_key: form.event_key,
             package_id: form.package_id,
-            access_date:form.access_date,
+            access_date: form.access_date,
         }
         const url = NetworkConfig.BASE_URL + NetworkConfig.VALIDATE_PACKAGE;
-        return this.httpClient.post<any>(url,body);
-      }
+        return this.httpClient.post<any>(url, body);
+    }
+
+
+    public createInvoice(form: any, event_key: string):  Observable<any>{
+        console.log("service");
+        console.log(form)
+        var body = {
+            event_key: event_key,
+            package_id: form.package_id,
+            first_name: form.first_name,
+            last_name: form.last_name,
+            mobile: form.mobile,
+            email: form.email,
+            num_ticket: form.num_ticket,
+            access_date: form.access_date,
+            list: form.visitors,
+            recaptcha: form.recaptcha
+        };
+
+        const url = NetworkConfig.BASE_URL + NetworkConfig.CREATE_INVOICE_PAYMENT
+        return this.httpClient.post<any>(url, body);
+    }
 
 
 }

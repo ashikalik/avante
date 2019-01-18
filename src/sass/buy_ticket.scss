@@ -33,13 +33,21 @@
 			text-align: center;
 			font-size: 10px;
 			color: #9e9e9e;
+			display: inline-block;
 		}
 	}
 	.ticket-div.active {
 		border: 1px solid #0f1f2c;
-		span {
-			color: #0f1f2c;
+		span, p {
+			color: #f8a027;
 		}
+	}
+	.ticket-div.completed {
+		border: 1px solid #0f1f2c;
+		span, p {
+			color: #4ac2b8;
+		}
+
 	}
 	.ticket-gap {
 		width: 100px;
@@ -57,6 +65,37 @@
 	.steps-setting {
 		float: left;
 		//padding-top: 107px;
+
+		.form-group{
+			width: 100% !important;
+		}
+		div {
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.justify-content-end {
+			float: right;
+		}
+		.align-items-center {
+			height: 54px;
+			p {
+
+			}
+		}
+		.text-left p {
+			font-size: 18px;
+			font-weight: 600;
+			margin-bottom: 13px;
+		}
+		.underline {
+			border-bottom: 1px solid #9e9e9e;
+			margin-bottom: 10px;
+		}
+		.pd-0 {
+			padding-left: 0;
+			padding-right: 0;
+		}
 		h6 {
 			margin-top: 10px;
 			font-size: 18px;
@@ -139,10 +178,11 @@
 		padding: 0;
 		margin-left: auto;
 		margin-right: auto;
+		width: 100%;
 		.ticket-div {
-		    padding-top: 5px;
+		    // padding-top: 5px;
 			max-width: 100px;
-			width: 22%;
+			width: 25%;
 			height: auto;
 			min-height: 77px;
 			float: left;
@@ -150,7 +190,7 @@
 				margin-top: .4rem;
 			}
 			span {
-				font-size: 9px;
+				font-size: 9px;		
 			}
 		}
 		.ticket-gap {

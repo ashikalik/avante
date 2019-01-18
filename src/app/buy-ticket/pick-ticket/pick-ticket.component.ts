@@ -15,13 +15,19 @@ export class PickTicketComponent implements OnInit {
     @Input() payment: FormGroup;
     @Output() onNext: EventEmitter<any> = new EventEmitter();
     @Output() onBack: EventEmitter<any> = new EventEmitter();
-    
+    @Output() selectedPackage: EventEmitter<any> = new EventEmitter();    
+
+    public visitors: FormArray;
+
     public isSoldOut: boolean = true;
     public isDateRequired: boolean;
     public package: Package;
     public validatePackageRes: any;
+    public total: number;
+    public numbOfTickets: number;
 
-    constructor(private buyTicketService: BuyTicketService) {
+    constructor(private buyTicketService: BuyTicketService,
+        public formBuilder: FormBuilder) {
     }
 
     ngOnInit() {
@@ -30,9 +36,10 @@ export class PickTicketComponent implements OnInit {
 
     onChangePackage(event) {
         this.package = this.eventDetail.data.packages.find(x => x.package_id == event);
-        console.log(this.package);
+        this.selectedPackage.emit(this.package);
         this.validatePackage(null, this.package.package_id);
         this.isDateRequired = this.buyTicketService.isDateRequired(this.package);
+        this.calcuateTotal();
 
     }
 
@@ -40,23 +47,29 @@ export class PickTicketComponent implements OnInit {
 
     }
 
-    onButtonNext(){
-        console.log(this.payment)        
-        this.onNext.emit();        
+
+    onChangeNumOfTickets(event) {
+        this.numbOfTickets = event;
+        this.calcuateTotal();
+        this.payment.setControl('visitors', new FormArray([]));
+        for (let i = 0; i < this.numbOfTickets; i++) {
+            this.visitors = this.payment.get('visitors') as FormArray;
+            this.visitors.push(this.createVisitor());
+        }
     }
 
-    onButtonBack(){
-        console.log(this.payment)        
-        this.onBack.emit();        
+
+    public createVisitor() {
+        return this.formBuilder.group({
+            first_name: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
+            last_name: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])]
+        });
     }
 
-    onChangeNumOfTickets(event){
-        
-    }
-
-    calcuateTotal(selectedPackage: Package): number{
-        let numbOfTickets = 2;
-        return numbOfTickets * selectedPackage.price;
+    calcuateTotal() {
+        this.numbOfTickets = this.payment.get('num_ticket').value;
+        this.total = this.numbOfTickets * this.package.price;
+        console.log(this.total)
     }
 
 
@@ -72,6 +85,16 @@ export class PickTicketComponent implements OnInit {
                 this.isSoldOut = false;
             }
         })
+    }
+
+    onButtonNext() {
+        console.log(this.payment)
+        this.onNext.emit();
+    }
+
+    onButtonBack() {
+        console.log(this.payment)
+        this.onBack.emit();
     }
 
 

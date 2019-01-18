@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from "../../api-services/event.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
-import { EventDetails } from "../../models/event-details";
+import { EventDetails, Package } from "../../models/event-details";
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -20,8 +20,9 @@ export class RootComponent implements OnInit {
   public isPaymentOpend: boolean;
 
   public payment: FormGroup;
-  public visitors: FormArray
-
+  public visitors: FormArray;
+  public completedPayment: boolean;
+  public selectedPackage: Package;
 
   constructor(public eventService: EventService,
     public buyTicketService: BuyTicketService,
@@ -29,11 +30,14 @@ export class RootComponent implements OnInit {
     public formBuilder: FormBuilder,
     public router: Router) {
 
+    this.completedPayment = false;
+    this.isPaymentOpend = false;
+
     this.activatedRout.params.subscribe(params => {
       this.eventKey = params['id'];
     });
 
-    //this.getEventDetail();
+    this.getEventDetail();
 
     this.setps = [true, false, false, false];
     this.initForm();
@@ -54,13 +58,13 @@ export class RootComponent implements OnInit {
         'num_ticket': ['', Validators.compose([Validators.required])],
         'visitors': this.formBuilder.array([]),
         'access_date': [null],
-        'card_holder': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
-        'card_number': ['', Validators.compose([Validators.required, Validators.pattern('^([0-9]{16})$')])],
-        'month_expire': ['', Validators.compose([Validators.required, Validators.pattern('^(0[1-9]|1[0-2])$')])],
-        'year_expire': ['', Validators.compose([Validators.required, Validators.pattern('^(2[0-1])(1[8-9]|2[0-9])$')])],
-        'csv': ['', Validators.compose([Validators.required, Validators.pattern('^([0-9]{3})$')])],
-        'callback_url': ['', Validators.compose([])],
-        'amount': ['', Validators.compose([])],
+        // 'card_holder': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
+        // 'card_number': ['', Validators.compose([Validators.required, Validators.pattern('^([0-9]{16})$')])],
+        // 'month_expire': ['', Validators.compose([Validators.required, Validators.pattern('^(0[1-9]|1[0-2])$')])],
+        // 'year_expire': ['', Validators.compose([Validators.required, Validators.pattern('^(2[0-1])(1[8-9]|2[0-9])$')])],
+        // 'csv': ['', Validators.compose([Validators.required, Validators.pattern('^([0-9]{3})$')])],
+        // 'callback_url': ['', Validators.compose([])],
+        // 'amount': ['', Validators.compose([])],
         'recaptcha': [null, Validators.compose([Validators.required])],
       });
 
@@ -86,32 +90,54 @@ export class RootComponent implements OnInit {
   }
 
 
+  public getSelectedPackage(event: any){
+    this.selectedPackage = event;
+  }
 
   public changeStepForward(event: any) {
-    if(this.setps[0] == true){
-      this.setps = [false, true, false, false];      
+    if (this.setps[0] == true) {
+      this.setps = [false, true, false, false];
     }
-    else if (this.setps[1] == true){
-      this.setps = [false, false, true, false];      
+    else if (this.setps[1] == true) {
+      this.setps = [false, false, true, false];
     }
-    else if (this.setps[2] == true){
-      this.setps = [false, false, false, true];      
+    else if (this.setps[2] == true) {
+      this.setps = [false, false, false, true];
     }
-    else if (this.setps[3] == true){
-      this.setps = [false, false, false, false];      
+    else if (this.setps[3] == true) {
+      this.setps = [false, false, false, false];
     }
   }
-  
+
   public changeStepBackward(event: any) {
-    if(this.setps[0] == true){
+    if (this.setps[0] == true) {
       this.router.navigate(['/event/' + this.eventKey]);
     }
-    else if (this.setps[1] == true){
+    else if (this.setps[1] == true) {
       this.setps = [true, false, false, false];
     }
-    else if (this.setps[2] == true){
-      this.setps = [false, true, false, false];      
+    else if (this.setps[2] == true) {
+      this.setps = [false, true, false, false];
     }
+
+  }
+
+  public buyTicket() {
+    this.buyTicketService.createInvoice(this.payment.value, this.eventDetail.data.details.event_key).subscribe(
+      res => {
+        console.log(res);
+        // this is for free ticket to show success payment
+        if (res.price === 0 && res.total_with_vat === 0) {
+          this.completedPayment = true;
+        } else {
+          this.completedPayment = false;
+        }
+
+        this.changeStepForward(null);
+
+      }
+    )
+
 
   }
 
