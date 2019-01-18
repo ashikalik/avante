@@ -1,0 +1,27 @@
+<div class="main_container">
+  <div class="container-fluid account-container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-center">
+        <!--<div class="col-lg-4 col-md-4 col-sm-12 col-12 pl-4 pr-4 text-center position-relative" style="height: max-content;">-->
+          <!--<p class="grey-color">Your file is 75% complete</p>-->
+          <!--<div class="position-relative">-->
+            <!--<img class="w-100 account-image img-fluid" src="assets/user.png" alt="">-->
+            <!--<img class="w-100 progress-image img-fluid" src="assets/circle_progress.png" alt="">-->
+          <!--</div>-->
+          <!--<p class="grey-color mt-2">Upload Image</p>-->
+          <!--<input type="file" class="">-->
+        <!--</div>-->
+        <div class="col-lg-10 col-md-10 col-sm-12 col-12 pl-4 pr-4 account-content">
+
+          <app-user [userProfile]="userProfile"></app-user>
+
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5 mb-3" *ngIf="userProfile.data.userType === 1">
+            <button type="button" class="w-100 btn btn-gradient" translate>View CV</button>
+          </div>
+
+          <app-my-ticket></app-my-ticket>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -162,5 +162,19 @@
   "We allow you to use the volunteer management system and evaluate them electronically":"نسمح لك باستخدام نظام إدارة المتطوعين والمنظمين وتقييمهم إلكترونياً",
   "We show your effectiveness on our website and our application available on smart devices":"نظهر فعاليتك على موقعنا على شبكة الإنترنت وتطبيقاتنا متاحة على الأجهزة الذكية",
   "We give an opportunity to people who are interested in working as organizers in one or more of the events in our platforms with extreme ease":"نمنح الفرصة للأشخاص المهتمين بالعمل كمنظمين في واحد أو أكثر من الأحداث في منصاتنا بكل سهولة",
-  "Name":"الإسم"
+  "Name":"الإسم",
+  "PERSONAL INFORMATION":"المعلومات الشخصية",
+  "EDIT":"تعديل",
+  "PASSWORD MANAGEMENT":"إدارة كلمة المرور",
+  "Old password":"كلمة المرور القديمة",
+  "New password":"كلمة المرور الجديدة",
+  "Confirm New password":"تأكيد كلمة المرور الجديدة",
+  "Change":"تغيير",
+  "View CV":"عرض السيرة الذاتية",
+  "MY TICKETS":"تذاكري",
+  "Previous":"السابق",
+  "This field should be at least 3 characters":"الحقل يجب ان لايقل عن ٣ احرف",
+  "This filed should be at most 40 characters":"الحقل يجب ان لايزيد عن ٤٠ حرف",
+  "Your information has been updated successfully":"تم تحديث المعلومات الشخصية بنجاح",
+  "Your password has been updated successfully":"تم تحديث كلمة المرور بنجاح"
 }

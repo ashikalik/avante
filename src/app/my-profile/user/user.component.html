@@ -1,0 +1,119 @@
+<form [formGroup]="infoForm" (ngSubmit)="updateInfo(infoForm)">
+
+  <app-errors [errors]="errorInfo" *ngIf="errorInfo"></app-errors>
+  <div class="alert alert-success" *ngIf="successInfo" translate>
+    Your information has been updated successfully
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+    <p class="grey-color" translate>PERSONAL INFORMATION</p>
+    <div class="position-relative">
+      <input type="text" class="form-control evento_input grey-color mt-2" formControlName="first_name" placeholder="{{ 'First Name' | translate }}">
+      <div class="error"
+           *ngIf="infoForm.controls['first_name'].hasError('required') && !infoForm.controls['first_name'].pristine"
+           translate>This field is required
+      </div>
+      <div class="error"
+           *ngIf="infoForm.controls['first_name'].hasError('minlength') && !infoForm.controls['first_name'].pristine"
+           translate>
+        This field should be at least 3 characters
+      </div>
+      <div class="error"
+           *ngIf="infoForm.controls['first_name'].hasError('maxlength') && !infoForm.controls['first_name'].pristine"
+      translate>
+        This filed should be at most 40 characters
+      </div>
+
+    </div>
+    <div class="position-relative">
+      <input type="text" class="form-control evento_input grey-color mt-2" formControlName="last_name" placeholder="{{ 'Last Name' | translate }}">
+      <div class="error"
+           *ngIf="infoForm.controls['last_name'].hasError('required') && !infoForm.controls['last_name'].pristine"
+           translate>This field is required
+      </div>
+      <div class="error"
+           *ngIf="infoForm.controls['last_name'].hasError('minlength') && !infoForm.controls['last_name'].pristine"
+           translate>
+        This field should be at least 3 characters
+      </div>
+      <div class="error"
+           *ngIf="infoForm.controls['last_name'].hasError('maxlength') && !infoForm.controls['last_name'].pristine" translate>
+        This filed should be at most 40 characters
+      </div>
+
+    </div>
+    <div class="position-relative">
+      <input type="email" class="form-control evento_input grey-color mt-2" formControlName="email" placeholder="{{ 'Email' | translate }}">
+    </div>
+    <div class="position-relative">
+      <input type="text" class="form-control evento_input grey-color mt-2" formControlName="mobile" placeholder="{{ 'Phone Number' | translate }}">
+      <div class="error"
+           *ngIf="infoForm.controls['mobile'].hasError('required') && !infoForm.controls['mobile'].pristine"
+           translate>
+        This field is required
+      </div>
+      <div class="error"
+           *ngIf="infoForm.controls['mobile'].hasError('pattern') && !infoForm.controls['mobile'].pristine"
+           translate>
+        Mobile number is invalid
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4 d-flex justify-content-end">
+    <button type="submit" class="btn btn-danger pd-100" translate [disabled]="infoForm.invalid">EDIT</button>
+  </div>
+</form>
+
+
+<form [formGroup]="passwordForm" (ngSubmit)="updatePassword(passwordForm)" class="mt-5">
+  <app-errors [errors]="errorPassword" *ngIf="errorPassword"></app-errors>
+  <div class="alert alert-success" *ngIf="successPassword" translate>
+    Your password has been updated successfully
+  </div>
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 ">
+    <p class="grey-color" translate>PASSWORD MANAGEMENT</p>
+    <div class="position-relative">
+      <input type="password" class="form-control evento_input grey-color mt-2" formControlName="current_password">
+      <label class="embed-text grey-color" translate>Old password</label>
+      <div class="error"
+           *ngIf="passwordForm.controls['current_password'].hasError('required') && !passwordForm.controls['current_password'].pristine"
+           translate>This field is required
+      </div>
+    </div>
+    <div class="position-relative">
+      <input type="password" class="form-control evento_input grey-color mt-2" formControlName="new_password">
+      <label class="embed-text grey-color" translate>New password</label>
+      <div class="error"
+           *ngIf="passwordForm.controls['new_password'].hasError('required') && !passwordForm.controls['new_password'].pristine"
+           translate>This field is required
+      </div>
+      <div class="error"
+           *ngIf="passwordForm.controls['new_password'].hasError('minlength') && !passwordForm.controls['new_password'].pristine"
+           translate>Password most have more than 6 characters
+      </div>
+
+    </div>
+    <div class="position-relative">
+      <input type="password" class="form-control evento_input grey-color mt-2" formControlName="confirm_password">
+      <label class="embed-text grey-color" translate>Confirm New password</label>
+      <div class="error"
+           *ngIf="passwordForm.controls['confirm_password'].hasError('required') && !passwordForm.controls['confirm_password'].pristine"
+           translate>This field is required
+      </div>
+      <div class="error"
+           *ngIf="passwordForm.controls['confirm_password'].hasError('minlength') && !passwordForm.controls['confirm_password'].pristine"
+           translate> Password most have more than 6 characters
+      </div>
+      <div class="error"
+           *ngIf="passwordForm.controls['new_password'].value !== passwordForm.controls['confirm_password'].value" translate>
+        Password doesn't match
+      </div>
+
+    </div>
+  </div>
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4 d-flex justify-content-end">
+    <button type="submit" class="btn btn-grey pd-100" translate [disabled]="passwordForm.invalid">Change</button>
+  </div>
+</form>

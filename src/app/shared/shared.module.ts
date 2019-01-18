@@ -10,6 +10,7 @@ import {HttpClient} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {ErrorsComponent} from './errors/errors.component';
+import { MobilePipe } from './mobile.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -17,7 +18,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 
 @NgModule({
-    declarations: [EventoDatePipe, EventoTimePipe, EventoDayPipe, EventoMonthPipe, MinMaxPricePipe, ErrorsComponent],
+    declarations: [EventoDatePipe, EventoTimePipe, EventoDayPipe, EventoMonthPipe, MinMaxPricePipe, ErrorsComponent, MobilePipe],
     imports: [
         CommonModule,
         CoreModule,
@@ -36,7 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         EventoDayPipe,
         EventoMonthPipe,
         MinMaxPricePipe,
-        ErrorsComponent
+        ErrorsComponent,
+        MobilePipe
     ]
 })
 export class SharedModule {

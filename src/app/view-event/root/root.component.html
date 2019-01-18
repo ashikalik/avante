@@ -28,7 +28,7 @@
                                     <p></p>
                                 </div>
                             </div>
-                            <app-event-roles [policy]="eventDetail.policy" *ngIf="eventDetail.data.policy"></app-event-roles>
+                            <app-event-roles [policy]="eventDetail.data.policy" *ngIf="eventDetail.data.policy"></app-event-roles>
                             <div class="col-lg-12 col-sm-12 col-12 underline mb-3">
                                 <h5 translate>Tickets</h5>
                             </div>
@@ -36,7 +36,12 @@
                             <app-event-tickets [ticket]="ticket"  *ngFor="let ticket of eventDetail.data.packages"></app-event-tickets>
                             <div class="col-lg-12 col-sm-12 col-12 text_left justify-content-start">
                                 <div class="col-lg-4 col-sm-4 col-12 text-right justify-content-end">
-                                    <button type="button" class="btn btn-danger pd-40" (click)="buyTicket();" translate>Buy Now</button>
+                                    <button
+                                            type="button"
+                                            class="btn btn-danger pd-40"
+                                            (click)="buyTicket();"
+                                            *ngIf="eventDetail.data.details.ticket_payment == 1"
+                                            translate>Buy Now</button>
                                 </div>
                             </div>
                         </div>
