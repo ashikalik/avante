@@ -68,7 +68,7 @@
   "Password doesn't match":"كلمتي المرور غير متطابقة",
   "I agree to the Terms and Conditions":"موافق على ‏الشروط‏ و الاحكام",
   "Back": "الخلف",
-  "Join": "سجل",
+  "Join": "انضم",
   "Join us as member":"إنضم لنا كعضو",
   "Join us as a Company":"إنضم لنا كشركة تنظيم",
   "First Name":"الإسم الأول",
@@ -152,5 +152,14 @@
   "Name should be at most 20 characters":"الاسم يجب أن لايزيد عن ٢٠ حرف",
   "Field should be at most 200 characters":"الحقل يجب أن لايزيد عن ٢٠٠ حرف",
   "Field should be at most 400 characters":"الحقل يجب أن لايزيد عن ٤٠٠ حرف",
-  "Mobile number is invalid":"صيغة رقم الجوال غير صحيحة"
+  "Mobile number is invalid":"صيغة رقم الجوال غير صحيحة",
+  "SEND MESSAGE":"ارسل رسالتك",
+  "OUR VISION":"رؤيتنا",
+  "OUR SERVICES":"خدماتنا",
+  "We organize the ticketing process and sell it electronically":"ننظم عملية إصدار التذاكر ونبيعها إلكترونياً",
+  "We provide you with an event management system":"نقدم لك نظام لإدارة تنظيم الفعاليات والمؤتمرات",
+  "We provide you with instant and detailed reports and statistics before and after the event":"نقدم لك تقارير وإحصائيات فورية ومفصلة قبل وبعد الفعالية / المؤتمر",
+  "We allow you to use the volunteer management system and evaluate them electronically":"نسمح لك باستخدام نظام إدارة المتطوعين والمنظمين وتقييمهم إلكترونياً",
+  "We show your effectiveness on our website and our application available on smart devices":"نظهر فعاليتك على موقعنا على شبكة الإنترنت وتطبيقاتنا متاحة على الأجهزة الذكية",
+  "We give an opportunity to people who are interested in working as organizers in one or more of the events in our platforms with extreme ease":"نمنح الفرصة للأشخاص المهتمين بالعمل كمنظمين في واحد أو أكثر من الأحداث في منصاتنا بكل سهولة"
 }
