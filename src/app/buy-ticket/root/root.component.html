@@ -1,50 +1,76 @@
 <div class="main_container">
   <div class="container-fluid ticket-container">
     <div class="row justify-content-center">
-      <div class="col-lg-8 col-md-10 col-sm-12 text-center justify-content-center">
+      <div class="col-lg-8 col-md-10 col-sm-12 text-center justify-content-center mt-4">
         <h3 class="text_left" translate>BUY YOUR TICKETS!</h3>
         <p class="explain text_left" translate>You are minutes from getting your tickets. Please fill the steps below</p>
         <div class="">
-          <div class="col-lg-2 col-md-2 col-sm-2 col-12 text-center justify-content-start steps span-left">
-            <div class="ticket-div active">
-              <img class="img-fluid" src="assets/ticket-icons/42x24-ticket-icon-Orange.png" alt="" />
-              <p class="step-text" style="color:#f8a027;" translate>Step 1</p>
-              <span translate>Pick your Tickets</span>
+          <div class="col-lg-2 col-md-2 col-sm-12 col-12 text-center justify-content-center steps span-left">
+
+            <div class="ticket-div " [ngClass]="{'active' : setps[0]  && !setps[1] && !setps[2] && !setps[3],
+            'completed' : !setps[0]  && (setps[1] || setps[2] || setps[3]),
+            '':'' }">
+            <img *ngIf="setps[0]  && !setps[1] && !setps[2] && !setps[3]" class="img-fluid" src="assets/ticket-icons/42x24-ticket-icon-Orange.png" alt="" />
+            <img *ngIf="!setps[0]  && (setps[1] || setps[2] || setps[3])" class="img-fluid" src="assets/ticket-icons/42x24-ticket-icon-Green.png" alt="" />
+            <p class="step-text d-none d-sm-block" translate>Step 1</p>
+              <span  translate>Pick your Tickets</span>
             </div>
             <div class="ticket-gap">
               <i class="fas fa-chevron-down embed"></i>
               <i class="fas fa-chevron-right embed"></i>
             </div>
-            <div class="ticket-div">
-              <img class="img-fluid" src="assets/ticket-icons/32x31-user-icon-grey.png" alt="" />
-              <p class="step-text" translate>Step 2</p>
+
+
+            <div class="ticket-div" [ngClass]="{'active' : !setps[0]  && setps[1] && !setps[2] && !setps[3],
+            'completed' : !setps[0]  && !setps[1] && (setps[2] || setps[3]),
+            '':'' }">
+            <img *ngIf="setps[0]  && !setps[1] && !setps[2] && !setps[3]" class="img-fluid" src="assets/ticket-icons/32x31-user-icon-grey.png" alt="" />
+            <img *ngIf="!setps[0]  && setps[1] && !setps[2] && !setps[3]" class="img-fluid" src="assets/ticket-icons/32x31-user-icon-orange.png" alt="" />
+            <img *ngIf="!setps[0]  && !setps[1] && (setps[2] || setps[3])" class="img-fluid" src="assets/ticket-icons/32x31-user-icon-green.png" alt="" />
+            <p class="step-text d-none d-sm-block" translate>Step 2</p>
               <span translate>Tickets Info</span>
             </div>
             <div class="ticket-gap">
               <i class="fas fa-chevron-down embed grey-color"></i>
               <i class="fas fa-chevron-right embed grey-color"></i>
             </div>
-            <div class="ticket-div">
-              <img class="img-fluid" src="assets/ticket-icons/32x31-check-icon-grey.png" alt="" />
-              <p class="step-text" translate>Step 3</p>
+
+
+            <div class="ticket-div"  [ngClass]="{'active' : !setps[0]  && !setps[1] && setps[2] && !setps[3],
+            'completed' : !setps[0]  && !setps[1] && !setps[2] && setps[3],
+            '':'' }">
+            <img *ngIf=" !setps[2] && !setps[3]"  class="img-fluid" src="assets/ticket-icons/32x31-check-icon-grey.png" alt="" />
+            <img  *ngIf="!setps[0]  && !setps[1] && setps[2] && !setps[3]" class="img-fluid" src="assets/ticket-icons/32x31-check-icon-orange.png" alt="" />
+            <img *ngIf="!setps[0]  && !setps[1] && !setps[2] && setps[3]" class="img-fluid" src="assets/ticket-icons/32x31-check-icon-green.png" alt="" />
+            <p class="step-text d-none d-sm-block" translate>Step 3</p>
               <span translate>Tickets Review</span>
             </div>
+
+
+            <div *ngIf="selectedPackage && selectedPackage.price > 0" >
             <div class="ticket-gap">
               <i class="fas fa-chevron-down embed grey-color"></i>
               <i class="fas fa-chevron-right embed grey-color"></i>
             </div>
-            <div class="ticket-div">
-              <img class="img-fluid" src="assets/ticket-icons/30x32-payment-icon-grey.png" alt="" />
-              <p class="step-text" translate>Step 4</p>
+
+            <div class="ticket-div" [ngClass]="{'active' : !setps[0]  && !setps[1] && !setps[2] && setps[3],
+            'completed' : !setps[0]  && !setps[1] && !setps[2] && !setps[3],
+            '':'' }">
+            <img *ngIf=" !setps[3]"  class="img-fluid" src="assets/ticket-icons/30x32-payment-icon-grey.png" alt="" />
+            <img *ngIf="!setps[0]  && !setps[1] && !setps[2] && setps[3]" class="img-fluid" src="assets/ticket-icons/30x32-payment-icon-orange.png" alt="" />
+            <img *ngIf="!setps[0]  && !setps[1] && !setps[2] && !setps[3]" class="img-fluid" src="assets/ticket-icons/30x32-payment-icon-green.png" alt="" />
+            <p class="step-text d-none d-sm-block" translate>Step 4</p>
               <span translate>Payment</span>
             </div>
+            </div>
+
           </div>
 
           <form [formGroup]="payment">
             <div *ngIf="eventDetail">
-              <app-pick-ticket *ngIf="setps[0] === true" [eventDetail]="eventDetail" [payment]="payment" (onNext)="changeStepForward($event)" (onBack)="changeStepBackward($event)"></app-pick-ticket>
-              <app-ticket-info *ngIf="setps[1] === true" (onNext)="changeStepForward($event)" (onBack)="changeStepBackward($event)"></app-ticket-info>
-              <app-ticket-review *ngIf="setps[2] === true" (onNext)="changeStepForward($event)" (onBack)="changeStepBackward($event)"></app-ticket-review>
+              <app-pick-ticket *ngIf="setps[0] === true" [eventDetail]="eventDetail" [payment]="payment" (onNext)="changeStepForward($event)" (onBack)="changeStepBackward($event)" (selectedPackage)="getSelectedPackage($event)"></app-pick-ticket>
+              <app-ticket-info *ngIf="setps[1] === true"  [payment]="payment"  (onNext)="changeStepForward($event)" (onBack)="changeStepBackward($event)"></app-ticket-info>
+              <app-ticket-review *ngIf="setps[2] === true"  [payment]="payment" [eventDetail]="eventDetail" (onBuyTickets)="buyTicket($event)" (onBack)="changeStepBackward($event)"></app-ticket-review>
               <app-payment *ngIf="setps[3] === true" (onNext)="changeStepForward($event)"></app-payment>
             </div>
           </form>

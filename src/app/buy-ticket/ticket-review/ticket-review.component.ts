@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { Observable } from "rxjs";
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BuyTicketService } from '../../api-services/buy-ticket.service';
+import { EventDetails, Package } from "../../models/event-details";
 
 
 @Component({
@@ -10,18 +12,31 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class TicketReviewComponent implements OnInit {
 
-  @Output() onNext: EventEmitter<any> = new EventEmitter();
+  @Output() onBuyTickets: EventEmitter<any> = new EventEmitter();
   @Output() onBack: EventEmitter<any> = new EventEmitter();  
   @Input() payment: FormGroup;
+  @Input() eventDetail: EventDetails;
 
-  constructor() { }
+  public selectedPackage: Package;
+  public isDateRequired: boolean;
+  public totalWithoutVat: number;
+  
+  constructor(private buyTicketService: BuyTicketService) { }
 
   ngOnInit() {
+    let package_id = this.payment.get('package_id').value;
+    this.selectedPackage = this.eventDetail.data.packages.find(x => x.package_id == package_id); 
+    this.isDateRequired = this.buyTicketService.isDateRequired(this.selectedPackage);    
+    this.calculatTotal();
   }
 
-  onButtonNext() {
+  public calculatTotal() {
+    this.totalWithoutVat =  this.payment.get('num_ticket').value * this.selectedPackage.price;
+}
+
+  onBuyButton() {
     console.log(this.payment)
-    this.onNext.emit();
+    this.onBuyTickets.emit();
   }
 
   onButtonBack(){
