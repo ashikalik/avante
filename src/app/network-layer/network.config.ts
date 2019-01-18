@@ -49,7 +49,7 @@ export const NetworkConfig = {
     DELETE_EXPERIENCE       : '/cv/delete_experience',
     QUALIFICATION           : '/cv/qualification',
     DELETE_QUALIFICATION    : '/cv/delete_qualification',
-    SING_UP                 : '/users',
+    USERS                   : '/users',
     NATIONALITIES           : '/common/nationality',
     EDUCATIONS              : '/common/educations',
     CONTACT_US              : '/contact/send',

@@ -14,7 +14,7 @@ export class AuthService {
   }
 
   public signup(body: any): Observable<any> {
-    const url = NetworkConfig.BASE_URL + NetworkConfig.SING_UP;
+    const url = NetworkConfig.BASE_URL + NetworkConfig.USERS;
     return this.httpClient.post<any>(url, body);
   }
 
