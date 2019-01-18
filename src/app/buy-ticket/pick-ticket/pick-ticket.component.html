@@ -2,6 +2,17 @@
 
   <div class="col-lg-10 col-md-10 col-sm-10 text-center justify-content-center steps-setting">
 
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center justify-content-center">
+      <div class="form-group position-relative">
+        <select class="form-control evento_input evento_select" name="sellist" (change)="onChangePackage($event.target.value)">
+          <option disabled selected hidden translate>Pick your tickets</option>
+          <option [value]="package.package_id" *ngFor="let package of eventDetails.packages" >{{ package.name }}</option>
+        </select> 
+        <i class="fas fa-chevron-down embed"></i>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center justify-content-center">
         <div class="form-group position-relative">

@@ -3,6 +3,7 @@ import { EventService } from "../../api-services/event.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { EventDetails } from "../../models/event-details";
+import { BuyTicketService } from '../../api-services/buy-ticket.service';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
@@ -13,6 +14,7 @@ import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class RootComponent implements OnInit {
 
+  public setps: boolean[];
   public eventKey: string;
   public eventDetail: EventDetails;
   public isPaymentOpend: boolean;
@@ -20,9 +22,9 @@ export class RootComponent implements OnInit {
   public payment: FormGroup;
   public visitors: FormArray
 
-  public setps: boolean[];
 
   constructor(public eventService: EventService,
+    public buyTicketService: BuyTicketService,
     public activatedRout: ActivatedRoute,
     public formBuilder: FormBuilder,
     public router: Router) {
@@ -31,7 +33,7 @@ export class RootComponent implements OnInit {
       this.eventKey = params['id'];
     });
 
-    this.getEventDetail();
+    //this.getEventDetail();
 
     this.setps = [true, false, false, false];
     this.initForm();
@@ -40,22 +42,6 @@ export class RootComponent implements OnInit {
   ngOnInit() {
   }
 
-
-  public getEventDetail() {
-    this.eventService.getEventDetail(this.eventKey).subscribe(
-      res => {
-        this.eventDetail = res;
-
-        //to check if the payment is opned or not
-        if (this.eventDetail.data.details.ticket_payment == 1) {
-          this.isPaymentOpend = true;
-        } else {
-          this.isPaymentOpend = false;
-          this.router.navigate(['/event/' + this.eventKey]);
-        }
-      }
-    )
-  }
 
   public initForm() {
     this.payment = this.formBuilder.group(
@@ -79,9 +65,24 @@ export class RootComponent implements OnInit {
       });
 
     // to update the num of tickets when the value has been changed
-    // this.updateNumberOfTickets();
-    // this.onChangeAccessDate();
+    //this.updateNumberOfTickets();
+    //this.onChangeAccessDate();
+  }
 
+  public getEventDetail() {
+    this.eventService.getEventDetail(this.eventKey).subscribe(
+      res => {
+        this.eventDetail = res;
+
+        //to check if the payment is opned or not
+        if (this.eventDetail.data.details.ticket_payment == 1) {
+          this.isPaymentOpend = true;
+        } else {
+          this.isPaymentOpend = false;
+          this.router.navigate(['/event/' + this.eventKey]);
+        }
+      }
+    )
   }
 
 
@@ -100,7 +101,6 @@ export class RootComponent implements OnInit {
       this.setps = [false, false, false, false];      
     }
   }
-
   
   public changeStepBackward(event: any) {
     if(this.setps[0] == true){
