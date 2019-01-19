@@ -3,6 +3,7 @@ import {NetworkConfig} from '../network-layer/network.config';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {UpdateInformation, UpdatePassword} from "../models/user-profile";
+import {Invoices} from "../models/my-ticket";
 
 @Injectable({
     providedIn: 'root'
@@ -24,9 +25,9 @@ export class ProfileService {
         return this.httpClient.put<any>(url, body);
     }
 
-    public getInvoices(): Observable<any> {
+    public getInvoices(): Observable<Invoices> {
         const url = NetworkConfig.BASE_URL + NetworkConfig.LIST_INVOCICE ;
-        return this.httpClient.get<any>(url);
+        return this.httpClient.get<Invoices>(url);
     }
 
 
