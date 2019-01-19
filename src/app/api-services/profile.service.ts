@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {UpdateInformation, UpdatePassword} from "../models/user-profile";
 import {Invoices} from "../models/my-ticket";
+import {Tickets} from "../models/tickets";
 
 @Injectable({
     providedIn: 'root'
@@ -29,6 +30,14 @@ export class ProfileService {
         const url = NetworkConfig.BASE_URL + NetworkConfig.LIST_INVOCICE ;
         return this.httpClient.get<Invoices>(url);
     }
+
+
+    public getTickets(body: any): Observable<Tickets> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.LIST_TICKETS_OF_INVOCE ;
+        return this.httpClient.post<Tickets>(url, body);
+    }
+
+
 
 
 }

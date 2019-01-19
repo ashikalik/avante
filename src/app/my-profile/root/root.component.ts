@@ -13,6 +13,7 @@ export class RootComponent implements OnInit {
 
   constructor(public userAuthService: UserAuthService) {
       this.userProfile = this.userAuthService.getUserProfile();
+      console.log(this.userProfile)
   }
 
   ngOnInit() {
