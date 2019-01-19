@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { EventDetails, Package } from "../../models/event-details";
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
+import {IMyDpOptions} from 'mydatepicker';
 
 @Component({
     selector: 'app-pick-ticket',
@@ -19,6 +20,18 @@ export class PickTicketComponent implements OnInit {
 
     public visitors: FormArray;
 
+    public myDatePickerOptions: IMyDpOptions = {
+        dateFormat: 'yyyy-mm-dd',
+        editableDateField: false,
+        firstDayOfWeek: 'su',       //to set the first day of the week
+        sunHighlight: false,        //to unhighlight sundays
+        alignSelectorRight: true,    //to align the arrow to the right
+        openSelectorOnInputClick: true,  //open the datepicker once the input is selected
+        disableSince: {year: 2019, month: 1, day: 25},
+        disableUntil:{year: 2019, month: 1, day: 22},
+    };
+
+
     public isSoldOut: boolean = true;
     public isDateRequired: boolean;
     public package: Package;
@@ -34,6 +47,7 @@ export class PickTicketComponent implements OnInit {
     }
 
 
+
     onChangePackage(event) {
         this.package = this.eventDetail.data.packages.find(x => x.package_id == event);
         this.selectedPackage.emit(this.package);
@@ -44,7 +58,8 @@ export class PickTicketComponent implements OnInit {
     }
 
     onChangeDate(event) {
-
+        this.payment.get('access_date').setValue(event.formatted);
+        
     }
 
 

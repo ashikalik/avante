@@ -8,6 +8,7 @@ import {RecaptchaFormsModule} from 'ng-recaptcha/forms';
 import {NetworkLayerModule} from "../network-layer/network-layer.module";
 import {CommonModule} from '@angular/common';
 import {SharedModule} from "../shared/shared.module";
+import { MyDatePickerModule } from 'mydatepicker';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -22,6 +23,7 @@ export const BASE_MODULES: any[] = [
     ReactiveFormsModule,
     HttpClientModule,
     NetworkLayerModule,
+    MyDatePickerModule,
     RecaptchaModule.forRoot(),
     RecaptchaFormsModule,
     TranslateModule.forChild({

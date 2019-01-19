@@ -14,7 +14,10 @@ export class EventHeaderComponent implements OnInit {
 
   constructor(public userAuthService: UserAuthService) {
     let profile = this.userAuthService.getUserProfile();
-    this.userType = profile.data.user_type;
+    if (profile){
+      this.userType = profile.data.user_type;
+      
+    }
   }
 
   ngOnInit() {
