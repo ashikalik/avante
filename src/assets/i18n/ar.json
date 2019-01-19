@@ -175,5 +175,7 @@
   "This field should be at least 3 characters":"الحقل يجب ان لايقل عن ٣ احرف",
   "This filed should be at most 40 characters":"الحقل يجب ان لايزيد عن ٤٠ حرف",
   "Your information has been updated successfully":"تم تحديث المعلومات الشخصية بنجاح",
-  "Your password has been updated successfully":"تم تحديث كلمة المرور بنجاح"
+  "Your password has been updated successfully":"تم تحديث كلمة المرور بنجاح",
+  "Order Info":"تفاصيل الطلب",
+  "Ticket Info":"معلومات التذاكر"
 }

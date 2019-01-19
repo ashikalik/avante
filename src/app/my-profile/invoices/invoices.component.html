@@ -2,7 +2,9 @@
   <p class="grey-color" translate>MY TICKETS</p>
 </div>
 
-<app-single-ticket></app-single-ticket>
+<ng-container *ngIf="invoices">
+  <app-single-invoice [invoice]="invoice" *ngFor="let invoice of invoices.data"></app-single-invoice>
+</ng-container>
 
 <div class="w-100 text-center justify-content-center pagenation mt-5">
   <div class="col-lg-12 col-sm-12 col-12 text-center d-flex justify-content-center">
