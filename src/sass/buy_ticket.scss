@@ -58,7 +58,7 @@
 			margin-bottom: 18px;
 			color: #9e9e9e;
 		}
-		.fas.fa-chevron-right.embed {
+		.fas.fa-chevron-left.embed {
 			display: none;
 		}
 	}
@@ -169,40 +169,46 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.ticket-container {
 		padding-bottom:  50px;
 		padding-top: 50px;
 	}
 	.steps {
-		padding: 0;
+		//padding: 0;
 		margin-left: auto;
 		margin-right: auto;
-		width: 100%;
+		width: auto;
+		display: flex;		
+		align-items: center;
+		justify-content: center;
 		.ticket-div {
 		    // padding-top: 5px;
 			max-width: 100px;
-			width: 25%;
+
+			
+			width: 20%;
 			height: auto;
-			min-height: 77px;
-			float: left;
+			min-height: 80px;
+			float: right;
 			.step-text {
 				margin-top: .4rem;
 			}
 			span {
-				font-size: 9px;		
+				font-size: 9px;	
+				padding: 5px;	
 			}
 		}
 		.ticket-gap {
 			min-height: 77px;
 			width: 4%;
-			float: left;
+			float: right;
 			justify-content: center;
     		display: flex;
 			.fas.fa-chevron-down.embed {
 				display: none;
 			}
-			.fas.fa-chevron-right.embed {
+			.fas.fa-chevron-left.embed {
 				display: block;
 				text-align: center;
 				position: initial;
@@ -220,4 +226,20 @@
 			margin-right: 0px !important;
 		}
 	}
+}
+
+
+
+
+//calander
+.mydp, .mydp .headertodaybtn{
+	border: 1px solid #0b1c2b !important;
+    border-radius: 23px  !important;
+    padding-left: 19px  !important;
+    padding-right: 19px  !important;
+}
+
+.mydp .header {
+    display: contents  !important;
+	direction: ltr  !important;
 }

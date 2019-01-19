@@ -46,7 +46,7 @@ export class BuyTicketService {
             mobile: form.mobile,
             email: form.email,
             num_ticket: form.num_ticket,
-            access_date: form.access_date,
+            access_date: form.access_date.formatted,
             list: form.visitors,
             recaptcha: form.recaptcha
         };

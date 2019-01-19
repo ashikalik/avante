@@ -13,73 +13,15 @@
         </div>
       </div>
 
-      <div *ngIf="isDateRequired">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center justify-content-center">
-          <p class="mb-2 grey-color text_left" translate>Pick a date</p>
-          <div class="small-calendar">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-between" style="direction: ltr;">
-              <p class="fas fa-chevron-left mb-0 d-flex align-items-center"></p>
-              <button type="button" class="btn btn-dark btn-sm">Dec 2018</button>
-              <p class="fas fa-chevron-right mb-0 d-flex align-items-center"></p>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex underline">
-              <span class="text-center flex-fill">Sun</span>
-              <span class="text-center flex-fill">Mon</span>
-              <span class="text-center flex-fill">Tue</span>
-              <span class="text-center flex-fill">Wed</span>
-              <span class="text-center flex-fill">Thu</span>
-              <span class="text-center flex-fill">Fri</span>
-              <span class="text-center flex-fill">Sat</span>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12 date">
-              <div class="d-flex">
-                <span class="text-center flex-fill last">29</span>
-                <span class="text-center flex-fill last">30</span>
-                <span class="text-center flex-fill">1</span>
-                <span class="text-center flex-fill">2</span>
-                <span class="text-center flex-fill">3</span>
-                <span class="text-center flex-fill">4</span>
-                <span class="text-center flex-fill">5</span>
-              </div>
-              <div class="d-flex">
-                <span class="text-center flex-fill">6</span>
-                <span class="text-center flex-fill">7</span>
-                <span class="text-center flex-fill">8</span>
-                <span class="text-center flex-fill">9</span>
-                <span class="text-center flex-fill">10</span>
-                <span class="text-center flex-fill">11</span>
-                <span class="text-center flex-fill">12</span>
-              </div>
-              <div class="d-flex">
-                <span class="text-center flex-fill">13</span>
-                <span class="text-center flex-fill">14</span>
-                <span class="text-center flex-fill selected">15</span>
-                <span class="text-center flex-fill">16</span>
-                <span class="text-center flex-fill">17</span>
-                <span class="text-center flex-fill">18</span>
-                <span class="text-center flex-fill">19</span>
-              </div>
-              <div class="d-flex">
-                <span class="text-center flex-fill">20</span>
-                <span class="text-center flex-fill">21</span>
-                <span class="text-center flex-fill">22</span>
-                <span class="text-center flex-fill">23</span>
-                <span class="text-center flex-fill">24</span>
-                <span class="text-center flex-fill">25</span>
-                <span class="text-center flex-fill">26</span>
-              </div>
-              <div class="d-flex">
-                <span class="text-center flex-fill">27</span>
-                <span class="text-center flex-fill">28</span>
-                <span class="text-center flex-fill">29</span>
-                <span class="text-center flex-fill">30</span>
-                <span class="text-center flex-fill">30</span>
-                <span class="text-center flex-fill last">1</span>
-                <span class="text-center flex-fill last">2</span>
-              </div>
-            </div>
+      
+
+
+
+          <div *ngIf="isDateRequired" class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center mt-3 justify-content-center">
+              <div class="form-group position-relative">
+                  <my-date-picker placeholder="{{ 'Date of entery' | translate }}"  [options]="myDatePickerOptions"
+                  formControlName="access_date" (dateChanged)="onChangeDate($event)"></my-date-picker>      
           </div>
-        </div>
       </div>
 
 

@@ -15,12 +15,12 @@
             <p class="step-text d-none d-sm-block" translate>Step 1</p>
               <span  translate>Pick your Tickets</span>
             </div>
+
+
             <div class="ticket-gap">
               <i class="fas fa-chevron-down embed"></i>
-              <i class="fas fa-chevron-right embed"></i>
+              <i class="fas fa-chevron-left embed"></i>
             </div>
-
-
             <div class="ticket-div" [ngClass]="{'active' : !setps[0]  && setps[1] && !setps[2] && !setps[3],
             'completed' : !setps[0]  && !setps[1] && (setps[2] || setps[3]),
             '':'' }">
@@ -30,12 +30,11 @@
             <p class="step-text d-none d-sm-block" translate>Step 2</p>
               <span translate>Tickets Info</span>
             </div>
+
             <div class="ticket-gap">
               <i class="fas fa-chevron-down embed grey-color"></i>
-              <i class="fas fa-chevron-right embed grey-color"></i>
+              <i class="fas fa-chevron-left embed grey-color"></i>
             </div>
-
-
             <div class="ticket-div"  [ngClass]="{'active' : !setps[0]  && !setps[1] && setps[2] && !setps[3],
             'completed' : !setps[0]  && !setps[1] && !setps[2] && setps[3],
             '':'' }">
@@ -47,13 +46,13 @@
             </div>
 
 
-            <div *ngIf="selectedPackage && selectedPackage.price > 0" >
-            <div class="ticket-gap">
+            <!-- <div > -->
+            <div  *ngIf="selectedPackage && selectedPackage.price > 0" class="ticket-gap">
               <i class="fas fa-chevron-down embed grey-color"></i>
-              <i class="fas fa-chevron-right embed grey-color"></i>
+              <i class="fas fa-chevron-left embed grey-color"></i>
             </div>
 
-            <div class="ticket-div" [ngClass]="{'active' : !setps[0]  && !setps[1] && !setps[2] && setps[3],
+            <div  *ngIf="selectedPackage && selectedPackage.price > 0" class="ticket-div" [ngClass]="{'active' : !setps[0]  && !setps[1] && !setps[2] && setps[3],
             'completed' : !setps[0]  && !setps[1] && !setps[2] && !setps[3],
             '':'' }">
             <img *ngIf=" !setps[3]"  class="img-fluid" src="assets/ticket-icons/30x32-payment-icon-grey.png" alt="" />
@@ -61,7 +60,6 @@
             <img *ngIf="!setps[0]  && !setps[1] && !setps[2] && !setps[3]" class="img-fluid" src="assets/ticket-icons/30x32-payment-icon-green.png" alt="" />
             <p class="step-text d-none d-sm-block" translate>Step 4</p>
               <span translate>Payment</span>
-            </div>
             </div>
 
           </div>
