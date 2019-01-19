@@ -178,5 +178,8 @@
   "Your information has been updated successfully":"تم تحديث المعلومات الشخصية بنجاح",
   "Your password has been updated successfully":"تم تحديث كلمة المرور بنجاح",
   "Order Info":"تفاصيل الطلب",
-  "Ticket Info":"معلومات التذاكر"
+  "Ticket Info":"معلومات التذاكر",
+  "TICKET BARCODE":"باركود التذكرة",
+  "DOWNLOAD TICKET":"تحميل التذكرة",
+  "You don't have any tickets": "لايوجد لديك تذاكر"
 }

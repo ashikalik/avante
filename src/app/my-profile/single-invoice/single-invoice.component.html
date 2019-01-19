@@ -36,65 +36,21 @@
     <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
       <p class="mb-0"><span class="grey-color">{{ 'Last Name' | translate }}: </span> {{ invoice.last_name }}</p>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
       <p class="mb-0"><span class="grey-color">{{ 'Email' | translate }}: </span> {{ invoice.email }}</p>
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
       <p class="mb-0"><span class="grey-color" >{{ 'Phone Number' | translate }}: </span> <span style="direction: ltr">{{ invoice.mobile }}</span></p>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-12 underline mt-4">
       <p translate>Ticket Info</p>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap mt-3 bg-light">
-      <div class="col-lg-3 col-md-3 col-sm-12 col-12 mt-1">
-        <p class="mb-0">Ticket 1</p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-1">
-        <p class="mb-0"><span class="grey-color">First Name: </span> Noor</p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-1">
-        <p class="mb-0"><span class="grey-color">Last Name: </span> Omarany</p>
-      </div>
-      <div class="col-lg-1 col-md-1 col-sm-12 col-12 mt-1 d-flex justify-content-end">
-        <button type="button" class="show-more-item btn btn-outline-dark btn-arrow-sm mb-0"><i class="fas fa-chevron-down"></i></button>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap ticket-item-detail">
-        <div class="col-lg-3 col-md-3 col-sm-12 col-12 mt-3">
-          <p class="mb-0"><small>TICKET BARCODE</small></p>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
-          <img class="img-fluid" src="assets/barcode.png" alt="">
-        </div>
-        <div class="col-lg-5 col-md-5 col-sm-12 col-12 mt-3">
-          <button type="button" class="btn btn-outline-dark span-right">DOWNLOAD INVOICE</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap mt-3 bg-light">
-      <div class="col-lg-3 col-md-3 col-sm-12 col-12 mt-1">
-        <p class="mb-0">Ticket 1</p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-1">
-        <p class="mb-0"><span class="grey-color">First Name: </span> Sarah</p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-1">
-        <p class="mb-0"><span class="grey-color">Last Name: </span> Omarany</p>
-      </div>
-      <div class="col-lg-1 col-md-1 col-sm-12 col-12 mt-1 d-flex justify-content-end">
-        <button type="button" class="show-more-item btn btn-outline-dark btn-arrow-sm mb-0"><i class="fas fa-chevron-up"></i></button>
-      </div>
-      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap ticket-item-detail">
-        <div class="col-lg-3 col-md-3 col-sm-12 col-12 mt-3">
-          <p class="mb-0"><small>TICKET BARCODE</small></p>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
-          <img class="img-fluid" src="assets/barcode.png" alt="">
-        </div>
-        <div class="col-lg-5 col-md-5 col-sm-12 col-12 mt-3">
-          <button type="button" class="btn btn-outline-dark span-right">DOWNLOAD INVOICE</button>
-        </div>
-      </div>
-    </div>
+    <ng-container *ngIf="tickets">
+      <ng-container *ngFor="let ticket of tickets.data ; let i = index">
+        <app-single-ticket [ticket]="ticket" [index]="i" style="width: 100%;"></app-single-ticket>
+      </ng-container>
+
+    </ng-container>
     <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-end mt-3">
       <button type="button" class="show-less btn btn-danger btn-sm pt-1 pb-1 pl-3 pr-3 mt-1 span-right" (click)="onShow();" translate>SHOW LESS</button>
     </div>
