@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {UpdateInformation, UpdatePassword} from "../models/user-profile";
 import {Invoices} from "../models/my-ticket";
 import {Tickets} from "../models/tickets";
+import {CVDetails} from "../models/CV";
 
 @Injectable({
     providedIn: 'root'
@@ -27,17 +28,63 @@ export class ProfileService {
     }
 
     public getInvoices(): Observable<Invoices> {
-        const url = NetworkConfig.BASE_URL + NetworkConfig.LIST_INVOCICE ;
+        const url = NetworkConfig.BASE_URL + NetworkConfig.LIST_INVOCICE;
         return this.httpClient.get<Invoices>(url);
     }
 
 
     public getTickets(body: any): Observable<Tickets> {
-        const url = NetworkConfig.BASE_URL + NetworkConfig.LIST_TICKETS_OF_INVOCE ;
+        const url = NetworkConfig.BASE_URL + NetworkConfig.LIST_TICKETS_OF_INVOCE;
         return this.httpClient.post<Tickets>(url, body);
     }
 
+    public getCV(): Observable<CVDetails> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.CV;
+        return this.httpClient.get<CVDetails>(url);
+    }
 
+
+    public createCV(body: any): Observable<any> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.CV;
+        return this.httpClient.post<any>(url, body);
+    }
+
+    public createEducation(body: any): Observable<any> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.QUALIFICATION;
+        return this.httpClient.post<any>(url, body);
+    }
+
+
+    public createExperience(body: any): Observable<any> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.EXPERIENCE;
+        return this.httpClient.post<any>(url, body);
+    }
+
+    public createSkill(body: any): Observable<any> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.SKILLS;
+        return this.httpClient.post<any>(url, body);
+    }
+
+    public updateSkill(body: any): Observable<any> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.SKILLS;
+        return this.httpClient.put<any>(url, body);
+    }
+
+    public deleteEducation(body: any): Observable<any> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.DELETE_QUALIFICATION;
+        return this.httpClient.post<any>(url, body);
+    }
+
+    public deleteExperience(body: any): Observable<any> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.DELETE_EXPERIENCE;
+        return this.httpClient.post<any>(url, body);
+    }
+
+
+    public deleteSkill(body: any): Observable<any> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.DELETE_SKILLS;
+        return this.httpClient.post<any>(url, body);
+    }
 
 
 }

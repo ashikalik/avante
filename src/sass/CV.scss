@@ -1,0 +1,126 @@
+@import '../sass/main.scss';
+
+.update-container {
+  div {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  background-image: url("/assets/accountbg.png");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: top;
+  padding-top: 94px;
+  padding-bottom: 40px;
+  .min-77 {
+    min-width: 55px !important;
+  }
+}
+@media (min-width: 1821px) {
+  .min-77 {
+    padding: 0.375rem 0.6rem !important;
+  }
+  .border-right {
+    height: fit-content;
+    border-right: 0px !important;
+    border-left: 1px solid #dee2e6 !important;
+  }
+
+  .img-fluid {
+    margin: auto;
+  }
+
+  .update-container div {
+    margin-top: 3%
+  }
+
+
+
+}
+
+@media (min-width: 993px) and (max-width: 1820px) {
+  .min-77 {
+    padding: 0.375rem 0.6rem !important;
+  }
+  .border-right {
+    height: fit-content;
+    border-right: 0px !important;
+    border-left: 1px solid #dee2e6 !important;
+  }
+
+  .img-fluid {
+    margin: auto;
+  }
+
+
+}
+@media (min-width: 921px) and (max-width: 992px) {
+  .min-77 {
+    padding: 0.375rem 1.25rem !important;
+  }
+  .border-right {
+    height: fit-content;
+    border-right: 0px !important;
+    border-left: 1px solid #dee2e6 !important;
+
+  }
+
+}
+@media (min-width: 769px) and (max-width: 920px) {
+  .min-77 {
+    padding: 0.375rem 0.6rem !important;
+  }
+  .border-right {
+    height: fit-content;
+    border-right: 0px !important;
+    border-left: 1px solid #dee2e6 !important;
+
+  }
+
+}
+@media (max-width: 768px) {
+  .border-right {
+    border-right: 0px !important;
+    border-left: 0px !important;
+    border-bottom: 1px solid #bdbdbd;
+  }
+  .bg-box-shadow {
+    padding: 1rem !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    .col-lg-9 {
+      margin-top: 1.5rem;
+    }
+    .pl-3.pr-3 {
+      padding: 0 0.5rem !important;
+    }
+    .pl-4.pr-4.pb-5 {
+      padding-bottom: 1rem !important;
+    }
+  }
+  .min-77 {
+    padding: 0.375rem 1.25rem !important;
+  }
+
+
+  .border-right {
+    border-left: 0px !important;
+  }
+
+  .img-fluid {
+    margin: auto;
+  }
+
+}
+
+
+.title {
+  margin-bottom: 5px;
+  color: #3b4249;
+
+}
+
+
+
+.details {
+  color: #b9b8b9;
+}

@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import {NetworkConfig} from '../network-layer/network.config';
 import {City} from "../models/city";
 import {EventType} from "../models/event-type";
+import {Nationality} from "../models/nationality";
+import {Educations} from "../models/educations";
 
 @Injectable()
 export class CommonService {
@@ -29,6 +31,18 @@ export class CommonService {
         const url = NetworkConfig.BASE_URL + NetworkConfig.EVENT_TYPE;
         return this.httpClient
             .get<EventType>(url);
+    }
+
+    getNationality(): Observable<Nationality> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.NATIONALITIES;
+        return this.httpClient
+            .get<Nationality>(url);
+    }
+
+    getEducations(): Observable<Educations> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.EDUCATIONS;
+        return this.httpClient
+            .get<Educations>(url);
     }
 
 }

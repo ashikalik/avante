@@ -1,3 +1,56 @@
-<p>
-  volu works!
-</p>
+<div class="main_container">
+    <div class="container-fluid update-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-center">
+                <div class="w-100 d-flex flex-wrap justify-content-center">
+                    <img class="img-fluid" src="assets/349x249-Organizers-illustration-png.png" alt="">
+                </div>
+                <div class="bg-box-shadow w-100 d-flex flex-wrap justify-content-center p-4 mt-4">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-12 d-flex flex-wrap justify-content-end border-right pl-4 pr-4 pb-5">
+                        <img class="img-fluid" src="assets/Personalinformation.png" alt="">
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3">
+                            <p class="grey-color mb-2" translate>PERSONAL INFORMATION</p>
+                        </div>
+
+                        <app-bio style="width: 100%" [CV]="CV" (onChangeCV)="getCV();"></app-bio>
+                    </div>
+                </div>
+                <div class="bg-box-shadow w-100 d-flex flex-wrap justify-content-center p-4 mt-4">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-12 d-flex flex-wrap justify-content-end border-right pl-4 pr-4 pb-5">
+                        <img class="img-fluid" src="assets/Education.png" alt="">
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3">
+                            <p class="grey-color mb-2" translate>EDUCATION</p>
+                        </div>
+                        <app-education style="width: 100%" [CV]="CV" (onChangeCV)="getCV();"></app-education>
+                    </div>
+                </div>
+                <div class="bg-box-shadow w-100 d-flex flex-wrap justify-content-center p-4 mt-4">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-12 d-flex flex-wrap justify-content-end border-right pl-4 pr-4 pb-5">
+                        <img class="img-fluid" src="assets/OrganizingExperience.png" alt="">
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3">
+                            <p class="grey-color mb-2" translate>ORGANIZING EXPERIENCE</p>
+                        </div>
+                        <app-experience style="width: 100%" [CV]="CV" (onChangeCV)="getCV();"></app-experience>
+                    </div>
+                </div>
+                <div class="bg-box-shadow w-100 d-flex flex-wrap justify-content-center p-4 mt-4">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-12 d-flex flex-wrap justify-content-end border-right pl-4 pr-4 pb-5">
+                        <img class="img-fluid" src="assets/OrganizingExperience.png" alt="">
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3">
+                            <p class="grey-color mb-2" translate>SKILLS</p>
+                        </div>
+                        <app-skills style="width: 100%" [CV]="CV" (onChangeCV)="getCV();"></app-skills>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

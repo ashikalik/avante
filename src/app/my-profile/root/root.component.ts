@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserAuthService} from "../../core/user-auth.service";
 import {UserProfile} from "../../models/user-profile";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -11,31 +12,18 @@ export class RootComponent implements OnInit {
 
   public userProfile: UserProfile;
 
-  constructor(public userAuthService: UserAuthService) {
+  constructor(public userAuthService: UserAuthService, public router: Router) {
       this.userProfile = this.userAuthService.getUserProfile();
       console.log(this.userProfile)
   }
 
   ngOnInit() {
-  //   $('.show-more').on('click', function(){
-  //     console.log(this);
-  //     $(this).closest('.ticket-main-info').addClass('active');
-  //     $(this).closest('.ticket-main-info').parent().find('.ticket-more-detail').addClass('active');
-  // });
-  //     $('.show-less').on('click', function(){
-  //         console.log("myone");
-  //         $(this).closest('.ticket-more-detail').removeClass('active');
-  //         $(this).closest('.ticket-more-detail').parent().find('.ticket-main-info').removeClass('active');
-  //     });
-  //     $('.show-more-item').on('click', function(){
-  //         console.log("myone");
-  //         if($(this).parent().parent().find('.ticket-item-detail').hasClass('active'))
-  //         {$(this).parent().parent().find('.ticket-item-detail').removeClass('active');
-  //             $(this).html('<i class="fas fa-chevron-down"></i>');}
-  //         else {$(this).parent().parent().find('.ticket-item-detail').addClass('active');
-  //             $(this).html('<i class="fas fa-chevron-up"></i>');}
-  //     });
-  //
+
+  }
+
+  public onMyCV() {
+      console.log('to CV')
+      this.router.navigate(['/my-profile/cv'])
   }
 
 }

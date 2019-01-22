@@ -11,6 +11,11 @@ import {ProfileService} from "../api-services/profile.service";
 import {InvoicesComponent} from './invoices/invoices.component';
 import {SingleInvoiceComponent} from './single-invoice/single-invoice.component';
 import {TicketsComponent} from './tickets/tickets.component';
+import {BioComponent} from './bio/bio.component';
+import {SkillsComponent} from './skills/skills.component';
+import {EducationComponent} from './education/education.component';
+import {ExperienceComponent} from './experience/experience.component';
+import {CommonService} from "../api-services/common.service";
 
 @NgModule({
     declarations: [
@@ -21,7 +26,11 @@ import {TicketsComponent} from './tickets/tickets.component';
         SingleTicketComponent,
         InvoicesComponent,
         SingleInvoiceComponent,
-        TicketsComponent
+        TicketsComponent,
+        BioComponent,
+        SkillsComponent,
+        EducationComponent,
+        ExperienceComponent
     ],
     imports: [
         CommonModule,
@@ -29,7 +38,8 @@ import {TicketsComponent} from './tickets/tickets.component';
         ...BASE_MODULES
     ],
     providers: [
-        ProfileService
+        ProfileService,
+        CommonService
     ]
 })
 export class MyProfileModule {

@@ -1,0 +1,242 @@
+<ng-container *ngIf="CV">
+    <ng-container *ngIf="CV.data.education === null && !showCreateForm">
+        <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap pl-3 pr-3 mt-4">
+            <div class="alert alert-secondary pl-3 pr-3" style="width: 100%" role="alert" translate>
+                You don't have fill the Education
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3 mt-3">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+                    <hr>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                    <div class="form-group w-100 d-flex justify-content-center">
+                        <button type="button" class="btn btn-dark btn-add" (click)="showCreate();"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+                    <hr>
+                </div>
+            </div>
+
+        </div>
+    </ng-container>
+    <ng-container *ngIf="showCreateForm">
+        <form action="" [formGroup]="createForm" (ngSubmit)="createEducation(createForm);">
+            <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                    <input class="form-control evento_input grey-color"
+                           formControlName="name"
+                           placeholder="{{ 'Institution' | translate }}">
+                    <div class="error"
+                         *ngIf="createForm.controls['name'].hasError('required') && !createForm.controls['name'].pristine"
+                         translate>
+                        This field is required
+                    </div>
+                    <div class="error"
+                         *ngIf="createForm.controls['name'].hasError('maxlength') && !createForm.controls['name'].pristine"
+                         translate>
+                        Field should be at most 40 characters
+                    </div>
+                    <div class="error"
+                         *ngIf="createForm.controls['name'].hasError('minlength') && !createForm.controls['name'].pristine"
+                         translate>
+                        Field should be at least 3 characters
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3 mt-2">
+                    <select class="form-control evento_input evento_select"
+                            formControlName="education_id"
+                            name="nationality_id">
+                        <option disabled selected hidden translate value="">Choose Degree</option>
+                        <ng-container *ngIf="educations">
+                            <option *ngFor="let education of educations.data" [value]="education.id">{{ education.name
+                                }}
+                            </option>
+                        </ng-container>
+                    </select>
+                    <i class="fas fa-chevron-down embed"></i>
+                    <div class="error"
+                         *ngIf="createForm.controls['education_id'].hasError('required') && !createForm.controls['education_id'].pristine"
+                         translate>
+                        This field is required
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-612 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                    <my-date-picker placeholder="{{ 'Education From' | translate }}"
+                                    [options]="myDatePickerOptions"
+                                    class="data-evento"
+                                    formControlName="from_date"></my-date-picker>
+                    <div class="error"
+                         *ngIf="createForm.controls['from_date'].hasError('required') && !createForm.controls['from_date'].pristine"
+                         translate>
+                        This field is required
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                    <my-date-picker placeholder="{{ 'Education End' | translate }}"
+                                    [options]="myDatePickerOptions"
+                                    class="data-evento"
+                                    formControlName="end_date"></my-date-picker>
+                    <div class="error"
+                         *ngIf="createForm.controls['end_date'].hasError('required') && !createForm.controls['end_date'].pristine"
+                         translate>
+                        This field is required
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+                <button type="button" class="btn btn-dark pl-4 pr-4 mt-3 ml-2 mr-2" (click)="showCreate();" translate>
+                    Cancel
+                </button>
+                <button type="submit"
+                        class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2"
+                        [disabled]="createForm.invalid"
+                        translate>SAVE
+                </button>
+            </div>
+        </form>
+    </ng-container>
+    <ng-container *ngIf="CV.data.education !== null && !showUpdateForm && !showCreateForm && !areYouSure">
+
+        <ng-container *ngFor="let e of CV.data.education; let i = index">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                    <p class="title" translate>Institution</p>
+                    <p class="details"> {{ e.qualification_name }}</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                    <p class="title" translate>Degree</p>
+                    <p class="details"> {{ e.education_name }}</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                    <p class="title" translate>Education From</p>
+                    <p class="details"> {{ e.from_date }}</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                    <p class="title" translate>Education End</p>
+                    <p class="details"> {{ e.end_date }} </p>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+                    <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" (click)="showSure(e);" translate>DELETE</button>
+                    <button type="submit" class="btn btn-info pl-5 pr-5 mt-3 ml-2 mr-2" (click)="showUpdate(e);" translate>EDIT</button>
+                </div>
+            </div>
+            <hr *ngIf="i + 1 != CV.data.education.length">
+        </ng-container>
+        <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap pl-3 pr-3 mt-4">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3 mt-3">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+                    <hr>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                    <div class="form-group w-100 d-flex justify-content-center">
+                        <button type="button" class="btn btn-dark btn-add" (click)="showCreate();"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+                    <hr>
+                </div>
+            </div>
+
+        </div>
+
+    </ng-container>
+    <ng-container *ngIf="showUpdateForm">
+        <form action="" [formGroup]="updateForm" (ngSubmit)="createEducation(updateForm);">
+            <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                    <input class="form-control evento_input grey-color"
+                           formControlName="name"
+                           placeholder="{{ 'Institution' | translate }}">
+                    <div class="error"
+                         *ngIf="updateForm.controls['name'].hasError('required') && !updateForm.controls['name'].pristine"
+                         translate>
+                        This field is required
+                    </div>
+                    <div class="error"
+                         *ngIf="updateForm.controls['name'].hasError('maxlength') && !updateForm.controls['name'].pristine"
+                         translate>
+                        Field should be at most 40 characters
+                    </div>
+                    <div class="error"
+                         *ngIf="updateForm.controls['name'].hasError('minlength') && !updateForm.controls['name'].pristine"
+                         translate>
+                        Field should be at least 3 characters
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3 mt-2">
+                    <select class="form-control evento_input evento_select"
+                            formControlName="education_id"
+                            name="nationality_id">
+                        <option disabled selected hidden translate value="">Choose Degree</option>
+                        <ng-container *ngIf="educations">
+                            <option *ngFor="let education of educations.data" [value]="education.id">{{ education.name
+                                }}
+                            </option>
+                        </ng-container>
+                    </select>
+                    <i class="fas fa-chevron-down embed"></i>
+                    <div class="error"
+                         *ngIf="updateForm.controls['education_id'].hasError('required') && !updateForm.controls['education_id'].pristine"
+                         translate>
+                        This field is required
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-612 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                    <my-date-picker placeholder="{{ 'Education From' | translate }}"
+                                    [options]="myDatePickerOptions"
+                                    class="data-evento"
+                                    formControlName="from_date"></my-date-picker>
+                    <div class="error"
+                         *ngIf="updateForm.controls['from_date'].hasError('required') && !updateForm.controls['from_date'].pristine"
+                         translate>
+                        This field is required
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                    <my-date-picker placeholder="{{ 'Education End' | translate }}"
+                                    [options]="myDatePickerOptions"
+                                    class="data-evento"
+                                    formControlName="end_date"></my-date-picker>
+                    <div class="error"
+                         *ngIf="updateForm.controls['end_date'].hasError('required') && !updateForm.controls['end_date'].pristine"
+                         translate>
+                        This field is required
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+                <button type="button" class="btn btn-dark pl-4 pr-4 mt-3 ml-2 mr-2" (click)="showUpdate();" translate>
+                    Cancel
+                </button>
+                <button type="submit"
+                        class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2"
+                        [disabled]="updateForm.invalid"
+                        translate>SAVE
+                </button>
+            </div>
+        </form>
+    </ng-container>
+    <ng-container *ngIf="areYouSure">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                <p class="title" translate>Are you sure to delete :</p>
+                <p class="details"> {{ selectedEducations.qualification_name }}</p>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+                <button type="submit" class="btn btn-info pl-5 pr-5 mt-3 ml-2 mr-2" (click)="showSure();" translate>NO</button>
+                <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" (click)="deleteEducation();" translate>YES</button>
+            </div>
+        </div>
+
+    </ng-container>
+</ng-container>
+
