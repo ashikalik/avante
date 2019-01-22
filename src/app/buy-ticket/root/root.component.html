@@ -4,6 +4,8 @@
       <div class="col-lg-8 col-md-10 col-sm-12 text-center justify-content-center mt-4">
         <h3 class="text_left" translate>BUY YOUR TICKETS!</h3>
         <p class="explain text_left" translate>You are minutes from getting your tickets. Please fill the steps below</p>
+        <app-errors [errors]="errorsBuyTicket" *ngIf="errorsBuyTicket"></app-errors>
+        
         <div class="">
           <div class="col-lg-2 col-md-2 col-sm-12 col-12 text-center justify-content-center steps span-left">
 
@@ -62,8 +64,11 @@
               <span translate>Payment</span>
             </div>
 
+            
+
           </div>
 
+          
           <form [formGroup]="payment">
             <div *ngIf="eventDetail">
               <app-pick-ticket *ngIf="setps[0] === true" [eventDetail]="eventDetail" [payment]="payment" (onNext)="changeStepForward($event)" (onBack)="changeStepBackward($event)" (selectedPackage)="getSelectedPackage($event)"></app-pick-ticket>

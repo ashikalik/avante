@@ -36,8 +36,11 @@ export class BuyTicketService {
 
 
     public createInvoice(form: any, event_key: string):  Observable<any>{
-        console.log("service");
-        console.log(form)
+
+        let access_date;
+        if(form.access_date && form.access_date.formatted){
+            access_date = form.access_date.formatted
+        }
         var body = {
             event_key: event_key,
             package_id: form.package_id,
@@ -46,7 +49,7 @@ export class BuyTicketService {
             mobile: form.mobile,
             email: form.email,
             num_ticket: form.num_ticket,
-            access_date: form.access_date.formatted,
+            access_date: access_date,
             list: form.visitors,
             recaptcha: form.recaptcha
         };

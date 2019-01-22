@@ -1,16 +1,20 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {EventoDatePipe} from './evento-date.pipe';
-import {EventoTimePipe} from './evento-time.pipe';
-import {CoreModule} from "../core/core.module";
-import {EventoDayPipe} from './evento-day.pipe';
-import {EventoMonthPipe} from './evento-month.pipe';
-import {MinMaxPricePipe} from './min-max-price.pipe';
-import {HttpClient} from "@angular/common/http";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {ErrorsComponent} from './errors/errors.component';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { EventoDatePipe } from './evento-date.pipe';
+import { EventoTimePipe } from './evento-time.pipe';
+import { CoreModule } from "../core/core.module";
+import { EventoDayPipe } from './evento-day.pipe';
+import { EventoMonthPipe } from './evento-month.pipe';
+import { MinMaxPricePipe } from './min-max-price.pipe';
+import { HttpClient } from "@angular/common/http";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { ErrorsComponent } from './errors/errors.component';
 import { MobilePipe } from './mobile.pipe';
+import { DisableDateUntilPipe } from './disable-date-until.pipe';
+import { DisableDateSincePipe } from './disable-date-since.pipe';
+import { DatePickerYear } from './date-picker-year.pipe';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -18,7 +22,19 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 
 @NgModule({
-    declarations: [EventoDatePipe, EventoTimePipe, EventoDayPipe, EventoMonthPipe, MinMaxPricePipe, ErrorsComponent, MobilePipe],
+    declarations: [
+        EventoDatePipe,
+        EventoTimePipe,
+        EventoDayPipe,
+        EventoMonthPipe,
+        MinMaxPricePipe,
+        ErrorsComponent,
+        MobilePipe,
+        DisableDateUntilPipe,
+        DisableDateSincePipe,
+        DisableDateSincePipe,
+        DatePickerYear
+    ],
     imports: [
         CommonModule,
         CoreModule,
@@ -38,7 +54,10 @@ export function HttpLoaderFactory(http: HttpClient) {
         EventoMonthPipe,
         MinMaxPricePipe,
         ErrorsComponent,
-        MobilePipe
+        MobilePipe,
+        DisableDateUntilPipe,
+        DisableDateSincePipe,
+        DatePickerYear
     ]
 })
 export class SharedModule {

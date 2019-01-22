@@ -1,7 +1,9 @@
 <form [formGroup]="payment">
+
   <div class="col-lg-10 col-md-10 col-sm-10 col-12 d-flex text-center justify-content-center steps-setting float-not-left span-left">
     <div class="col-lg-10 col-md-10 col-sm-12 col-12 text-center justify-content-center">
       <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center">
+
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline">
           <p translate>Order Review</p>
         </div>
@@ -27,7 +29,7 @@
             </p>
           </div>
           <div *ngIf="isDateRequired" class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
-            <p><span class="grey-color span-left">{{ 'Date' | translate }}: &nbsp;</span> {{ payment.get('access_date').value
+            <p><span class="grey-color span-left">{{ 'Date' | translate }}: &nbsp;</span> {{ payment.get('access_date').value.formatted
               }}
             </p>
           </div>
@@ -67,7 +69,8 @@
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0">
             <p><span class="grey-color span-left">{{ 'Total' | translate }} : &nbsp;</span> {{totalWithoutVat}} {{ 'SR' | translate
-              }}</p>
+              }}
+            </p>
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0 mt-2">
             <re-captcha #captchaRef formControlName="recaptcha"></re-captcha>

@@ -182,5 +182,7 @@
   "TICKET BARCODE":"باركود التذكرة",
   "DOWNLOAD TICKET":"تحميل التذكرة",
   "You don't have any tickets": "لايوجد لديك تذاكر",
-  "Date of entery": "تاريخ الدخول"
+  "Date of entery": "تاريخ الدخول",
+  "Remaining Tickets are": "التذاكر المتبقية: ",
+  "All Tickets are sold out": "تم بيع جميع التذاكر"
 }
