@@ -1,0 +1,146 @@
+<ng-container *ngIf="CV">
+  <ng-container *ngIf="CV.data.skill === null && !showCreateForm">
+    <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap pl-3 pr-3 mt-4">
+      <div class="alert alert-secondary pl-3 pr-3" style="width: 100%" role="alert" translate>
+        You don't have fill the Skills
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3 mt-3">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+          <hr>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+          <div class="form-group w-100 d-flex justify-content-center">
+            <button type="button" class="btn btn-dark btn-add" (click)="showCreate();"><i
+                    class="fas fa-plus"></i></button>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+          <hr>
+        </div>
+      </div>
+
+    </div>
+  </ng-container>
+  <ng-container *ngIf="showCreateForm">
+    <form action="" [formGroup]="createForm" (ngSubmit)="createSkill(createForm);">
+      <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+          <input class="form-control evento_input grey-color"
+                 formControlName="name"
+                 placeholder="{{ 'Your Skill' | translate }}">
+          <div class="error"
+               *ngIf="createForm.controls['name'].hasError('required') && !createForm.controls['name'].pristine"
+               translate>
+            This field is required
+          </div>
+          <div class="error"
+               *ngIf="createForm.controls['name'].hasError('maxlength') && !createForm.controls['name'].pristine"
+               translate>
+            Field should be at most 40 characters
+          </div>
+          <div class="error"
+               *ngIf="createForm.controls['name'].hasError('minlength') && !createForm.controls['name'].pristine"
+               translate>
+            Field should be at least 3 characters
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+        <button type="button" class="btn btn-dark pl-4 pr-4 mt-3 ml-2 mr-2" (click)="showCreate();" translate>
+          Cancel
+        </button>
+        <button type="submit"
+                class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2"
+                [disabled]="createForm.invalid"
+                translate>SAVE
+        </button>
+      </div>
+    </form>
+  </ng-container>
+  <ng-container *ngIf="CV.data.skill !== null && !showUpdateForm && !showCreateForm && !areYouSure">
+    <ng-container *ngFor="let skill of CV.data.skill; let i = index">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2">
+          <p class="title" translate>Skill</p>
+          <p class="details"> {{ skill.name }}</p>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+          <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" (click)="showSure(skill);" translate>DELETE</button>
+          <button type="submit" class="btn btn-info pl-5 pr-5 mt-3 ml-2 mr-2" (click)="showUpdate(skill);" translate>EDIT</button>
+        </div>
+      </div>
+      <hr *ngIf="i + 1 != CV.data.skill.length">
+    </ng-container>
+    <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap pl-3 pr-3 mt-4">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3 mt-3">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+          <hr>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+          <div class="form-group w-100 d-flex justify-content-center">
+            <button type="button" class="btn btn-dark btn-add" (click)="showCreate();"><i
+                    class="fas fa-plus"></i></button>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+          <hr>
+        </div>
+      </div>
+
+    </div>
+
+  </ng-container>
+  <ng-container *ngIf="showUpdateForm">
+    <form action="" [formGroup]="updateForm" (ngSubmit)="updateSkill(updateForm);">
+      <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+          <input class="form-control evento_input grey-color"
+                 formControlName="name"
+                 placeholder="{{ 'Your Skill' | translate }}">
+          <div class="error"
+               *ngIf="updateForm.controls['name'].hasError('required') && !updateForm.controls['name'].pristine"
+               translate>
+            This field is required
+          </div>
+          <div class="error"
+               *ngIf="updateForm.controls['name'].hasError('maxlength') && !updateForm.controls['name'].pristine"
+               translate>
+            Field should be at most 40 characters
+          </div>
+          <div class="error"
+               *ngIf="updateForm.controls['name'].hasError('minlength') && !updateForm.controls['name'].pristine"
+               translate>
+            Field should be at least 3 characters
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+        <button type="button" class="btn btn-dark pl-4 pr-4 mt-3 ml-2 mr-2" (click)="showUpdate();" translate>
+          Cancel
+        </button>
+        <button type="submit"
+                class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2"
+                [disabled]="updateForm.invalid"
+                translate>SAVE
+        </button>
+      </div>
+    </form>
+
+  </ng-container>
+  <ng-container *ngIf="areYouSure">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+        <p class="title" translate>Are you sure to delete :</p>
+        <p class="details"> {{ selectedSkill.name }}</p>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+        <button type="submit" class="btn btn-info pl-5 pr-5 mt-3 ml-2 mr-2" (click)="showSure();" translate>NO
+        </button>
+        <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" (click)="deleteSkill();"
+                translate>YES
+        </button>
+      </div>
+    </div>
+
+  </ng-container>
+</ng-container>

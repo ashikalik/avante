@@ -1,0 +1,176 @@
+<ng-container *ngIf="CV">
+    <ng-container *ngIf="CV.data.cv === null && !showCreateForm">
+        <div class="alert alert-secondary pl-3 pr-3" style="width: 100%" role="alert" translate>
+            You don't have fill the CV
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3 mt-3">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+                <hr>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-2">
+                <div class="form-group w-100 d-flex justify-content-center">
+                    <button type="button" class="btn btn-dark btn-add" (click)="showCreate();"><i
+                            class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-5">
+                <hr>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="showCreateForm">
+        <form action="" [formGroup]="createForm" (ngSubmit)="createCV(createForm);">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12  mt-2">
+                    <my-date-picker placeholder="{{ 'Date of Birth' | translate }}"
+                                    [options]="myDatePickerOptions"
+                                    class="data-evento"
+                                    formControlName="birthday"
+                                    (dateChanged)="onChangeDate($event)"></my-date-picker>
+                    <div class="error"
+                         *ngIf="createForm.controls['birthday'].hasError('required') && !createForm.controls['birthday'].pristine"
+                         translate>
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap  mt-2">
+                <select class="form-control evento_input evento_select"
+                        formControlName="nationality_id"
+                        name="nationality_id">
+                    <option disabled selected hidden translate value="">Choose Nationality</option>
+                    <ng-container *ngIf="nationality">
+                        <option *ngFor="let n of nationality.data" [value]="n.id">{{ n.name }}</option>
+                    </ng-container>
+                </select>
+                <i class="fas fa-chevron-down embed"></i>
+                <div class="error"
+                     *ngIf="createForm.controls['nationality_id'].hasError('required') && !createForm.controls['nationality_id'].pristine"
+                     translate>
+                    This field is required
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap  mt-2">
+                    <textarea rows="4"
+                              cols="50"
+                              class="form-control evento_input grey-color"
+                              formControlName="bio"
+                              placeholder="{{ 'About me' | translate }}"></textarea>
+                <div class="error"
+                     *ngIf="createForm.controls['bio'].hasError('required') && !createForm.controls['bio'].pristine"
+                     translate>
+                    This field is required
+                </div>
+                <div class="error"
+                     *ngIf="createForm.controls['bio'].hasError('maxLength') && !createForm.controls['bio'].pristine"
+                     translate>
+                    Field should be at most 100 characters
+                </div>
+                <div class="error"
+                     *ngIf="createForm.controls['bio'].hasError('minlength') && !createForm.controls['bio'].pristine"
+                     translate>
+                    This field should be at least 3 characters
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+                <button type="button" class="btn btn-dark pl-4 pr-4 mt-3 ml-2 mr-2" (click)="showCreate();" translate>
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" [disabled]="createForm.invalid"
+                        translate>SAVE
+                </button>
+            </div>
+
+        </form>
+    </ng-container>
+    <ng-container *ngIf="CV.data.cv !== null && !showUpdateForm">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                <p class="title" translate>About me</p>
+                <p class="details"> {{ CV.data.cv.bio }}</p>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                <p class="title" translate>Nationality</p>
+                <p class="details"> {{ CV.data.cv.name }}</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                <p class="title" translate>Age</p>
+                <p class="details"> {{ CV.data.cv.age }}</p>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2">
+                <p class="title" translate>Date of Birth</p>
+                <p class="details"> {{ CV.data.cv.birthday }}</p>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+                <button type="submit" class="btn btn-info pl-5 pr-5 mt-3 ml-2 mr-2" (click)="showUpdate();" translate>EDIT</button>
+            </div>
+
+        </div>
+    </ng-container>
+    <ng-container *ngIf="showUpdateForm">
+        <form action="" [formGroup]="updateForm" (ngSubmit)="createCV(updateForm);">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12  mt-2">
+                    <my-date-picker placeholder="{{ 'Date of Birth' | translate }}"
+                                    [options]="myDatePickerOptions"
+                                    class="data-evento"
+                                    formControlName="birthday"></my-date-picker>
+                    <div class="error"
+                         *ngIf="updateForm.controls['birthday'].hasError('required') && !updateForm.controls['birthday'].pristine"
+                         translate>
+                        This field is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap  mt-2">
+                <select class="form-control evento_input evento_select"
+                        formControlName="nationality_id"
+                        name="nationality_id">
+                    <option disabled selected hidden translate value="">Choose Nationality</option>
+                    <ng-container *ngIf="nationality">
+                        <option *ngFor="let n of nationality.data" [value]="n.id">{{ n.name }}</option>
+                    </ng-container>
+                </select>
+                <i class="fas fa-chevron-down embed"></i>
+                <div class="error"
+                     *ngIf="updateForm.controls['nationality_id'].hasError('required') && !updateForm.controls['nationality_id'].pristine"
+                     translate>
+                    This field is required
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap  mt-2">
+                    <textarea rows="4"
+                              cols="50"
+                              class="form-control evento_input grey-color"
+                              formControlName="bio"
+                              placeholder="{{ 'About me' | translate }}"></textarea>
+                <div class="error"
+                     *ngIf="updateForm.controls['bio'].hasError('required') && !updateForm.controls['bio'].pristine"
+                     translate>
+                    This field is required
+                </div>
+                <div class="error"
+                     *ngIf="updateForm.controls['bio'].hasError('maxLength') && !updateForm.controls['bio'].pristine"
+                     translate>
+                    Field should be at most 100 characters
+                </div>
+                <div class="error"
+                     *ngIf="updateForm.controls['bio'].hasError('minlength') && !updateForm.controls['bio'].pristine"
+                     translate>
+                    This field should be at least 3 characters
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+                <button type="button" class="btn btn-dark pl-4 pr-4 mt-3 ml-2 mr-2" (click)="showUpdate();" translate>
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" [disabled]="updateForm.invalid"
+                        translate>SAVE
+                </button>
+            </div>
+
+        </form>
+    </ng-container>
+</ng-container>
+
+
