@@ -49,7 +49,10 @@
     }
     
     .depth{
-        z-index: 120;
+        z-index: 120 !important;
+    }
+    .normal{
+        z-index: 50 !important;        
     }
 }
 
@@ -73,7 +76,7 @@
 		}
 	}
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.payment-container {
 		.select-package {
 			h2 {
@@ -90,6 +93,8 @@
 				background-size: 100% 150px;
 			}
 			#package-3 {
+                margin-right: 0%;
+				margin-left: 0%;
 				background-size: 100% 150px;
 			}
 			.col-0 {
@@ -104,23 +109,21 @@
 			#package-1 {
 				margin-right: 0%;
 				margin-left: 0%;
-				flex: 0 0 90%;
-    			max-width: 90%;
-				margin-bottom: -10px;
+    			max-width: 100%;
 				background-size: 100% 150px;
 			}
 			#package-2 {
 				margin-right: 0%;
 				margin-left: 0%;
-				flex: 0 0 90%;
-    			max-width: 90%;
-				margin-top: -10px !important;
+    			max-width: 100%;
 				background-size: 100% 150px;
 			}
 			#package-3 {
+                margin-top: 3rem;
 				margin-right: 0%;
 				margin-left: 0%;
-				background-size: 100% 150px;
+                background-size: 100% 150px;
+                
 			}
 			.col-0 {
 				display: none;

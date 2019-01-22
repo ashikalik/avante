@@ -20,6 +20,7 @@ import { TicketPackagesComponent } from './ticket-packages/ticket-packages.compo
 import { SalesStaffComponent } from './sales-staff/sales-staff.component';
 import { SoldTicketsComponent } from './sold-tickets/sold-tickets.component';
 import { OrganizerRootComponent } from './organizer-root/organizer-root.component';
+import { BASE_MODULES } from '../models/modules';
 
 
 
@@ -45,7 +46,7 @@ import { OrganizerRootComponent } from './organizer-root/organizer-root.componen
     OrganizerRootComponent
   ],
   imports: [
-    CommonModule,
+    ...BASE_MODULES,    
     OrganizerRoutingModule
   ]
 })
