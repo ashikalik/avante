@@ -21,6 +21,8 @@ import { SalesStaffComponent } from './sales-staff/sales-staff.component';
 import { SoldTicketsComponent } from './sold-tickets/sold-tickets.component';
 import { OrganizerRootComponent } from './organizer-root/organizer-root.component';
 import { BASE_MODULES } from '../models/modules';
+import { CommonService } from '../api-services/common.service';
+import { EventService } from '../api-services/event.service';
 
 
 
@@ -48,6 +50,10 @@ import { BASE_MODULES } from '../models/modules';
   imports: [
     ...BASE_MODULES,    
     OrganizerRoutingModule
-  ]
+  ],
+  providers: [
+    CommonService,
+    EventService
+]
 })
 export class OrganizerModule { }
