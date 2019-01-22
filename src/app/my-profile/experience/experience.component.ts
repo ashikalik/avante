@@ -3,6 +3,8 @@ import {CVDetails, Experience} from "../../models/CV";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProfileService} from "../../api-services/profile.service";
 import {IMyDpOptions} from 'mydatepicker';
+import { MyDatePickerOptions } from '../../models/date-picker-object';
+import { DatePickerInputPipe } from '../../shared/date-picker-input.pipe';
 
 
 @Component({
@@ -20,15 +22,9 @@ export class ExperienceComponent implements OnInit {
     public createForm: FormGroup;
     public updateForm: FormGroup;
     public selectedExperience: Experience;
-    public myDatePickerOptions: IMyDpOptions = {
-        dateFormat: 'yyyy-mm-dd',
-        editableDateField: false,
-        firstDayOfWeek: 'su',       //to set the first day of the week
-        sunHighlight: false,        //to unhighlight sundays
-        alignSelectorRight: true,    //to align the arrow to the right
-        openSelectorOnInputClick: true,  //open the datepicker once the input is selected
-    };
 
+    public myDatePickerOptions = MyDatePickerOptions;
+    
 
     constructor(public profileService: ProfileService,
                 public formBuilder: FormBuilder) {
@@ -79,9 +75,12 @@ export class ExperienceComponent implements OnInit {
             {
                 'company_name': [this.selectedExperience.company_name, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
                 'role': [this.selectedExperience.role, Validators.compose([Validators.required])],
-                'from_date': [this.selectedExperience.from_date, Validators.compose([Validators.required])],
-                'end_date': [this.selectedExperience.end_date, Validators.compose([Validators.required])],
+                'from_date': [ {date: new DatePickerInputPipe().transform(this.selectedExperience.from_date)} , Validators.compose([Validators.required])],
+                'end_date': [{date: new DatePickerInputPipe().transform(this.selectedExperience.end_date)}, Validators.compose([Validators.required])],
             });
+
+            console.log(this.updateForm)
+            
     }
 
 

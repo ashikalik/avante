@@ -4,7 +4,9 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProfileService} from "../../api-services/profile.service";
 import {CommonService} from "../../api-services/common.service";
 import {Educations} from "../../models/educations";
-import {IMyDpOptions} from 'mydatepicker';
+import { MyDatePickerOptions } from '../../models/date-picker-object';
+import { DatePickerInputPipe } from '../../shared/date-picker-input.pipe';
+
 
 @Component({
     selector: 'app-education',
@@ -21,14 +23,9 @@ export class EducationComponent implements OnInit {
     public updateForm: FormGroup;
     public educations: Educations;
     public selectedEducations: EducationQualification;
-    public myDatePickerOptions: IMyDpOptions = {
-        dateFormat: 'yyyy-mm-dd',
-        editableDateField: false,
-        firstDayOfWeek: 'su',       //to set the first day of the week
-        sunHighlight: false,        //to unhighlight sundays
-        alignSelectorRight: true,    //to align the arrow to the right
-        openSelectorOnInputClick: true,  //open the datepicker once the input is selected
-    };
+
+    public myDatePickerOptions = MyDatePickerOptions;
+    
 
 
     constructor(public profileService: ProfileService,
@@ -91,10 +88,11 @@ export class EducationComponent implements OnInit {
         this.updateForm = this.formBuilder.group(
             {
                 'name': [this.selectedEducations.qualification_name, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
-                'from_date': [this.selectedEducations.from_date, Validators.compose([Validators.required])],
-                'end_date': [this.selectedEducations.end_date, Validators.compose([Validators.required])],
+                'from_date': [{date: new DatePickerInputPipe().transform(this.selectedEducations.from_date)}, Validators.compose([Validators.required])],
+                'end_date': [{date: new DatePickerInputPipe().transform(this.selectedEducations.end_date)}, Validators.compose([Validators.required])],
                 'education_id': [this.selectedEducations.education_id, Validators.compose([Validators.required])],
             });
+
     }
 
 
