@@ -13,7 +13,7 @@ export class EventoDatePipe implements PipeTransform {
     transform(value: any, args?: any): any {
         const date = new Date(value).toUTCString();
 
-        console.log(new Date(value).toUTCString())
+        // console.log(new Date(value).toUTCString())
 
 
         if (this.languageSettingService.getLanguage() == 'en')

@@ -14,6 +14,7 @@ import { MobilePipe } from './mobile.pipe';
 import { DisableDateUntilPipe } from './disable-date-until.pipe';
 import { DisableDateSincePipe } from './disable-date-since.pipe';
 import { DatePickerYear } from './date-picker-year.pipe';
+import { DatePickerInputPipe } from './date-picker-input.pipe';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,7 +34,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         DisableDateUntilPipe,
         DisableDateSincePipe,
         DisableDateSincePipe,
-        DatePickerYear
+        DatePickerYear,
+        DatePickerInputPipe
     ],
     imports: [
         CommonModule,
@@ -57,7 +59,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         MobilePipe,
         DisableDateUntilPipe,
         DisableDateSincePipe,
-        DatePickerYear
+        DatePickerYear,
+        DatePickerInputPipe
     ]
 })
 export class SharedModule {

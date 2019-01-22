@@ -13,13 +13,13 @@ export class DisableDateUntilPipe implements PipeTransform {
     transform(value: any, args?: any): any {
 
         let date;
-        let from_date;        
+        let from_date;
         let today = moment(new Date()).format("YYYY-MM-DD");
 
-        if(moment(value).isBefore(today)){
-            from_date = moment(today, "YYYY-MM-DD").subtract(1, 'days').format("YYYY-MM-DD");            
-        }else{
-            from_date = moment(value, "YYYY-MM-DD").subtract(1, 'days').format("YYYY-MM-DD");                        
+        if (moment(value).isBefore(today)) {
+            from_date = moment(today, "YYYY-MM-DD").subtract(1, 'days').format("YYYY-MM-DD");
+        } else {
+            from_date = moment(value, "YYYY-MM-DD").subtract(1, 'days').format("YYYY-MM-DD");
         }
 
         from_date = from_date.split('-');

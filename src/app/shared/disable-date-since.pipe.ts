@@ -13,7 +13,6 @@ export class DisableDateSincePipe implements PipeTransform {
     transform(value: any, args?: any): any {
 
         let end_date;
-        console.log(value);
         end_date = moment(value, "YYYY-MM-DD").add(1, 'days').format("YYYY-MM-DD");
 
         end_date = end_date.split('-');

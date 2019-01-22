@@ -25,7 +25,7 @@ export class EventoMonthPipe implements PipeTransform {
         if(this.languageSettingService.getLanguage() == 'en') {
             return this.monthEN[month];
         } else {
-            console.log(this.monthAR[month])
+            // console.log(this.monthAR[month])
             return this.monthAR[month];
         }
     }
