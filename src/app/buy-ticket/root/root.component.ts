@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { EventDetails, Package } from "../../models/event-details";
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EventoError } from '../../models/error';
 
 
 @Component({
@@ -23,6 +24,9 @@ export class RootComponent implements OnInit {
   public visitors: FormArray;
   public completedPayment: boolean;
   public selectedPackage: Package;
+
+  public errorsBuyTicket: EventoError;
+  
 
   constructor(public eventService: EventService,
     public buyTicketService: BuyTicketService,
@@ -123,6 +127,8 @@ export class RootComponent implements OnInit {
   }
 
   public buyTicket() {
+    this.errorsBuyTicket = null;
+    
     this.buyTicketService.createInvoice(this.payment.value, this.eventDetail.data.details.event_key).subscribe(
       res => {
         console.log(res);
@@ -135,10 +141,9 @@ export class RootComponent implements OnInit {
 
         this.changeStepForward(null);
 
-      }
-    )
-
-
+      },err =>{
+        this.errorsBuyTicket = err.value.error;
+      })
   }
 
 }

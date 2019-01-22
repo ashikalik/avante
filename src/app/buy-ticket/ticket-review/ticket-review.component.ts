@@ -4,7 +4,6 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
 import { EventDetails, Package } from "../../models/event-details";
 
-
 @Component({
   selector: 'app-ticket-review',
   templateUrl: './ticket-review.component.html',
@@ -15,8 +14,8 @@ export class TicketReviewComponent implements OnInit {
   @Output() onBuyTickets: EventEmitter<any> = new EventEmitter();
   @Output() onBack: EventEmitter<any> = new EventEmitter();  
   @Input() payment: FormGroup;
-  @Input() eventDetail: EventDetails;
-
+  @Input() eventDetail: EventDetails;  
+  
   public selectedPackage: Package;
   public isDateRequired: boolean;
   public totalWithoutVat: number;

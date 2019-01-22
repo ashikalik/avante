@@ -1,8 +1,8 @@
 .error {
-  color: red;
-  font-size: 13px;
-  padding-top: 10px;
-}
+    color: red;
+	font-size: 13px;
+	padding-top: 10px;
+  }
 
 .evento_input, .evento_select {
   display: inline !important;
@@ -764,6 +764,11 @@ input[type="checkbox"]:focus {
 .latest-event {
   background-color: #f7f7f7;
 
+}
+
+
+.alert-danger{
+	margin: 10px !important;
 }
 
 
