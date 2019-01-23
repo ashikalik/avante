@@ -9,11 +9,6 @@ import {EventTermsComponent} from './dashboard/event-terms/event-terms.component
 import {EventBadgeComponent} from './event-badge/event-badge.component';
 import {EventSupervisorsComponent} from './dashboard/event-supervisors/event-supervisors.component';
 import {LinkWithGeaComponent} from './link-with-gea/link-with-gea.component';
-import {QuestionsComponent} from './questions/questions.component';
-import {ApplicationsComponent} from './applications/applications.component';
-import {InterviewResultsComponent} from './interview-results/interview-results.component';
-import {EvaluationsComponent} from './evaluations/evaluations.component';
-import {FinalEvaluationsComponent} from './final-evaluations/final-evaluations.component';
 import {TicketPackagesComponent} from './ticket-packages/ticket-packages.component';
 import {SalesStaffComponent} from './sales-staff/sales-staff.component';
 import {SoldTicketsComponent} from './sold-tickets/sold-tickets.component';
@@ -31,11 +26,6 @@ import {RootOrganizerComponent} from './root-organizer/root-organizer.component'
         AddEventComponent,
         EventBadgeComponent,
         LinkWithGeaComponent,
-        QuestionsComponent,
-        ApplicationsComponent,
-        InterviewResultsComponent,
-        EvaluationsComponent,
-        FinalEvaluationsComponent,
         TicketPackagesComponent,
         SalesStaffComponent,
         SoldTicketsComponent,

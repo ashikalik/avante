@@ -20,10 +20,6 @@ const routes: Routes = [
                 component: MyEventsComponent
             },
             {
-                path: 'prices',
-                component: PricesComponent
-            },
-            {
                 path: 'create-event',
                 component: AddEventComponent
             },

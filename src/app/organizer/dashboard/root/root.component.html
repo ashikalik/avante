@@ -7,28 +7,29 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-start side-menu">
           <ul class="sidebar-nav">
             <li class="sidebar-brand d-flex justify-content-center align-items-center">
-              <img class="rounded-circle" src="assets/user.png" alt=""/>
+              <img class="rounded-circle" src="assets/user.png" alt="" />
               <p class="mb-0">{{ username }} &nbsp; <br><a [routerLink]="['/my-profile']" class="mt-2" translate>My account<i class="fas fa-chevron-left"></i></a></p>
             </li>
             <li class="sidebar-list">
               <a class="sidebar-item" [routerLink]="['/details']" translate><img class="img-fluid ml-2 mr-2" src="assets/EventIcon.png" alt=""/>EVENT</a>
               <ul class="sidebar-nav">
-                <li class="sidebar-sublist active"><a [routerLink]="['/details']" translate>Event Details</a></li>
-                <li class="sidebar-sublist"><a href="" translate>Event Setting</a></li>
-                <li class="sidebar-sublist"><a href="" translate>Event Terms And Conditions</a></li>
-                <li class="sidebar-sublist"><a href="" translate>Event Supervisors</a></li>
-                <li class="sidebar-sublist"><a href="" translate>Link Event with GEA</a></li>
-                <li class="sidebar-sublist"><a href="" translate>Event Badge Design</a></li>
+                <li class="sidebar-sublist " routerLinkActive="active"><a [routerLink]="['details']" translate>Event Details</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a  translate>Event Setting</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a  translate>Event Terms And Conditions</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a translate>Event Supervisors</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a  translate>Link Event with GEA</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a  translate>Event Badge Design</a></li>
               </ul>
             </li>
             <li class="sidebar-list">
               <a class="sidebar-item" href="" translate><img class="img-fluid ml-2 mr-2" src="assets/OrganizersIcon.png" alt=""/>Organizers</a>
               <ul class="sidebar-nav">
-                <li class="sidebar-sublist"><a href="interview/question" translate>Interviews Questions</a></li>
-                <li class="sidebar-sublist"><a href="application" translate>Applications</a></li>
-                <li class="sidebar-sublist"><a href="interview/result" translate>Interviews results</a></li>
-                <li class="sidebar-sublist"><a href="" translate>Evaluations</a></li>
-              </ul>
+                <li class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['questions']" translate>Interviews Questions</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['applications']" translate>Applications</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['evaluations']" translate>Evaluations</a></li>                
+                <li class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['interview-results']" translate>Interviews results</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['final-evaluations']" translate>Final results</a></li>
+              </ul> 
             </li>
             <li class="sidebar-list">
               <a class="sidebar-item" href="" translate><img class="img-fluid ml-2 mr-2" src="assets/TicketsIcon.png" alt=""/>Tickets</a>

@@ -48,7 +48,7 @@
             </label>
           </div>
           <div class="form-group d-flex justify-content-center">
-            <button [disabled]="!agreement.valid" type="button" class="btn btn-danger pd-250">continue</button>
+            <button (click)="onContinue($event)" [disabled]="!agreement.valid" type="button" class="btn btn-danger pd-250">continue</button>
           </div>
         </div>
       </form>

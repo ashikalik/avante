@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEventComponent implements OnInit {
 
-  constructor() { }
+  public hidePricesScree: boolean;
+  
+  constructor() {
+    this.hidePricesScree =false;
+   }
 
   ngOnInit() {
   }
+
+
+  onAgree(){
+    this.hidePricesScree = true;
+  }
+
+
 
 }

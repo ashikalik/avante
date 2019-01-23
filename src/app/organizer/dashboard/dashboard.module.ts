@@ -8,6 +8,12 @@ import {EventTermsComponent} from "./event-terms/event-terms.component";
 import {EventSupervisorsComponent} from "./event-supervisors/event-supervisors.component";
 import {OrganizerService} from "../../api-services/organizer.service";
 import {AgmCoreModule} from "@agm/core";
+import {QuestionsComponent} from './questions/questions.component';
+import {ApplicationsComponent} from './applications/applications.component';
+import {InterviewResultsComponent} from './interview-results/interview-results.component';
+import {EvaluationsComponent} from './evaluations/evaluations.component';
+import {FinalEvaluationsComponent} from './final-evaluations/final-evaluations.component';
+
 
 @NgModule({
     declarations: [
@@ -15,7 +21,12 @@ import {AgmCoreModule} from "@agm/core";
         EventDetailsComponent,
         EventSettingsComponent,
         EventTermsComponent,
-        EventSupervisorsComponent
+        EventSupervisorsComponent,
+        QuestionsComponent,
+        ApplicationsComponent,
+        InterviewResultsComponent,
+        EvaluationsComponent,
+        FinalEvaluationsComponent
     ],
     imports: [
         ...BASE_MODULES,
