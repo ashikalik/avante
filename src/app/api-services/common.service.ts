@@ -6,6 +6,7 @@ import {City} from "../models/city";
 import {EventType} from "../models/event-type";
 import {Nationality} from "../models/nationality";
 import {Educations} from "../models/educations";
+import {Audiences} from "../models/audience";
 
 @Injectable()
 export class CommonService {
@@ -43,6 +44,12 @@ export class CommonService {
         const url = NetworkConfig.BASE_URL + NetworkConfig.EDUCATIONS;
         return this.httpClient
             .get<Educations>(url);
+    }
+
+    getAudiance(): Observable<Audiences> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.AUDIANCE_LIST;
+        return this.httpClient
+            .get<Audiences>(url);
     }
 
 }
