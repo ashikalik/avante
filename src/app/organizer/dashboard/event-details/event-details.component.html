@@ -135,7 +135,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5 mb-3">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <p class="event-edit"><b translate>Event name</b><span class="text-danger">*</span></p>
+                                    <p class="event-edit"><b translate>Event name</b></p>
                                     <div class="event-edit form-group grey-color">
                                         <input type="text" class="form-control evento_input" placeholder=""
                                                formControlName="name">
@@ -221,7 +221,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <p class="event-edit" translate>Event Address<span class="text-danger">*</span></p>
+                                    <p class="event-edit" translate>Event Address</p>
                                     <div class="event-edit form-group grey-color">
                                         <input type="text"
                                                class="event-edit form-control evento_input"
@@ -247,7 +247,7 @@
 
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <p class="event-edit" translate>Event Description<span class="text-danger">*</span>
+                                    <p class="event-edit" translate>Event Description
                                     </p>
                                     <div class="event-edit form-group w-100 grey-color">
                                     <textarea rows="4" cols="50" class="form-control evento_input"
@@ -292,7 +292,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <p class="event-edit" translate>Minimum Age<span class="text-danger">*</span></p>
+                                    <p class="event-edit" translate>Minimum Age</p>
                                     <div class="event-edit form-group grey-color">
                                         <input type="text" class="form-control evento_input" placeholder=""
                                                formControlName="min_age">
@@ -309,7 +309,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <p class="event-edit" translate>Targeted Audience<span class="text-danger">*</span>
+                                    <p class="event-edit" translate>Targeted Audience
                                     </p>
                                     <div class="event-edit form-group position-relative grey-color">
                                         <select class="form-control evento_input evento_select" name=""
@@ -331,7 +331,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
-                                    <p class="event-edit" translate>Event Starts<span class="text-danger">*</span></p>
+                                    <p class="event-edit" translate>Event Starts</p>
                                     <div class="form-group w-100 d-block">
                                         <div class="event-edit form-group position-relative grey-color">
                                             <my-date-picker [options]="myDatePickerOptions"
@@ -347,18 +347,20 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
                                     <div class="form-group w-100 d-flex">
-                                        <input type="text" class="event-edit form-control evento_input w-50"
-                                               placeholder="00:00" formControlName="from_time">
+                                        <div>
+                                            <input type="text" class="event-edit form-control evento_input w-50"
+                                                   placeholder="00:00" formControlName="from_time" style="width: 100% !important">
 
-                                        <div class="error"
-                                             *ngIf="form.controls['from_time'].hasError('required') && !form.controls['from_time'].pristine"
-                                             translate>
-                                            This field is required
-                                        </div>
-                                        <div class="error"
-                                             *ngIf="form.controls['from_time'].hasError('pattern') && !form.controls['from_time'].pristine"
-                                             translate>
-                                            Field should be at least 10 characters
+                                            <div class="error"
+                                                 *ngIf="form.controls['from_time'].hasError('required') && !form.controls['from_time'].pristine"
+                                                 translate>
+                                                This field is required
+                                            </div>
+                                            <div class="error"
+                                                 *ngIf="form.controls['from_time'].hasError('pattern') && !form.controls['from_time'].pristine"
+                                                 translate>
+                                                Field should be at least 10 characters
+                                            </div>
                                         </div>
                                         <div class="event-edit form position-relative w-25 pl-1 pr-1">
                                             <input type="radio" class="" value="am" formControlName="from_time_type">
@@ -371,7 +373,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                                    <p class="event-edit" translate>Event Ends<span class="text-danger">*</span></p>
+                                    <p class="event-edit" translate>Event Ends</p>
                                     <div class="form-group w-100 d-flex">
                                         <div class="event-edit form-group position-relative grey-color w-50">
                                             <my-date-picker [options]="myDatePickerOptions"
