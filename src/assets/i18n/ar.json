@@ -250,7 +250,11 @@
   "Minimum Age": "أقل عمر للدخول",
   "Targeted Audience": "الفئة المستهدفة",
   "Event Starts": "تاريخ ووقت بداية الفعالية",
+  "Event Starts Time": "وقت بداية الفعالية",
+  "Event Starts Date": "تاريخ  بداية الفعالية",
   "Event Ends": "تاريخ ووقت نهاية الفعالية",
+  "Event Ends Date": "تاريخ  نهاية الفعالية",
+  "Event Ends Time": "وقت نهاية الفعالية",
   "Upload Event Image": "ارفع صورة الفعالية",
   "Choose file": "اختر الصورة",
   "Minimum size 1100 Px * 1100 Px": "أقصى حجم للصورة 1100 Px * 1100 Px",
@@ -258,5 +262,9 @@
   "Choose Audience": "اختر الفئة المستهدفة",
   "Am": "صباحا",
   "Pm": "مساء",
-  "Choose Event Type": "اختر نوع الفعالية"
+  "Choose Event Type": "اختر نوع الفعالية",
+  "End date should be more than or equal From date": "تاريخ نهاية الفعالية يجب ان لا يقل عن تاريخ بداية الفعالية",
+  "End time should be more than start time": "وقت نهاية الفعالية يجب ان لا يكون قبل وقت بداية الفعالية",
+  "Time pattern invalid": "صيغة الوقت غير صحيحة ",
+  "Click here to trigger the file uploader": "اضغط هنا لاختيار الصورة "
 }

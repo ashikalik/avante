@@ -53,6 +53,7 @@ export class EventDetailsComponent implements OnInit {
         this.loadRegionList();
         this.loadAudicanceList();
         this.getEventDetails();
+        $('.event-image').on('click', function(){$(this).parent().prev().click()});
     }
 
     public changeEdit() {
@@ -87,9 +88,9 @@ export class EventDetailsComponent implements OnInit {
                 'details': [this.eventDetails.details, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(1000)])],
                 'from_date': [{date: new DatePickerInputPipe().transform(this.eventDetails.from_date)}, Validators.compose([Validators.required])],
                 'end_date': [{date: new DatePickerInputPipe().transform(this.eventDetails.end_date)}, Validators.compose([Validators.required])],
-                'from_time': [new ConvertFrom24To12FormatPipe().transform(this.eventDetails.from_time), Validators.compose([Validators.required, Validators.pattern('(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$')])],
+                'from_time': [new ConvertFrom24To12FormatPipe().transform(this.eventDetails.from_time), Validators.compose([Validators.required, Validators.pattern('(0[0-9]|1[0-2]):[0-5][0-9]$')])],
                 'from_time_type': [new AmPmTimePipe().transform(this.eventDetails.from_time), Validators.compose([Validators.required])],
-                'end_time': [new ConvertFrom24To12FormatPipe().transform(this.eventDetails.end_time), Validators.compose([Validators.required, Validators.pattern('(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$')])],
+                'end_time': [new ConvertFrom24To12FormatPipe().transform(this.eventDetails.end_time), Validators.compose([Validators.required, Validators.pattern('(0[0-9]|1[0-2]):[0-5][0-9]$')])],
                 'end_time_type': [new AmPmTimePipe().transform(this.eventDetails.end_time), Validators.compose([Validators.required])],
                 'type_id': [this.eventDetails.type_id, Validators.compose([Validators.required])],
                 'lat': [this.eventDetails.lat, Validators.compose([])],
@@ -106,21 +107,36 @@ export class EventDetailsComponent implements OnInit {
     public checkTime(AC: AbstractControl): ValidationErrors {
         const from_time = AC.get('from_time').value;
         const end_time = AC.get('end_time').value;
-        if (Number(from_time.split(':')[0]) > Number(end_time.split(':')[0])) {
+        const from_date_type = AC.get('from_time_type').value;
+        const end_date_type = AC.get('end_time_type').value;
+
+
+        if(from_date_type == 'am' && end_date_type == 'pm') {
+            console.log('true 1')
+            return null
+        } else if (from_date_type == 'pm' && end_date_type == 'am') {
+            console.log('error 1')
             return {timeError: {valid: false}};
-        } else if (Number(from_time.split(':')[0]) === Number(end_time.split(':')[0])) {
-            if (Number(from_time.split(':')[1]) >= Number(end_time.split(':')[1])) {
+        } else {
+            if (Number(from_time.split(':')[0]) > Number(end_time.split(':')[0])) {
+                console.log('error 2')
                 return {timeError: {valid: false}};
-            } else {
-                return null;
+            } else if (Number(from_time.split(':')[0]) === Number(end_time.split(':')[0])) {
+                if (Number(from_time.split(':')[1]) >= Number(end_time.split(':')[1])) {
+                    console.log('error 3')
+                    return {timeError: {valid: false}};
+                } else {
+                    console.log('true 2')
+                    return null;
+                }
             }
         }
-        return null;
+
     }
 
     public checkDate(AC: AbstractControl): ValidationErrors {
-        const from_date = AC.value.from_date;
-        const end_date = AC.value.end_date;
+        const from_date = AC.value.from_date.formatted;
+        const end_date = AC.value.end_date.formatted;
 
         if (from_date && end_date) {
 
