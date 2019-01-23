@@ -1,0 +1,55 @@
+<div class="main_container">
+  <div class="container-fluid event-container">
+    <div class="row justify-content-center">
+      <!-- side menu -->
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12 side-toggle-menu nav_toggle left-0">
+        <i class="dashboard_toggle left-0 fas fa-bars ml-2 mr-2 mt-2" (click)="onDashboardToggle()" title="doshboard"></i>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-start side-menu">
+          <ul class="sidebar-nav">
+            <li class="sidebar-brand d-flex justify-content-center align-items-center">
+              <img class="rounded-circle" src="assets/user.png" alt=""/>
+              <p class="mb-0">{{ username }} &nbsp; <br><a [routerLink]="['/my-profile']" class="mt-2" translate>My account<i class="fas fa-chevron-left"></i></a></p>
+            </li>
+            <li class="sidebar-list">
+              <a class="sidebar-item" [routerLink]="['/details']" translate><img class="img-fluid ml-2 mr-2" src="assets/EventIcon.png" alt=""/>EVENT</a>
+              <ul class="sidebar-nav">
+                <li class="sidebar-sublist active"><a [routerLink]="['/details']" translate>Event Details</a></li>
+                <li class="sidebar-sublist"><a href="" translate>Event Setting</a></li>
+                <li class="sidebar-sublist"><a href="" translate>Event Terms And Conditions</a></li>
+                <li class="sidebar-sublist"><a href="" translate>Event Supervisors</a></li>
+                <li class="sidebar-sublist"><a href="" translate>Link Event with GEA</a></li>
+                <li class="sidebar-sublist"><a href="" translate>Event Badge Design</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-list">
+              <a class="sidebar-item" href="" translate><img class="img-fluid ml-2 mr-2" src="assets/OrganizersIcon.png" alt=""/>Organizers</a>
+              <ul class="sidebar-nav">
+                <li class="sidebar-sublist"><a href="interview/question" translate>Interviews Questions</a></li>
+                <li class="sidebar-sublist"><a href="application" translate>Applications</a></li>
+                <li class="sidebar-sublist"><a href="interview/result" translate>Interviews results</a></li>
+                <li class="sidebar-sublist"><a href="" translate>Evaluations</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-list">
+              <a class="sidebar-item" href="" translate><img class="img-fluid ml-2 mr-2" src="assets/TicketsIcon.png" alt=""/>Tickets</a>
+              <ul class="sidebar-nav">
+                <li class="sidebar-sublist"><a href="" translate>Tickets Packages</a></li>
+                <li class="sidebar-sublist"><a href="" translate>Sales staff</a></li>
+                <li class="sidebar-sublist"><a href="" translate>Sold Tickets</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-list">
+              <a class="sidebar-item" href="" translate><img class="img-fluid ml-2 mr-2" src="assets/ReportsIcon.png" alt=""/>Reports</a>
+              <ul class="sidebar-nav">
+                <li class="sidebar-sublist"><a href="" translate>Statistics</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-10 col-sm-10 col-12 text_left justify-content-center side-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

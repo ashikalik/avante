@@ -1,0 +1,111 @@
+@import '../sass/main.scss';
+
+.event-container {
+  div {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* side content */
+  .side-content {
+    padding-top: 20px;
+    padding-bottom: 100px;
+    .nav-tabs{
+      padding-right: 50px;
+      padding-left: 50px;
+      &.underline {
+        border-bottom: 1px solid #b0b0b0;
+      }
+      .nav-link {
+        margin-right: 20px;
+      }
+    }
+    .tab-event-content {
+      .event-edit {
+        display: block;
+        input[type=radio] {
+          position: absolute;
+          left: 0;
+          cursor: pointer;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          opacity: 0;
+        }
+        input[type=radio]:checked ~ button {
+          box-shadow: none;
+          border-color: red !important;
+          color: red;
+        }
+        input[type=radio] ~ button {
+          padding-left: 6px;
+          padding-right: 6px;
+        }
+      }
+      .event-edit.form-group {
+        width: 100%;
+      }
+      .event-view {
+        display: block;
+      }
+      .event-more-detail {
+        display: none;
+      }
+    }
+  }
+}
+@media (max-width: 1440px) {
+  .side-content {
+    .nav-tabs{
+      padding-right: 5px !important;
+      padding-left: 5px !important;
+      .nav-link {
+        margin-right: 5px !important;
+      }
+      .nav-item a {
+        font-size: 16px;
+      }
+    }
+  }
+}
+@media (max-width: 1280px) {
+  .side-content {
+    .nav-tabs{
+      padding-right: 5px !important;
+      padding-left: 5px !important;
+      .nav-link {
+        margin-right: 5px !important;
+      }
+      .nav-item a {
+        font-size: 15px;
+      }
+    }
+  }
+}
+@media (max-width: 992px) {
+  .side-content {
+    .nav-tabs{
+      padding-right: 0px !important;
+      padding-left: 0px !important;
+      .nav-link {
+        margin-right: 0px !important;
+      }
+      .nav-item a {
+        font-size: 11px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .side-content {
+    .nav-tabs{
+      padding-right: 0px !important;
+      padding-left: 0px !important;
+      .nav-link {
+        margin-right: 0px !important;
+      }
+      .nav-item a {
+        font-size: 8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,195 @@
+import {Component, OnInit} from '@angular/core';
+import {EventService} from "../../../api-services/event.service";
+import {ActivatedRoute} from "@angular/router";
+import {OrganizerService} from "../../../api-services/organizer.service";
+import {Event} from "../../../models/event-organizer";
+import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {CommonService} from "../../../api-services/common.service";
+import {City, cityObj} from "../../../models/city";
+import {EventType} from "../../../models/event-type";
+import {Audiences} from "../../../models/audience";
+import {DatePickerInputPipe} from "../../../shared/date-picker-input.pipe";
+import {MyDatePickerOptions} from "../../../models/date-picker-object";
+import {ConvertFrom24To12FormatPipe} from "../../../shared/convert-from24-to12-format.pipe";
+import {AmPmTimePipe} from "../../../shared/am-pm-time.pipe";
+
+
+@Component({
+    selector: 'app-event-details',
+    templateUrl: './event-details.component.html',
+    styleUrls: ['./event-details.component.scss']
+})
+export class EventDetailsComponent implements OnInit {
+
+    public event_key: string;
+    public eventDetails: Event;
+    public showUpdate: boolean;
+    public form: FormGroup;
+    public cityList: City;
+    public regionList: City;
+    public eventTypeList: EventType;
+    public audiencesList: Audiences;
+    public imageURL: any;
+    public updatedCityList: cityObj[];
+    public myDatePickerOptions = MyDatePickerOptions;
+
+
+
+
+    constructor(public organizerService: OrganizerService,
+                public formBuilder: FormBuilder,
+                public commonService: CommonService,
+                public activatedRoute: ActivatedRoute) {
+        this.activatedRoute.params.subscribe(params => {
+            this.event_key = this.activatedRoute.snapshot.paramMap['params']['event-key'];
+        });
+        this.showUpdate = false;
+
+    }
+
+    ngOnInit() {
+        this.loadCityList();
+        this.loadEventTypeList();
+        this.loadRegionList();
+        this.loadAudicanceList();
+        this.getEventDetails();
+    }
+
+    public changeEdit() {
+        if (!this.showUpdate) {
+            this.initForm();
+        }
+        this.showUpdate = !this.showUpdate
+    }
+
+    public getEventDetails() {
+        this.organizerService.getEvent(1, 1, null, this.event_key, null).subscribe(res => {
+            this.eventDetails = res.data[0];
+            // this.changeEdit();
+        }, err => {
+
+        });
+    }
+
+    public initForm() {
+
+        this.updatedCityList = this.cityList.data.filter((item) => item.region_id == this.eventDetails.region_id);
+        console.log(new ConvertFrom24To12FormatPipe().transform(this.eventDetails.from_time))
+
+        this.form = this.formBuilder.group(
+            {
+                'name': [this.eventDetails.name, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
+                'city_id': [this.eventDetails.city_id, Validators.compose([Validators.required])],
+                'region_id': [this.eventDetails.region_id, Validators.compose([Validators.required])],
+                'audiance_id': [this.eventDetails.audience_id, Validators.compose([Validators.required])],
+                'max_capacity': [this.eventDetails.maximum_capacity, Validators.compose([Validators.required, Validators.min(1)])],
+                'min_age': [this.eventDetails.minimum_age, Validators.compose([Validators.required, Validators.min(0)])],
+                'details': [this.eventDetails.details, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(1000)])],
+                'from_date': [{date: new DatePickerInputPipe().transform(this.eventDetails.from_date)}, Validators.compose([Validators.required])],
+                'end_date': [{date: new DatePickerInputPipe().transform(this.eventDetails.end_date)}, Validators.compose([Validators.required])],
+                'from_time': [new ConvertFrom24To12FormatPipe().transform(this.eventDetails.from_time), Validators.compose([Validators.required, Validators.pattern('(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$')])],
+                'from_time_type': [new AmPmTimePipe().transform(this.eventDetails.from_time), Validators.compose([Validators.required])],
+                'end_time': [new ConvertFrom24To12FormatPipe().transform(this.eventDetails.end_time), Validators.compose([Validators.required, Validators.pattern('(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$')])],
+                'end_time_type': [new AmPmTimePipe().transform(this.eventDetails.end_time), Validators.compose([Validators.required])],
+                'type_id': [this.eventDetails.type_id, Validators.compose([Validators.required])],
+                'lat': [this.eventDetails.lat, Validators.compose([])],
+                'lng': [this.eventDetails.lng, Validators.compose([])],
+                'address': [this.eventDetails.address, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(1000)])]
+            }, {
+                validator: [this.checkTime, this.checkDate]
+
+            });
+
+        console.log(this.form.value)
+    }
+
+    public checkTime(AC: AbstractControl): ValidationErrors {
+        const from_time = AC.get('from_time').value;
+        const end_time = AC.get('end_time').value;
+        if (Number(from_time.split(':')[0]) > Number(end_time.split(':')[0])) {
+            return {timeError: {valid: false}};
+        } else if (Number(from_time.split(':')[0]) === Number(end_time.split(':')[0])) {
+            if (Number(from_time.split(':')[1]) >= Number(end_time.split(':')[1])) {
+                return {timeError: {valid: false}};
+            } else {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public checkDate(AC: AbstractControl): ValidationErrors {
+        const from_date = AC.value.from_date;
+        const end_date = AC.value.end_date;
+
+        if (from_date && end_date) {
+
+            if (from_date > end_date) {
+                return {dateError: {valid: false}};
+            } else {
+                return null;
+            }
+        }
+    }
+
+    public loadCityList() {
+        this.commonService.getCity().subscribe(
+            res => {
+                this.cityList = res;
+            }, err => {
+            });
+    }
+
+    public loadEventTypeList() {
+        this.commonService.getEventType().subscribe(
+            res => {
+                this.eventTypeList = res;
+            }, err => {
+            });
+    }
+
+    public loadRegionList() {
+        this.commonService.getRegion().subscribe(
+            res => {
+                this.regionList = res;
+            }, err => {
+            });
+    }
+
+    public loadAudicanceList() {
+        this.commonService.getAudiance().subscribe(
+            res => {
+                this.audiencesList = res;
+            }, err => {
+            });
+    }
+
+    public updateEvent(form: FormGroup) {
+
+    }
+
+    public fileEvent(ev: any) {
+        const fl: FileList = ev.target.files;
+        if (fl.length > 0) {
+
+            const file: File = fl[0];
+
+            const myReader: FileReader = new FileReader();
+
+
+            myReader.onloadend = (e) => {
+                this.imageURL = myReader.result;
+            };
+
+            myReader.readAsDataURL(file);
+        } else {
+            this.imageURL = null;
+        }
+
+    }
+
+    public onChangeRegion(event) {
+        this.updatedCityList = this.cityList.data.filter((item) => item.region_id == event);
+    }
+
+}
