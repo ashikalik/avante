@@ -34,8 +34,12 @@ export class MyEventsComponent implements OnInit {
   }
 
 
-  // public onCreateEvent() {
-  //   this.router.navigate(['create-event'])
-  // }
+  public onCreateEvent() {
+    this.router.navigate(['create-event'])
+  }
+
+  public onEvent(event_ket: string) {
+    this.router.navigate(['/organizer/event/' + event_ket])
+  }
 
 }
