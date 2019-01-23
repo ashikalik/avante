@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -9,19 +9,19 @@ import { Router } from '@angular/router';
 })
 export class PricesComponent implements OnInit {
 
+  @Output() onAgree: EventEmitter<any> = new EventEmitter();
+
   public agreement: FormGroup;
 
   public isOnBackageOne: boolean;
   public isOnBackageTwo: boolean;
 
-  public hidePricesScree: boolean;
 
   constructor(public formBuilder: FormBuilder,
     public router: Router) {
     this.isOnBackageOne = false;
     this.isOnBackageTwo = false;
-    
-    this.hidePricesScree = false;
+
   }
 
   ngOnInit() {
@@ -52,7 +52,8 @@ export class PricesComponent implements OnInit {
   }
 
 
-  public onContinue() {
-    this.hidePricesScree = true;
+  public onContinue(event) {
+    this.onAgree.emit();
   }
+
 }
