@@ -118,6 +118,8 @@
             <!-- Tab panels -->
             <div class="tab-event-content">
                 <div class="content" id="event-details">
+                    <app-errors [errors]="errorUpdate" *ngIf="errorUpdate"></app-errors>
+
                     <form *ngIf="eventDetails" [formGroup]="form" (ngSubmit)="updateEvent(form);">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4 pl-5 pr-5">
                             <p class="event-edit"><b translate>Upload Event Image</b></p>
@@ -181,7 +183,7 @@
                                         <select class="form-control evento_input evento_select"
                                                 name=""
                                                 (change)="onChangeRegion($event.target.value)"
-                                                formControlName="region_id">
+                                                formControlName="region">
                                             <option value="" translate>Choose Region</option>
                                             <ng-container *ngIf="regionList">
                                                 <option *ngFor="let region of regionList.data"
@@ -192,7 +194,7 @@
                                         </select>
                                         <i class="fas fa-chevron-down embed"></i>
                                         <div class="error"
-                                             *ngIf="form.controls['region_id'].hasError('required') && !form.controls['region_id'].pristine"
+                                             *ngIf="form.controls['region'].hasError('required') && !form.controls['region'].pristine"
                                              translate>
                                             This field is required
                                         </div>
@@ -276,14 +278,14 @@
                                     <p class="event-edit"><b translate>Maximum Number Of Audience</b></p>
                                     <div class="event-edit form-group grey-color">
                                         <input type="number" class="form-control evento_input" placeholder=""
-                                               formControlName="max_capacity">
+                                               formControlName="maximum_capacity">
                                         <div class="error"
-                                             *ngIf="form.controls['max_capacity'].hasError('required') && !form.controls['max_capacity'].pristine"
+                                             *ngIf="form.controls['maximum_capacity'].hasError('required') && !form.controls['maximum_capacity'].pristine"
                                              translate>
                                             This field is required
                                         </div>
                                         <div class="error"
-                                             *ngIf="form.controls['max_capacity'].hasError('min') && !form.controls['max_capacity'].pristine"
+                                             *ngIf="form.controls['maximum_capacity'].hasError('min') && !form.controls['maximum_capacity'].pristine"
                                              translate>
                                             Field should be at least 1
                                         </div>
@@ -293,14 +295,14 @@
                                     <p class="event-edit"><b translate>Minimum Age</b></p>
                                     <div class="event-edit form-group grey-color">
                                         <input type="text" class="form-control evento_input" placeholder=""
-                                               formControlName="min_age">
+                                               formControlName="minimum_age">
                                         <div class="error"
-                                             *ngIf="form.controls['min_age'].hasError('required') && !form.controls['min_age'].pristine"
+                                             *ngIf="form.controls['minimum_age'].hasError('required') && !form.controls['minimum_age'].pristine"
                                              translate>
                                             This field is required
                                         </div>
                                         <div class="error"
-                                             *ngIf="form.controls['min_age'].hasError('min') && !form.controls['min_age'].pristine"
+                                             *ngIf="form.controls['minimum_age'].hasError('min') && !form.controls['minimum_age'].pristine"
                                              translate>
                                             Field should be at least Zero
                                         </div>
@@ -311,7 +313,7 @@
                                     </p>
                                     <div class="event-edit form-group position-relative grey-color">
                                         <select class="form-control evento_input evento_select" name=""
-                                                formControlName="audiance_id">
+                                                formControlName="audience_gender">
                                             <option value="" translate>Choose Audience</option>
                                             <ng-container *ngIf="audiencesList">
                                                 <option *ngFor="let audience of audiencesList.data"
@@ -322,7 +324,7 @@
                                         </select>
                                         <i class="fas fa-chevron-down embed"></i>
                                         <div class="error"
-                                             *ngIf="form.controls['audiance_id'].hasError('required') && !form.controls['audiance_id'].pristine"
+                                             *ngIf="form.controls['audience_gender'].hasError('required') && !form.controls['audience_gender'].pristine"
                                              translate>
                                             This field is required
                                         </div>
@@ -449,10 +451,13 @@
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex  pl-5 pr-5" style="display: grid !important;">
-                            <agm-map [latitude]="eventDetails.lat" [longitude]="eventDetails.lng"
+                            <p class="event-edit"><b translate>Event Location on Map</b></p>
+                            <agm-map [latitude]="lat"
+                                     [longitude]="lng"
+                                     (mapClick)="placeMarker($event)"
                                      [zoom]="14">
-                                <agm-marker [latitude]="eventDetails.lat"
-                                            [longitude]="eventDetails.lng"></agm-marker>
+                                <agm-marker [latitude]="lat"
+                                            [longitude]="lng"></agm-marker>
                             </agm-map>
                         </div>
 
@@ -463,7 +468,7 @@
                                     translate>
                                 Cancel
                             </button>
-                            <button type="button"
+                            <button type="submit"
                                     class="event-edit btn btn-danger pr-5 pl-5 ml-2 mr-2"
                                     translate>
                                 SAVE
