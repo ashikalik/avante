@@ -13,13 +13,20 @@ export class DatePickerInputPipe implements PipeTransform {
         let input = value.split('-');
 
         let date = {
-            year: parseInt(input[0]),
-            month: parseInt(input[1]),
-            day: parseInt(input[2])
+            date: {
+                year: parseInt(input[0]),
+                month: parseInt(input[1]),
+                day: parseInt(input[2])
+            },
+            formatted: value
         };
+
+
 
 
         return date;
     }
 
 }
+
+

@@ -266,5 +266,6 @@
   "End date should be more than or equal From date": "تاريخ نهاية الفعالية يجب ان لا يقل عن تاريخ بداية الفعالية",
   "End time should be more than start time": "وقت نهاية الفعالية يجب ان لا يكون قبل وقت بداية الفعالية",
   "Time pattern invalid": "صيغة الوقت غير صحيحة ",
-  "Click here to trigger the file uploader": "اضغط هنا لاختيار الصورة "
+  "Click here to trigger the file uploader": "اضغط هنا لاختيار الصورة ",
+  "Event Location on Map": "موقع الفعالية "
 }

@@ -31,6 +31,11 @@ export class OrganizerService {
         return this.httpClient.get<EventOrganizer>(url);
     }
 
+    public updateEvent(body: any ,event_key: string): Observable<any> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_EVENT_INFO + event_key;
+        return this.httpClient.put<any>(url, body);
+    }
+
 
 
 }

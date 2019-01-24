@@ -12,6 +12,7 @@ import {DatePickerInputPipe} from "../../../shared/date-picker-input.pipe";
 import {MyDatePickerOptions} from "../../../models/date-picker-object";
 import {ConvertFrom24To12FormatPipe} from "../../../shared/convert-from24-to12-format.pipe";
 import {AmPmTimePipe} from "../../../shared/am-pm-time.pipe";
+import {EventoError} from "../../../models/error";
 
 
 @Component({
@@ -32,6 +33,10 @@ export class EventDetailsComponent implements OnInit {
     public imageURL: any;
     public updatedCityList: cityObj[];
     public myDatePickerOptions = MyDatePickerOptions;
+    public lat: any;
+    public lng: any;
+    public errorUpdate: EventoError;
+
 
 
 
@@ -76,18 +81,21 @@ export class EventDetailsComponent implements OnInit {
 
         this.updatedCityList = this.cityList.data.filter((item) => item.region_id == this.eventDetails.region_id);
         console.log(new ConvertFrom24To12FormatPipe().transform(this.eventDetails.from_time))
+        this.lat = this.eventDetails.lat;
+        this.lng = this.eventDetails.lng;
+
 
         this.form = this.formBuilder.group(
             {
                 'name': [this.eventDetails.name, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
                 'city_id': [this.eventDetails.city_id, Validators.compose([Validators.required])],
-                'region_id': [this.eventDetails.region_id, Validators.compose([Validators.required])],
-                'audiance_id': [this.eventDetails.audience_id, Validators.compose([Validators.required])],
-                'max_capacity': [this.eventDetails.maximum_capacity, Validators.compose([Validators.required, Validators.min(1)])],
-                'min_age': [this.eventDetails.minimum_age, Validators.compose([Validators.required, Validators.min(0)])],
+                'region': [this.eventDetails.region_id, Validators.compose([Validators.required])],
+                'audience_gender': [this.eventDetails.audience_id, Validators.compose([Validators.required])],
+                'maximum_capacity': [this.eventDetails.maximum_capacity, Validators.compose([Validators.required, Validators.min(1)])],
+                'minimum_age': [this.eventDetails.minimum_age, Validators.compose([Validators.required, Validators.min(0)])],
                 'details': [this.eventDetails.details, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(1000)])],
-                'from_date': [{date: new DatePickerInputPipe().transform(this.eventDetails.from_date)}, Validators.compose([Validators.required])],
-                'end_date': [{date: new DatePickerInputPipe().transform(this.eventDetails.end_date)}, Validators.compose([Validators.required])],
+                'from_date': [new DatePickerInputPipe().transform(this.eventDetails.from_date), Validators.compose([Validators.required])],
+                'end_date': [new DatePickerInputPipe().transform(this.eventDetails.end_date), Validators.compose([Validators.required])],
                 'from_time': [new ConvertFrom24To12FormatPipe().transform(this.eventDetails.from_time), Validators.compose([Validators.required, Validators.pattern('(0[0-9]|1[0-2]):[0-5][0-9]$')])],
                 'from_time_type': [new AmPmTimePipe().transform(this.eventDetails.from_time), Validators.compose([Validators.required])],
                 'end_time': [new ConvertFrom24To12FormatPipe().transform(this.eventDetails.end_time), Validators.compose([Validators.required, Validators.pattern('(0[0-9]|1[0-2]):[0-5][0-9]$')])],
@@ -181,7 +189,23 @@ export class EventDetailsComponent implements OnInit {
     }
 
     public updateEvent(form: FormGroup) {
-
+        console.log(form.value)
+        let body = form.value;
+        body.lat = this.lat;
+        body.lng = this.lng;
+        body.from_date = form.value.from_date.formatted
+        body.end_date = form.value.end_date.formatted
+        if(this.imageURL) {
+            body.img = this.imageURL;
+        }
+        console.log(form.value)
+        this.organizerService.updateEvent(body, this.event_key).subscribe(res => {
+            this.getEventDetails();
+            this.showUpdate = false;
+            console.log(res)
+        }, err => {
+            this.errorUpdate = err.value.error;
+        });
     }
 
     public fileEvent(ev: any) {
@@ -195,6 +219,7 @@ export class EventDetailsComponent implements OnInit {
 
             myReader.onloadend = (e) => {
                 this.imageURL = myReader.result;
+                console.log(this.imageURL)
             };
 
             myReader.readAsDataURL(file);
@@ -202,6 +227,11 @@ export class EventDetailsComponent implements OnInit {
             this.imageURL = null;
         }
 
+    }
+
+    public placeMarker(event: any) {
+        this.lat = event.coords.lat;
+        this.lng = event.coords.lng;
     }
 
     public onChangeRegion(event) {
