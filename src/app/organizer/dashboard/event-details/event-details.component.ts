@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EventService} from "../../../api-services/event.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {OrganizerService} from "../../../api-services/organizer.service";
 import {Event} from "../../../models/event-organizer";
 import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
@@ -45,14 +45,18 @@ export class EventDetailsComponent implements OnInit {
                 public formBuilder: FormBuilder,
                 public commonService: CommonService,
                 public activatedRoute: ActivatedRoute) {
-        this.activatedRoute.params.subscribe(params => {
-            this.event_key = this.activatedRoute.snapshot.paramMap['params']['event-key'];
-        });
+
+
+        this.activatedRoute.parent.params.subscribe(params => {
+            this.event_key = params['event-key']
+        })
+
         this.showUpdate = false;
 
     }
 
     ngOnInit() {
+        console.log(this.event_key)
         this.loadCityList();
         this.loadEventTypeList();
         this.loadRegionList();
@@ -69,6 +73,7 @@ export class EventDetailsComponent implements OnInit {
     }
 
     public getEventDetails() {
+        console.log(this.event_key)
         this.organizerService.getEvent(1, 1, null, this.event_key, null).subscribe(res => {
             this.eventDetails = res.data[0];
             // this.changeEdit();
@@ -189,7 +194,7 @@ export class EventDetailsComponent implements OnInit {
     }
 
     public updateEvent(form: FormGroup) {
-        console.log(form.value)
+        console.log(this.event_key)
         let body = form.value;
         body.lat = this.lat;
         body.lng = this.lng;
@@ -198,7 +203,6 @@ export class EventDetailsComponent implements OnInit {
         if(this.imageURL) {
             body.img = this.imageURL;
         }
-        console.log(form.value)
         this.organizerService.updateEvent(body, this.event_key).subscribe(res => {
             this.getEventDetails();
             this.showUpdate = false;

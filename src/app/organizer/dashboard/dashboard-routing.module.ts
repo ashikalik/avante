@@ -16,7 +16,8 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                component: EventDetailsComponent
+                redirectTo: 'details',
+                pathMatch: 'full'
             },
             {
                 path: 'details',
