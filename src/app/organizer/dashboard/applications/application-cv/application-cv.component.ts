@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { RequestDetials } from '../../../../models/request-details';
 
 @Component({
   selector: 'app-application-cv',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicationCvComponent implements OnInit {
 
-
+  @Input() requestDetails: RequestDetials;
+  
   public showEdu: boolean;
   public showEx: boolean;
   public showSkills: boolean;

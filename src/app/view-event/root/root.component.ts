@@ -43,4 +43,14 @@ export class RootComponent implements OnInit {
       this.router.navigate(['/buy-ticket/' + this.eventKey]);
   }
 
+
+
+
+  public submitRequest() {
+    this.eventService.submitRequest(this.eventKey).subscribe(res => {
+        this.getEventDetail();
+    }, err => {
+    });
+}
+
 }

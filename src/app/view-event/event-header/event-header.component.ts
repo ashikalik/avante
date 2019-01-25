@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, Output,EventEmitter} from '@angular/core';
 import {EventDetails} from "../../models/event-details";
 import {UserAuthService} from "../../core/user-auth.service";
 
@@ -10,6 +10,8 @@ import {UserAuthService} from "../../core/user-auth.service";
 export class EventHeaderComponent implements OnInit {
 
   @Input() eventDetails: EventDetails;
+  @Output() onSubmitRequest: EventEmitter<any> = new EventEmitter();
+  
   public userType: number;
 
   constructor(public userAuthService: UserAuthService) {
@@ -21,6 +23,10 @@ export class EventHeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  public submitRequest(){
+    this.onSubmitRequest.emit();
   }
 
 }

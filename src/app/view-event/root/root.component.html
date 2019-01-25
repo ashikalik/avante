@@ -8,7 +8,7 @@
         <div class="row ">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center eventdetail">
                 <ng-container *ngIf="eventDetail">
-                    <app-event-header [eventDetails]="eventDetail"></app-event-header>
+                    <app-event-header (onSubmitRequest)='submitRequest($event)' [eventDetails]="eventDetail"></app-event-header>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-start">
                         <app-event-description [eventDetails]="eventDetail"></app-event-description>
 

@@ -1,36 +1,35 @@
 <div class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
   <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
-    <span class="pr-3 d-md-none d-lg-none d-xl-none"> الاسم:</span> Khaled alkathiri
+    <span class="pr-3 d-md-none d-lg-none d-xl-none"> Name:</span> {{request.first_name}} {{request.last_name}}
   </div>
   <div class="col-lg-3 col-md-3 col-sm-12 col-12">
-    <span class="pr-3 d-md-none d-lg-none d-xl-none"> Phone Number:</span> Phone Number
+    <span class="pr-3 d-md-none d-lg-none d-xl-none"> Phone Number:</span> {{request.mobile }}
   </div>
   <div class="title col-lg-4 col-md-4 col-sm-12 col-12">
-    <span class="pr-3 d-md-none d-lg-none d-xl-none"> Email:</span> Email
+    <span class="pr-3 d-md-none d-lg-none d-xl-none"> Email:</span> {{request.email }}
   </div>
   <div class="col-lg-1 col-md-1 col-sm-12 col-12">
-    <span class="d-md-none d-lg-none d-xl-none"> Status:</span> Status
+    <span class="d-md-none d-lg-none d-xl-none"> Status:</span>{{request.status }}
   </div>
   <div class="text-center col-lg-1 col-md-1 col-sm-12 col-12">
-    <button *ngIf="!showInfo" type="button" (click)="onShowInfo()" class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-down"></i></button>
-    <button *ngIf="showInfo" type="button" (click)="onShowInfo()" class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-up"></i></button>
+    <button *ngIf="!showInfo" type="button" (click)="onShowInfo(request.request_id)" class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-down"></i></button>
+    <button *ngIf="showInfo" type="button" (click)="onShowInfo(request.request_id)" class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-up"></i></button>
   </div>
 </div>
 
-<div *ngIf="!showInfo" class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap ">
+<div *ngIf="showInfo && requestDetails" class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap ">
   <div class="body-col pr-3 col-lg-5 col-md-5 col-sm-12 col-12 ">
     <div class="underline h-120 ">
       <p class="grey-color mb-0">About me:</p>
-      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
-        layout The point of using Lorem Ipsum</p>
+      <p>{{requestDetails.data.request.bio}}</p>
     </div>
     <div class="underline h-120">
       <p class="grey-color mb-0">Age:</p>
-      <p>19</p>
+      <p>{{requestDetails.data.request.age}}</p>
     </div>
     <div class="underline h-120">
       <p class="grey-color mb-0">City:</p>
-      <p>Saudi Arabia, Riyadh</p>
+      <p>{{requestDetails.data.request.nationality}}</p>
     </div>
     <div class="star-rating mt-4 underline h-120">
       <p class="grey-color mb-0">Rating:</p>
@@ -41,12 +40,18 @@
       <span class="fas fa-star"></span>
       <span class="rating-value grey-color">(7.5/10)</span>
     </div>
+
+    <br>
+    <div class="">
+      <button type="button" class="btn btn-danger pl-4 pr-4 mb-3">Reject Request</button>
+      <button type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="onPreAcceptRequestButton($event)">Preaccept Request</button>
+    </div>
   </div>
 
   <div class="col-lg-1 col-md-1 col-sm-12 col-12"></div>
 
   <div class="body-col col-lg-4 col-md-5 col-sm-12 col-12  ">
-    <app-application-cv></app-application-cv>
+    <app-application-cv [requestDetails]="requestDetails"></app-application-cv>
   </div>
 
 </div>
