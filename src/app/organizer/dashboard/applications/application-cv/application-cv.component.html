@@ -1,0 +1,45 @@
+<div class="ticket active mt-4 mb-3 p-3 ">
+  <p class="grey-color text-center ">Education</p>
+  <div *ngIf="showEdu">
+    <p><span class="grey-color">2003 - 2012</span>&nbsp;&nbsp;&nbsp;Al Thaghar School. Jeddah</p>
+    <p><span class="grey-color">2003 - 2012</span>&nbsp;&nbsp;&nbsp;Al Thaghar School. Jeddah</p>
+    <p><span class="grey-color">2003 - 2012</span>&nbsp;&nbsp;&nbsp;Al Thaghar School. Jeddah</p>
+  </div>
+
+  <div class="col-lg-12 col-sm-12 col-12 text-center justify-content-center">
+    <button *ngIf="!showEdu" (click)="onShowEdu()" class="btn btn-outline-dark btn-sm text-center show-more">Show More <i class="fas fa-chevron-down"></i></button>
+    <button *ngIf="showEdu" (click)="onShowEdu()" class="btn btn-outline-dark btn-sm text-center show-more">Show less <i class="fas fa-chevron-up"></i></button>
+  </div>
+</div>
+
+
+<div class="ticket mb-3 p-3">
+  <p class="grey-color text-center ">Organizing Experience</p>
+  <div *ngIf="showEx">
+    <p class="mb-1 ticket-more-detail">Event Name</p>
+    <p class="event-name">Twelve Unicorns Design Expo</p>
+    <p class="mb-1 ticket-more-detail">Organization Company</p>
+    <p class="grey-color ticket-more-detail">Twelve Unicorns</p>
+    <p class="mb-1 ticket-more-detail">Position</p>
+    <p class="grey-color">staff</p>
+    <p class="mb-1 ticket-more-detail">Details</p>
+    <p class="grey-color ticket-more-detail">Lorem Ipsum is simply dummy text of the printing and type setting</p>
+  </div>
+  <div class="col-lg-12 col-sm-12 col-12 text-center justify-content-center">
+    <button *ngIf="!showEx" (click)="onShowEx()" class="btn btn-outline-dark btn-sm text-center show-more">Show More <i class="fas fa-chevron-down"></i></button>
+    <button *ngIf="showEx" (click)="onShowEx()" class="btn btn-outline-dark btn-sm text-center show-more">Show less <i class="fas fa-chevron-up"></i></button>
+  </div>
+</div>
+
+
+<div class="ticket mb-3 p-3">
+  <p class="grey-color text-center ">Skills</p>
+  <div *ngIf="showEdu">
+    <p>-Communication</p>
+    <p>-Ability to Work Under Pressure</p>
+  </div>
+  <div class="col-lg-12 col-sm-12 col-12 text-center justify-content-center">
+    <button *ngIf="!showSkills" (click)="onShowSkills()" class="btn btn-outline-dark btn-sm text-center show-more">Show More <i class="fas fa-chevron-down"></i></button>
+    <button *ngIf="showSkills" (click)="onShowSkills()" class="btn btn-outline-dark btn-sm text-center show-more">Show less <i class="fas fa-chevron-up"></i></button>
+  </div>
+</div>
