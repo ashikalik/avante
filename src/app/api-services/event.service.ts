@@ -53,5 +53,10 @@ export class EventService {
         return this.httpClient.get<LatestEvent>(url);
     }
 
+    public submitRequest(event_key: string): any {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.SUBMIT_REQUEST + event_key;
+        return this.httpClient.post<any>(url, {});
+    }
+
 
 }
