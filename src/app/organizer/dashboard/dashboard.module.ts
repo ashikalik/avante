@@ -13,8 +13,9 @@ import {ApplicationsComponent} from './applications/applications.component';
 import {InterviewResultsComponent} from './interview-results/interview-results.component';
 import {EvaluationsComponent} from './evaluations/evaluations.component';
 import {FinalEvaluationsComponent} from './final-evaluations/final-evaluations.component';
-import { ApplicationRowComponent } from './applications/application-row/application-row.component';
-import { ApplicationCvComponent } from './applications/application-cv/application-cv.component';
+import {LinkWithGeaComponent} from "./link-with-gea/link-with-gea.component";
+import {ApplicationRowComponent} from './applications/application-row/application-row.component';
+import {ApplicationCvComponent} from './applications/application-cv/application-cv.component';
 
 
 @NgModule({
@@ -30,7 +31,9 @@ import { ApplicationCvComponent } from './applications/application-cv/applicatio
         EvaluationsComponent,
         FinalEvaluationsComponent,
         ApplicationRowComponent,
-        ApplicationCvComponent
+        ApplicationCvComponent,
+        FinalEvaluationsComponent,
+        LinkWithGeaComponent
     ],
     imports: [
         ...BASE_MODULES,

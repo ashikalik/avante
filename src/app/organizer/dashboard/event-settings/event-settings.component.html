@@ -1,3 +1,133 @@
-<p>
-  event-settings works!
-</p>
+<div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+    <div class="col-lg-10 col-md-12 col-sm-12 col-12 mt-2">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs justify-content-start underline" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link  bg-dark position-relative pt-1 pb-1"
+                   data-toggle="tab"
+                   [routerLink]="['/organizer/event/' + event_key + '/details']"
+                   translate>Event Details</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active bg-danger position-relative pt-1 pb-1"
+                   data-toggle="tab"
+                   [routerLink]="['/organizer/event/' + event_key + '/setting']"
+                   translate>Event Setting</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link bg-dark position-relative pt-1 pb-1" data-toggle="tab"
+                   [routerLink]="['/organizer/event/' + event_key + '/terms']"
+                   translate>Event Terms And Conditions</a>
+            </li>
+        </ul>
+        <!-- Tab panels -->
+        <div class="tab-event-content">
+            <div class="content" id="event-details" *ngIf="eventDetails">
+                <form [formGroup]="form" (ngSubmit)="updateSetting(form);">
+                    <div class="row mr-0 ml-0 mt-5">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5">
+                            <app-errors [errors]="errorUpdate" *ngIf="errorUpdate"></app-errors>
+                        </div>
+                    </div>
+
+
+                    <div class="row mr-0 ml-0 mt-5">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5 mb-3">
+                                <p class="setting-title" translate>Allow receiving requests from organizers</p>
+                                <p class="setting-description grey-color" translate>If you enable this feature, you will be able to receive the organization requests</p>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5">
+                                <div class="event-edit form-group position-relative grey-color w-50">
+                                    <select class="form-control evento_input evento_select"
+                                            formControlName="joining_status"
+                                            name="">
+                                        <option value="1" translate>Enable</option>
+                                        <option value="2" translate>Disable</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mr-0 ml-0 mt-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5 mb-3">
+                                <p class="setting-title" translate>Allow selling tickets online</p>
+                                <p class="setting-description grey-color" translate>If you enable this feature, you will be able to sell tickets online</p>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5">
+                                <div class="event-edit form-group position-relative grey-color w-50">
+                                    <select class="form-control evento_input evento_select"
+                                            formControlName="ticket_payment"
+                                            name="">
+                                        <option value="1" translate>Enable</option>
+                                        <option value="2" translate>Disable</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mr-0 ml-0 mt-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5 mb-3">
+                                <p class="setting-title" translate>Show Event</p>
+                                <p class="setting-description grey-color" translate>If you enable this feature, your event will be visible to everyone</p>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5">
+                                <div class="event-edit form-group position-relative grey-color w-50">
+                                    <select class="form-control evento_input evento_select"
+                                            formControlName="publish_status"
+                                            name="">
+                                        <option value="1" translate>Enable</option>
+                                        <option value="2" translate>Disable</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mr-0 ml-0 mt-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5 mb-3">
+                                <p class="setting-title" translate>Private Event</p>
+                                <p class="setting-description grey-color" translate>If you enable this feature, your will need to share event link to able view event</p>
+                            </div>
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5">
+                                <div class="event-edit form-group position-relative grey-color w-50">
+                                    <select class="form-control evento_input evento_select"
+                                            formControlName="public_status"
+                                            name="">
+                                        <option value="1" translate>Enable</option>
+                                        <option value="2" translate>Disable</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mr-0 ml-0 mt-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex justify-content-start pl-5 pr-5">
+                            <button type="submit"
+                                    class="event-edit btn btn-danger pr-5 pl-5 ml-2 mr-2"
+                                    [disabled]="form.invalid"
+                                    translate>
+                                SAVE
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,10 +14,10 @@
               <a class="sidebar-item" [routerLink]="['/details']" translate><img class="img-fluid ml-2 mr-2" src="assets/EventIcon.png" alt=""/>EVENT</a>
               <ul class="sidebar-nav">
                 <li class="sidebar-sublist " routerLinkActive="active"><a [routerLink]="['details']" translate>Event Details</a></li>
-                <li class="sidebar-sublist" routerLinkActive="active"><a  translate>Event Setting</a></li>
-                <li class="sidebar-sublist" routerLinkActive="active"><a  translate>Event Terms And Conditions</a></li>
-                <li class="sidebar-sublist" routerLinkActive="active"><a translate>Event Supervisors</a></li>
-                <li class="sidebar-sublist" routerLinkActive="active"><a  translate>Link Event with GEA</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a  [routerLink]="['setting']" translate>Event Setting</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a  [routerLink]="['terms']" translate>Event Terms And Conditions</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a  translate>Event Supervisors</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a  [routerLink]="['link-gea']" translate>Link Event with GEA</a></li>
                 <li class="sidebar-sublist" routerLinkActive="active"><a  translate>Event Badge Design</a></li>
               </ul>
             </li>

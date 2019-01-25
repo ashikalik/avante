@@ -7,6 +7,9 @@ import { ApplicationsComponent } from './applications/applications.component';
 import { InterviewResultsComponent } from './interview-results/interview-results.component';
 import { EvaluationsComponent } from './evaluations/evaluations.component';
 import { FinalEvaluationsComponent } from './final-evaluations/final-evaluations.component';
+import {EventSettingsComponent} from "./event-settings/event-settings.component";
+import {EventTermsComponent} from "./event-terms/event-terms.component";
+import {LinkWithGeaComponent} from "./link-with-gea/link-with-gea.component";
 
 
 const routes: Routes = [
@@ -22,6 +25,18 @@ const routes: Routes = [
             {
                 path: 'details',
                 component: EventDetailsComponent
+            },
+            {
+                path: 'setting',
+                component: EventSettingsComponent
+            },
+            {
+                path: 'terms',
+                component: EventTermsComponent
+            },
+            {
+                path: 'link-gea',
+                component: LinkWithGeaComponent
             },
             {
                 path: 'questions',

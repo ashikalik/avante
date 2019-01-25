@@ -49,6 +49,7 @@ export interface Event {
     joining_status: number;
     ticket_payment: number;
     publish_status: number;
+    public_status: number;
     company: string;
 }
 

@@ -267,5 +267,17 @@
   "End time should be more than start time": "وقت نهاية الفعالية يجب ان لا يكون قبل وقت بداية الفعالية",
   "Time pattern invalid": "صيغة الوقت غير صحيحة ",
   "Click here to trigger the file uploader": "اضغط هنا لاختيار الصورة ",
-  "Event Location on Map": "موقع الفعالية "
+  "Event Location on Map": "موقع الفعالية ",
+  "Enable": "تفعيل ",
+  "Disable": "تعطيل ",
+  "Allow receiving requests from organizers": "السماح باستلام الطلبات من المنظمين",
+  "If you enable this feature, you will be able to receive the organization requests": "إذا قمت بتفعيل هذه الخاصية، فستتمن من تلقي طلبات المنظمين",
+  "Allow selling tickets online": "السماح ببيع التذاكر عبر الإنترنت",
+  "If you enable this feature, you will be able to sell tickets online": "إذا قمت بتفعيل هذه الخاصية ، فستتمكن من بيع التذاكر عبر الموقع والتطبيق",
+  "Show Event": "عرض الفعالية",
+  "If you enable this feature, your event will be visible to everyone": "إذا قمت بتفعيل هذه الخاصية ، سوف تكون الفعالية مرئيًا للجميع",
+  "Private Event": "فعالية خاصة",
+  "If you enable this feature, your will need to share event link to able view event": "إذا قمت بتفعيل هذه الخاصية ، سوف تكون فعاليتك خاصة ويتطلب الوصول اليها عبر الرابط",
+  "Add Event Terms And Conditions": "إضافة شروط وسياسات الفعالية",
+  "Link With GEA": "الربط مع الهيئة العامة الترفيه"
 }
