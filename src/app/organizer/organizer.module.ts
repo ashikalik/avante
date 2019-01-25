@@ -3,12 +3,7 @@ import {OrganizerRoutingModule} from './organizer-routing.module';
 import {PricesComponent} from './prices/prices.component';
 import {MyEventsComponent} from './my-events/my-events.component';
 import {AddEventComponent} from './add-event/add-event.component';
-import {EventDetailsComponent} from './dashboard/event-details/event-details.component';
-import {EventSettingsComponent} from './dashboard/event-settings/event-settings.component';
-import {EventTermsComponent} from './dashboard/event-terms/event-terms.component';
 import {EventBadgeComponent} from './event-badge/event-badge.component';
-import {EventSupervisorsComponent} from './dashboard/event-supervisors/event-supervisors.component';
-import {LinkWithGeaComponent} from './link-with-gea/link-with-gea.component';
 import {TicketPackagesComponent} from './ticket-packages/ticket-packages.component';
 import {SalesStaffComponent} from './sales-staff/sales-staff.component';
 import {SoldTicketsComponent} from './sold-tickets/sold-tickets.component';
@@ -25,7 +20,6 @@ import {RootOrganizerComponent} from './root-organizer/root-organizer.component'
         MyEventsComponent,
         AddEventComponent,
         EventBadgeComponent,
-        LinkWithGeaComponent,
         TicketPackagesComponent,
         SalesStaffComponent,
         SoldTicketsComponent,

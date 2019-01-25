@@ -203,7 +203,7 @@ export class EventDetailsComponent implements OnInit {
         if(this.imageURL) {
             body.img = this.imageURL;
         }
-        this.organizerService.updateEvent(body, this.event_key).subscribe(res => {
+        this.organizerService.updateEventInfo(body, this.event_key).subscribe(res => {
             this.getEventDetails();
             this.showUpdate = false;
             console.log(res)
