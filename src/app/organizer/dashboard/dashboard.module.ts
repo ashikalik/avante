@@ -13,6 +13,8 @@ import {ApplicationsComponent} from './applications/applications.component';
 import {InterviewResultsComponent} from './interview-results/interview-results.component';
 import {EvaluationsComponent} from './evaluations/evaluations.component';
 import {FinalEvaluationsComponent} from './final-evaluations/final-evaluations.component';
+import { ApplicationRowComponent } from './applications/application-row/application-row.component';
+import { ApplicationCvComponent } from './applications/application-cv/application-cv.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {FinalEvaluationsComponent} from './final-evaluations/final-evaluations.c
         ApplicationsComponent,
         InterviewResultsComponent,
         EvaluationsComponent,
-        FinalEvaluationsComponent
+        FinalEvaluationsComponent,
+        ApplicationRowComponent,
+        ApplicationCvComponent
     ],
     imports: [
         ...BASE_MODULES,
