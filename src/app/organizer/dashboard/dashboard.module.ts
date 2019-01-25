@@ -14,6 +14,8 @@ import {InterviewResultsComponent} from './interview-results/interview-results.c
 import {EvaluationsComponent} from './evaluations/evaluations.component';
 import {FinalEvaluationsComponent} from './final-evaluations/final-evaluations.component';
 import {LinkWithGeaComponent} from "./link-with-gea/link-with-gea.component";
+import {ApplicationRowComponent} from './applications/application-row/application-row.component';
+import {ApplicationCvComponent} from './applications/application-cv/application-cv.component';
 
 
 @NgModule({
@@ -27,6 +29,9 @@ import {LinkWithGeaComponent} from "./link-with-gea/link-with-gea.component";
         ApplicationsComponent,
         InterviewResultsComponent,
         EvaluationsComponent,
+        FinalEvaluationsComponent,
+        ApplicationRowComponent,
+        ApplicationCvComponent,
         FinalEvaluationsComponent,
         LinkWithGeaComponent
     ],
