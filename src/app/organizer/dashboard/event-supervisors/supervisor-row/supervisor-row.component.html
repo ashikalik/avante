@@ -1,0 +1,163 @@
+<div class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
+    <!-- Start Supervisor Row -->
+    <ng-container>
+        <!-- Start Supervisor Row -->
+        <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+            <span class="d-md-none d-lg-none d-xl-none"> Name:</span> {{ supervisor.first_name }} {{
+            supervisor.last_name }}
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <span class="d-md-none d-lg-none d-xl-none"> Phone Number:</span> {{ supervisor.mobile }}
+        </div>
+        <div class="title col-lg-4 col-md-4 col-sm-12 col-12">
+            <span class="d-md-none d-lg-none d-xl-none"> Email:</span> {{ supervisor.mail }}
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+            <span class="d-md-none d-lg-none d-xl-none"> Status:</span> {{ supervisor.status_name }}
+        </div>
+        <div class="text-center col-lg-1 col-md-1 col-sm-12 col-12">
+            <button *ngIf="!showDetails" type="button" (click)="onShowDetails()"
+                    class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-down"></i></button>
+            <button *ngIf="showDetails || showUpdate" type="button" (click)="close()"
+                    class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-up"></i></button>
+        </div>
+    </ng-container>
+    <!-- End Supervisor Row -->
+</div>
+
+<!-- Start View Supervisor Details -->
+<ng-container *ngIf="showDetails && !showUpdate">
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5  d-flex flex-wrap mt-5">
+
+        <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+            <p class="event-view" translate>First Name</p>
+            <p class="event-view grey-color">{{ supervisor.first_name }}</p>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <p class="event-view" translate>Last Name</p>
+            <p class="event-view grey-color">{{ supervisor.last_name }}</p>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <p class="event-view" translate>Status</p>
+            <p class="event-view grey-color">{{ supervisor.status_name }}</p>
+        </div>
+
+
+    </div>
+
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <p class="event-view" translate>Username</p>
+            <p class="event-view grey-color">{{ supervisor.username }}</p>
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <p class="event-view" translate>Gender</p>
+            <p class="event-view grey-color" *ngIf="supervisor.gender === 1" translate>Male</p>
+            <p class="event-view grey-color" *ngIf="supervisor.gender === 2" translate>Female</p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <p class="event-view" translate>Phone Number</p>
+            <p class="event-view grey-color">{{ supervisor.mobile }}</p>
+        </div>
+
+    </div>
+
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <p class="event-view" translate>Email</p>
+            <p class="event-view grey-color">{{ supervisor.mail }}</p>
+        </div>
+
+    </div>
+
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <button type="button" class="btn btn-info pl-4 pr-4 mb-3 mr-2 ml-2" (click)="onUpdateSupervisor();"
+                    translate>EDIT
+            </button>
+            <button type="button" class="btn btn-danger pl-4 pr-4 mb-3 mr-2 ml-2" translate>DELETE</button>
+        </div>
+
+    </div>
+
+</ng-container>
+<!-- End View Supervisor Details -->
+
+<!-- Start Update Supervisor Details -->
+<ng-container *ngIf="showUpdate">
+
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+            <p class="event-edit"><b translate>First Name</b></p>
+            <div class="event-edit form-group grey-color">
+                <input type="text" class="form-control evento_input" placeholder="">
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+            <p class="event-edit"><b translate>Last Name</b></p>
+            <div class="event-edit form-group grey-color">
+                <input type="text" class="form-control evento_input" placeholder="">
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+            <p class="event-edit"><b translate>Status</b></p>
+            <div class="event-edit form-group position-relative grey-color">
+                <select class="form-control evento_input evento_select"
+                        name="">
+                    <option value="" translate>Choose Status</option>
+                </select>
+                <i class="fas fa-chevron-down embed"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+            <p class="event-edit"><b translate>Username</b></p>
+            <div class="event-edit form-group grey-color">
+                <input type="text" class="form-control evento_input" placeholder="">
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+            <p class="event-edit"><b translate>Gender</b></p>
+            <div class="event-edit form-group position-relative grey-color">
+                <select class="form-control evento_input evento_select"
+                        name="">
+                    <option value="" translate>Choose Gender</option>
+                </select>
+                <i class="fas fa-chevron-down embed"></i>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+            <p class="event-edit"><b translate>Phone Number</b></p>
+            <div class="event-edit form-group grey-color">
+                <input type="text" class="form-control evento_input" placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+            <p class="event-edit"><b translate>Email</b></p>
+            <div class="event-edit form-group grey-color">
+                <input type="text" class="form-control evento_input" placeholder="">
+            </div>
+        </div>
+    </div>
+
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <button type="button" class="btn btn-info pl-4 pr-4 mb-3 mr-2 ml-2" (click)="onUpdateSupervisor();"
+                    translate>Update
+            </button>
+            <button type="button" class="btn btn-danger pl-4 pr-4 mb-3 mr-2 ml-2" (click)="onUpdateSupervisor();" translate>Cancel</button>
+        </div>
+
+    </div>
+</ng-container>
+<!-- End Update Supervisor Details -->

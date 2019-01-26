@@ -16,6 +16,10 @@ import {FinalEvaluationsComponent} from './final-evaluations/final-evaluations.c
 import {LinkWithGeaComponent} from "./link-with-gea/link-with-gea.component";
 import {ApplicationRowComponent} from './applications/application-row/application-row.component';
 import {ApplicationCvComponent} from './applications/application-cv/application-cv.component';
+import { EventReportComponent } from './event-report/event-report.component';
+import { SellerRowComponent } from './event-report/seller-row/seller-row.component';
+import { SellerDetailsComponent } from './event-report/seller-details/seller-details.component';
+import { SupervisorRowComponent } from './event-supervisors/supervisor-row/supervisor-row.component';
 
 
 @NgModule({
@@ -33,7 +37,11 @@ import {ApplicationCvComponent} from './applications/application-cv/application-
         ApplicationRowComponent,
         ApplicationCvComponent,
         FinalEvaluationsComponent,
-        LinkWithGeaComponent
+        LinkWithGeaComponent,
+        EventReportComponent,
+        SellerRowComponent,
+        SellerDetailsComponent,
+        SupervisorRowComponent
     ],
     imports: [
         ...BASE_MODULES,
