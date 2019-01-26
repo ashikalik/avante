@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Requests } from '../models/requests';
 import { RequestDetials } from '../models/request-details';
+import { DatePickerInputPipe } from '../shared/date-picker-input.pipe';
 
 
 @Injectable({
@@ -35,6 +36,10 @@ export class RequestsService {
 
     public preAccept(form: any, list: any, event_key: string): Observable<any> {
         const url = NetworkConfig.BASE_URL + NetworkConfig.REQUEST + NetworkConfig.PRE_ACCEPT_REQUESTS + event_key;
+
+        form.from_date = new DatePickerInputPipe().transform(form.from_date);
+        form.end_date = new DatePickerInputPipe().transform(form.end_date);
+        
         const body = {
             list: list,
             from_date: form.from_date,

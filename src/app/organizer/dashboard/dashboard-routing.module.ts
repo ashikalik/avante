@@ -3,10 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { RootComponent } from "./root/root.component";
 import { EventDetailsComponent } from "./event-details/event-details.component";
 import { QuestionsComponent } from './questions/questions.component';
-import { ApplicationsComponent } from './applications/applications.component';
-import { InterviewResultsComponent } from './interview-results/interview-results.component';
-import { EvaluationsComponent } from './evaluations/evaluations.component';
-import { FinalEvaluationsComponent } from './final-evaluations/final-evaluations.component';
+import { RequestsComponent } from './requests/requests.component';
+import { RequestsEvaluationsComponent } from './requests-evaluations/requests-evaluations.component';
+import { RequestsFinalEvaluationsComponent } from './requests-final-evaluations/requests-final-evaluations.component';
+import { RequestsRatingComponent } from './requests-rating/requests-rating.component';
+import { RequestsInterviewComponent } from './requests-interview/requests-interview.component';
 import {EventSettingsComponent} from "./event-settings/event-settings.component";
 import {EventTermsComponent} from "./event-terms/event-terms.component";
 import {LinkWithGeaComponent} from "./link-with-gea/link-with-gea.component";
@@ -53,20 +54,24 @@ const routes: Routes = [
                 component: QuestionsComponent
             },
             {
-                path: 'applications',
-                component: ApplicationsComponent
+                path: 'requests',
+                component: RequestsComponent
             },
             {
                 path: 'evaluations',
-                component: EvaluationsComponent
-            },
-            {
-                path: 'interview-results',
-                component: InterviewResultsComponent
+                component: RequestsEvaluationsComponent
             },
             {
                 path: 'final-evaluations',
-                component: FinalEvaluationsComponent
+                component: RequestsFinalEvaluationsComponent
+            },
+            {
+                path: 'final-rating',
+                component: RequestsRatingComponent 
+            },
+            {
+                path: 'interview/:request-id',
+                component: RequestsInterviewComponent 
             }
         ]
     }
