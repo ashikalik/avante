@@ -43,8 +43,11 @@
 
     <br>
     <div class="">
-      <button type="button" class="btn btn-danger pl-4 pr-4 mb-3">Reject Request</button>
-      <button type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="onPreAcceptRequestButton($event)">Preaccept Request</button>
+      <button *ngIf="requestDetails.data.request.joining_status != 4 && requestDetails.data.request.joining_status != 3" type="button" class="btn btn-danger pl-4 pr-4 mb-3">Reject Request</button>
+      <button *ngIf="requestDetails.data.request.joining_status == 1"  type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="onPreAcceptRequestButton(requestDetails.data.request.request_id)">Preaccept Request</button>
+      <button *ngIf="requestDetails.data.request.joining_status == 2" type="button" class="btn btn-danger pl-4 pr-4 mb-3">Start Interview</button>
+      <button *ngIf="requestDetails.data.request.joining_status == 5" type="button" class="btn btn-danger pl-4 pr-4 mb-3">Final Accept Request</button>
+      <button *ngIf="requestDetails.data.request.joining_status == 5" type="button" class="btn btn-danger pl-4 pr-4 mb-3">View Interview</button>
     </div>
   </div>
 
