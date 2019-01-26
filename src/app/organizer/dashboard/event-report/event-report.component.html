@@ -1,0 +1,144 @@
+<div class="statistic-container">
+    <div class="text_left justify-content-center side-content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-5 d-flex">
+                    <h4 translate>Statistics</h4>
+                </div>
+
+                <ng-container *ngIf="report">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+                        <h5 class="grey-color mb-2" translate>Organizing Applications</h5>
+                        <div class="d-flex flex-wrap">
+                            <div class="col-lg-3 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2 d-flex flex-wrap">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 pt-2 pb-2 d-flex flex-wrap bg-box-shadow">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <p class="mb-2 grey-color">
+                                            <small translate>Number of applications</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                                        <h3 class="mr_auto">{{ report.data.total_request }}</h3>
+                                        <h3 class=""><i class="far fa-file"></i></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2 d-flex flex-wrap">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 pt-2 pb-2 d-flex flex-wrap bg-box-shadow">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <p class="mb-2 grey-color">
+                                            <small translate>Application with inital acceptance</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                                        <h3 class="mr_auto">{{ report.data.new_request }}</h3>
+                                        <h3 class="text-warning"><i class="far fa-check-circle"></i></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2 d-flex flex-wrap">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 pt-2 pb-2 d-flex flex-wrap bg-box-shadow">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <p class="mb-2 grey-color">
+                                            <small translate>Applications Accepted</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                                        <h3 class="mr_auto">{{ report.data.final_accept + report.data.pre_accept }}</h3>
+                                        <h3 class="text-success"><i class="far fa-check-circle"></i></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2 d-flex flex-wrap">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 pt-2 pb-2 d-flex flex-wrap bg-box-shadow">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <p class="mb-2 grey-color">
+                                            <small translate>Applications Rejected</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                                        <h3 class="mr_auto">{{ report.data.rejected }}</h3>
+                                        <h3 class="text-danger"><i class="far fa-times-circle"></i></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+                        <h5 class="grey-color mb-2" translate>Tickets Sales</h5>
+                        <div class="d-flex flex-wrap">
+                            <div class="col-lg-3 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2 d-flex flex-wrap">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 pt-2 pb-2 d-flex flex-wrap bg-box-shadow">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <p class="mb-2 grey-color">
+                                            <small translate>Number of solid tickets</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                                        <h3 class="mr_auto">{{ report.data.invoices }}<br><span>&nbsp;</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2 d-flex flex-wrap">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 pt-2 pb-2 d-flex flex-wrap bg-box-shadow">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <p class="mb-2 grey-color">
+                                            <small translate>Online Sales</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                                        <h3 class="mr_auto">{{ report.data.online_free }}<br><span class="text-danger" translate>Free</span></h3>
+                                        <h3 class="">{{ report.data.online_paid }}<br><span class="text-success" translate>Paid</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12 pl-3 pr-3 mt-2 d-flex flex-wrap">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 pt-2 pb-2 d-flex flex-wrap bg-box-shadow">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <p class="mb-2 grey-color">
+                                            <small translate>Sales Staff</small>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-between">
+                                        <h3 class="">{{ report.data.offline_free }}<br><span class="text-danger" translate>Free</span></h3>
+                                        <h3 class="">{{ report.data.offline_cash }}<br><span class="text-warning" translate>Cash</span></h3>
+                                        <h3 class="">{{ report.data.offline_machine }}<br><span class="text-success" translate>POS</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+
+                    <div class=" application-container" *ngIf="report.data.seller.length > 0">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-center">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
+                                        <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12">
+                                            Name
+                                        </div>
+                                        <div class="title col-lg-3 col-md-3 col-sm-12 col-12">
+                                            Phone Number
+                                        </div>
+                                        <div class="title col-lg-4 col-md-4 col-sm-12 col-12">
+                                            Gender
+                                        </div>
+                                        <div class="title col-lg-2 col-md-2 col-sm-12 col-12">
+                                            Total Revenue
+                                        </div>
+                                    </div>
+                                    <app-seller-row *ngFor="let seller of report.data.seller" [seller]="seller"></app-seller-row>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
