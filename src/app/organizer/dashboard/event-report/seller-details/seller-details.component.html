@@ -1,0 +1,35 @@
+
+
+<ng-container *ngIf="sellerInvoicesReport">
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap " *ngFor="let invoice of sellerInvoicesReport.data">
+        <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+            <span class="pr-3 d-md-none d-lg-none d-xl-none"> Visitor Name:</span> {{ invoice.first_name }} {{ invoice.last_name }}
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+            <span class="pr-3 d-md-none d-lg-none d-xl-none"> Number of Tickets:</span> {{ invoice.num_ticket }}
+        </div>
+        <div class="title col-lg-4 col-md-4 col-sm-12 col-12">
+            <span class="pr-3 d-md-none d-lg-none d-xl-none"> Total Price:</span> {{ invoice.total_with_vat }}
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+            <button type="button" class="btn btn-outline-dark btn-sm mt-2 pt-1 pb-1">
+                DOWNLOAD INVOICE
+            </button>
+        </div>
+    </div>
+</ng-container>
+
+
+
+<div class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap justify-content-center">
+    <button type="button"
+            class="btn btn-outline-dark btn-sm btn-create pd-40 mr-1 ml-1 position-relative" translate>
+        <i class="fas fa-chevron-right"></i>&nbsp;
+        Previous
+    </button>
+    <button type="button"
+            class="btn btn-outline-dark btn-sm btn-create pd-60 mr-1 ml-1 position-relative" translate>
+        Next
+        &nbsp;<i class="fas fa-chevron-left"></i>
+    </button>
+</div>

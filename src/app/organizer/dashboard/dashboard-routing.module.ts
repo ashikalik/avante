@@ -6,11 +6,13 @@ import { QuestionsComponent } from './questions/questions.component';
 import { RequestsComponent } from './requests/requests.component';
 import { RequestsEvaluationsComponent } from './requests-evaluations/requests-evaluations.component';
 import { RequestsFinalEvaluationsComponent } from './requests-final-evaluations/requests-final-evaluations.component';
-import { EventSettingsComponent } from "./event-settings/event-settings.component";
-import { EventTermsComponent } from "./event-terms/event-terms.component";
-import { LinkWithGeaComponent } from "./link-with-gea/link-with-gea.component";
 import { RequestsRatingComponent } from './requests-rating/requests-rating.component';
 import { RequestsInterviewComponent } from './requests-interview/requests-interview.component';
+import {EventSettingsComponent} from "./event-settings/event-settings.component";
+import {EventTermsComponent} from "./event-terms/event-terms.component";
+import {LinkWithGeaComponent} from "./link-with-gea/link-with-gea.component";
+import {EventReportComponent} from "./event-report/event-report.component";
+import {EventSupervisorsComponent} from "./event-supervisors/event-supervisors.component";
 
 
 const routes: Routes = [
@@ -38,6 +40,14 @@ const routes: Routes = [
             {
                 path: 'link-gea',
                 component: LinkWithGeaComponent
+            },
+            {
+                path: 'supervisors',
+                component: EventSupervisorsComponent
+            },
+            {
+                path: 'report',
+                component: EventReportComponent
             },
             {
                 path: 'questions',

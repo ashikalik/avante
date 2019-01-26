@@ -17,6 +17,10 @@ import { ApplicationRowComponent } from './requests/application-row/application-
 import { ApplicationCvComponent } from './requests/application-cv/application-cv.component';
 import { RequestsInterviewComponent } from './requests-interview/requests-interview.component';
 import { RequestsRatingComponent } from './requests-rating/requests-rating.component';
+import { EventReportComponent } from './event-report/event-report.component';
+import { SellerRowComponent } from './event-report/seller-row/seller-row.component';
+import { SellerDetailsComponent } from './event-report/seller-details/seller-details.component';
+import { SupervisorRowComponent } from './event-supervisors/supervisor-row/supervisor-row.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { RequestsRatingComponent } from './requests-rating/requests-rating.compo
         RequestsFinalEvaluationsComponent,
         LinkWithGeaComponent,
         RequestsInterviewComponent,
-        RequestsRatingComponent
+        RequestsRatingComponent,
+        EventReportComponent,
+        SellerRowComponent,
+        SellerDetailsComponent,
+        SupervisorRowComponent
     ],
     imports: [
         ...BASE_MODULES,
