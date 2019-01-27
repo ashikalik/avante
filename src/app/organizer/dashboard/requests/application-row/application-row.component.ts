@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Requests } from '../../../../models/requests';
 import { RequestsService } from '../../../../api-services/requests.service';
 import { RequestDetials } from '../../../../models/request-details';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-application-row',
@@ -15,10 +16,15 @@ export class ApplicationRowComponent implements OnInit {
   @Input() eventkey: string;
   @Input() request: Requests;
   @Output() onPreAcceptRequest: EventEmitter<any> = new EventEmitter();
-  
-  constructor(private requestsService: RequestsService) {
-    this.showInfo = false;
+  @Output() onUpdateRequests: EventEmitter<any> = new EventEmitter();
 
+
+
+  constructor(private requestsService: RequestsService,
+    public router: Router,
+    private route: ActivatedRoute) {
+
+    this.showInfo = false;
   }
 
   ngOnInit() {
@@ -38,7 +44,7 @@ export class ApplicationRowComponent implements OnInit {
 
   public getRequestDetails(requestid: number) {
     this.requestDetails = null;
-    this.requestsService.viewRequest(requestid, this.eventkey).subscribe(
+    this.requestsService.getRequestDetails(requestid, this.eventkey).subscribe(
       res => {
         this.requestDetails = res;
       }, err => {
@@ -46,8 +52,36 @@ export class ApplicationRowComponent implements OnInit {
       });
   }
 
-  public onPreAcceptRequestButton(event){
+  public rejectRequest(request_id) {
+    this.requestsService.reject(request_id, this.eventkey).subscribe(
+      res => {
+        this.onUpdateRequest();
+      }, err => {
+
+      });
+  }
+
+
+  public finalAccept(request_id) {
+    this.requestsService.finalAccept(request_id, this.eventkey).subscribe(
+      res => {
+        this.onUpdateRequest();
+      }, err => {
+
+      });
+  }
+
+  public onPreAcceptRequestButton(event) {
     this.onPreAcceptRequest.emit(event)
+  }
+
+
+  public onUpdateRequest() {
+    this.onUpdateRequests.emit();
+  }
+
+  public viewInterview(request_id) {
+    this.router.navigate(['../interview', 1], { relativeTo: this.route });
   }
 
 

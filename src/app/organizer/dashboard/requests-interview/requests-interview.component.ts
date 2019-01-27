@@ -26,19 +26,31 @@ export class RequestsInterviewComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.getRequestDetialsForInterview();
     
   }
 
 
 
-  public getRequestDetails(requestid: number) {
+  public getRequestDetialsForInterview() {
     this.requestDetails = null;
-    this.requestsService.viewRequest(requestid, this.event_key).subscribe(
+    this.requestsService.getRequestDetialsForInterview(this.request_id, this.event_key).subscribe(
       res => {
         this.requestDetails = res;
       }, err => {
 
       });
   }
+
+
+  public rateQuestion(form: any, rating: any) {
+    this.requestsService.rateQuestion(form, this.event_key).subscribe(
+        res => {
+            this.getRequestDetialsForInterview();
+        }, err => {
+
+        }
+    );
+}
 
 }
