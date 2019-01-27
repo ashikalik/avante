@@ -49,7 +49,8 @@
 
         <ng-container *ngIf="requestList">
           <ng-container *ngFor="let request of requestList.data">
-            <app-application-row (onPreAcceptRequest)="onPreAcceptRequest($event)" [request]="request" [eventkey]="event_key"></app-application-row>
+            <app-application-row (onPreAcceptRequest)="onPreAcceptRequest($event)" (onUpdateRequests)="onUpdateRequest($event)" [request]="request"
+              [eventkey]="event_key"></app-application-row>
           </ng-container>
         </ng-container>
 
@@ -65,7 +66,7 @@
   </div>
 
   <div *ngIf="isMoreThanOneRequest" class="pr-3 pt-4 col-lg-12 col-md-12 col-sm-12 col-12">
-      <span class="font-bold">عدد الطلبات التي سيتم قبولها مبدئيا  للمقابلات الشخصية : {{numOfRequests}}</span>   
+    <span class="font-bold">عدد الطلبات التي سيتم قبولها مبدئيا  للمقابلات الشخصية : {{numOfRequests}}</span>
   </div>
 
   <form [formGroup]="preAcceptForm" class="content" id="event-details" class="tab-event-content">
@@ -109,7 +110,7 @@
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
           <div class="form-group w-100 d-block">
-              <p class="event-edit"><b translate>Interview End Date & Time</b></p>                              
+            <p class="event-edit"><b translate>Interview End Date & Time</b></p>
             <div class="event-edit form-group position-relative grey-color">
               <my-date-picker [options]="myDatePickerOptions" formControlName="end_date" class="data-evento" placeholder="Interview End Date"></my-date-picker>
               <div class="error" *ngIf="preAcceptForm.controls['end_date'].hasError('required') && !preAcceptForm.controls['end_date'].pristine"
@@ -156,13 +157,23 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
           <div class="form-group w-100 d-block">
             <div class="event-edit form-group position-relative grey-color">
-              <input formControlName="contact" maxlength="10"  class=" form-control evento_input" placeholder="Contact Number" />
-              <div *ngIf="preAcceptForm.controls['contact'].hasError('pattern')"  class="error">
-                  صيغة رقم التواصل غير صحيح (05XXXXXXXX)
+              <input formControlName="contact" maxlength="10" class=" form-control evento_input" placeholder="Contact Number" />
+              <div *ngIf="preAcceptForm.controls['contact'].hasError('pattern')" class="error">
+                صيغة رقم التواصل غير صحيح (05XXXXXXXX)
               </div>
             </div>
           </div>
         </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+          <div class="form-group w-100 d-block">
+            <div class="event-edit form-group position-relative grey-color">
+              <input formControlName="interview_location" type="text" class=" form-control evento_input" placeholder="Interview Location"
+              />
+            </div>
+          </div>
+        </div>
+
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex" style="display: grid !important;">
           <p class="event-edit"><b translate>Interview Location on Map</b></p>
@@ -175,15 +186,11 @@
     </div>
 
     <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex pl-5 pr-5">
-        <button type="button"
-                class="event-edit btn btn-dark pr-5 pl-5 ml-2 mr-2"
-                (click)="onPreAcceptRequest();"
-                translate>
+      <button type="button" class="event-edit btn btn-dark pr-5 pl-5 ml-2 mr-2" (click)="onPreAcceptRequest();" translate>
             Cancel
         </button>
-        <button [disabled]="!preAcceptForm.valid" (click)="preAcceptRequest(preAcceptForm)" type="submit"
-                class="event-edit btn btn-danger pr-5 pl-5 ml-2 mr-2"
-                translate>
+      <button [disabled]="!preAcceptForm.valid" (click)="preAcceptRequest(preAcceptForm)" type="submit" class="event-edit btn btn-danger pr-5 pl-5 ml-2 mr-2"
+        translate>
             SAVE
         </button>
     </div>

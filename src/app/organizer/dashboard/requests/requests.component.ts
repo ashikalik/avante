@@ -7,8 +7,8 @@ import { Requests } from '../../../models/requests';
 import { RequestDetials } from '../../../models/request-details';
 import { DatePickerInputPipe } from 'src/app/shared/date-picker-input.pipe';
 import { ConvertFrom24To12FormatPipe } from 'src/app/shared/convert-from24-to12-format.pipe';
-import { AmPmTimePipe } from 'src/app/shared/am-pm-time.pipe';
-
+import { AmPmTimePipe } from '../../../shared/am-pm-time.pipe';
+import {MyDatePickerOptions} from '../../../models/date-picker-object'
 
 @Component({
   selector: 'app-requests',
@@ -21,7 +21,8 @@ export class RequestsComponent implements OnInit {
   public request_status = RequstStatus;
   public requestList: Requests;
   public requestDetails: RequestDetials;
-
+  public myDatePickerOptions = MyDatePickerOptions;
+  
   public preAcceptForm: FormGroup;
   public preAcceptList: any[] = [];
   public numOfRequests: number;
@@ -78,6 +79,7 @@ export class RequestsComponent implements OnInit {
         'end_time_type': [null, Validators.compose([Validators.required])],
         'lat': [this.lat, Validators.compose([])],
         'lng': [this.lng, Validators.compose([])],
+        'interview_location': [null, Validators.compose([])],        
         'contact': [null, Validators.compose([Validators.pattern('^(05)([0-9]{8})$')])]
       }, {
         //validator: [this.checkTime, this.checkDate]
@@ -117,6 +119,7 @@ export class RequestsComponent implements OnInit {
   }
 
   public preAcceptRequest(form: any, reques_id) {
+    console.log(form.value);
     this.requestsService.preAccept(form.value, this.preAcceptList, this.event_key).subscribe(
       res => {
         this.getRequests();
@@ -138,6 +141,10 @@ export class RequestsComponent implements OnInit {
     });
   }
 
+
+  public onUpdateRequest(){
+    this.getRequests();
+  }
 
 
   public placeMarker(event: any) {
