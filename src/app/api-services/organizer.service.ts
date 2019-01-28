@@ -36,13 +36,13 @@ export class OrganizerService {
         return this.httpClient.get<EventOrganizer>(url);
     }
 
-    public updateEventInfo(body: any ,event_key: string): Observable<any> {
+    public updateEventInfo(body: any, event_key: string): Observable<any> {
         let url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_EVENT_INFO + event_key;
         return this.httpClient.put<any>(url, body);
     }
 
-    public updateEventSetting(body: any ,event_key: string): Observable<any> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_EVENT_SETTING  + event_key;
+    public updateEventSetting(body: any, event_key: string): Observable<any> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_EVENT_SETTING + event_key;
         return this.httpClient.put<any>(url, body);
     }
 
@@ -96,7 +96,7 @@ export class OrganizerService {
         return this.httpClient.get<Report>(url);
     }
 
-    public getSellerInvoices(seller_id: number ,event_key: string): Observable<SellerInvoiceReport> {
+    public getSellerInvoices(seller_id: number, event_key: string): Observable<SellerInvoiceReport> {
         let url = NetworkConfig.BASE_URL + NetworkConfig.REPORTS_SELLER + event_key + '/' + seller_id;
         return this.httpClient.get<SellerInvoiceReport>(url);
     }
@@ -106,6 +106,35 @@ export class OrganizerService {
         return this.httpClient.get<Supervisors>(url);
     }
 
+    public createEventSupervisor(body: any, event_key: string): Observable<any> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.CREATE_SUPERVISOR + event_key;
+        return this.httpClient.post<any>(url, body);
+    }
+
+    public updateEventSupervisor(form: any, supervisor_id: number, event_key: string): Observable<any>  {
+        const body = {
+            supervisor_id: supervisor_id,
+            first_name: form.first_name,
+            last_name: form.last_name,
+            mobile: form.mobile,
+            gender: form.gender,
+            requests: form.requests,
+            sellers: form.sellers,
+            mail: form.mail,
+            status_id: Number(form.status_id)
+        };
+        const url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_SUPERVISOR + event_key;
+        return this.httpClient.put<any>(url, body);
+    }
+
+    public deleteEventSupervisor(supervisor_id: number, event_key: string): Observable<any>  {
+        const body = {
+            supervisor_id: supervisor_id,
+            status_id: 4
+        };
+        const url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_SUPERVISOR + event_key;
+        return this.httpClient.put<any>(url, body);
+    }
 
 
 }

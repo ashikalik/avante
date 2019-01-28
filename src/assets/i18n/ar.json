@@ -303,5 +303,15 @@
   "Status": "الحالة",
   "Username": "اسم المستخدم",
   "Update": "تحديث",
-  "Choose Gender": "اختر الجنس"
+  "Choose Gender": "اختر الجنس",
+  "Choose Permission": "اختر الصلاحية",
+  "Authorized": "السماح",
+  "UnAuthorized": "عدم السماح",
+  "Add": "إضافة",
+  "Sales": "المبيعات",
+  "This will be authorized a supervisor for managing organizers Interviews and joining requests": "الصلاحية ستسمح للمشرف في استقبال طلبات التنظيم وعرضها وقبولها ورفضها",
+  "This will be authorized a supervisor for managing Salesmen and create or delete or updated": "الصلاحية ستسمح للمشرف في التحكم بموظفين المبيعات من إضافة او حذف او تعديل",
+  "Mobile number is invalid": "صيغة الجوال غير صحيحة",
+  "Active": "نشيط",
+  "Blocked": "موقوف"
 }
