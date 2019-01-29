@@ -313,5 +313,22 @@
   "This will be authorized a supervisor for managing Salesmen and create or delete or updated": "الصلاحية ستسمح للمشرف في التحكم بموظفين المبيعات من إضافة او حذف او تعديل",
   "Mobile number is invalid": "صيغة الجوال غير صحيحة",
   "Active": "نشيط",
-  "Blocked": "موقوف"
+  "Blocked": "موقوف",
+  "Add New Sales": "إضافة موظف مبيعات جديد",
+  "Add New Package": "إضافة باقة جديدة",
+  "Package Name": "اسم الباقة",
+  "Package Type": "نوع الباقة",
+  "Package Price": "سعر الباقة",
+  "Package Status": "حالة الباقة",
+  "Audience Type": "الفئة المستهدفة",
+  "Maximum Tickets per day": "اقصى عدد بيع في اليوم الواحد",
+  "Specific Tickets": "محدده بعدد البيع",
+  "Package Description": "وصف الباقة",
+  "Choose": "اختر",
+  "Choose Package Type": "اختر نوع الباقة",
+  "Free Package": "باقة مجانية",
+  "Paid Package": "باقة مدفوعة",
+  "Is Specific": "محددة بعدد",
+  "Not Specific": "غير محدده بعدد",
+  "Unlimited": "مفتوح"
 }

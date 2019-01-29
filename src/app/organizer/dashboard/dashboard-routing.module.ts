@@ -13,6 +13,8 @@ import {EventTermsComponent} from "./event-terms/event-terms.component";
 import {LinkWithGeaComponent} from "./link-with-gea/link-with-gea.component";
 import {EventReportComponent} from "./event-report/event-report.component";
 import {EventSupervisorsComponent} from "./event-supervisors/event-supervisors.component";
+import {EventSalesComponent} from "./event-sales/event-sales.component";
+import {EventPackagesComponent} from "./event-packages/event-packages.component";
 
 
 const routes: Routes = [
@@ -44,6 +46,14 @@ const routes: Routes = [
             {
                 path: 'supervisors',
                 component: EventSupervisorsComponent
+            },
+            {
+                path: 'sales',
+                component: EventSalesComponent
+            },
+            {
+                path: 'packages',
+                component: EventPackagesComponent
             },
             {
                 path: 'report',
