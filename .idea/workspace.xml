@@ -2,30 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd8778e4-0179-4faf-bc5b-f8f3ad6f1173" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/models/queestions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/models/report.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/models/seller-invoice-report.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/models/supervisors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/sass/report.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/models/sales.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/api-services/organizer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api-services/organizer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/applications/application-row/application-row.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/applications/application-row/application-row.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/dashboard-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/dashboard-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/dashboard.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/dashboard.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/link-with-gea/link-with-gea.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/link-with-gea/link-with-gea.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/link-with-gea/link-with-gea.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/link-with-gea/link-with-gea.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/link-with-gea/link-with-gea.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/link-with-gea/link-with-gea.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/questions/questions.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/questions/questions.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/questions/questions.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/questions/questions.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/errors/errors.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/errors/errors.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/errors/errors.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/errors/errors.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/organizer/organizer.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/organizer.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/organizer/sales-staff/sales-staff.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/organizer/sales-staff/sales-staff.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/packages.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/organizer/sales-staff/sales-staff.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assets/i18n/ar.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/i18n/ar.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <list id="2e49be08-2139-485b-a64e-d4011daa807e" name="upload scss files" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -42,96 +29,47 @@
     <favorites_list name="website" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html">
+        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/package-row/package-row.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="120" column="20" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
-              <folding>
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#ng-container#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#1;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#2;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#0;n#div#2;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-                <element signature="n#div#3;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/supervisor-row/supervisor-row.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+            <state relative-caret-position="648">
+              <caret line="276" column="32" selection-start-line="276" selection-start-column="32" selection-end-line="276" selection-end-column="32" />
               <folding>
                 <element signature="n#ng-container#0;n#div#0;n#!!top" />
+                <element signature="n#ng-container#0;n#!!top" />
                 <element signature="n#div#0;n#ng-container#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#ng-container#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#ng-container#0;n#!!top" />
+                <element signature="n#div#2;n#div#0;n#ng-container#0;n#!!top" />
                 <element signature="n#div#1;n#ng-container#0;n#!!top" />
-                <element signature="n#div#2;n#ng-container#0;n#!!top" />
-                <element signature="n#div#3;n#ng-container#0;n#!!top" />
-                <element signature="n#ng-container#1;n#!!top" />
-                <element signature="n#div#0;n#ng-container#1;n#!!top" />
-                <element signature="n#div#1;n#div#0;n#ng-container#1;n#!!top" />
-                <element signature="n#div#2;n#div#0;n#ng-container#1;n#!!top" />
-                <element signature="n#div#1;n#ng-container#1;n#!!top" />
-                <element signature="n#div#1;n#div#1;n#ng-container#1;n#!!top" />
-                <element signature="n#div#2;n#ng-container#1;n#!!top" />
-                <element signature="n#div#3;n#ng-container#1;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#form#0;n#ng-container#1;n#!!top" />
+                <element signature="n#ng-container#2;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/supervisor-row/supervisor-row.component.ts">
+        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/package-row/package-row.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="27" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="27" />
+            <state relative-caret-position="498">
+              <caret line="114" column="84" selection-start-line="114" selection-start-column="84" selection-end-line="114" selection-end-column="84" />
               <folding>
-                <element signature="e#0#55#0" expanded="true" />
+                <element signature="e#0#77#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.ts">
+        <entry file="file://$PROJECT_DIR$/src/app/api-services/organizer.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="15" column="21" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="537">
+              <caret line="211" column="29" selection-start-line="211" selection-start-column="11" selection-end-line="211" selection-end-column="29" />
               <folding>
-                <element signature="e#0#48#0" expanded="true" />
-                <element signature="n#!!block;n#getEventSupervisor#0;n#EventSupervisorsComponent#0" />
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="24" column="20" selection-start-line="24" selection-end-line="25" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/i18n/ar.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
-              <caret line="304" column="30" selection-start-line="304" selection-start-column="30" selection-end-line="304" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -140,12 +78,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>select</find>
-      <find>text</find>
-      <find>textare</find>
-      <find>btn</find>
-      <find>&lt;a class</find>
-      <find>Contact</find>
       <find>This field should be numeric</find>
       <find>&lt;hr</find>
       <find>text-danger</find>
@@ -170,6 +102,12 @@
       <find>Sele</find>
       <find>col-md-3</find>
       <find>table-row</find>
+      <find>mobile</find>
+      <find>موظفين المبيعات</find>
+      <find>changer</find>
+      <find>ChangeDetectionRef</find>
+      <find>change</find>
+      <find>onUpdatePackage</find>
     </findStrings>
     <replaceStrings>
       <replace>Direction</replace>
@@ -185,10 +123,10 @@
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/assets</dir>
-      <dir>$PROJECT_DIR$/src</dir>
       <dir>$PROJECT_DIR$/src/app</dir>
       <dir>$PROJECT_DIR$/src/sass</dir>
       <dir>$PROJECT_DIR$/src/app/organizer</dir>
+      <dir>$PROJECT_DIR$/src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -202,16 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/sass/header.scss" />
-        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/details/details.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/organizer/root-organizer/root-organizer.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/models/audiance.ts" />
-        <option value="$PROJECT_DIR$/src/app/api-services/common.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/shared/convert-from24-to12-format.pipe.ts" />
-        <option value="$PROJECT_DIR$/src/app/shared/shared.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/shared/am-pm-time.pipe.ts" />
-        <option value="$PROJECT_DIR$/src/sass/event-details.scss" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.scss" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-settings/event-settings.component.scss" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.ts" />
@@ -221,7 +149,6 @@
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.scss" />
         <option value="$PROJECT_DIR$/src/app/models/tems.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/organizer/organizer.module.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.html" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/link-with-gea/link-with-gea.component.scss" />
         <option value="$PROJECT_DIR$/src/sass/report.scss" />
@@ -242,24 +169,35 @@
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-report/seller-details/seller-details.component.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-report/seller-details/seller-details.component.html" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/dashboard.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/dashboard-routing.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/applications/application-row/application-row.component.html" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.html" />
         <option value="$PROJECT_DIR$/src/app/models/supervisors.ts" />
-        <option value="$PROJECT_DIR$/src/app/api-services/organizer.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/supervisor-row/supervisor-row.component.ts" />
-        <option value="$PROJECT_DIR$/src/assets/i18n/ar.json" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/supervisor-row/supervisor-row.component.html" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html" />
+        <option value="$PROJECT_DIR$/src/app/organizer/organizer.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/models/sales.ts" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.html" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/supervisor-row/supervisor-row.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/sales-row/sales-row.component.html" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/sales-row/sales-row.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/dashboard-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html" />
+        <option value="$PROJECT_DIR$/src/app/models/packages.ts" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.ts" />
+        <option value="$PROJECT_DIR$/src/assets/i18n/ar.json" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.html" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/package-row/package-row.component.html" />
+        <option value="$PROJECT_DIR$/src/app/api-services/organizer.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/package-row/package-row.component.ts" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="1586" />
-    <option name="width" value="94" />
-    <option name="height" value="1050" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="986" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -306,7 +244,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="organizer" type="462c0819:PsiDirectoryNode" />
               <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="event-details" type="462c0819:PsiDirectoryNode" />
+              <item name="event-packages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="website" type="b2602c69:ProjectViewProjectNode" />
@@ -315,17 +253,8 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="organizer" type="462c0819:PsiDirectoryNode" />
               <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="event-supervisors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="organizer" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="event-supervisors" type="462c0819:PsiDirectoryNode" />
-              <item name="supervisor-row" type="462c0819:PsiDirectoryNode" />
+              <item name="event-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="package-row" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -343,18 +272,18 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/app/organizer/dashboard" />
-      <recent name="$PROJECT_DIR$/src/app/api-services" />
-      <recent name="$PROJECT_DIR$/src/app/domain" />
-      <recent name="$PROJECT_DIR$/src/app" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/api-services" />
       <recent name="$PROJECT_DIR$/src/assets" />
       <recent name="$PROJECT_DIR$/src/app/organizer/dashboard" />
       <recent name="$PROJECT_DIR$/src/sass" />
       <recent name="$PROJECT_DIR$/src/app/network-layer" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/organizer/dashboard" />
+      <recent name="$PROJECT_DIR$/src/app/api-services" />
+      <recent name="$PROJECT_DIR$/src/app/domain" />
+      <recent name="$PROJECT_DIR$/src/app" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -394,6 +323,8 @@
       <workItem from="1548232031346" duration="14962000" />
       <workItem from="1548358239070" duration="18488000" />
       <workItem from="1548435025467" duration="21743000" />
+      <workItem from="1548676368126" duration="1926000" />
+      <workItem from="1548756824681" duration="2095000" />
     </task>
     <task id="LOCAL-00001" summary="upload scss files">
       <created>1547076641963</created>
@@ -511,13 +442,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195574000" />
+    <option name="totallyTimeSpent" value="209132000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1586" y="0" width="94" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945593" visible="true" weight="1.0" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945593" visible="true" weight="0.19062833" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5005441" side_tool="true" weight="0.21841942" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -528,9 +459,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.497558" weight="0.32919708" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.497558" weight="0.3377551" />
       <window_info anchor="bottom" id="Statistic" order="9" sideWeight="0.4997057" weight="0.329927" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.497558" visible="true" weight="0.40714285" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.497558" weight="0.34851485" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.502442" side_tool="true" weight="0.44693878" />
       <window_info anchor="bottom" id="TypeScript" order="12" sideWeight="0.4997057" weight="0.329927" />
       <window_info anchor="bottom" id="Messages" order="13" />
@@ -624,99 +555,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'remotes/origin/develop' into terms&#10;&#10;# Conflicts:&#10;#&#9;src/app/organizer/dashboard/dashboard.module.ts" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/view-event/view-event-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-settings/event-settings.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/models/event-organizer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-settings/event-settings.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="51" column="65" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-settings/event-settings.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="9" column="17" lean-forward="true" selection-end-line="132" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/organizer-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="2" lean-forward="true" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="16" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/models/tems.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/my-profile/education/education.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="66" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
-          <folding>
-            <element signature="n#ng-container#0;n#ng-container#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#ng-container#0;n#ng-container#0;n#!!top" expanded="true" />
-            <element signature="n#ng-container#1;n#ng-container#0;n#!!top" />
-            <element signature="n#ng-container#2;n#ng-container#0;n#!!top" />
-            <element signature="n#ng-container#3;n#ng-container#0;n#!!top" />
-            <element signature="n#ng-container#4;n#ng-container#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/my-profile/skills/skills.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="142" column="10" lean-forward="true" selection-start-line="130" selection-start-column="4" selection-end-line="142" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/organizer.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/auth.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/styles.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -924,50 +762,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/dashboard.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/dashboard-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="43" column="34" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="16" column="107" selection-start-line="16" selection-start-column="107" selection-end-line="16" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/applications/applications.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="57" column="12" lean-forward="true" selection-end-line="148" selection-end-column="15" />
-          <folding>
-            <element signature="n#form#0;n#ng-container#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/applications/application-row/application-row.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="36" column="47" lean-forward="true" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/applications/applications.component.html" />
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/applications/application-row/application-row.component.html" />
     <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="150">
           <caret line="24" column="20" selection-start-line="24" selection-end-line="25" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
@@ -979,23 +778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
           <caret line="35" column="28" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/api-services/organizer.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="103" column="71" selection-start-line="103" selection-start-column="71" selection-end-line="103" selection-end-column="71" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/i18n/ar.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="304" column="30" selection-start-line="304" selection-start-column="30" selection-end-line="304" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1025,31 +807,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/supervisor-row/supervisor-row.component.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/organizer.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="27" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="27" />
+        <state relative-caret-position="239">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
-            <element signature="e#0#55#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/models/sales.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="120">
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
           <folding>
-            <element signature="e#0#48#0" expanded="true" />
+            <element signature="n#!!block;n#ngOnInit#0;n#EventSupervisorsComponent#0" />
             <element signature="n#!!block;n#getEventSupervisor#0;n#EventSupervisorsComponent#0" />
+            <element signature="n#!!block;n#onShowCreate#0;n#EventSupervisorsComponent#0" />
+            <element signature="n#!!block;n#initAddForm#0;n#EventSupervisorsComponent#0" />
+            <element signature="n#!!block;n#addSupervisor#0;n#EventSupervisorsComponent#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="190" column="34" selection-end-line="228" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/supervisor-row/supervisor-row.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+        <state relative-caret-position="420">
+          <caret line="291" column="38" selection-end-line="307" />
           <folding>
             <element signature="n#ng-container#0;n#div#0;n#!!top" />
             <element signature="n#div#0;n#ng-container#0;n#!!top" />
@@ -1057,34 +856,155 @@
             <element signature="n#div#2;n#ng-container#0;n#!!top" />
             <element signature="n#div#3;n#ng-container#0;n#!!top" />
             <element signature="n#ng-container#1;n#!!top" />
-            <element signature="n#div#0;n#ng-container#1;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#ng-container#1;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#ng-container#1;n#!!top" />
-            <element signature="n#div#1;n#ng-container#1;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#ng-container#1;n#!!top" />
-            <element signature="n#div#2;n#ng-container#1;n#!!top" />
-            <element signature="n#div#3;n#ng-container#1;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/supervisor-row/supervisor-row.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="120" column="20" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
+        <state relative-caret-position="740">
+          <caret line="90" selection-start-line="90" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="79" column="5" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="79" selection-end-column="5" />
           <folding>
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/dashboard.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="41" column="30" lean-forward="true" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/dashboard-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="54" column="31" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/models/packages.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="101" selection-start-line="36" selection-start-column="85" selection-end-line="36" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="18" lean-forward="true" selection-end-line="176" />
+          <folding>
+            <element signature="n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/api-services/common.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="48" column="39" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/sales-row/sales-row.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="903">
+          <caret line="99" selection-start-line="16" selection-end-line="99" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/sales-row/sales-row.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1404">
+          <caret line="198" column="25" lean-forward="true" selection-start-line="198" selection-start-column="25" selection-end-line="198" selection-end-column="25" />
+          <folding>
+            <element signature="n#ng-container#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/i18n/ar.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4980">
+          <caret line="332" column="21" selection-start-line="332" selection-start-column="21" selection-end-line="332" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="220" column="27" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="220" selection-end-column="27" />
+          <folding>
             <element signature="n#ng-container#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#1;n#div#1;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#2;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#2;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#3;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#form#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="51" selection-start-line="51" selection-end-line="61" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/api-services/organizer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="211" column="29" selection-start-line="211" selection-start-column="11" selection-end-line="211" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/package-row/package-row.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="114" column="84" selection-start-line="114" selection-start-column="84" selection-end-line="114" selection-end-column="84" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/package-row/package-row.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="276" column="32" selection-start-line="276" selection-start-column="32" selection-end-line="276" selection-end-column="32" />
+          <folding>
+            <element signature="n#ng-container#0;n#div#0;n#!!top" />
+            <element signature="n#ng-container#0;n#!!top" />
+            <element signature="n#div#0;n#ng-container#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#ng-container#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#ng-container#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#ng-container#0;n#!!top" />
+            <element signature="n#div#1;n#ng-container#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#ng-container#1;n#!!top" />
+            <element signature="n#ng-container#2;n#!!top" />
           </folding>
         </state>
       </provider>

@@ -1,0 +1,308 @@
+<div class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
+  <!-- Start Supervisor Row -->
+  <ng-container>
+    <!-- Start Supervisor Row -->
+    <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+      <span class="d-md-none d-lg-none d-xl-none"> {{ 'Package Name' | translate }}:</span> {{ package.name }}
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+      <ng-container *ngIf="package.is_free === 2">
+        <span class="d-md-none d-lg-none d-xl-none"> {{ 'Package Type' | translate }}:</span> {{ 'Free Package' | translate }}
+      </ng-container>
+      <ng-container *ngIf="package.is_free === 1">
+        <span class="d-md-none d-lg-none d-xl-none" *ngIf="package.is_free === 1"> {{ 'Package Type' | translate }}:</span> {{ 'Paid Package' | translate }}
+      </ng-container>
+    </div>
+    <div class="title col-lg-4 col-md-4 col-sm-12 col-12">
+      <span class="d-md-none d-lg-none d-xl-none"> {{ 'Package Price' | translate }}:</span> {{ package.price }}
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+      <span class="d-md-none d-lg-none d-xl-none"> {{ 'Package Status' | translate }}:</span> {{ package.status_name }}
+    </div>
+    <div class="text-center col-lg-1 col-md-1 col-sm-12 col-12">
+      <button *ngIf="!showDetails" type="button" (click)="onShowDetails()"
+              class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-down"></i></button>
+      <button *ngIf="showDetails || showUpdate" type="button" (click)="close()"
+              class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-up"></i></button>
+    </div>
+  </ng-container>
+  <!-- End Supervisor Row -->
+</div>
+
+<!-- Start View Supervisor Details -->
+<ng-container *ngIf="showDetails && !showUpdate && !showDelete">
+  <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5  d-flex flex-wrap mt-5">
+
+    <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+      <p class="event-view" translate>Package Name</p>
+      <p class="event-view grey-color">{{ package.name }}</p>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+      <p class="event-view" translate>Package Type</p>
+      <p class="event-view grey-color" *ngIf="package.is_free === 2">{{ 'Free Package' | translate }}</p>
+      <p class="event-view grey-color" *ngIf="package.is_free === 1">{{ 'Paid Package' | translate }}</p>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+      <p class="event-view" translate>Package Price</p>
+      <p class="event-view grey-color">{{ package.price }}</p>
+    </div>
+
+
+  </div>
+
+  <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap">
+    <div class="col-lg-9 col-md-9 col-sm-12 col-12">
+      <p class="event-view" translate>Package Description</p>
+      <p class="event-view grey-color">{{ package.description }}</p>
+    </div>
+
+  </div>
+
+  <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap">
+    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+      <p class="event-view" translate>Audience Type</p>
+      <p class="event-view grey-color">{{ package.audience_name }}</p>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+      <p class="event-view" translate>Specific Tickets</p>
+      <p class="event-view grey-color" *ngIf="package.specific_tickets === 1" translate>Is Specific</p>
+      <p class="event-view grey-color" *ngIf="package.specific_tickets === 2" translate>Not Specific</p>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+      <p class="event-view" translate>Maximum Tickets per day</p>
+      <p class="event-view grey-color" *ngIf="package.max_tickets === 0" translate>Unlimited</p>
+      <p class="event-view grey-color" *ngIf="package.max_tickets !== 0">{{ package.max_tickets }}</p>
+    </div>
+  </div>
+
+
+  <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+      <button type="button" class="btn btn-info pl-4 pr-4 mb-3 mr-2 ml-2" (click)="onShowUpdatePackage();"
+              translate>EDIT
+      </button>
+      <button type="button" class="btn btn-danger pl-4 pr-4 mb-3 mr-2 ml-2" (click)="onShowDelete();" translate>DELETE</button>
+    </div>
+
+  </div>
+
+</ng-container>
+<!--End View Supervisor Details -->
+
+<!-- Start Update Supervisor Details -->
+<ng-container *ngIf="showUpdate">
+  <form [formGroup]="form" (ngSubmit)="updatePackage(form)">
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+        <p class="event-edit"><b translate>Package Name</b></p>
+        <div class="event-edit form-group grey-color">
+          <input type="text" class="form-control evento_input" placeholder=""
+                 formControlName="name">
+          <div class="error"
+               *ngIf="form.controls['name'].hasError('required') && !form.controls['name'].pristine"
+               translate>
+            This field is required
+          </div>
+          <div class="error"
+               *ngIf="form.controls['name'].hasError('minlength') && !form.controls['name'].pristine"
+               translate>
+            Field should be at least 3 characters
+          </div>
+          <div class="error"
+               *ngIf="form.controls['name'].hasError('maxlength') && !form.controls['name'].pristine"
+               translate>
+            Field should be at most 40 characters
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+        <p class="event-edit"><b translate>Package Type</b></p>
+        <div class="event-edit form-group position-relative grey-color">
+          <select class="form-control evento_input evento_select"
+                  (change)="onChangePackageType($event.target.value)"
+                  formControlName="is_free"
+                  name="">
+            <option value="" translate>Choose Package Type</option>
+            <option value="2" translate>Free Package</option>
+            <option value="1" translate>Paid Package</option>
+          </select>
+          <i class="fas fa-chevron-down embed"></i>
+          <div class="error"
+               *ngIf="form.controls['is_free'].hasError('required') && !form.controls['is_free'].pristine"
+               translate>
+            This field is required
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+        <p class="event-edit"><b translate>Package Price</b></p>
+        <div class="event-edit form-group grey-color">
+          <input type="text"
+                 class="form-control evento_input"
+                 placeholder=""
+                 formControlName="price">
+          <div class="error"
+               *ngIf="form.controls['price'].hasError('required') && !form.controls['price'].pristine"
+               translate>
+            This field is required
+          </div>
+          <div class="error"
+               *ngIf="form.controls['price'].hasError('minlength') && !form.controls['price'].pristine"
+               translate>
+            Field should be at least 3 characters
+          </div>
+          <div class="error"
+               *ngIf="form.controls['price'].hasError('maxlength') && !form.controls['price'].pristine"
+               translate>
+            Field should be at most 40 characters
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+      <div class="col-lg-9 col-md-9 col-sm-12 col-12 pl-3 pr-3">
+        <p class="event-edit"><b translate>Package Description</b></p>
+        <div class="event-edit form-group grey-color">
+                                    <textarea type="text" cols="10" rows="5" class="form-control evento_input"
+                                              placeholder="" formControlName="description"></textarea>
+          <div class="error"
+               *ngIf="form.controls['description'].hasError('required') && !form.controls['description'].pristine"
+               translate>
+            This field is required
+          </div>
+          <div class="error"
+               *ngIf="form.controls['description'].hasError('minlength') && !form.controls['description'].pristine"
+               translate>
+            Field should be at least 3 characters
+          </div>
+          <div class="error"
+               *ngIf="form.controls['description'].hasError('maxlength') && !form.controls['description'].pristine"
+               translate>
+            Field should be at most 200 characters
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+
+      <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+        <p class="event-edit"><b translate>Audience Type</b></p>
+        <div class="event-edit form-group position-relative grey-color">
+          <select class="form-control evento_input evento_select"
+                  formControlName="audience_id"
+                  name="">
+            <option value="" translate>Choose Audience</option>
+            <ng-container *ngIf="audiences">
+              <option [value]="audience.audience_id"
+                      *ngFor="let audience of audiences.data" translate>{{ audience.name
+                }}
+              </option>
+            </ng-container>
+          </select>
+          <i class="fas fa-chevron-down embed"></i>
+          <div class="error"
+               *ngIf="form.controls['audience_id'].hasError('required') && !form.controls['audience_id'].pristine"
+               translate>
+            This field is required
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+        <p class="event-edit"><b translate>Specific Tickets</b></p>
+        <div class="event-edit form-group position-relative grey-color">
+          <select class="form-control evento_input evento_select"
+                  formControlName="specific_tickets"
+                  (change)="onChangeSpecificTickets($event.target.value)"
+                  name="">
+            <option value="" translate>Choose</option>
+            <option value="1" translate>Is Specific</option>
+            <option value="2" translate>Not Specific</option>
+          </select>
+          <i class="fas fa-chevron-down embed"></i>
+          <div class="error"
+               *ngIf="form.controls['specific_tickets'].hasError('required') && !form.controls['specific_tickets'].pristine"
+               translate>
+            This field is required
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+        <p class="event-edit"><b translate>Maximum Tickets per day</b></p>
+        <div class="event-edit form-group grey-color">
+          <input type="text" class="form-control evento_input"
+                 placeholder="" formControlName="max_tickets">
+          <div class="error"
+               *ngIf="form.controls['max_tickets'].hasError('required') && !form.controls['max_tickets'].pristine"
+               translate>
+            This field is required
+          </div>
+          <div class="error"
+               *ngIf="form.controls['max_tickets'].hasError('minlength') && !form.controls['max_tickets'].pristine"
+               translate>
+            Field should be at least 3 characters
+          </div>
+          <div class="error"
+               *ngIf="form.controls['max_tickets'].hasError('maxlength') && !form.controls['max_tickets'].pristine"
+               translate>
+            Field should be at most 40 characters
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+
+      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <button type="submit" class="btn btn-info pl-4 pr-4 mb-3 mr-2 ml-2"
+                [disabled]="form.invalid"
+                translate>Update
+        </button>
+        <button type="button" class="btn btn-danger pl-4 pr-4 mb-3 mr-2 ml-2"
+                (click)="onShowCreate();" translate>Cancel
+        </button>
+      </div>
+
+    </div>
+  </form>
+</ng-container>
+<!-- End Update Supervisor Details -->
+
+<!-- Start Delete Supervisor -->
+<ng-container *ngIf="showDelete">
+  <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5  d-flex flex-wrap mt-5">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
+        <p class="title" translate>Are you sure to delete :</p>
+        <p class="details"> {{ package.name }}</p>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
+        <button type="submit" class="btn btn-info pl-5 pr-5 mt-3 ml-2 mr-2" (click)="onShowDelete();" translate>NO</button>
+        <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" (click)="deletePackage();" translate>YES</button>
+      </div>
+    </div>
+
+  </div>
+
+
+</ng-container>
+<!-- End Delete Supervisor -->
