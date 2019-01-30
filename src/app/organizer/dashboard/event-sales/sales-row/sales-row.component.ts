@@ -5,15 +5,16 @@ import {OrganizerService} from "../../../../api-services/organizer.service";
 import {CommonService} from "../../../../api-services/common.service";
 import {ActivatedRoute} from "@angular/router";
 import {MobilePipe} from "../../../../shared/mobile.pipe";
+import {Sale} from "../../../../models/sales";
 
 @Component({
-    selector: 'app-supervisor-row',
-    templateUrl: './supervisor-row.component.html',
-    styleUrls: ['./supervisor-row.component.scss']
+  selector: 'app-sales-row',
+  templateUrl: './sales-row.component.html',
+  styleUrls: ['./sales-row.component.scss']
 })
-export class SupervisorRowComponent implements OnInit {
+export class SalesRowComponent implements OnInit {
 
-    @Input() supervisor: Supervisor;
+    @Input() sales: Sale;
     @Output() onUpdate: EventEmitter<any> = new EventEmitter();;
     public showDetails: boolean;
     public showUpdate: boolean;
@@ -47,7 +48,7 @@ export class SupervisorRowComponent implements OnInit {
         this.showDelete = !this.showDelete;
     }
 
-    public onUpdateSupervisor() {
+    public onUpdateSalesStaff() {
         if(!this.showUpdate)
             this.initForm();
         this.showUpdate = !this.showUpdate;
@@ -61,22 +62,20 @@ export class SupervisorRowComponent implements OnInit {
     public initForm() {
         this.form = this.formBuilder.group(
             {
-                'first_name': [this.supervisor.first_name, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
-                'last_name': [this.supervisor.last_name, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
-                'mobile': [new MobilePipe().transform(this.supervisor.mobile), Validators.compose([Validators.required, Validators.pattern('^(05)([0-9]{8})$')])],
-                'gender': [this.supervisor.gender, Validators.compose([Validators.required])],
-                'requests': [this.supervisor.requests, Validators.compose([Validators.required])],
-                'sellers': [this.supervisor.sellers, Validators.compose([Validators.required])],
-                'mail': [this.supervisor.mail, Validators.compose([Validators.required, Validators.email])],
-                'status_id': [this.supervisor.status_id, Validators.compose([Validators.required])]
+                'first_name': [this.sales.first_name, Validators.compose([ Validators.required,  Validators.minLength(3), Validators.maxLength(40)])],
+                'last_name': [this.sales.last_name, Validators.compose([Validators.required, Validators.minLength(3),Validators.maxLength(40)])],
+                'mobile': [new MobilePipe().transform(this.sales.mobile), Validators.compose([  Validators.required,Validators.pattern('^(05)([0-9]{8})$')])],
+                'gender': [this.sales.gender, Validators.compose([Validators.required])],
+                'mail': [this.sales.mail, Validators.compose([Validators.required, Validators.email])],
+                'status_id': [this.sales.status_id, Validators.compose([Validators.required])]
             });
 
+
     }
 
 
-    public updateSupervisor(form: FormGroup) {
-
-        this.organizerService.updateEventSupervisor(form.value, this.supervisor.user_id, this.event_key).subscribe(
+    public updateSalesStaff(form: FormGroup) {
+        this.organizerService.updateEventSales(form.value, this.sales.user_id, this.event_key).subscribe(
             res => {
                 this.onUpdate.emit();
                 this.onShowDetails();
@@ -87,8 +86,8 @@ export class SupervisorRowComponent implements OnInit {
 
     }
 
-    public deleteSupervisor() {
-        this.organizerService.deleteEventSupervisor(this.supervisor.user_id, this.event_key).subscribe(
+    public deleteSales() {
+        this.organizerService.deleteEventSales(this.sales.user_id, this.event_key).subscribe(
             res => {
                 this.onUpdate.emit();
                 this.onShowDetails();
@@ -98,8 +97,5 @@ export class SupervisorRowComponent implements OnInit {
         );
 
     }
-
-
-
 
 }

@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {Terms, Term} from "../../../models/tems";
 import {EventoError} from "../../../models/error";
+import {query} from "@angular/animations";
 
 @Component({
     selector: 'app-event-terms',
@@ -27,6 +28,8 @@ export class EventTermsComponent implements OnInit {
     public errorUpdate: EventoError;
     public errorDelete: EventoError;
 
+    public page: number;
+
 
     constructor(public organizerService: OrganizerService,
                 public formBuilder: FormBuilder,
@@ -45,11 +48,12 @@ export class EventTermsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.page = 1;
         this.getEventPolicy();
     }
 
     public getEventPolicy() {
-        this.organizerService.getEventPolicy(this.event_key).subscribe(
+        this.organizerService.getEventPolicy(this.page , this.event_key).subscribe(
             res => {
                 this.terms = res;
             }, err => {
@@ -64,7 +68,7 @@ export class EventTermsComponent implements OnInit {
     }
 
     public showUpdate(selected?: Term) {
-        if(!this.showUpdateForm){
+        if (!this.showUpdateForm) {
             this.selectedTerm = selected;
             this.initUpdate();
         }
@@ -72,7 +76,7 @@ export class EventTermsComponent implements OnInit {
     }
 
     public showDelete(selected?: Term) {
-        if(!this.showDeleteForm){
+        if (!this.showDeleteForm) {
             this.selectedTerm = selected;
         }
         this.showDeleteForm = !this.showDeleteForm;
@@ -99,7 +103,7 @@ export class EventTermsComponent implements OnInit {
     }
 
     public createTerm(form: FormGroup) {
-        this.organizerService.createEventPolicy(form.value , this.event_key).subscribe(
+        this.organizerService.createEventPolicy(form.value, this.event_key).subscribe(
             res => {
                 this.showCreate();
                 this.getEventPolicy()
@@ -115,7 +119,7 @@ export class EventTermsComponent implements OnInit {
             'policy': form.value.policy
         }
 
-        this.organizerService.updateEventPolicy(body , this.event_key).subscribe(
+        this.organizerService.updateEventPolicy(body, this.event_key).subscribe(
             res => {
                 this.showUpdate();
                 this.getEventPolicy();
@@ -130,15 +134,31 @@ export class EventTermsComponent implements OnInit {
         const body = {
             'policy_id': this.selectedTerm.policy_id
         }
-        this.organizerService.deleteEventPolicy(body , this.event_key).subscribe(
+        this.organizerService.deleteEventPolicy(body, this.event_key).subscribe(
             res => {
-                this.showDelete();
                 this.getEventPolicy();
+                this.showDelete();
             }, err => {
                 this.errorDelete = err.value.error
             }
         )
 
     }
+
+    goToPage(n: number): void {
+        this.page = n;
+        this.getEventPolicy();
+    }
+
+    onNext(): void {
+        this.page++;
+        this.getEventPolicy();
+    }
+
+    onPrev(): void {
+        this.page--;
+        this.getEventPolicy();
+    }
+
 
 }

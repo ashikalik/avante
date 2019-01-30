@@ -8,6 +8,8 @@ import {Questions} from "../models/queestions";
 import {Report} from "../models/report";
 import {SellerInvoiceReport} from "../models/seller-invoice-report";
 import {Supervisors} from "../models/supervisors";
+import {Sales} from "../models/sales";
+import {Packages} from "../models/packages";
 
 @Injectable({
     providedIn: 'root'
@@ -36,18 +38,26 @@ export class OrganizerService {
         return this.httpClient.get<EventOrganizer>(url);
     }
 
-    public updateEventInfo(body: any ,event_key: string): Observable<any> {
+    public updateEventInfo(form: any, lat: any, lng: any, imageURL: any, event_key: string): Observable<EventOrganizer> {
+        let body = form;
+        body.lat = lat;
+        body.lng = lng;
+        body.from_date = form.from_date.formatted
+        body.end_date = form.end_date.formatted
+        if (imageURL) {
+            body.img = imageURL;
+        }
         let url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_EVENT_INFO + event_key;
+        return this.httpClient.put<EventOrganizer>(url, body);
+    }
+
+    public updateEventSetting(body: any, event_key: string): Observable<any> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_EVENT_SETTING + event_key;
         return this.httpClient.put<any>(url, body);
     }
 
-    public updateEventSetting(body: any ,event_key: string): Observable<any> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_EVENT_SETTING  + event_key;
-        return this.httpClient.put<any>(url, body);
-    }
-
-    public getEventPolicy(event_key: string): Observable<Terms> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.EVENT_POLICIES + event_key;
+    public getEventPolicy(page: number, event_key: string): Observable<Terms> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.EVENT_POLICIES + event_key + '?page=' + page;
         return this.httpClient.get<Terms>(url);
     }
 
@@ -96,16 +106,148 @@ export class OrganizerService {
         return this.httpClient.get<Report>(url);
     }
 
-    public getSellerInvoices(seller_id: number ,event_key: string): Observable<SellerInvoiceReport> {
+    public getSellerInvoices(seller_id: number, event_key: string): Observable<SellerInvoiceReport> {
         let url = NetworkConfig.BASE_URL + NetworkConfig.REPORTS_SELLER + event_key + '/' + seller_id;
         return this.httpClient.get<SellerInvoiceReport>(url);
     }
 
-    public getEventSupervisors(event_key: string): Observable<Supervisors> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.LIST_SUPERVISORS + event_key;
+    public getEventSupervisors(page: number, search: string, status_id: string, event_key: string): Observable<Supervisors> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.LIST_SUPERVISORS + event_key + '?page=' + page;
+
+        if(search)
+            url = url + '&search=' + search
+
+        if(status_id)
+            url = url + '&status_id=' + status_id
+
         return this.httpClient.get<Supervisors>(url);
     }
 
+    public createEventSupervisor(body: any, event_key: string): Observable<any> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.CREATE_SUPERVISOR + event_key;
+        return this.httpClient.post<any>(url, body);
+    }
+
+    public updateEventSupervisor(form: any, supervisor_id: number, event_key: string): Observable<any> {
+        const body = {
+            supervisor_id: supervisor_id,
+            first_name: form.first_name,
+            last_name: form.last_name,
+            mobile: form.mobile,
+            gender: form.gender,
+            requests: form.requests,
+            sellers: form.sellers,
+            mail: form.mail,
+            status_id: Number(form.status_id)
+        };
+        const url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_SUPERVISOR + event_key;
+        return this.httpClient.put<any>(url, body);
+    }
+
+    public deleteEventSupervisor(supervisor_id: number, event_key: string): Observable<any> {
+        const body = {
+            supervisor_id: supervisor_id,
+            status_id: 4
+        };
+        const url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_SUPERVISOR + event_key;
+        return this.httpClient.put<any>(url, body);
+    }
+
+    public getEventSales(page: number, search: string, status_id: string, event_key: string): Observable<Sales> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.GET_SELLER + event_key + '?page=' + page;
+
+        if(search)
+            url = url + '&search=' + search
+
+        if(status_id)
+            url = url + '&status_id=' + status_id
+
+        return this.httpClient.get<Sales>(url);
+    }
+
+    public createEventSales(body: any, event_key: string): Observable<any> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.CREATE_SELLER + event_key;
+        return this.httpClient.post<any>(url, body);
+    }
+
+    public updateEventSales(form: any, seller_id: number, event_key: string): Observable<any> {
+        const body = {
+            seller_id: seller_id,
+            first_name: form.first_name,
+            last_name: form.last_name,
+            mobile: form.mobile,
+            gender: form.gender,
+            mail: form.mail,
+            status_id: Number(form.status_id)
+        }
+        const url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_SELLER + event_key;
+        return this.httpClient.put<any>(url, body);
+    }
+
+    public deleteEventSales(sales_id: number, event_key: string): Observable<any> {
+        const body = {
+            seller_id: sales_id,
+            status_id: 4
+        };
+        const url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_SELLER + event_key;
+        return this.httpClient.put<any>(url, body);
+    }
+
+    public getEventPackages(page: number, event_key: string): Observable<Packages> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.PACKAGES + event_key + '?page=' + page;
+        return this.httpClient.get<Packages>(url);
+    }
+
+    public createEventPackage(form: any, event_key: string): Observable<any> {
+        if (form.specific_tickets == 2)
+            form.max_tickets = 0;
+
+        if (form.is_free == 2)
+            form.price = 0;
+
+
+        let body = {
+            name: form.name,
+            description: form.description,
+            special_day: Number(form.special_day),
+            specific_tickets: Number(form.specific_tickets),
+            max_tickets: Number(form.max_tickets),
+            is_free: Number(form.is_free),
+            price: Number(form.price),
+            audience_id: form.audience_id
+
+        }
+
+
+        const url = NetworkConfig.BASE_URL + NetworkConfig.PACKAGES + event_key;
+        return this.httpClient.post<any>(url, body);
+    }
+
+    public updateEventPackage(form: any, package_id: number, event_key: string): Observable<any> {
+        const body = {
+            package_id: package_id,
+            name: form.name,
+            description: form.description,
+            special_day: Number(form.special_day),
+            specific_tickets: Number(form.specific_tickets),
+            max_tickets: Number(form.max_tickets),
+            is_free: Number(form.is_free),
+            price: Number(form.price),
+            status_id: Number(form.status_id),
+            audience_id: form.audience_id
+        };
+        const url = NetworkConfig.BASE_URL + NetworkConfig.PACKAGES + event_key;
+        return this.httpClient.put<any>(url, body);
+    }
+
+    public deleteEventPackage(package_id: number, event_key: string): Observable<any> {
+        const body = {
+            package_id: package_id,
+            status_id: 3
+        }
+        const url = NetworkConfig.BASE_URL + NetworkConfig.PACKAGES + event_key;
+        return this.httpClient.put<any>(url, body);
+    }
 
 
 }

@@ -21,8 +21,12 @@ import { EventReportComponent } from './event-report/event-report.component';
 import { SellerRowComponent } from './event-report/seller-row/seller-row.component';
 import { SellerDetailsComponent } from './event-report/seller-details/seller-details.component';
 import { SupervisorRowComponent } from './event-supervisors/supervisor-row/supervisor-row.component';
-import { EventSoldTicketssComponent} from "./event-sold-tickets/event-sold-tickets.component";
+import { EventSoldTicketssComponent } from "./event-sold-tickets/event-sold-tickets.component";
 import { TicketRowComponent } from './event-sold-tickets/application-row/ticket-row.component';
+import { EventSalesComponent } from './event-sales/event-sales.component';
+import { SalesRowComponent } from './event-sales/sales-row/sales-row.component';
+import { EventPackagesComponent } from './event-packages/event-packages.component';
+import { PackageRowComponent } from './event-packages/package-row/package-row.component';
 
 
 @NgModule({
@@ -47,7 +51,11 @@ import { TicketRowComponent } from './event-sold-tickets/application-row/ticket-
         SellerDetailsComponent,
         SupervisorRowComponent,
         EventSoldTicketssComponent,
-        TicketRowComponent
+        TicketRowComponent,
+        EventSalesComponent,
+        SalesRowComponent,
+        EventPackagesComponent,
+        PackageRowComponent
     ],
     imports: [
         ...BASE_MODULES,

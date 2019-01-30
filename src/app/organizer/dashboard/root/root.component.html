@@ -1,3 +1,5 @@
+
+
 <div class="main_container">
   <div class="container-fluid event-container">
     <div class="row justify-content-center">
@@ -33,9 +35,9 @@
             </li>
             <li class="sidebar-list">
               <a class="sidebar-item" href="" translate><img class="img-fluid ml-2 mr-2" src="assets/TicketsIcon.png" alt=""/>Tickets</a>
-              <ul class="sidebar-nav"> 
-                <li class="sidebar-sublist"><a href="" translate>Tickets Packages</a></li>
-                <li class="sidebar-sublist"><a href="" translate>Sales staff</a></li>
+              <ul class="sidebar-nav">
+                <li class="sidebar-sublist"><a [routerLink]="['packages']" translate>Tickets Packages</a></li>
+                <li class="sidebar-sublist"><a [routerLink]="['sales']" translate>Sales staff</a></li>
                 <li class="sidebar-sublist" routerLinkActive="active"><a  [routerLink]="['sold-tickets']" translate>Sold Tickets</a></li>
               </ul>
             </li>
