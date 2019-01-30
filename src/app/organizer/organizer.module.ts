@@ -6,7 +6,6 @@ import {AddEventComponent} from './add-event/add-event.component';
 import {EventBadgeComponent} from './event-badge/event-badge.component';
 import {TicketPackagesComponent} from './ticket-packages/ticket-packages.component';
 import {SalesStaffComponent} from './sales-staff/sales-staff.component';
-import {SoldTicketsComponent} from './sold-tickets/sold-tickets.component';
 import {OrganizerRootComponent} from './organizer-root/organizer-root.component';
 import {BASE_MODULES} from '../models/modules';
 import {CommonService} from '../api-services/common.service';
@@ -22,7 +21,6 @@ import {RootOrganizerComponent} from './root-organizer/root-organizer.component'
         EventBadgeComponent,
         TicketPackagesComponent,
         SalesStaffComponent,
-        SoldTicketsComponent,
         OrganizerRootComponent,
         RootOrganizerComponent
     ],

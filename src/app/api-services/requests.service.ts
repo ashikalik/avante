@@ -108,11 +108,11 @@ export class RequestsService {
     }
 
 
-    public rateQuestion(form: any, event_key: string): Observable<any>{
+    public rateQuestion(question_id: number, rating: number,request_id:number, event_key: string): Observable<any>{
         const body = {
-            request_id: form.request_id,
-            question_id: form.question_id,
-            rating: form.rating
+            request_id: request_id,
+            question_id: question_id,
+            rating: rating
         }
         const url = NetworkConfig.BASE_URL + NetworkConfig.RATING_QUESTION + event_key;
         return this.httpClient.post(url , body);

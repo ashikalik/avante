@@ -13,6 +13,7 @@ import {EventTermsComponent} from "./event-terms/event-terms.component";
 import {LinkWithGeaComponent} from "./link-with-gea/link-with-gea.component";
 import {EventReportComponent} from "./event-report/event-report.component";
 import {EventSupervisorsComponent} from "./event-supervisors/event-supervisors.component";
+import { EventSoldTicketssComponent} from "./event-sold-tickets/event-sold-tickets.component";
 
 
 const routes: Routes = [
@@ -72,6 +73,10 @@ const routes: Routes = [
             {
                 path: 'interview/:request-id',
                 component: RequestsInterviewComponent 
+            },
+            {
+                path: 'sold-tickets',
+                component: EventSoldTicketssComponent 
             }
         ]
     }
