@@ -11,6 +11,7 @@ export interface RequestDetials {
     educational_qualification: Educationalqualification[];
     skills: Skill[];
     experience: Experience[];
+    question: Question[];
   }
   
   export  interface Experience {
@@ -29,4 +30,11 @@ export interface RequestDetials {
     from_date: string;
     end_date: string;
     education: string;
+  }
+
+  export interface Question{
+    question: string,
+    id: number,
+    rating: number,
+    selectedRate: number
   }

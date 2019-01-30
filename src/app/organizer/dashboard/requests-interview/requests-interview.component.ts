@@ -13,6 +13,8 @@ export class RequestsInterviewComponent implements OnInit {
   public requestDetails: RequestDetials;
   public event_key: string;
   public request_id: number;
+
+  public selectRate:number;
   
   constructor(private requestsService: RequestsService,
     public activatedRoute: ActivatedRoute) {
@@ -37,20 +39,35 @@ export class RequestsInterviewComponent implements OnInit {
     this.requestsService.getRequestDetialsForInterview(this.request_id, this.event_key).subscribe(
       res => {
         this.requestDetails = res;
+        res.data.question.forEach(value => {
+          value.selectedRate = null; 
+      });
+      console.log(this.requestDetails);
+      
       }, err => {
 
       });
   }
 
 
-  public rateQuestion(form: any, rating: any) {
-    this.requestsService.rateQuestion(form, this.event_key).subscribe(
+  public rateQuestion(question_id: number, rating: number) {
+
+    console.log(question_id    +   "   " + rating )
+    this.requestsService.rateQuestion(question_id, rating,this.request_id, this.event_key).subscribe(
         res => {
             this.getRequestDetialsForInterview();
         }, err => {
 
         }
     );
+}
+
+
+
+public onSelectRate(questionNum: any, selectedRate: number) {
+  console.log(questionNum);
+  console.log(selectedRate)
+  this.requestDetails.data.question[questionNum].selectedRate = selectedRate;
 }
 
 }

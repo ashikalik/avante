@@ -1,0 +1,23 @@
+.rating {
+	direction: rtl;
+	unicode-bidi: bidi-override;
+    color: #ddd; /* Personal choice */
+    label {
+        margin: 0 0 !important;
+    }
+}
+.rating input {
+    display: none;
+
+}
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input:checked + label,
+.rating input:checked + label ~ label 
+{
+	color: #ffc107; /* Personal color choice. Lifted from Bootstrap 4 */
+}
+
+.active_star{
+    color: #ffc107; /* Personal color choice. Lifted from Bootstrap 4 */
+}
