@@ -29,6 +29,17 @@
                                      *ngFor="let package of package.data"></app-package-row>
 
 
+                    <app-pagination
+                            (goPage)="goToPage($event)"
+                            (goNext)="onNext()"
+                            (goPrev)="onPrev()"
+                            [pagesToShow]="10"
+                            [page]="package.meta.query.page"
+                            [perPage]="package.meta.query.limit"
+                            [count]="package.meta.query.total"></app-pagination>
+
+
+
                 </ng-container>
 
                 <ng-container *ngIf="showCreate">

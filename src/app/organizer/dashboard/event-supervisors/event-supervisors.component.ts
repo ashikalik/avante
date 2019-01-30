@@ -17,6 +17,10 @@ export class EventSupervisorsComponent implements OnInit {
     public showCreate: boolean;
     public form: FormGroup;
     public errorCreate: EventoError;
+    public page: number;
+
+    public search: string;
+    public status_id: string;
 
 
 
@@ -35,11 +39,13 @@ export class EventSupervisorsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.page = 1;
+        this.status_id = ""
         this.getEventSupervisor();
     }
 
     public getEventSupervisor() {
-        this.organizerService.getEventSupervisors(this.event_key).subscribe(
+        this.organizerService.getEventSupervisors(this.page, this.search, this.status_id, this.event_key).subscribe(
             res => {
                 this.supervisors = res;
             }, err => {
@@ -77,6 +83,27 @@ export class EventSupervisorsComponent implements OnInit {
                 this.errorCreate = err.value.error;
             }
         );
+    }
+
+    goToPage(n: number): void {
+        this.page = n;
+        this.getEventSupervisor();
+    }
+
+    onNext(): void {
+        this.page++;
+        this.getEventSupervisor();
+    }
+
+    onPrev(): void {
+        this.page--;
+        this.getEventSupervisor();
+    }
+
+    public searchSupervisor() {
+        this.page = 1;
+        this.getEventSupervisor();
+
     }
 
 

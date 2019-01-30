@@ -15,6 +15,7 @@ export class EventSettingsComponent implements OnInit {
     public eventDetails: Event;
     public form: FormGroup;
     public errorUpdate: EventoError;
+    public sucessUpdate: string;
 
 
 
@@ -58,6 +59,7 @@ export class EventSettingsComponent implements OnInit {
         this.organizerService.updateEventSetting(form.value , this.event_key).subscribe(
             res => {
                 this.getEventDetails();
+                this.sucessUpdate = res.meta.message;
             }, err => {
                 this.errorUpdate = err.value.error;
             }

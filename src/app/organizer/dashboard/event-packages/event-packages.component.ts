@@ -19,6 +19,7 @@ export class EventPackagesComponent implements OnInit {
     public showCreate: boolean;
     public form: FormGroup;
     public errorCreate: EventoError;
+    public page: number;
 
 
     constructor(public organizerService: OrganizerService,
@@ -36,12 +37,13 @@ export class EventPackagesComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.page = 1;
         this.getEventPackages();
         this.getAudience();
     }
 
     public getEventPackages() {
-        this.organizerService.getEventPackages(this.event_key).subscribe(
+        this.organizerService.getEventPackages(this.page, this.event_key).subscribe(
             res => {
                 this.package = res;
             }, err => {
@@ -84,7 +86,6 @@ export class EventPackagesComponent implements OnInit {
 
     }
 
-
     public onChangePackageType(packageType: any) {
         if (packageType == 1) {
             this.form.get('price').enable();
@@ -93,7 +94,6 @@ export class EventPackagesComponent implements OnInit {
             this.form.controls['price'].setValue(0);
         }
     }
-
 
     public onChangeSpecificTickets(specificTickets: any) {
         if (specificTickets == 1) {
@@ -105,7 +105,6 @@ export class EventPackagesComponent implements OnInit {
         }
     }
 
-
     public createPackage(form: FormGroup) {
         this.organizerService.createEventPackage(form.value, this.event_key).subscribe(
             res => {
@@ -115,5 +114,20 @@ export class EventPackagesComponent implements OnInit {
                 this.errorCreate = err.value.error;
             }
         );
+    }
+
+    goToPage(n: number): void {
+        this.page = n;
+        this.getEventPackages();
+    }
+
+    onNext(): void {
+        this.page++;
+        this.getEventPackages();
+    }
+
+    onPrev(): void {
+        this.page--;
+        this.getEventPackages();
     }
 }

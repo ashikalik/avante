@@ -1,0 +1,30 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5" *ngIf="count > 0 && count > perPage">
+  <div class="mob-w-75 text-center justify-content-center pagenation mt-5">
+    <div class="col-lg-12 col-sm-12 col-12 text-center d-flex justify-content-center">
+      <button type="button" class="btn btn-number btn-sm  ml-1 mr-1"
+              *ngFor="let pageNum of getPages()"
+              (click)="onPage(pageNum)"
+              [ngClass]="{'btn-outline-dark': pageNum === page, 'disabled': loading}">{{ pageNum }}</button>
+
+    </div>
+
+
+
+    <div class="col-lg-12 col-sm-12 col-12 text-center d-flex justify-content-center mt-4 mb-5">
+      <button type="button"
+              class="btn btn-outline-dark btn-sm btn-create pd-40 mr-1 ml-1 position-relative"
+              (click)="onPrev()" [disabled]="page === 1 || loading" [ngClass]="{ 'disabled': page === 1 || loading }"
+              translate>
+        <i class="fas fa-chevron-right"></i>&nbsp;
+        Previous
+      </button>
+      <button type="button"
+              class="btn btn-outline-dark btn-sm btn-create pd-60 mr-1 ml-1 position-relative"
+              (click)="onNext(true)" [disabled]="lastPage() || loading" [ngClass]="{ 'disabled': lastPage() || loading }"
+              translate>
+        Next
+        &nbsp;<i class="fas fa-chevron-left"></i>
+      </button>
+    </div>
+  </div>
+</div>

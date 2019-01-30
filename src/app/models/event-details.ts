@@ -1,13 +1,10 @@
 import {Meta} from "./meta";
 
 
-
 export interface EventDetails {
     meta: Meta;
     data: Data;
 }
-
-
 
 export interface Details {
     event_key: string;
@@ -49,11 +46,15 @@ export interface Policy {
     policy: string;
 }
 
-
-
 export interface Data {
     details: Details;
     packages: Package[];
     eligibleToJoin: boolean;
     policy: Policy[];
 }
+
+export interface Meta {
+    message: string;
+    code: number;
+}
+

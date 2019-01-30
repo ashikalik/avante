@@ -298,7 +298,7 @@
   "Link With GEA": "الربط مع الهيئة العامة الترفيه",
   "You have already applied": "لقد تم تقديم طلبك كمظم",
   "Add New Supervisor": "إضافة حساب مشرف جديد",
-  "Search By Name Or Email or mobile or username": "ابحث عبر الاسم ، البريد الإلكتروني ، الجوال اسم المستخدم",
+  "Search By Email or mobile or username": "ابحث عبر البريد الإلكتروني ، الجوال اسم المستخدم",
   "Choose Status": "اختر الحالة",
   "Status": "الحالة",
   "Username": "اسم المستخدم",
@@ -330,5 +330,6 @@
   "Paid Package": "باقة مدفوعة",
   "Is Specific": "محددة بعدد",
   "Not Specific": "غير محدده بعدد",
-  "Unlimited": "مفتوح"
+  "Unlimited": "مفتوح",
+  "You don't have any terms or conditions.": "لايوجد لديك سياسات او شروط مضافة."
 }

@@ -19,6 +19,11 @@ export class EventSalesComponent implements OnInit {
     public showCreate: boolean;
     public form: FormGroup;
     public errorCreate: EventoError;
+    public page: number;
+
+    public search: string;
+    public status_id: string;
+
 
 
 
@@ -37,11 +42,13 @@ export class EventSalesComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.page = 1;
+        this.status_id = "";
         this.getEventSales();
     }
 
     public getEventSales() {
-        this.organizerService.getEventSales(this.event_key).subscribe(
+        this.organizerService.getEventSales(this.page, this.search, this.status_id, this.event_key).subscribe(
             res => {
                 this.sales = res;
             }, err => {
@@ -77,5 +84,26 @@ export class EventSalesComponent implements OnInit {
                 this.errorCreate = err.value.error;
             }
         );
+    }
+
+    goToPage(n: number): void {
+        this.page = n;
+        this.getEventSales();
+    }
+
+    onNext(): void {
+        this.page++;
+        this.getEventSales();
+    }
+
+    onPrev(): void {
+        this.page--;
+        this.getEventSales();
+    }
+
+    public searchSales() {
+        this.page = 1;
+        this.getEventSales();
+
     }
 }

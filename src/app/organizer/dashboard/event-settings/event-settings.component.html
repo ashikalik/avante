@@ -23,6 +23,13 @@
         <!-- Tab panels -->
         <div class="tab-event-content">
             <div class="content" id="event-details" *ngIf="eventDetails">
+                <ng-container *ngIf="sucessUpdate">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4 pl-5 pr-5">
+                        <div class="alert alert-success pr-3 pl-3" role="alert">
+                            {{ sucessUpdate }}
+                        </div>
+                    </div>
+                </ng-container>
                 <form [formGroup]="form" (ngSubmit)="updateSetting(form);">
                     <div class="row mr-0 ml-0 mt-5">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5">

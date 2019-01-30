@@ -9,7 +9,7 @@ import {Report} from "../models/report";
 import {SellerInvoiceReport} from "../models/seller-invoice-report";
 import {Supervisors} from "../models/supervisors";
 import {Sales} from "../models/sales";
-import {Package, Packages} from "../models/packages";
+import {Packages} from "../models/packages";
 
 @Injectable({
     providedIn: 'root'
@@ -38,9 +38,17 @@ export class OrganizerService {
         return this.httpClient.get<EventOrganizer>(url);
     }
 
-    public updateEventInfo(body: any, event_key: string): Observable<any> {
+    public updateEventInfo(form: any, lat: any, lng: any, imageURL: any, event_key: string): Observable<EventOrganizer> {
+        let body = form;
+        body.lat = lat;
+        body.lng = lng;
+        body.from_date = form.from_date.formatted
+        body.end_date = form.end_date.formatted
+        if (imageURL) {
+            body.img = imageURL;
+        }
         let url = NetworkConfig.BASE_URL + NetworkConfig.UPDATE_EVENT_INFO + event_key;
-        return this.httpClient.put<any>(url, body);
+        return this.httpClient.put<EventOrganizer>(url, body);
     }
 
     public updateEventSetting(body: any, event_key: string): Observable<any> {
@@ -48,8 +56,8 @@ export class OrganizerService {
         return this.httpClient.put<any>(url, body);
     }
 
-    public getEventPolicy(event_key: string): Observable<Terms> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.EVENT_POLICIES + event_key;
+    public getEventPolicy(page: number, event_key: string): Observable<Terms> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.EVENT_POLICIES + event_key + '?page=' + page;
         return this.httpClient.get<Terms>(url);
     }
 
@@ -103,8 +111,15 @@ export class OrganizerService {
         return this.httpClient.get<SellerInvoiceReport>(url);
     }
 
-    public getEventSupervisors(event_key: string): Observable<Supervisors> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.LIST_SUPERVISORS + event_key;
+    public getEventSupervisors(page: number, search: string, status_id: string, event_key: string): Observable<Supervisors> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.LIST_SUPERVISORS + event_key + '?page=' + page;
+
+        if(search)
+            url = url + '&search=' + search
+
+        if(status_id)
+            url = url + '&status_id=' + status_id
+
         return this.httpClient.get<Supervisors>(url);
     }
 
@@ -138,18 +153,22 @@ export class OrganizerService {
         return this.httpClient.put<any>(url, body);
     }
 
+    public getEventSales(page: number, search: string, status_id: string, event_key: string): Observable<Sales> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.GET_SELLER + event_key + '?page=' + page;
 
-    public getEventSales(event_key: string): Observable<Sales> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.GET_SELLER + event_key;
+        if(search)
+            url = url + '&search=' + search
+
+        if(status_id)
+            url = url + '&status_id=' + status_id
+
         return this.httpClient.get<Sales>(url);
     }
-
 
     public createEventSales(body: any, event_key: string): Observable<any> {
         let url = NetworkConfig.BASE_URL + NetworkConfig.CREATE_SELLER + event_key;
         return this.httpClient.post<any>(url, body);
     }
-
 
     public updateEventSales(form: any, seller_id: number, event_key: string): Observable<any> {
         const body = {
@@ -165,7 +184,6 @@ export class OrganizerService {
         return this.httpClient.put<any>(url, body);
     }
 
-
     public deleteEventSales(sales_id: number, event_key: string): Observable<any> {
         const body = {
             seller_id: sales_id,
@@ -175,12 +193,10 @@ export class OrganizerService {
         return this.httpClient.put<any>(url, body);
     }
 
-
-    public getEventPackages(event_key: string): Observable<Packages> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.PACKAGES + event_key;
+    public getEventPackages(page: number, event_key: string): Observable<Packages> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.PACKAGES + event_key + '?page=' + page;
         return this.httpClient.get<Packages>(url);
     }
-
 
     public createEventPackage(form: any, event_key: string): Observable<any> {
         if (form.specific_tickets == 2)
@@ -206,8 +222,6 @@ export class OrganizerService {
         const url = NetworkConfig.BASE_URL + NetworkConfig.PACKAGES + event_key;
         return this.httpClient.post<any>(url, body);
     }
-
-
 
     public updateEventPackage(form: any, package_id: number, event_key: string): Observable<any> {
         const body = {
