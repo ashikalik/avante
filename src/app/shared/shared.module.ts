@@ -18,6 +18,7 @@ import {DatePickerInputPipe} from './date-picker-input.pipe';
 import {ConvertFrom24To12FormatPipe} from './convert-from24-to12-format.pipe';
 import {AmPmTimePipe} from './am-pm-time.pipe';
 import {PaginationComponent} from './pagination-component/pagination.component';
+import { ValidatorService } from './validator.service';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -70,6 +71,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         ConvertFrom24To12FormatPipe,
         AmPmTimePipe,
         PaginationComponent
+    ],
+    providers:[
+        ValidatorService,
     ]
 })
 export class SharedModule {
