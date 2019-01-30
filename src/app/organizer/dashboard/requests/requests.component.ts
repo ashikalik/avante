@@ -8,7 +8,9 @@ import { RequestDetials } from '../../../models/request-details';
 import { DatePickerInputPipe } from 'src/app/shared/date-picker-input.pipe';
 import { ConvertFrom24To12FormatPipe } from 'src/app/shared/convert-from24-to12-format.pipe';
 import { AmPmTimePipe } from '../../../shared/am-pm-time.pipe';
-import {MyDatePickerOptions} from '../../../models/date-picker-object'
+import { MyDatePickerOptions } from '../../../models/date-picker-object'
+import { ValidatorService } from '../../../shared/validator.service';
+import { EventoError } from '../../../models/error';
 
 @Component({
   selector: 'app-requests',
@@ -22,12 +24,14 @@ export class RequestsComponent implements OnInit {
   public requestList: Requests;
   public requestDetails: RequestDetials;
   public myDatePickerOptions = MyDatePickerOptions;
-  
+
   public preAcceptForm: FormGroup;
   public preAcceptList: any[] = [];
   public numOfRequests: number;
   public onPreAcceptScreen: boolean;
   public isMoreThanOneRequest: boolean;
+
+  public displayMap: boolean;
 
   public limit: number;
   public page: number;
@@ -35,12 +39,15 @@ export class RequestsComponent implements OnInit {
   //for search requests
   public status: any;
   public searchInput: any;
-
+  public error: EventoError;
+  public errorPreAccept: EventoError;
+  
   public lat: any;
   public lng: any;
 
   constructor(private requestsService: RequestsService,
     private formBuilder: FormBuilder,
+    public validatorService: ValidatorService,
     public activatedRoute: ActivatedRoute) {
 
     this.status = '';
@@ -54,6 +61,7 @@ export class RequestsComponent implements OnInit {
     //riyadh
     this.lat = 24.7136;
     this.lng = 46.6753;
+    this.displayMap = false;
 
     this.activatedRoute.parent.params.subscribe(params => {
       this.event_key = params['event-key']
@@ -64,6 +72,8 @@ export class RequestsComponent implements OnInit {
 
 
   ngOnInit() {
+    this.error = null;
+    this.errorPreAccept = null;
     this.initForm();
   }
 
@@ -79,23 +89,49 @@ export class RequestsComponent implements OnInit {
         'end_time_type': [null, Validators.compose([Validators.required])],
         'lat': [this.lat, Validators.compose([])],
         'lng': [this.lng, Validators.compose([])],
-        'interview_location': [null, Validators.compose([])],        
+        'interview_location': [null, Validators.compose([])],
         'contact': [null, Validators.compose([Validators.pattern('^(05)([0-9]{8})$')])]
       }, {
-        //validator: [this.checkTime, this.checkDate]
+        validator: [this.validatorService.checkTime, this.validatorService.checkDate]
 
+      });
+
+      this.onChangeLocation();
+  }
+
+
+  public onChangeLocation() {
+
+    this.preAcceptForm.get('interview_location').valueChanges.subscribe(
+      res => {
+
+        if (this.preAcceptForm.get('interview_location').value == null || this.preAcceptForm.get('interview_location').value == '') {
+          console.log("false");
+          this.displayMap = false;
+          this.preAcceptForm.get('lat').clearValidators();
+          this.preAcceptForm.get('lng').clearValidators();
+          this.preAcceptForm.controls['lat'].setValue(null);
+          this.preAcceptForm.controls['lng'].setValue(null);
+        } else {
+          this.displayMap = true;
+          this.preAcceptForm.get('lat').setValidators([Validators.required]);
+          this.preAcceptForm.get('lng').setValidators([Validators.required]);
+          this.preAcceptForm.controls['lat'].setValue(this.lat);
+          this.preAcceptForm.controls['lng'].setValue(this.lng);
+        }
+        this.preAcceptForm.updateValueAndValidity();
       });
   }
 
 
-
   public getRequests() {
     this.requestList = null;
+    this.error = null;
     this.requestsService.getRequests(this.event_key, this.limit, this.page, this.status, this.searchInput).subscribe(
       res => {
         this.requestList = res;
       }, err => {
-
+        this.error = err.value.error;        
       });
   }
 
@@ -119,12 +155,12 @@ export class RequestsComponent implements OnInit {
   }
 
   public preAcceptRequest(form: any, reques_id) {
-    console.log(form.value);
+    this.errorPreAccept = null;
     this.requestsService.preAccept(form.value, this.preAcceptList, this.event_key).subscribe(
       res => {
         this.getRequests();
       }, err => {
-
+        this.errorPreAccept = err.value.error; 
       }
     );
   }
@@ -142,7 +178,7 @@ export class RequestsComponent implements OnInit {
   }
 
 
-  public onUpdateRequest(){
+  public onUpdateRequest() {
     this.getRequests();
   }
 

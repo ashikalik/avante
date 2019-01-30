@@ -2,6 +2,7 @@ import {Meta} from "./meta";
 
 export interface requestObj {
     request_id: number;
+    comment: string;
     first_name: string;
     last_name: string;
     mobile: string;

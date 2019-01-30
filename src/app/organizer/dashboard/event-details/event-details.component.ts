@@ -13,6 +13,7 @@ import {MyDatePickerOptions} from "../../../models/date-picker-object";
 import {ConvertFrom24To12FormatPipe} from "../../../shared/convert-from24-to12-format.pipe";
 import {AmPmTimePipe} from "../../../shared/am-pm-time.pipe";
 import {EventoError} from "../../../models/error";
+import { ValidatorService } from '../../../shared/validator.service';
 
 
 @Component({
@@ -44,6 +45,7 @@ export class EventDetailsComponent implements OnInit {
 
     constructor(public organizerService: OrganizerService,
                 public formBuilder: FormBuilder,
+                public validatorService: ValidatorService,
                 public commonService: CommonService,
                 public activatedRoute: ActivatedRoute) {
 
@@ -111,56 +113,13 @@ export class EventDetailsComponent implements OnInit {
                 'lng': [this.eventDetails.lng, Validators.compose([])],
                 'address': [this.eventDetails.address, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(1000)])]
             }, {
-                validator: [this.checkTime, this.checkDate]
+                validator: [this.validatorService.checkTime, this.validatorService.checkDate]
 
             });
 
         console.log(this.form.value)
     }
 
-    public checkTime(AC: AbstractControl): ValidationErrors {
-        const from_time = AC.get('from_time').value;
-        const end_time = AC.get('end_time').value;
-        const from_date_type = AC.get('from_time_type').value;
-        const end_date_type = AC.get('end_time_type').value;
-
-
-        if(from_date_type == 'am' && end_date_type == 'pm') {
-            console.log('true 1')
-            return null
-        } else if (from_date_type == 'pm' && end_date_type == 'am') {
-            console.log('error 1')
-            return {timeError: {valid: false}};
-        } else {
-            if (Number(from_time.split(':')[0]) > Number(end_time.split(':')[0])) {
-                console.log('error 2')
-                return {timeError: {valid: false}};
-            } else if (Number(from_time.split(':')[0]) === Number(end_time.split(':')[0])) {
-                if (Number(from_time.split(':')[1]) >= Number(end_time.split(':')[1])) {
-                    console.log('error 3')
-                    return {timeError: {valid: false}};
-                } else {
-                    console.log('true 2')
-                    return null;
-                }
-            }
-        }
-
-    }
-
-    public checkDate(AC: AbstractControl): ValidationErrors {
-        const from_date = AC.value.from_date.formatted;
-        const end_date = AC.value.end_date.formatted;
-
-        if (from_date && end_date) {
-
-            if (from_date > end_date) {
-                return {dateError: {valid: false}};
-            } else {
-                return null;
-            }
-        }
-    }
 
     public loadCityList() {
         this.commonService.getCity().subscribe(
