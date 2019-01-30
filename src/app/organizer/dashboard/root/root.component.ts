@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserAuthService} from "../../../core/user-auth.service";
+import {SnotifyService} from "ng-snotify";
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'app-root',

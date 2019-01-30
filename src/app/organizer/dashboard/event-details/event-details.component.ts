@@ -36,6 +36,7 @@ export class EventDetailsComponent implements OnInit {
     public lat: any;
     public lng: any;
     public errorUpdate: EventoError;
+    public sucessUpdate: string;
 
 
 
@@ -194,19 +195,11 @@ export class EventDetailsComponent implements OnInit {
     }
 
     public updateEvent(form: FormGroup) {
-        console.log(this.event_key)
-        let body = form.value;
-        body.lat = this.lat;
-        body.lng = this.lng;
-        body.from_date = form.value.from_date.formatted
-        body.end_date = form.value.end_date.formatted
-        if(this.imageURL) {
-            body.img = this.imageURL;
-        }
-        this.organizerService.updateEventInfo(body, this.event_key).subscribe(res => {
+
+        this.organizerService.updateEventInfo(form.value, this.lat , this.lng, this.imageURL, this.event_key).subscribe(res => {
             this.getEventDetails();
-            this.showUpdate = false;
-            console.log(res)
+            this.changeEdit();
+            this.sucessUpdate = res.meta.message;
         }, err => {
             this.errorUpdate = err.value.error;
         });

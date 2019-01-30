@@ -17,6 +17,7 @@ import {DatePickerYear} from './date-picker-year.pipe';
 import {DatePickerInputPipe} from './date-picker-input.pipe';
 import {ConvertFrom24To12FormatPipe} from './convert-from24-to12-format.pipe';
 import {AmPmTimePipe} from './am-pm-time.pipe';
+import {PaginationComponent} from './pagination-component/pagination.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -39,7 +40,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         DatePickerYear,
         DatePickerInputPipe,
         ConvertFrom24To12FormatPipe,
-        AmPmTimePipe
+        AmPmTimePipe,
+        PaginationComponent
     ],
     imports: [
         CommonModule,
@@ -66,7 +68,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         DatePickerYear,
         DatePickerInputPipe,
         ConvertFrom24To12FormatPipe,
-        AmPmTimePipe
+        AmPmTimePipe,
+        PaginationComponent
     ]
 })
 export class SharedModule {
