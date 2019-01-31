@@ -18,15 +18,31 @@
                 </div>
 
                 <ng-container *ngIf="package && !showCreate">
-                    <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
-                        <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12" translate> Package Name</div>
-                        <div class="title col-lg-3 col-md-3 col-sm-12 col-12" translate>Package Type</div>
-                        <div class="title col-lg-4 col-md-4 col-sm-12 col-12" translate>Package Price</div>
-                        <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>Package Status</div>
-                    </div>
-                    <app-package-row [package]="package"
-                                     (onUpdate)="getEventPackages()"
-                                     *ngFor="let package of package.data"></app-package-row>
+
+
+                    <ng-container *ngIf="package.data.length === 0">
+                        <div class="pl-5 pr-5 col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+                            <div class="alert alert-warning pl-3 pr-3" role="alert" translate>
+                                You don't have any terms or conditions.
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="package.data.length > 0">
+                        <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
+                            <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12" translate> Package Name</div>
+                            <div class="title col-lg-3 col-md-3 col-sm-12 col-12" translate>Package Type</div>
+                            <div class="title col-lg-4 col-md-4 col-sm-12 col-12" translate>Package Price</div>
+                            <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>Package Status</div>
+                        </div>
+                        <app-package-row [package]="package"
+                                         (onUpdate)="getEventPackages()"
+                                         *ngFor="let package of package.data"></app-package-row>
+                    </ng-container>
+
+
+
+
+
 
 
                     <app-pagination
