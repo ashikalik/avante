@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd8778e4-0179-4faf-bc5b-f8f3ad6f1173" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api-services/organizer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api-services/organizer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/models/event-details.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/event-details.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/dashboard.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/dashboard.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-details/event-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-settings/event-settings.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-settings/event-settings.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-settings/event-settings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-settings/event-settings.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/errors/errors.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/errors/errors.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/shared.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/i18n/ar.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/i18n/ar.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sass/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/sass/header.scss" afterDir="false" />
     </list>
     <list id="2e49be08-2139-485b-a64e-d4011daa807e" name="upload scss files" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -42,103 +25,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html">
+        <entry file="file://$PROJECT_DIR$/src/sass/header.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="113" selection-start-line="40" selection-start-column="84" selection-end-line="40" selection-end-column="113" />
-              <folding>
-                <element signature="n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="92" selection-start-line="40" selection-start-column="81" selection-end-line="40" selection-end-column="92" />
-              <folding>
-                <element signature="n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/i18n/ar.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4500">
-              <caret line="300" column="52" selection-start-line="300" selection-start-column="52" selection-end-line="300" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="47" column="41" lean-forward="true" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
-              <folding>
-                <element signature="n#!!block;n#onShowCreate#0;n#EventSupervisorsComponent#0" />
-                <element signature="n#!!block;n#initAddForm#0;n#EventSupervisorsComponent#0" />
-                <element signature="n#!!block;n#addSupervisor#0;n#EventSupervisorsComponent#0" />
-                <element signature="n#!!block;n#goToPage#0;n#EventSupervisorsComponent#0" />
-                <element signature="n#!!block;n#onNext#0;n#EventSupervisorsComponent#0" />
-                <element signature="n#!!block;n#onPrev#0;n#EventSupervisorsComponent#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/api-services/organizer.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="162" column="49" lean-forward="true" selection-start-line="162" selection-start-column="49" selection-end-line="162" selection-end-column="49" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <element signature="n#!!block;n#getEvent#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#updateEventInfo#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#updateEventSetting#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#getEventPolicy#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#createEventPolicy#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#updateEventPolicy#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#deleteEventPolicy#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#updateMOINumber#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#getEventQuestions#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#createEventQuestions#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#updateEventQuestion#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#deleteEventQuestion#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#getEventReport#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#getSellerInvoices#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#createEventSupervisor#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#updateEventSupervisor#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#deleteEventSupervisor#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#createEventSales#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#updateEventSales#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#deleteEventSales#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#getEventPackages#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#createEventPackage#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#updateEventPackage#0;n#OrganizerService#0" />
-                <element signature="n#!!block;n#deleteEventPackage#0;n#OrganizerService#0" />
-              </folding>
+            <state relative-caret-position="292">
+              <caret line="59" column="22" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.ts">
+        <entry file="file://$PROJECT_DIR$/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-                <element signature="n#!!block;n#constructor#0;n#EventSalesComponent#0" />
-                <element signature="n#!!block;n#onShowCreate#0;n#EventSalesComponent#0" />
-                <element signature="n#!!block;n#initAddForm#0;n#EventSalesComponent#0" />
-                <element signature="n#!!block;n#addSalesStaff#0;n#EventSalesComponent#0" />
-              </folding>
+            <state relative-caret-position="779">
+              <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -147,9 +46,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>event-edit</find>
-      <find>Staff Sales</find>
-      <find>Company Name</find>
       <find>side-content</find>
       <find>EventSupervisorsComponen</find>
       <find>EventSupervisorsComponent</find>
@@ -177,6 +73,9 @@
       <find>page</find>
       <find>lastPage</find>
       <find>Search By Name Or Email or mobile or username</find>
+      <find>onMenuHide</find>
+      <find>dashboard_toggle</find>
+      <find>menu_toggle</find>
     </findStrings>
     <replaceStrings>
       <replace>Direction</replace>
@@ -209,8 +108,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/shared/errors/errors.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/link-with-gea/link-with-gea.component.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/link-with-gea/link-with-gea.component.html" />
         <option value="$PROJECT_DIR$/src/app/models/queestions.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/questions/questions.component.html" />
@@ -235,9 +132,7 @@
         <option value="$PROJECT_DIR$/src/app/models/packages.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/package-row/package-row.component.html" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/package-row/package-row.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/dashboard.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html" />
         <option value="$PROJECT_DIR$/src/app/models/event-details.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-settings/event-settings.component.html" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-settings/event-settings.component.ts" />
@@ -255,18 +150,22 @@
         <option value="$PROJECT_DIR$/src/assets/i18n/ar.json" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.html" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.html" />
         <option value="$PROJECT_DIR$/src/app/api-services/organizer.service.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.html" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html" />
+        <option value="$PROJECT_DIR$/src/sass/header.scss" />
+        <option value="$PROJECT_DIR$/src/app/app.component.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="986" />
+    <option name="x" value="1726" />
+    <option name="width" value="1714" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -296,62 +195,7 @@
               <item name="website" type="b2602c69:ProjectViewProjectNode" />
               <item name="website" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="organizer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="organizer" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="organizer" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="event-sales" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="organizer" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-              <item name="event-supervisors" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="pagination-component" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -539,12 +383,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218718000" />
+    <option name="totallyTimeSpent" value="220221000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="956" extended-state="6" />
+    <frame x="0" y="0" width="3440" height="1440" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49945593" visible="true" weight="0.21855922" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945593" visible="true" weight="0.10535609" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5005441" side_tool="true" weight="0.21841942" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -557,7 +402,7 @@
       <window_info anchor="bottom" id="Docker" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.497558" weight="0.3377551" />
       <window_info anchor="bottom" id="Statistic" order="9" sideWeight="0.4997057" weight="0.329927" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4968051" visible="true" weight="0.3587963" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4968051" weight="0.35816327" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50319487" side_tool="true" weight="0.34851485" />
       <window_info anchor="bottom" id="TypeScript" order="12" sideWeight="0.4997057" weight="0.329927" />
       <window_info anchor="bottom" id="Messages" order="13" />
@@ -651,29 +496,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'remotes/origin/develop' into terms&#10;&#10;# Conflicts:&#10;#&#9;src/app/organizer/dashboard/dashboard.module.ts" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-report/seller-details/seller-details.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="13" />
-          <folding>
-            <element signature="e#1243#1249#0" expanded="true" />
-            <element signature="e#1432#1438#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-report/seller-row/seller-row.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="79" selection-start-line="16" selection-start-column="74" selection-end-line="16" selection-end-column="79" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/applications/applications.component.html" />
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/applications/application-row/application-row.component.html" />
     <entry file="file://$PROJECT_DIR$/src/app/models/supervisors.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
@@ -808,26 +630,6 @@
           <caret line="27" lean-forward="true" selection-end-line="66" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1019,18 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="92" selection-start-line="92" selection-end-line="100" />
-          <folding>
-            <element signature="n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#ng-container#2;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#ng-container#3;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
@@ -1067,18 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="31" selection-start-line="31" selection-end-line="39" />
-          <folding>
-            <element signature="n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#form#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#form#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
@@ -1099,8 +877,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="113" selection-start-line="40" selection-start-column="84" selection-end-line="40" selection-end-column="113" />
+        <state relative-caret-position="645">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
           </folding>
@@ -1109,8 +887,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="92" selection-start-line="40" selection-start-column="81" selection-end-line="40" selection-end-column="92" />
+        <state relative-caret-position="645">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
           </folding>
@@ -1126,47 +904,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-supervisors/event-supervisors.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="47" column="41" lean-forward="true" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+        <state relative-caret-position="705">
+          <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
           <folding>
-            <element signature="n#!!block;n#onShowCreate#0;n#EventSupervisorsComponent#0" />
-            <element signature="n#!!block;n#initAddForm#0;n#EventSupervisorsComponent#0" />
             <element signature="n#!!block;n#addSupervisor#0;n#EventSupervisorsComponent#0" />
-            <element signature="n#!!block;n#goToPage#0;n#EventSupervisorsComponent#0" />
-            <element signature="n#!!block;n#onNext#0;n#EventSupervisorsComponent#0" />
-            <element signature="n#!!block;n#onPrev#0;n#EventSupervisorsComponent#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/api-services/organizer.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="162" column="49" lean-forward="true" selection-start-line="162" selection-start-column="49" selection-end-line="162" selection-end-column="49" />
+        <state relative-caret-position="2580">
+          <caret line="172" column="94" selection-start-line="172" selection-start-column="94" selection-end-line="172" selection-end-column="94" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <element signature="n#!!block;n#getEvent#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#updateEventInfo#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#updateEventSetting#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#getEventPolicy#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#createEventPolicy#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#updateEventPolicy#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#deleteEventPolicy#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#updateMOINumber#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#getEventQuestions#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#createEventQuestions#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#updateEventQuestion#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#deleteEventQuestion#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#getEventReport#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#getSellerInvoices#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#createEventSupervisor#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#updateEventSupervisor#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#deleteEventSupervisor#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#createEventSales#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#updateEventSales#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#deleteEventSales#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#getEventPackages#0;n#OrganizerService#0" />
-            <element signature="n#!!block;n#createEventPackage#0;n#OrganizerService#0" />
             <element signature="n#!!block;n#updateEventPackage#0;n#OrganizerService#0" />
             <element signature="n#!!block;n#deleteEventPackage#0;n#OrganizerService#0" />
           </folding>
@@ -1175,15 +926,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-sales/event-sales.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+        <state relative-caret-position="200">
+          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <element signature="n#!!block;n#constructor#0;n#EventSalesComponent#0" />
-            <element signature="n#!!block;n#onShowCreate#0;n#EventSalesComponent#0" />
-            <element signature="n#!!block;n#initAddForm#0;n#EventSalesComponent#0" />
-            <element signature="n#!!block;n#addSalesStaff#0;n#EventSalesComponent#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-terms/event-terms.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" selection-start-line="34" selection-end-line="39" />
+          <folding>
+            <element signature="n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#ng-container#2;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#ng-container#3;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/requests/requests.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="51" column="75" lean-forward="true" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/event-packages/event-packages.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+          <folding>
+            <element signature="n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#form#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#form#0;n#ng-container#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="99" column="5" lean-forward="true" selection-start-line="92" selection-start-column="4" selection-end-line="99" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="121" selection-start-line="46" selection-start-column="121" selection-end-line="46" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="36" lean-forward="true" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sass/header.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="11" selection-end-line="59" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="90" column="24" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
         </state>
       </provider>
     </entry>
