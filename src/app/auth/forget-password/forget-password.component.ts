@@ -45,12 +45,16 @@ export class ForgetPasswordComponent implements OnInit {
     public onReset(form: any) {
       this.forgetResponse = null;
 
-
         this.authService.forgetPassword(form.value).subscribe(res => {
           this.forgetResponse = res;
         }, err => {
+            this.forgetForm.get("recaptcha").reset();
             this.errorForget = err.value.error;
         });
     }
+
+    contactUs() {
+        this.router.navigate(['/contact-us'])
+      }
 
 }

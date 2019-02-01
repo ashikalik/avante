@@ -386,5 +386,12 @@
   "Number of tickets paid": "عدد التذاكر",
   "DOWNLOAD INVOICE": "تحميل الفاتورة",
   "Do you forget your password ?": "هل نسيت كلمة المرور",
-  "Reset": "إعادة تعيين"
+  "Reset": "إعادة تعيين",
+  "Contact Us":"تواصل معنا",
+  "Your account has not been activated successfuly!":"لم يتم تفعيل حسابك!!!",
+  "Please comunicate with us to solve this issue.":"حدث خطأ أثناء تفعيل الحساب الرجاء التواصل معنا لحل هذه المشكلة ", 
+  "Your account has been activated successfuly!":"تم تفعيل حسابك بنجاح!!",
+  "Your password has been reset successfully, We will send you an email to set a new password":"لقد تم إعادة تعيين رقمك السري،سيتم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور",
+  "New Password":"كلمة المرور الجديدة",
+  "Confirm New Password":"تأكيد كلمة المرور الجديدة"
 }

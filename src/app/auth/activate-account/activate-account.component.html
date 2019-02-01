@@ -1,3 +1,24 @@
-<p>
-  activate-account works!
-</p>
+<div class="main_container mb-5 pt-5">
+  <div class="container-fluid pt-5">
+    <div *ngIf="isActivated" class="text-center ">
+      <img class="img_responsive" src="assets/Step5-ART-407x258.png" alt="" />
+      <h4 class="mt-3" style="color: inherit;" translate>Your account has been activated successfuly!</h4>
+
+      <button (click)="toSigin()" type="button" class="btn btn-success md-15" translate> Signin <i
+                        class="fas fa-chevron-left"></i></button>
+    </div>
+
+    <div *ngIf="!isActivated" class="text-center ">
+        <img class="img_responsive" src="assets/Step5-ART-407x258.png" alt="" />
+        <p class="signup_ques_small_1 text-center mt-4" translate>
+          {{error.meta.message}}
+        </p>
+
+
+        <button (click)="toSigin()" type="button" class="btn btn-success md-15" translate> Signin <i
+          class="fas fa-chevron-left"></i></button>
+
+      </div>
+
+  </div>
+</div>

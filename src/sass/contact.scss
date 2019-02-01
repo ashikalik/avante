@@ -44,3 +44,26 @@
 		}
 	}
 }
+
+
+.terms{
+	padding-left: 40px;
+	padding-right: 40px;
+	.title{
+		font-weight: bolder;
+		color: black;
+
+	}
+
+	.underline{
+		border-bottom: 2px solid lightgray;
+		width: 50%;
+	}
+
+	@media (max-width: 768px) {
+	.underline{
+		width: 100%;
+	}
+			
+}
+}

@@ -37,7 +37,11 @@ export class AuthService {
     return this.httpClient.post<ForgetPasswordRespons>(url, body);
   }
 
-  public resetPassword(body: any, token: any): Observable<any> {
+  public resetPassword(form: any, token: any): Observable<any> {
+    let body = {
+      new_password: form.new_password,
+      confirm_password: form.confirm_password
+    }
     const url = NetworkConfig.BASE_URL + NetworkConfig.RESET_PASSWORD + token;
     return this.httpClient.post<any>(url, body);
   }
