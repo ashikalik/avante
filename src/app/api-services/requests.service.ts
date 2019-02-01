@@ -17,8 +17,8 @@ export class RequestsService {
     }
 
 
-    public getRequests(event_key: string, limit: number, page: number, status: number, search: string): Observable<Requests> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.REQUEST + '/' + event_key + '?limit=' + limit + '&page=' + page;
+    public getRequests(event_key: string, page: number, status: number, search: string): Observable<Requests> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.REQUEST + '/' + event_key  + '?page=' + page;
         if (status != null) {
             url = url + '&status=' + status;
         }
@@ -67,16 +67,19 @@ export class RequestsService {
 
 
     //get rating list after event //rated and not rated
-    public getFinalRating(event_key: string): Observable<any> {
-        const url = NetworkConfig.BASE_URL + NetworkConfig.RATING_ORGANIZERS + event_key;
+    public getFinalRating(event_key: string , page: number, searchInput: string): Observable<any> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.RATING_ORGANIZERS + event_key + '?page=' + page;
+        if (searchInput != null) {
+            url = url + '&search=' + searchInput;
+        }
         return this.httpClient.get<any>(url);
     }
 
-    public rateVolunteer(form: any, event_key: string): Observable<any> {
+    public rateVolunteer(request: any, event_key: string): Observable<any> {
         let body = {
-            user_id: form.user_id,
-            request_id: form.request_id,
-            rating: form
+            user_id: request.user_id,
+            request_id: request.request_id,
+            rating: request.selectedRate
           };
         const url = NetworkConfig.BASE_URL + NetworkConfig.RATING_ORGANIZERS + event_key;
         return this.httpClient.post<any>(url, body);
@@ -84,9 +87,12 @@ export class RequestsService {
 
 
     //get rating interview //accepted and rejected
-    public getRatingList(event_key: string, page: number , limit: number, searchInput: string): Observable<any> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.RatingList + event_key + '?limit=' + limit + '&page=' + page;
+    public getRatingList(event_key: string, page: number ,status: number, searchInput: string): Observable<any> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.RatingList + event_key + '?page=' + page;
         if (status != null) {
+            url = url + '&status=' + status;
+        }
+        if (searchInput != null) {
             url = url + '&search=' + searchInput;
         }
         return this.httpClient.get(url);
@@ -94,9 +100,9 @@ export class RequestsService {
 
 
     //get all preaccepted requests
-    public getPreAcceptedList(event_key: string, limit: number, page: number, searchInput: string): Observable<any>{
-        let url = NetworkConfig.BASE_URL + NetworkConfig.INTERVIEWS + event_key  + '?limit=' + limit + '&page=' + page;
-        if (status != null) {
+    public getPreAcceptedList(event_key: string, page: number, searchInput: string): Observable<any>{
+        let url = NetworkConfig.BASE_URL + NetworkConfig.INTERVIEWS + event_key  + '?page=' + page;
+        if (searchInput != null) {
             url = url + '&search=' + searchInput;
         }
         return this.httpClient.get(url);

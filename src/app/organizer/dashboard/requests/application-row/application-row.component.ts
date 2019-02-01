@@ -81,7 +81,7 @@ export class ApplicationRowComponent implements OnInit {
   }
 
   public viewInterview(request_id) {
-    this.router.navigate(['../interview', 1], { relativeTo: this.route });
+    this.router.navigate(['../interview', request_id], { relativeTo: this.route });
   }
 
 

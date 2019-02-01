@@ -19,9 +19,9 @@ export class TicketsService {
 
     }
 
-
-    public getTicketList(limit: number, page: number, event_key: string, searchInput: any): Observable<any> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.TICKET_LIST + event_key + '?limit=' + limit + '&page=' + page;
+ 
+    public getTicketList( page: number, event_key: string, searchInput: any): Observable<any> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.TICKET_LIST + event_key + '?page=' + page;
     
         if(searchInput) {
             url = url + '&search=' + searchInput;
