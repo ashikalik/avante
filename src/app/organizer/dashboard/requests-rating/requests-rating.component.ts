@@ -27,7 +27,6 @@ export class RequestsRatingComponent implements OnInit {
     public activatedRoute: ActivatedRoute,
     private route: ActivatedRoute) {
 
-      this.limit = 20;
       this.page = 1;
       this.searchInput = null;
       
@@ -46,13 +45,55 @@ export class RequestsRatingComponent implements OnInit {
   public getRatingList() { 
     this.requestList = null;
     this.error = null;
-    this.requestsService.getFinalRating(this.event_key).subscribe(
+    this.requestsService.getFinalRating(this.event_key, this.page, this.searchInput).subscribe(
       res => {
         this.requestList = res;
+        res.data.forEach(value => {
+          value.selectedRate = null;
+        });
         console.log(this.requestList);
       }, err => {
         this.error = err.value.error;
         
       });
+  }
+
+
+  public rateVolunteer(request: any) {
+    this.error = null;
+    this.requestsService.rateVolunteer(request, this.event_key).subscribe(
+      res => {
+        this.getRatingList();
+      }, err => {
+        this.error = err.value.error;
+
+      }
+    );
+  }
+
+  public onSelectRate(request: any, selectedRate: number) {
+    request.selectedRate = selectedRate;
+  }
+
+
+  goToPage(n: number): void {
+    this.page = n;
+    this.getRatingList();
+  }
+  
+  onNext(): void {
+    this.page++;
+    this.getRatingList();
+  }
+  
+  onPrev(): void {
+    this.page--;
+    this.getRatingList();
+  }
+  
+  public search() {
+    this.page = 1;
+    this.getRatingList();
+  
   }
 }

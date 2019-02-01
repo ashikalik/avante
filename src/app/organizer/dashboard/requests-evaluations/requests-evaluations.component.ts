@@ -25,7 +25,6 @@ export class RequestsEvaluationsComponent implements OnInit {
     public activatedRoute: ActivatedRoute,
     private route: ActivatedRoute) {
 
-      this.limit = 20;
       this.page = 1;
       this.searchInput = null;
       
@@ -49,7 +48,7 @@ export class RequestsEvaluationsComponent implements OnInit {
 
   public getPreacceptedList() {
     this.requestList = null;
-    this.requestsService.getPreAcceptedList(this.event_key, this.limit, this.page, this.searchInput).subscribe(
+    this.requestsService.getPreAcceptedList(this.event_key, this.page, this.searchInput).subscribe(
       res => {
         this.requestList = res;
         console.log(this.requestList);
@@ -58,5 +57,26 @@ export class RequestsEvaluationsComponent implements OnInit {
       });
   }
 
+
+  goToPage(n: number): void {
+    this.page = n;
+    this.getPreacceptedList();
+  }
+  
+  onNext(): void {
+    this.page++;
+    this.getPreacceptedList();
+  }
+  
+  onPrev(): void {
+    this.page--;
+    this.getPreacceptedList();
+  }
+  
+  public search() {
+    this.page = 1;
+    this.getPreacceptedList();
+  
+  }
 
 }

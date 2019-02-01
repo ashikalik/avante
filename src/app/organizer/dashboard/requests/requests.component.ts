@@ -55,7 +55,6 @@ export class RequestsComponent implements OnInit {
 
     this.onPreAcceptScreen = false;
     this.isMoreThanOneRequest = false;
-    this.limit = 20;
     this.page = 1;
 
     //riyadh
@@ -127,7 +126,7 @@ export class RequestsComponent implements OnInit {
   public getRequests() {
     this.requestList = null;
     this.error = null;
-    this.requestsService.getRequests(this.event_key, this.limit, this.page, this.status, this.searchInput).subscribe(
+    this.requestsService.getRequests(this.event_key, this.page, this.status, this.searchInput).subscribe(
       res => {
         this.requestList = res;
       }, err => {
@@ -186,6 +185,28 @@ export class RequestsComponent implements OnInit {
   public placeMarker(event: any) {
     this.lat = event.coords.lat;
     this.lng = event.coords.lng;
+  }
+
+
+  goToPage(n: number): void {
+    this.page = n;
+    this.getRequests();
+  }
+  
+  onNext(): void {
+    this.page++;
+    this.getRequests();
+  }
+  
+  onPrev(): void {
+    this.page--;
+    this.getRequests();
+  }
+  
+  public search() {
+    this.page = 1;
+    this.getRequests();
+  
   }
 
 }

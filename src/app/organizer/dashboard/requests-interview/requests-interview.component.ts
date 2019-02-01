@@ -81,24 +81,44 @@ export class RequestsInterviewComponent implements OnInit {
 
 
   public onSelectRate(questionNum: any, selectedRate: number) {
-    console.log(questionNum);
-    console.log(selectedRate)
     this.requestDetails.data.question[questionNum].selectedRate = selectedRate;
   }
 
   public endInterview(interviewForm: FormGroup) {
+    this.error = null;    
     this.requestsService.endInterview(interviewForm.value.comment, this.request_id, this.event_key).subscribe(
       res => {
-
+        this.getRequestDetialsForInterview();
+        
       }, err => {
-
+        this.error = err.value.error;
+        
       }
     );
   }
 
   public onCancel() {
-    this.router.navigate([ '../../evaluations' ], { relativeTo: this.activatedRoute });  
-    
+    this.router.navigate([ '../../evaluations' ], { relativeTo: this.activatedRoute });   
+  }
+
+
+  public rejectRequest(request_id) {
+    this.requestsService.reject(request_id, this.event_key).subscribe(
+      res => {
+        this.getRequestDetialsForInterview();
+      }, err => {
+
+      });
+  }
+
+
+  public finalAccept(request_id) {
+    this.requestsService.finalAccept(request_id, this.event_key).subscribe(
+      res => {
+        this.getRequestDetialsForInterview();
+      }, err => {
+
+      });
   }
 
 }

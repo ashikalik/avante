@@ -24,7 +24,6 @@ export class EventSoldTicketssComponent implements OnInit {
     public activatedRoute: ActivatedRoute) { 
     this.searchInput = null;
 
-    this.limit = 20;
     this.page = 1;
 
     this.activatedRoute.parent.params.subscribe(params => {
@@ -41,13 +40,35 @@ export class EventSoldTicketssComponent implements OnInit {
 
   public getTickets() {
     this.ticketsList = null;    
-    this.ticketsService.getTicketList( this.limit, this.page, this.event_key, this.searchInput).subscribe(
+    this.ticketsService.getTicketList(this.page, this.event_key, this.searchInput).subscribe(
         res => { 
             this.ticketsList = res;
         }, err => {
 
         }
     );
+}
+
+
+goToPage(n: number): void {
+  this.page = n;
+  this.getTickets();
+}
+
+onNext(): void {
+  this.page++;
+  this.getTickets();
+}
+
+onPrev(): void {
+  this.page--;
+  this.getTickets();
+}
+
+public search() {
+  this.page = 1;
+  this.getTickets();
+
 }
 
 

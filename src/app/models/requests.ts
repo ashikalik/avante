@@ -13,6 +13,7 @@ export interface requestObj {
     bio: string;
     birthday: string;
     age: number;
+    selectedRate: number;
 }
 
 export interface Requests {
