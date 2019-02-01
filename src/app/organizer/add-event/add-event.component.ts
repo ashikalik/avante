@@ -1,13 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {ConvertFrom24To12FormatPipe} from "../../shared/convert-from24-to12-format.pipe";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {DatePickerInputPipe} from "../../shared/date-picker-input.pipe";
-import {AmPmTimePipe} from "../../shared/am-pm-time.pipe";
-import {ValidatorService} from "../../shared/validator.service";
-import {CommonService} from "../../api-services/common.service";
-import {City} from "../../models/city";
-import {EventType} from "../../models/event-type";
-import {Audiences} from "../../models/audience";
+import { Component, OnInit } from '@angular/core';
+import { ConvertFrom24To12FormatPipe } from "../../shared/convert-from24-to12-format.pipe";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { DatePickerInputPipe } from "../../shared/date-picker-input.pipe";
+import { AmPmTimePipe } from "../../shared/am-pm-time.pipe";
+import { ValidatorService } from "../../shared/validator.service";
+import { CommonService } from "../../api-services/common.service";
+import { City, cityObj } from "../../models/city";
+import { EventType } from "../../models/event-type";
+import { Audiences } from "../../models/audience";
+import { MyDatePickerOptions } from 'src/app/models/date-picker-object';
+import { EventService } from 'src/app/api-services/event.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-add-event',
@@ -25,12 +28,25 @@ export class AddEventComponent implements OnInit {
     public imageURL: any;
     public lat: any;
     public lng: any;
+    public error: Error;
+
+    public myDatePickerOptions = MyDatePickerOptions;
+    public updatedCityList: cityObj[];
 
 
     constructor(public formBuilder: FormBuilder,
-                public commonService: CommonService,
-                public validatorService: ValidatorService) {
+        public commonService: CommonService,
+        public eventService:EventService,
+        public router: Router,
+        private route: ActivatedRoute,
+        public validatorService: ValidatorService) {
+            
         this.hidePricesScree = false;
+
+        //riyadh
+        this.lat = 24.7136;
+        this.lng = 46.6753;
+
     }
 
     ngOnInit() {
@@ -39,6 +55,8 @@ export class AddEventComponent implements OnInit {
         this.loadRegionList();
         this.loadAudicanceList();
         this.initForm();
+        $('.event-image').on('click', function () { $(this).parent().prev().click() });
+
     }
 
 
@@ -47,8 +65,6 @@ export class AddEventComponent implements OnInit {
     }
 
     public initForm() {
-
-
         this.form = this.formBuilder.group(
             {
                 'name': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
@@ -58,22 +74,23 @@ export class AddEventComponent implements OnInit {
                 'maximum_capacity': ['', Validators.compose([Validators.required, Validators.min(1)])],
                 'minimum_age': ['', Validators.compose([Validators.required, Validators.min(0)])],
                 'details': ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(1000)])],
-                'from_date': ['', Validators.compose([Validators.required])],
-                'end_date': ['', Validators.compose([Validators.required])],
+                'from_date': [null, Validators.compose([Validators.required])],
+                'end_date': [null, Validators.compose([Validators.required])],
                 'from_time': ['', Validators.compose([Validators.required, Validators.pattern('(0[0-9]|1[0-2]):[0-5][0-9]$')])],
                 'from_time_type': ['', Validators.compose([Validators.required])],
                 'end_time': ['', Validators.compose([Validators.required, Validators.pattern('(0[0-9]|1[0-2]):[0-5][0-9]$')])],
                 'end_time_type': ['', Validators.compose([Validators.required])],
                 'type_id': ['', Validators.compose([Validators.required])],
-                'lat': ['', Validators.compose([])],
-                'lng': ['', Validators.compose([])],
-                'address': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(1000)])]
+                'lat': [this.lat, Validators.compose([])],
+                'lng': [this.lng, Validators.compose([])],
+                'address': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(1000)])],
+                'recaptcha': [null, Validators.compose([Validators.required])],
+                'agreementChecked': [false, Validators.pattern('true')],
             }, {
                 validator: [this.validatorService.checkTime, this.validatorService.checkDate]
 
             });
 
-        console.log(this.form.value)
     }
 
     public loadCityList() {
@@ -107,5 +124,60 @@ export class AddEventComponent implements OnInit {
             }, err => {
             });
     }
+
+
+    public placeMarker(event: any) {
+        this.lat = event.coords.lat;
+        this.lng = event.coords.lng;
+    }
+
+
+    public onChangeRegion(event) {
+        this.updatedCityList = this.cityList.data.filter((item) => item.region_id == event);
+        this.form.get('city_id').setValue('');
+        
+    }
+
+    public fileEvent(ev: any) {
+        const fl: FileList = ev.target.files;
+        if (fl.length > 0) {
+
+            const file: File = fl[0];
+
+            const myReader: FileReader = new FileReader();
+
+
+            myReader.onloadend = (e) => {
+                this.imageURL = myReader.result;
+                console.log(this.imageURL)
+            };
+
+            myReader.readAsDataURL(file);
+        } else {
+            this.imageURL = null;
+        }
+
+    }
+
+    public addEvent(form: any) {
+
+        this.error = null;
+
+        this.eventService.addEvent(form.value, this.imageURL).subscribe(
+            res => {
+                this.onCancel();
+            },
+            err => {
+                this.error = err.value.error;                
+            }
+        );
+    }
+
+
+    public onCancel(){
+        this.router.navigate([ '../my-events' ], { relativeTo: this.route });  
+        
+    }
+
 
 }

@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div *ngIf="myEvents" class="row mb-10 container-fluid tabs-container ">
+  <div *ngIf="myEvents" class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pr-3 pl-3 mt-3 mb-4 container-fluid  ">
     <div class="col-lg-6 col-sm-12 col-12" *ngFor="let event of myEvents.data">
       <div class="custom_tab mt-2">
 
@@ -34,7 +34,7 @@
             <div class="tab_desc">
               <div class="tab_desc_inner">
                 <h3>{{ event.name }}</h3>
-                <p style="color:#b0b0b0;">{{ event.details }}</p>
+                <p style="color:#b0b0b0;">{{ event.details | truncate:[100] }}</p>
                 <div class="row">
                   <div class="col-sm-7 col-lg-7">
                     <p class="local_desc"><i class="fa fa-map-marker"></i>{{ event.city }} , {{ event.address }}</p>

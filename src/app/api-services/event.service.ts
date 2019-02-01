@@ -59,4 +59,39 @@ export class EventService {
     }
 
 
+    public addEvent(form: any, imageURL: any): any {
+
+        const body = {
+            name: form.name,
+            city_id: form.city_id,
+            details: form.details,
+            img: null,
+            from_date: form.from_date.formatted,
+            end_date: form.end_date.formatted,
+            from_time: form.from_time,
+            end_time: form.end_time,
+            type_id: form.type_id,
+            lat: form.lat,
+            lng: form.lng,
+            address: form.address,
+            maximum_capacity: form.maximum_capacity,
+            minimum_age: form.minimum_age,
+            region: form.region,
+            audience_gender: form.audience_gender,
+            recaptcha: form.recaptcha
+        };
+
+        if (imageURL) {
+            body.img = imageURL;
+        } else {
+            delete body.img;
+        }
+
+        const url = NetworkConfig.BASE_URL + NetworkConfig.EVENT;
+        return this.httpClient.post<any>(url, body);
+    }
+
+
+
+
 }

@@ -52,6 +52,10 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: './auth/auth.module#AuthModule',   
   },
+  {
+    path: 'terms&conditions',
+    loadChildren: './terms-conditions/terms-conditions.module#TermsConditionsModule',   
+  },
   // {
   //     path: 'seller',
   //     loadChildren: './seller/seller.module#SellerModule',       
