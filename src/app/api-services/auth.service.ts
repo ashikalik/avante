@@ -3,6 +3,7 @@ import { NetworkConfig } from '../network-layer/network.config';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {LoginBody, LoginResponse} from "../models/login";
+import {ForgetPasswordRespons} from "../models/forget-password";
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +32,9 @@ export class AuthService {
     return this.httpClient.get<any>(url);
   }
 
-  public forgetPassword(body: any): Observable<any> {
+  public forgetPassword(body: any): Observable<ForgetPasswordRespons> {
     const url = NetworkConfig.BASE_URL + NetworkConfig.FORGET_PASSWORD;
-    return this.httpClient.post<any>(url, body);
+    return this.httpClient.post<ForgetPasswordRespons>(url, body);
   }
 
   public resetPassword(body: any, token: any): Observable<any> {

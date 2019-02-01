@@ -108,7 +108,7 @@
         </div>
     </ng-container>
     <ng-container *ngIf="showUpdateForm">
-        <form action="" [formGroup]="updateForm" (ngSubmit)="createCV(updateForm);">
+        <form action="" [formGroup]="updateForm" (ngSubmit)="updateCV(updateForm);">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12  mt-2">
                     <my-date-picker placeholder="{{ 'Date of Birth' | translate }}"

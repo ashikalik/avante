@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {LoginBody, LoginResponse} from "../../models/login";
+import {EventoError} from "../../models/error";
+import {AuthService} from "../../api-services/auth.service";
+import {UserAuthService} from "../../core/user-auth.service";
+import {Router} from "@angular/router";
+import {ForgetPasswordRespons} from "../../models/forget-password";
 
 @Component({
   selector: 'app-forget-password',
@@ -7,9 +14,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgetPasswordComponent implements OnInit {
 
-  constructor() { }
+    public forgetForm: FormGroup;
+    public errorForget: EventoError;
+    public forgetResponse: ForgetPasswordRespons
 
-  ngOnInit() {
-  }
+
+    constructor(public formBuilder: FormBuilder,
+                public authService: AuthService,
+                public userAuthService: UserAuthService,
+                public router: Router) {
+    }
+
+
+    ngOnInit() {
+      this.forgetResponse = null;
+        this.initForm();
+
+    }
+
+
+    public initForm() {
+        this.forgetForm = this.formBuilder.group(
+            {
+                'username': ['', Validators.compose([Validators.required, Validators.email])],
+                'recaptcha': ['', Validators.compose([Validators.required])],
+            });
+    }
+
+
+    public onReset(form: any) {
+      this.forgetResponse = null;
+
+
+        this.authService.forgetPassword(form.value).subscribe(res => {
+          this.forgetResponse = res;
+        }, err => {
+            this.errorForget = err.value.error;
+        });
+    }
 
 }

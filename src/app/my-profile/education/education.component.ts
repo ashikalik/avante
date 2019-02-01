@@ -51,7 +51,6 @@ export class EducationComponent implements OnInit {
 
     }
 
-
     public showCreate() {
         if (!this.showCreateForm)
             this.initFormCreate();
@@ -63,7 +62,6 @@ export class EducationComponent implements OnInit {
         this.selectedEducations = selected;
         this.areYouSure = !this.areYouSure;
     }
-
 
     public showUpdate(selected?: EducationQualification) {
         console.log(selected)
@@ -88,13 +86,12 @@ export class EducationComponent implements OnInit {
         this.updateForm = this.formBuilder.group(
             {
                 'name': [this.selectedEducations.qualification_name, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
-                'from_date': [{date: new DatePickerInputPipe().transform(this.selectedEducations.from_date)}, Validators.compose([Validators.required])],
-                'end_date': [{date: new DatePickerInputPipe().transform(this.selectedEducations.end_date)}, Validators.compose([Validators.required])],
+                'from_date': [new DatePickerInputPipe().transform(this.selectedEducations.from_date), Validators.compose([Validators.required])],
+                'end_date': [new DatePickerInputPipe().transform(this.selectedEducations.end_date), Validators.compose([Validators.required])],
                 'education_id': [this.selectedEducations.education_id, Validators.compose([Validators.required])],
             });
 
     }
-
 
     public createEducation(form: FormGroup) {
         let body = form.value;
@@ -109,6 +106,18 @@ export class EducationComponent implements OnInit {
             }
         );
 
+    }
+
+    public updateEducation(form: FormGroup) {
+        console.log(form.value)
+        this.profileService.updateEducation(form.value , this.selectedEducations.eq_id).subscribe(
+            res => {
+                this.onChangeCV.emit();
+                this.showUpdate();
+            },
+            err => {
+            }
+        );
     }
 
     public deleteEducation() {

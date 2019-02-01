@@ -384,5 +384,7 @@
   "Visitor Name": "اسم الزائر",
   "Total Price": "إجمالي المبلغ",
   "Number of tickets paid": "عدد التذاكر",
-  "DOWNLOAD INVOICE": "تحميل الفاتورة"
+  "DOWNLOAD INVOICE": "تحميل الفاتورة",
+  "Do you forget your password ?": "هل نسيت كلمة المرور",
+  "Reset": "إعادة تعيين"
 }
