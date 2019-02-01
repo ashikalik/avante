@@ -10,6 +10,7 @@ import {BASE_MODULES} from '../models/modules';
 import {CommonService} from '../api-services/common.service';
 import {EventService} from '../api-services/event.service';
 import {RootOrganizerComponent} from './root-organizer/root-organizer.component';
+import {AgmCoreModule} from "@agm/core";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {RootOrganizerComponent} from './root-organizer/root-organizer.component'
     ],
     imports: [
         ...BASE_MODULES,
-        OrganizerRoutingModule
+        OrganizerRoutingModule,
+        AgmCoreModule
     ],
     providers: [
         CommonService,

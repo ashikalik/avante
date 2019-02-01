@@ -6,6 +6,7 @@ import {Nationality} from "../../models/nationality";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserAuthService} from "../../core/user-auth.service";
 import {CVDetails} from "../../models/CV";
+import {DatePickerInputPipe} from "../../shared/date-picker-input.pipe";
 
 @Component({
     selector: 'app-bio',
@@ -57,10 +58,9 @@ export class BioComponent implements OnInit {
             {
                 'bio': [this.CV.data.cv.bio, Validators.compose([Validators.required ,Validators.minLength(3), Validators.maxLength(1000)])],
                 'nationality_id': [this.CV.data.cv.nationality_code, Validators.compose([Validators.required])],
-                'birthday':[ this.CV.data.cv.birthday, Validators.compose([Validators.required])]
+                'birthday':[new DatePickerInputPipe().transform(this.CV.data.cv.birthday) , Validators.compose([Validators.required])]
             });
     }
-
 
     public getNationality() {
         this.commonService.getNationality().subscribe(res => {
@@ -70,18 +70,15 @@ export class BioComponent implements OnInit {
         });
     }
 
-
     public showCreate() {
         this.showCreateForm = !this.showCreateForm;
     }
-
 
     public showUpdate() {
         if(!this.showUpdateForm)
             this.initFormUpdate();
         this.showUpdateForm = !this.showUpdateForm;
     }
-
 
     createCV(form: FormGroup) {
         let body = form.value;
@@ -92,6 +89,18 @@ export class BioComponent implements OnInit {
                 this.showCreate();
             },
             err => {
+            }
+        );
+    }
+
+    updateCV (form: FormGroup) {
+        console.log(form.value);
+        this.profileService.updateCV(form.value).subscribe(
+            res => {
+                this.onChangeCV.emit();
+                this.showUpdate();
+            }, err => {
+
             }
         );
     }

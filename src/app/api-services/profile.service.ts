@@ -49,15 +49,50 @@ export class ProfileService {
         return this.httpClient.post<any>(url, body);
     }
 
+
+    public updateCV(form: any): Observable<any> {
+        var body = {
+            'bio': form.bio,
+            'nationality_id': form.nationality_id,
+            'birthday': form.birthday.formatted
+        };
+        const url = NetworkConfig.BASE_URL + NetworkConfig.CV;
+        return this.httpClient.put<any>(url, body);
+    }
+
     public createEducation(body: any): Observable<any> {
         const url = NetworkConfig.BASE_URL + NetworkConfig.QUALIFICATION;
         return this.httpClient.post<any>(url, body);
+    }
+
+    public updateEducation(form: any, eq_id: number): Observable<any> {
+        var body = {
+            'eq_id': eq_id,
+            'name': form.name,
+            'from_date': form.from_date.formatted,
+            'end_date': form.end_date.formatted,
+            'education_id': form.education_id
+        };
+        const url = NetworkConfig.BASE_URL + NetworkConfig.QUALIFICATION;
+        return this.httpClient.put<any>(url, body);
     }
 
 
     public createExperience(body: any): Observable<any> {
         const url = NetworkConfig.BASE_URL + NetworkConfig.EXPERIENCE;
         return this.httpClient.post<any>(url, body);
+    }
+
+    public updateExperience(form: any, experience_id: number): Observable<any> {
+        var body = {
+            'id': experience_id,
+            'company_name': form.company_name,
+            'role': form.role,
+            'from_date': form.from_date.formatted,
+            'end_date': form.end_date.formatted
+        };
+        const url = NetworkConfig.BASE_URL + NetworkConfig.EXPERIENCE;
+        return this.httpClient.put<any>(url, body);
     }
 
     public createSkill(body: any): Observable<any> {

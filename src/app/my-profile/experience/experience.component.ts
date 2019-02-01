@@ -75,8 +75,8 @@ export class ExperienceComponent implements OnInit {
             {
                 'company_name': [this.selectedExperience.company_name, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
                 'role': [this.selectedExperience.role, Validators.compose([Validators.required])],
-                'from_date': [ {date: new DatePickerInputPipe().transform(this.selectedExperience.from_date)} , Validators.compose([Validators.required])],
-                'end_date': [{date: new DatePickerInputPipe().transform(this.selectedExperience.end_date)}, Validators.compose([Validators.required])],
+                'from_date': [new DatePickerInputPipe().transform(this.selectedExperience.from_date) , Validators.compose([Validators.required])],
+                'end_date': [new DatePickerInputPipe().transform(this.selectedExperience.end_date), Validators.compose([Validators.required])],
             });
 
             console.log(this.updateForm)
@@ -98,6 +98,19 @@ export class ExperienceComponent implements OnInit {
         );
 
     }
+
+    public updateExperience(form: FormGroup) {
+        this.profileService.updateExperience(form.value, this.selectedExperience.id).subscribe(
+            res => {
+                this.onChangeCV.emit();
+                this.showUpdate();
+            },
+            err => {
+            }
+        );
+
+    }
+
 
     public deleteExperience() {
         console.log()
