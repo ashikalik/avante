@@ -106,8 +106,8 @@ export class OrganizerService {
         return this.httpClient.get<Report>(url);
     }
 
-    public getSellerInvoices(seller_id: number, event_key: string): Observable<SellerInvoiceReport> {
-        let url = NetworkConfig.BASE_URL + NetworkConfig.REPORTS_SELLER + event_key + '/' + seller_id;
+    public getSellerInvoices(seller_id: number, page: number, event_key: string): Observable<SellerInvoiceReport> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.REPORTS_SELLER + event_key + '/' + seller_id + '?page=' + page;
         return this.httpClient.get<SellerInvoiceReport>(url);
     }
 

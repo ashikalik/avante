@@ -377,6 +377,12 @@
   "Complete Interview":"إنهاء المقابلة",
   "Final Rating":"التقييم النهائي",
   "Rating":"التقييم",
-  "Interview Rating": "تقييم المقابلة"
-  
+  "Interview Rating": "تقييم المقابلة",
+  "You don't have any Packages.": "لايوجد لديك باقات مضافة.",
+  "Total Revenue": "إجمالي المبيعات",
+  "The seller does not have any paid ticket": "لايوجد مبيعات لهذا الموظف",
+  "Visitor Name": "اسم الزائر",
+  "Total Price": "إجمالي المبلغ",
+  "Number of tickets paid": "عدد التذاكر",
+  "DOWNLOAD INVOICE": "تحميل الفاتورة"
 }

@@ -12,6 +12,7 @@ import {SellerInvoiceReport} from "../../../../models/seller-invoice-report";
 })
 export class SellerDetailsComponent implements OnInit {
     public event_key: string;
+    public page: number;
     @Input() seller_id: number;
     public sellerInvoicesReport: SellerInvoiceReport;
 
@@ -27,11 +28,12 @@ export class SellerDetailsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.page = 1
         this.getSellerSales();
     }
 
     public getSellerSales() {
-        this.organizerService.getSellerInvoices(this.seller_id, this.event_key).subscribe(
+        this.organizerService.getSellerInvoices(this.seller_id, this.page, this.event_key).subscribe(
             res => {
                 this.sellerInvoicesReport = res;
             }, err => {
@@ -39,6 +41,23 @@ export class SellerDetailsComponent implements OnInit {
             }
         );
 
+    }
+
+
+    goToPage(n: number): void {
+        this.page = n;
+        this.getSellerSales();
+    }
+
+
+    onNext(): void {
+        this.page++;
+        this.getSellerSales();
+    }
+
+    onPrev(): void {
+        this.page--;
+        this.getSellerSales();
     }
 
 }
