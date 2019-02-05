@@ -67,5 +67,8 @@ export const NetworkConfig = {
     TICKET_DETAILS          : '/event/ticket/',
     UPDATE_EVENT_INVOICE    : '/event/update_invoice/',
     RATING_ORGANIZERS       : '/rating_organizers/',
-    VALIDATE_PACKAGE        : '/home/validate-package/'
+    VALIDATE_PACKAGE        : '/home/validate-package/',
+    SELLER_EVENT            : '/seller/sellerEvent/',
+    SUPER_EVENT             : '/supervisor/superEvent/'
+    
 };

@@ -6,6 +6,7 @@ import {UserAuthService} from '../../core/user-auth.service';
 import {Observable, of, Subject} from "rxjs";
 import {LoginBody, LoginResponse} from "../../models/login";
 import {EventoError} from "../../models/error";
+import { UserProfile } from '../../models/user-profile';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
     public loginForm: FormGroup;
     public login: LoginResponse;
     public errorsLogin: EventoError;
-
+    public profile: UserProfile;
 
     constructor(public formBuilder: FormBuilder,
                 public authService: AuthService,
@@ -53,7 +54,12 @@ export class LoginComponent implements OnInit {
 
         this.authService.login(body).subscribe(res => {
             this.userAuthService.setToken(res.token);
-            this.router.navigate(['/home'])
+             this.profile = this.userAuthService.getUserProfile();
+             if(this.profile.data.user_type == 4){
+                 this.router.navigate(['/seller/tickets']);
+             }else{
+                this.router.navigate(['/home'])                
+             }
         }, err => {
             this.errorsLogin = err.value.error;
         });

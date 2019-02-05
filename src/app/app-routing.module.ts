@@ -56,13 +56,10 @@ const routes: Routes = [
     path: 'terms&conditions',
     loadChildren: './terms-conditions/terms-conditions.module#TermsConditionsModule',   
   },
-  // {
-  //     path: 'seller',
-  //     loadChildren: './seller/seller.module#SellerModule',       
-  //     canActivate:[AuthGuardService],        
-  //     canActivateChild: [AuthGuardService],
-
-  // },
+  {
+      path: 'seller',
+      loadChildren: './seller/seller.module#SellerModule',       
+  },
   // {
   //     path: 'supervisor',
   //     loadChildren: './supervisor/supervisor.module#SupervisorModule',               
