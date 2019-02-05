@@ -20,6 +20,7 @@ import {AmPmTimePipe} from './am-pm-time.pipe';
 import {PaginationComponent} from './pagination-component/pagination.component';
 import { ValidatorService } from './validator.service';
 import { TruncatePipe } from './truncate.pipe';
+import { AuthGuardService } from './auth-guards/auth-guard.service';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -77,6 +78,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ],
     providers:[
         ValidatorService,
+        AuthGuardService
     ]
 })
 export class SharedModule {

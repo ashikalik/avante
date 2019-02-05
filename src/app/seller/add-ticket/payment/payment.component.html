@@ -1,0 +1,43 @@
+<div class="col-lg-10 col-md-10 col-sm-10 col-12 d-flex text-center justify-content-center steps-setting float-not-left span-left">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-12 text-center justify-content-center">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-6 text_left justify-content-start">
+      <p class="grey-color mb-0 d-flex align-items-center" translate>You can pay using</p>
+      <img class="img-fluid" src="assets/iconvisamaster.png" alt=""/>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-6 text-center justify-content-start">
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center mt-3">
+      <div class="form-group" style="width: 100%;">
+        <input type="text" class="form-control evento_input" placeholder="{{ 'Card holder Name' | translate }}">
+      </div>
+      <div class="form-group" style="width: 100%;">
+        <input type="text" class="form-control evento_input" placeholder="{{ 'Card Number' | translate }}">
+      </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-start mt-3">
+      <input type="number" class="form-control evento_input ml-2" placeholder="CSV" style="width: 50px;" size="3" min="0" max="999" >
+      <input type="number" class="form-control evento_input" placeholder="CSV" style="width: 50px;" size="3" min="0" max="999" >
+      <!--<button type="button" class="btn btn-outline-dark btn-sm ml-1 mr-1 pd-100" style="width: auto;height: 2.5rem;">Month</button>-->
+      <!--<button type="button" class="btn btn-outline-dark btn-sm ml-1 mr-1 pd-100" style="width: auto;height: 2.5rem;">Year</button>-->
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-start mt-3">
+      <div class="form-group" style="width: 50px;">
+        <input type="number" class="form-control evento_input" placeholder="CSV" style="width: 50px;" size="3" min="0" max="999" >
+      </div>
+    </div>
+    <!--<div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-start mt-5">-->
+      <!--<p class="grey-color mb-0 d-flex align-items-center" style="margin-right: 7.5px;">Price</p>-->
+      <!--<button type="button" class="btn btn-dark btn-sm">700 SAR</button>-->
+      <!--<p class="grey-color ml-2 mb-0 d-flex align-items-center">Each tickets cost 350 SAR</p>-->
+    <!--</div>-->
+    <!--<div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-start mt-1">-->
+      <!--<p><span class="grey-color">Total+5%: </span> <b>735 SAR</b></p>-->
+    <!--</div>-->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center mt-5">
+      <div class="form-group text-center">
+        <button type="button" class="btn btn-dark pd-60 md-15" translate>Back</button>
+        <a href="buyticket/success"><button type="button" class="btn btn-success md-15" (click)="onButtonNext()" translate>Next Step &nbsp;<i class="fas fa-chevron-left"></i></button></a>
+      </div>
+    </div>
+  </div>
+</div>

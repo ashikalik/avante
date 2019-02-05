@@ -393,5 +393,10 @@
   "Your account has been activated successfuly!":"تم تفعيل حسابك بنجاح!!",
   "Your password has been reset successfully, We will send you an email to set a new password":"لقد تم إعادة تعيين رقمك السري،سيتم إرسال بريد إلكتروني لإعادة تعيين كلمة المرور",
   "New Password":"كلمة المرور الجديدة",
-  "Confirm New Password":"تأكيد كلمة المرور الجديدة"
+  "Confirm New Password":"تأكيد كلمة المرور الجديدة",
+  "Add Ticket":"بيع تذكرة جديدة",
+  "Your order has been requested successfuly":"تم شراء التذكرة بنجاح",
+  "Buy Ticket":"شراء",
+  "Payment Type":"طريقة الدفع",
+  "Credit":"بطاقة"
 }

@@ -1,0 +1,86 @@
+<form [formGroup]="payment">
+
+  <div class="col-lg-10 col-md-10 col-sm-10 col-12 d-flex text-center justify-content-center steps-setting float-not-left span-left">
+    <div class="col-lg-10 col-md-10 col-sm-12 col-12 text-center justify-content-center">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline">
+          <p translate>Order Review</p>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center mt-3">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+            <p><span class="grey-color span-left">{{ 'Name' | translate }}: &nbsp;</span> {{ payment.get('first_name').value
+              }} {{ payment.get('last_name').value }}</p>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+            <p><span class="grey-color span-left">{{ 'Phone Number' | translate }}: &nbsp;</span> {{ payment.get('mobile').value
+              }}
+            </p>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+            <p><span class="grey-color span-left">{{ 'Email' | translate }} : &nbsp;</span> {{ payment.get('email').value }}</p>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+            <p><span class="grey-color span-left">{{ 'Ticket' | translate }}: &nbsp;</span> {{selectedPackage.name}}</p>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+            <p><span class="grey-color span-left">{{ 'QTY' | translate }}: &nbsp;</span> {{ payment.get('num_ticket').value
+              }}
+            </p>
+          </div>
+          <div *ngIf="isDateRequired" class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+            <p><span class="grey-color span-left">{{ 'Date' | translate }}: &nbsp;</span> {{ payment.get('access_date').value.formatted
+              }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center mt-3 mb-2">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline">
+          <p translate>Visitor Info Review</p>
+        </div>
+        <div *ngFor="let vistor of payment.get('visitors').value; let index = index;" class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center mt-3 bg-light-ticket">
+          <div class="col-lg-2 col-md-2 col-sm-12 col-12 bg-light d-flex text-center justify-content-start pd-0">
+            <p>{{ 'Ticket' | translate }} {{index + 1}}</p>
+          </div>
+          <div class="col-lg-5 col-md-5 col-sm-12 col-12 bg-light d-flex text-center justify-content-start pd-0">
+            <p><span class="grey-color span-left">{{ 'First Name' | translate }}: &nbsp;</span> {{ vistor.first_name }}</p>
+          </div>
+          <div class="col-lg-5 col-md-5 col-sm-12 col-12 bg-light d-flex text-center justify-content-start pd-0">
+            <p><span class="grey-color span-left">{{ 'Last Name' | translate }}: &nbsp;</span> {{ vistor.last_name }}</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center mt-3">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline">
+          <p translate>Payment Review</p>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end mt-3">
+          <div class="col-lg-2 col-md-2 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pt-3">
+            <p><span class="grey-color span-left">{{ 'QTY' | translate }}: &nbsp;</span> {{payment.get('num_ticket').value}}</p>
+          </div>
+          <div class="col-lg-5 col-md-5 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+            <p class="grey-color mb-0 d-flex align-items-center" style="margin-right: 7.5px;">{{ 'Each tickets cost' | translate }}</p>
+            <button type="button" class="mt-2 btn btn-dark btn-sm">{{selectedPackage.price}} {{ 'SR' | translate }}</button>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0">
+            <p><span class="grey-color span-left">{{ 'Total' | translate }} : &nbsp;</span> {{totalWithoutVat}} {{ 'SR' | translate
+              }}
+            </p>
+          </div>
+
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0 mt-5">
+            <div class="form-group text-center">
+              <button type="button" class="btn btn-dark pd-60 md-15" (click)="onButtonBack()" translate>Back</button>
+              <button type="button" class="btn btn-warning md-15" [disabled]="!payment.valid" (click)="onBuyButton()" style="color:white;">{{ 'Buy Ticket' | translate }} &nbsp;<i class="fas fa-chevron-left"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
