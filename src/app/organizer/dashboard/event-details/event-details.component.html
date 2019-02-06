@@ -99,7 +99,7 @@
                                         [longitude]="eventDetails.lng"></agm-marker>
                         </agm-map>
                     </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex justify-content-end pl-5 pr-5">
+                    <div *ngIf="isAdmin" class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex justify-content-end pl-5 pr-5">
                         <button type="button" (click)="changeEdit()" class="event-view btn btn-dark pr-5 pl-5"
                                 translate>EDIT
                         </button>

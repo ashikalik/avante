@@ -16,6 +16,10 @@ import {EventSupervisorsComponent} from "./event-supervisors/event-supervisors.c
 import { EventSoldTicketssComponent} from "./event-sold-tickets/event-sold-tickets.component";
 import {EventSalesComponent} from "./event-sales/event-sales.component";
 import {EventPackagesComponent} from "./event-packages/event-packages.component";
+import { OrganizerSupervisorGuard } from '../../shared/auth-guards/organizer-supervisor.guard';
+import { OrganizerGuard } from '../../shared/auth-guards/organizer-guard';
+import { SupervisorRequestsGuard } from '../../shared/auth-guards/supervisor-requests.guard';
+import { SupervisorSellersGuard } from '../../shared/auth-guards/supervisor-sellers.guard';
 
 
 const routes: Routes = [
@@ -30,63 +34,86 @@ const routes: Routes = [
             },
             {
                 path: 'details',
-                component: EventDetailsComponent
+                component: EventDetailsComponent,
+                canActivate: [ OrganizerSupervisorGuard],
+                
             },
             {
                 path: 'setting',
-                component: EventSettingsComponent
+                component: EventSettingsComponent,
+                canActivate: [ OrganizerGuard],
+                
             },
             {
                 path: 'terms',
-                component: EventTermsComponent
+                component: EventTermsComponent,
+                canActivate: [ OrganizerGuard],
+                
             },
             {
                 path: 'link-gea',
-                component: LinkWithGeaComponent
+                component: LinkWithGeaComponent,
+                canActivate: [ OrganizerGuard],
+                
             },
             {
                 path: 'supervisors',
-                component: EventSupervisorsComponent
+                component: EventSupervisorsComponent,
+                canActivate: [ OrganizerGuard],
+                
             },
             {
                 path: 'sales',
-                component: EventSalesComponent
+                component: EventSalesComponent,
+                canActivate: [ SupervisorSellersGuard]                
             },
             {
                 path: 'packages',
-                component: EventPackagesComponent
+                component: EventPackagesComponent,
+                canActivate: [ OrganizerGuard],                
             },
             {
                 path: 'report',
-                component: EventReportComponent
+                component: EventReportComponent,
+                canActivate: [ OrganizerGuard],
+                
             },
             {
                 path: 'questions',
-                component: QuestionsComponent
+                component: QuestionsComponent,
+                canActivate: [ SupervisorRequestsGuard ],
+                
             },
             {
                 path: 'requests',
-                component: RequestsComponent
+                component: RequestsComponent,
+                canActivate: [ SupervisorRequestsGuard],                
             },
             {
                 path: 'evaluations',
-                component: RequestsEvaluationsComponent
+                component: RequestsEvaluationsComponent,
+                canActivate: [ SupervisorRequestsGuard]                
             },
             {
                 path: 'final-evaluations',
-                component: RequestsFinalEvaluationsComponent
+                component: RequestsFinalEvaluationsComponent,
+                canActivate: [ SupervisorRequestsGuard]              
             },
             {
                 path: 'final-rating',
-                component: RequestsRatingComponent 
+                component: RequestsRatingComponent ,
+                canActivate: [ OrganizerGuard]                
             },
             {
                 path: 'interview/:request-id',
-                component: RequestsInterviewComponent 
+                component: RequestsInterviewComponent,
+                canActivate: [ SupervisorRequestsGuard]                              
             },
             {
                 path: 'sold-tickets',
-                component: EventSoldTicketssComponent 
+                component: EventSoldTicketssComponent,
+                canActivate: [ OrganizerGuard],
+                
             }
         ]
     }

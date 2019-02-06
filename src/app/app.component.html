@@ -32,6 +32,7 @@
           <div class="user">
             <a [routerLink]="['/my-profile']"><p translate><i class="far fa-user"></i>&nbsp; My account</p></a>
             <a [routerLink]="['/organizer']" *ngIf="userType === 2"><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
+            <a [routerLink]="['/organizer/event', event_key]" *ngIf="userType === 6"><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
             <a [routerLink]="['/seller']" *ngIf="userType === 4"><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
             <!--<a href=""><p translate><i class="fas fa-sliders-h"></i>&nbsp; Settings</p></a>-->
             <!--<a href=""><p translate><i class="far fa-question-circle"></i>&nbsp; Help</p></a>-->

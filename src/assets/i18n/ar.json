@@ -398,5 +398,7 @@
   "Your order has been requested successfuly":"تم شراء التذكرة بنجاح",
   "Buy Ticket":"شراء",
   "Payment Type":"طريقة الدفع",
-  "Credit":"بطاقة"
+  "Credit":"بطاقة",
+  "You don't have any existed events.":"لايوجد لديك أي فعالية مضافة",
+  "Create a New Event":"أنشئ فعاليتك الان"
 }

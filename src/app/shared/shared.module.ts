@@ -20,7 +20,12 @@ import {AmPmTimePipe} from './am-pm-time.pipe';
 import {PaginationComponent} from './pagination-component/pagination.component';
 import { ValidatorService } from './validator.service';
 import { TruncatePipe } from './truncate.pipe';
-import { AuthGuardService } from './auth-guards/auth-guard.service';
+import { AuthGuard } from './auth-guards/auth-guard';
+import { SellerGuard } from './auth-guards/seller-guard';
+import { OrganizerGuard } from './auth-guards/organizer-guard';
+import { SupervisorRequestsGuard } from './auth-guards/supervisor-requests.guard';
+import { OrganizerSupervisorGuard } from './auth-guards/organizer-supervisor.guard';
+import { SupervisorSellersGuard } from './auth-guards/supervisor-sellers.guard';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -78,7 +83,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     ],
     providers:[
         ValidatorService,
-        AuthGuardService
+        AuthGuard,
+        SellerGuard,
+        OrganizerGuard,
+        OrganizerSupervisorGuard,        
+        SupervisorRequestsGuard,
+        SupervisorSellersGuard
     ]
 })
 export class SharedModule {
