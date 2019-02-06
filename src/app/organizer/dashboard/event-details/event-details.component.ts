@@ -1,19 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {EventService} from "../../../api-services/event.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {OrganizerService} from "../../../api-services/organizer.service";
-import {Event} from "../../../models/event-organizer";
-import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators} from "@angular/forms";
-import {CommonService} from "../../../api-services/common.service";
-import {City, cityObj} from "../../../models/city";
-import {EventType} from "../../../models/event-type";
-import {Audiences} from "../../../models/audience";
-import {DatePickerInputPipe} from "../../../shared/date-picker-input.pipe";
-import {MyDatePickerOptions} from "../../../models/date-picker-object";
-import {ConvertFrom24To12FormatPipe} from "../../../shared/convert-from24-to12-format.pipe";
-import {AmPmTimePipe} from "../../../shared/am-pm-time.pipe";
-import {EventoError} from "../../../models/error";
+import { Component, OnInit } from '@angular/core';
+import { EventService } from "../../../api-services/event.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { OrganizerService } from "../../../api-services/organizer.service";
+import { Event } from "../../../models/event-organizer";
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from "@angular/forms";
+import { CommonService } from "../../../api-services/common.service";
+import { City, cityObj } from "../../../models/city";
+import { EventType } from "../../../models/event-type";
+import { Audiences } from "../../../models/audience";
+import { DatePickerInputPipe } from "../../../shared/date-picker-input.pipe";
+import { MyDatePickerOptions } from "../../../models/date-picker-object";
+import { ConvertFrom24To12FormatPipe } from "../../../shared/convert-from24-to12-format.pipe";
+import { AmPmTimePipe } from "../../../shared/am-pm-time.pipe";
+import { EventoError } from "../../../models/error";
 import { ValidatorService } from '../../../shared/validator.service';
+import { UserAuthService } from '../../../core/user-auth.service';
 
 
 @Component({
@@ -38,21 +39,28 @@ export class EventDetailsComponent implements OnInit {
     public lng: any;
     public errorUpdate: EventoError;
     public sucessUpdate: string;
-
+    public isAdmin: boolean;
 
 
 
 
     constructor(public organizerService: OrganizerService,
-                public formBuilder: FormBuilder,
-                public validatorService: ValidatorService,
-                public commonService: CommonService,
-                public activatedRoute: ActivatedRoute) {
+        public formBuilder: FormBuilder,
+        private userAuthService: UserAuthService,
+        public validatorService: ValidatorService,
+        public commonService: CommonService,
+        public activatedRoute: ActivatedRoute) {
 
+        this.isAdmin = false;
 
         this.activatedRoute.parent.params.subscribe(params => {
-            this.event_key = params['event-key']
+            this.event_key = params['event-key'];
         })
+
+        const userType = this.userAuthService.getUserProfile();
+        if (userType.data.user_type == '2') {
+            this.isAdmin = true;
+        }
 
         this.showUpdate = false;
 
@@ -65,7 +73,7 @@ export class EventDetailsComponent implements OnInit {
         this.loadRegionList();
         this.loadAudicanceList();
         this.getEventDetails();
-        $('.event-image').on('click', function(){$(this).parent().prev().click()});
+        $('.event-image').on('click', function () { $(this).parent().prev().click() });
     }
 
     public changeEdit() {
@@ -155,7 +163,7 @@ export class EventDetailsComponent implements OnInit {
 
     public updateEvent(form: FormGroup) {
 
-        this.organizerService.updateEventInfo(form.value, this.lat , this.lng, this.imageURL, this.event_key).subscribe(res => {
+        this.organizerService.updateEventInfo(form.value, this.lat, this.lng, this.imageURL, this.event_key).subscribe(res => {
             this.getEventDetails();
             this.changeEdit();
             this.sucessUpdate = res.meta.message;

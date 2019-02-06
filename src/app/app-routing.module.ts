@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './shared/auth-guards/auth-guard';
+import { SellerGuard } from './shared/auth-guards/seller-guard';
+import { OrganizerGuard } from './shared/auth-guards/organizer-guard';
+import { SupervisorRequestsGuard } from './shared/auth-guards/supervisor-requests.guard';
+import { OrganizerSupervisorGuard } from './shared/auth-guards/organizer-supervisor.guard';
 
 
 const routes: Routes = [
@@ -35,6 +40,7 @@ const routes: Routes = [
   {
     path: 'my-profile',
     loadChildren: './my-profile/my-profile.module#MyProfileModule',
+    canActivate: [AuthGuard]
   },
   {
     path: 'search',
@@ -47,6 +53,7 @@ const routes: Routes = [
   {
     path: 'organizer',
     loadChildren: './organizer/organizer.module#OrganizerModule',   
+    canActivate: [AuthGuard, OrganizerSupervisorGuard],
   },
   {
     path: 'auth',
@@ -58,14 +65,14 @@ const routes: Routes = [
   },
   {
       path: 'seller',
-      loadChildren: './seller/seller.module#SellerModule',       
+      loadChildren: './seller/seller.module#SellerModule',   
+      canActivate: [AuthGuard, SellerGuard],
   },
   // {
   //     path: 'supervisor',
-  //     loadChildren: './supervisor/supervisor.module#SupervisorModule',               
-  //     canActivate:[AuthGuardService],        
-  //     canActivateChild: [AuthGuardService],
-
+  //     loadChildren: './organizer/organizer.module#OrganizerModule',   
+  //     canActivate: [AuthGuard, SupervisorRequestsGuard],
+  // }
   // },
   // {
   //     path: '**',

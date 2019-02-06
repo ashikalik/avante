@@ -17,6 +17,7 @@ export class AppComponent implements AfterViewChecked{
     public isAuthenticated: boolean;
     public username: string;
     public userType: number;
+    public event_key: string;
     show = false;
 
 
@@ -35,6 +36,9 @@ export class AppComponent implements AfterViewChecked{
                     let profile = this.userAuthService.getUserProfile();
                     this.username = profile.data.first_name;
                     this.userType = profile.data.user_type;
+                    if(profile.data.event_key){
+                        this.event_key = profile.data.event_key;
+                    }
                 } else {
                     this.isAuthenticated = false;
                 }
