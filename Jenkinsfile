@@ -26,7 +26,7 @@ def defineImageSubTag() {
 
 pipeline {
   environment {
-    registry = "mmalmoutairi/api"
+    registry = "mmalmoutairi/website"
     registryCredential = 'dockerhub'
     branch = branchesName()
     IMAGE_SUB_TAG = defineImageSubTag()
@@ -40,7 +40,7 @@ pipeline {
        ],
        causeString: 'Triggered on $ref',
 
-       token: 'KsuM8kAmXu-Develop',
+       token: 'dSDsjfSAFD-Develop',
 
        printContributedVariables: true,
        printPostContent: true,
@@ -75,11 +75,11 @@ pipeline {
       steps{
         script {
           sh """
-                docker build --no-cache --force-rm --pull -t manasstech/api:${env.IMAGE_SUB_TAG} .
+                docker build --no-cache --force-rm --pull -t manasstech/website:${env.IMAGE_SUB_TAG} .
 
-                docker push manasstech/api:${env.IMAGE_SUB_TAG}
+                docker push manasstech/website:${env.IMAGE_SUB_TAG}
 
-                docker rmi manasstech/api:${env.IMAGE_SUB_TAG}
+                docker rmi manasstech/website:${env.IMAGE_SUB_TAG}
             """
         }
       }
