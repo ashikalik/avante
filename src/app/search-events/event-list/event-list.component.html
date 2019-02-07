@@ -1,5 +1,5 @@
 <div class="row mt-3">
-  <div class="col-lg-6 col-sm-12 col-12" *ngFor="let event of (latestEvent$ | async)?.data  | paginate: { itemsPerPage: limit, currentPage: page , totalItems: 10}">
+  <div class="col-lg-6 col-sm-12 col-12" *ngFor="let event of (latestEvent$ | async)?.data">
     <div class="custom_tab mt-2">
       <!-- Nav tabs -->
       <ul class="nav nav-tabs small justify-content-end" role="tablist">

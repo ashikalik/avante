@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Requests } from '../../../../models/requests';
+import { Request } from '../../../../models/requests';
 import { RequestsService } from '../../../../api-services/requests.service';
 import { RequestDetials } from '../../../../models/request-details';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -14,7 +14,7 @@ export class ApplicationRowComponent implements OnInit {
   public requestDetails: RequestDetials;
   public showInfo: boolean;
   @Input() eventkey: string;
-  @Input() request: Requests;
+  @Input() request: Request;
   @Output() onPreAcceptRequest: EventEmitter<any> = new EventEmitter();
   @Output() onUpdateRequests: EventEmitter<any> = new EventEmitter();
 

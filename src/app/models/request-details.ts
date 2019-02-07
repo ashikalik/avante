@@ -1,5 +1,5 @@
 import {Meta} from "./meta";
-import {requestObj} from "./requests";
+import {Request} from "./requests";
 
 export interface RequestDetials {
     meta: Meta;
@@ -7,7 +7,7 @@ export interface RequestDetials {
   }
   
  export interface RequestDetialsObj {
-    request: requestObj;
+    request: Request;
     educational_qualification: Educationalqualification[];
     skills: Skill[];
     experience: Experience[];

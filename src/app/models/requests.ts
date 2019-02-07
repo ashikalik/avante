@@ -1,6 +1,6 @@
 import {Meta} from "./meta";
 
-export interface requestObj {
+export interface Request {
     request_id: number;
     comment: string;
     first_name: string;
@@ -18,7 +18,7 @@ export interface requestObj {
 
 export interface Requests {
     meta: Meta;
-    data: requestObj[];
+    data: Request[];
 }
 
 

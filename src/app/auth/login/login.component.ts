@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {AuthService} from 'src/app/api-services/auth.service';
+import {AuthService} from '../../api-services/auth.service';
 import {UserAuthService} from '../../core/user-auth.service';
-import {Observable, of, Subject} from "rxjs";
 import {LoginBody, LoginResponse} from "../../models/login";
 import {EventoError} from "../../models/error";
 import { UserProfile } from '../../models/user-profile';

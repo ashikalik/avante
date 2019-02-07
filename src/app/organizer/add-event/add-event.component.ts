@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ConvertFrom24To12FormatPipe } from "../../shared/convert-from24-to12-format.pipe";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { DatePickerInputPipe } from "../../shared/date-picker-input.pipe";
-import { AmPmTimePipe } from "../../shared/am-pm-time.pipe";
-import { ValidatorService } from "../../shared/validator.service";
-import { CommonService } from "../../api-services/common.service";
-import { City, cityObj } from "../../models/city";
-import { EventType } from "../../models/event-type";
-import { Audiences } from "../../models/audience";
-import { MyDatePickerOptions } from 'src/app/models/date-picker-object';
-import { EventService } from 'src/app/api-services/event.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ValidatorService} from "../../shared/validator.service";
+import {CommonService} from "../../api-services/common.service";
+import {City, cityObj} from "../../models/city";
+import {EventType} from "../../models/event-type";
+import {Audiences} from "../../models/audience";
+import {MyDatePickerOptions} from '../../models/date-picker-object';
+import {EventService} from '../../api-services/event.service';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-add-event',
@@ -35,12 +32,12 @@ export class AddEventComponent implements OnInit {
 
 
     constructor(public formBuilder: FormBuilder,
-        public commonService: CommonService,
-        public eventService:EventService,
-        public router: Router,
-        private route: ActivatedRoute,
-        public validatorService: ValidatorService) {
-            
+                public commonService: CommonService,
+                public eventService: EventService,
+                public router: Router,
+                private route: ActivatedRoute,
+                public validatorService: ValidatorService) {
+
         this.hidePricesScree = false;
 
         //riyadh
@@ -55,7 +52,9 @@ export class AddEventComponent implements OnInit {
         this.loadRegionList();
         this.loadAudicanceList();
         this.initForm();
-        $('.event-image').on('click', function () { $(this).parent().prev().click() });
+        $('.event-image').on('click', function () {
+            $(this).parent().prev().click()
+        });
 
     }
 
@@ -135,7 +134,7 @@ export class AddEventComponent implements OnInit {
     public onChangeRegion(event) {
         this.updatedCityList = this.cityList.data.filter((item) => item.region_id == event);
         this.form.get('city_id').setValue('');
-        
+
     }
 
     public fileEvent(ev: any) {
@@ -168,15 +167,15 @@ export class AddEventComponent implements OnInit {
                 this.onCancel();
             },
             err => {
-                this.error = err.value.error;                
+                this.error = err.value.error;
             }
         );
     }
 
 
-    public onCancel(){
-        this.router.navigate([ '../my-events' ], { relativeTo: this.route });  
-        
+    public onCancel() {
+        this.router.navigate(['../my-events'], {relativeTo: this.route});
+
     }
 
 
