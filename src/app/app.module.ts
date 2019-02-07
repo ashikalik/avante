@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import * as $ from 'jquery';
@@ -9,6 +9,7 @@ import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {RECAPTCHA_SETTINGS, RecaptchaSettings, RECAPTCHA_LANGUAGE} from 'ng-recaptcha';
 import {AgmCoreModule} from '@agm/core';
 import {BASE_MODULES} from './models/modules';
+import {LoadingComponent} from "./shared/loading/loading.component";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -16,10 +17,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        LoadingComponent
     ],
     imports: [
-        BrowserModule,
+        BrowserModule.withServerTransition({ appId: 'serverApp' }),
         AppRoutingModule,
         ...BASE_MODULES,
         AgmCoreModule.forRoot({
@@ -43,7 +45,9 @@ export function HttpLoaderFactory(http: HttpClient) {
             useValue: 'ar',
         },
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+
 })
 export class AppModule {
 }
