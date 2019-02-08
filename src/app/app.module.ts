@@ -10,6 +10,7 @@ import {RECAPTCHA_SETTINGS, RecaptchaSettings, RECAPTCHA_LANGUAGE} from 'ng-reca
 import {AgmCoreModule} from '@agm/core';
 import {BASE_MODULES} from './models/modules';
 import {LoadingComponent} from "./shared/loading/loading.component";
+import {SearchService} from "./services/search.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -21,7 +22,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         LoadingComponent
     ],
     imports: [
-        BrowserModule.withServerTransition({ appId: 'serverApp' }),
+        BrowserModule.withServerTransition({appId: 'serverApp'}),
         AppRoutingModule,
         ...BASE_MODULES,
         AgmCoreModule.forRoot({
@@ -36,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         })
     ],
     providers: [
+        SearchService,
         {
             provide: RECAPTCHA_SETTINGS,
             useValue: {siteKey: '6LfoDokUAAAAABirpPJC2G6akcdZ6N9jwXPrYvid'} as RecaptchaSettings,
@@ -46,7 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         },
     ],
     bootstrap: [AppComponent],
-    schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
 export class AppModule {

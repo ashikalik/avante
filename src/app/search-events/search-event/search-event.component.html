@@ -1,72 +1,81 @@
 <div class="main_container ">
-  <div class="container-fluid">
-    <div class="row main-content d-flex text-center justify-content-center">
-      <div class="col-lg-7 col-sm-12 col-12">
-        <h2 class="text-center"><span class="text-warning">SEARCH, &nbsp;</span><span class="text-danger">CHOOSE, &nbsp;</span><span class="text-primary">BOOK&nbsp;</span>
-          <span class="text-dark">AND ENJOY</span>
-        </h2>
-        <div class="row form-row d-flex justify-content-center">
-          <div class="col-sm-offset-1 col-sm-10">
-            <div class="row">
+    <div class="container-fluid">
+        <div class="row main-content d-flex text-center justify-content-center">
+            <div class="col-lg-7 col-sm-12 col-12">
+                <h2 class="text-center"><span class="text-warning">{{ 'SEARCH' | translate }},&nbsp;</span><span class="text-danger">{{ 'CHOOSE'| translate }},&nbsp;</span><span
+                        class="text-primary">{{ 'BOOK' | translate }}&nbsp;</span>
+                    <span class="text-dark">{{ 'AND ENJOY' | translate }}</span>
+                </h2>
+                <div class="row form-row d-flex justify-content-center">
+                    <div class="col-sm-12">
+                        <div class="row">
 
-              <div class="col-sm-4 pd-49">
-                <div class="form-group">
-                  <input [(ngModel)]="name" type="text" class="form-control evento_input" placeholder="{{ 'Event Name' | translate }}">
+                            <div class="col-sm-4 pd-49">
+                                <div class="form-group">
+                                    <input [(ngModel)]="searchService.name"
+                                           type="text"
+                                           class="form-control evento_input"
+                                           placeholder="{{ 'Event Name' | translate }}">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pd-49">
+                                <div class="form-group position-relative">
+                                    <select class="form-control evento_input evento_select"
+                                            [(ngModel)]="searchService.region">
+                                        <option value="" translate>Choose Region</option>
+                                        <ng-container *ngIf="regionList">
+                                            <option *ngFor="let region of regionList.data" [value]="region.region_id">
+                                                {{ region.name }}
+                                            </option>
+                                        </ng-container>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pd-49">
+                                <div class="form-group position-relative">
+                                    <select class="form-control evento_input evento_select"
+                                            [(ngModel)]="searchService.type">
+                                        <option value="" translate>Event Type</option>
+                                        <ng-container *ngIf="eventTypes">
+                                            <option *ngFor="let type of eventTypes.data" [value]="type.id">
+                                                {{ type.name }}
+                                            </option>
+                                        </ng-container>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-              <div class="col-sm-4 pd-49">
-                <div class="form-group position-relative">
-                  <select class="form-control evento_input evento_select" name="sellist" (change)="filterRegion($event.target.value)">
-                        <option disabled selected hidden translate>Choose Region</option>
-                        <option *ngFor="let region of (region$ | async)?.data" [value]="region.region_id">{{ region.name }}</option>
-                      </select>
-                  <i class="fas fa-chevron-down embed"></i>
+                <div class="row find-row justify-content-center">
+                    <div class="form-group d-sm-flex justify-content-center">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-dark mb-2 pd-100" (click)="search()" translate>Find
+                            </button>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-danger mb-2 pd-100" (click)="searchAll()" translate>
+                                See All Events
+                            </button>
+                        </div>
+                    </div>
                 </div>
-              </div>
-
-              <div class="col-sm-4 pd-49">
-                <div class="form-group position-relative">
-                  <select class="form-control evento_input evento_select" name="sellist" (change)="filterType($event.target.value)">
-                        <option disabled selected hidden translate>Event Type</option>
-                          <option *ngFor="let type of (eventTypes$ | async)?.data" [value]="type.id" >{{ type.name }}</option>
-                      </select>
-                  <i class="fas fa-chevron-down embed"></i>
-                </div>
-              </div>
-
             </div>
-          </div>
         </div>
-        <div class="row find-row justify-content-center">
-          <div class="form-group d-sm-flex justify-content-center">
-            <div class="col-sm-12 col-md-6 col-lg-6">
-                <button type="button" class="btn btn-dark mb-2 pd-100" (click)="search()" translate>Find</button>                
+    </div>
+    <div class="container-fluid search-container">
+        <div class="row">
+            <!-- <div class="col-lg-3 col-md-12 col-sm-12 text-center justify-content-center">
+              <app-search-bar></app-search-bar>
+            </div> -->
+            <div class="col-lg-12 col-md-12 col-sm-12 text-left justify-content-start">
+                <app-event-list [searchResult]="searchResult"></app-event-list>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
-              <button type="button" class="btn btn-danger mb-2 pd-100" (click)="searchAll()" translate>See All Events</button>
-            </div>
-          </div>
         </div>
-        <!-- <div class="row click-row justify-content-center">
-          <div class="col-sm-12">
-            <div class="form-group text-center">
-              <span style="margin-right: 10px;">Feeling Lucky? Let Evento Help you find one </span>
-              <button type="button" class="btn btn-outline-dark btn-sm pd-40 mob-pd">Click Here</button>
-            </div>
-          </div>
-        </div> -->
-      </div>
     </div>
-  </div>
-  <div class="container-fluid search-container">
-    <div class="row">
-      <!-- <div class="col-lg-3 col-md-12 col-sm-12 text-center justify-content-center">
-        <app-search-bar></app-search-bar>
-      </div> -->
-      <div class="col-lg-12 col-md-12 col-sm-12 text-left justify-content-start">
-        <app-event-list [latestEvent$]="latestEvent$"></app-event-list>
-      </div>
-    </div>
-  </div>
 </div>

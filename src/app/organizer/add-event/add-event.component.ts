@@ -31,6 +31,11 @@ export class AddEventComponent implements OnInit {
     public updatedCityList: cityObj[];
 
 
+    public agreement: FormGroup;
+
+    public isOnBackageOne: boolean;
+    public isOnBackageTwo: boolean;
+
     constructor(public formBuilder: FormBuilder,
                 public commonService: CommonService,
                 public eventService: EventService,
@@ -55,7 +60,30 @@ export class AddEventComponent implements OnInit {
         $('.event-image').on('click', function () {
             $(this).parent().prev().click()
         });
+        this.initFormAggrement()
 
+    }
+
+    onBox(value: any) {
+        if (value == 1) {
+            this.isOnBackageOne = true;
+            this.isOnBackageTwo = false;
+        } if (value == 2) {
+            this.isOnBackageOne = false;
+            this.isOnBackageTwo = true;
+        } if (value == 3) {
+            this.isOnBackageOne = false;
+            this.isOnBackageTwo = false;
+        }
+    }
+
+
+
+    public initFormAggrement() {
+        this.agreement = this.formBuilder.group(
+            {
+                'agreement': [null, Validators.compose([Validators.required])],
+            });
     }
 
 
@@ -124,12 +152,10 @@ export class AddEventComponent implements OnInit {
             });
     }
 
-
     public placeMarker(event: any) {
         this.lat = event.coords.lat;
         this.lng = event.coords.lng;
     }
-
 
     public onChangeRegion(event) {
         this.updatedCityList = this.cityList.data.filter((item) => item.region_id == event);
@@ -171,7 +197,6 @@ export class AddEventComponent implements OnInit {
             }
         );
     }
-
 
     public onCancel() {
         this.router.navigate(['../my-events'], {relativeTo: this.route});
