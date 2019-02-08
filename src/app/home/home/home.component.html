@@ -14,15 +14,17 @@
                             <div class="col-sm-12 col-md-12 col-lg-4">
                                 <div class="form-group">
                                     <input type="text" class="form-control evento_input"
-                                           placeholder="{{ 'Event Name' | translate}}">
+                                           placeholder="{{ 'Event Name' | translate}}" [(ngModel)]="searchService.name">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-4">
                                 <div class="form-group position-relative">
-                                    <select class="form-control evento_input evento_select" name="sellist">
-                                        <option disabled selected hidden translate>Choose City</option>
+                                    <select class="form-control evento_input evento_select"  [(ngModel)]="searchService.region">
+                                        <option value=""  translate>Choose City</option>
                                         <ng-container *ngIf="region">
-                                            <option *ngFor="let region of region.data">{{ region.name }}</option>
+                                            <option *ngFor="let region of region.data" [value]="region.region_id">
+                                                {{ region.name }}
+                                            </option>
                                         </ng-container>
                                     </select>
                                     <i class="fas fa-chevron-down embed"></i>
@@ -30,11 +32,11 @@
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-4">
                                 <div class="form-group position-relative">
-                                    <select class="form-control evento_input evento_select" name="sellist">
-                                        <option disabled selected hidden translate>Event Type</option>
+                                    <select class="form-control evento_input evento_select"  [(ngModel)]="searchService.type">
+                                        <option value="" translate>Choose Event Type</option>
                                         <ng-container *ngIf="eventTypes">
-                                            <option *ngFor="let type of eventTypes.data" [value]="type.id">{{ type.name
-                                                }}
+                                            <option *ngFor="let type of eventTypes.data" [value]="type.id">
+                                                {{ type.name }}
                                             </option>
                                         </ng-container>
 
@@ -70,7 +72,7 @@
                 <div class="text-center border-left-right"><img class="img_responsive"
                                                                 src="assets/VectorSmartObject_0.png" alt=""/></div>
                 <div class="form-group d-flex justify-content-center">
-                    <button type="button" class="btn btn-outline-dark btn-create pd-60 position-relative" translate>
+                    <button type="button" class="btn btn-outline-dark btn-create pd-60 position-relative" (click)="createEvent();" translate>
                         CREATE YOUR EVENT&nbsp;
                         <i class="fas fa-chevron-left"></i>
                     </button>
@@ -268,20 +270,22 @@
             <h2 class="text-center" translate>LATEST EVENTS</h2>
             <div class="row mt-3">
 
-                <div class="col-lg-6 col-sm-12 col-12" *ngFor="let event of latestEvent.data">
+                <!--<div class="col-lg-6 col-sm-12 col-12" *ngFor="let event of latestEvent.data">-->
+                <div class="event-row" *ngFor="let event of latestEvent.data">
                     <div class="custom_tab mt-2">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs small justify-content-end" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active bg-danger position-relative" data-toggle="tab" href="">{{
-                                    event.type }}</a>
+                                <a class="nav-link active bg-danger position-relative" data-toggle="tab">
+                                    {{ event.type }}</a>
                             </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div id="education" class="d-flex">
                                 <div class="tab_img_content">
-                                    <img src="assets/dx34459.png" alt=""/>
+                                    <img *ngIf="event.img" [src]="event.img" alt=""/>
+                                    <img *ngIf="!event.img" src="assets/dx34459.png" alt=""/>
                                 </div>
                                 <div class="tab_desc">
                                     <div class="tab_desc_inner">
@@ -314,8 +318,8 @@
 
                 <div class="col-sm-12">
                     <div class="form-group d-flex justify-content-center mt-5">
-                        <button type="button" class="btn btn-outline-dark pd-100 position-relative" translate>VIEW
-                            ALL
+                        <button type="button" class="btn btn-outline-dark pd-100 position-relative" translate>
+                            VIEW ALL
                         </button>
                     </div>
                 </div>

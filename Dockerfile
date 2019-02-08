@@ -12,8 +12,5 @@ RUN npm run build:ssr
 EXPOSE 6021
 
 # Show current folder structure in logs
-CMD [ "pwd"]
-CMD [ "ls"]
 CMD [ "pm2-runtime", "start", "dist/server.js"]
-
 

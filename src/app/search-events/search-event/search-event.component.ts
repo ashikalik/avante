@@ -1,96 +1,88 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonService } from "../../api-services/common.service";
-import { Observable } from "rxjs";
-import { EventType } from "../../models/event-type";
-import { EventService } from "../../api-services/event.service";
-import { LatestEvent } from "../../models/latest-event";
-import { Router } from "@angular/router";
-import { Region } from '../../models/region';
+import {Component, OnInit} from '@angular/core';
+import {CommonService} from "../../api-services/common.service";
+import {EventType} from "../../models/event-type";
+import {EventService} from "../../api-services/event.service";
+import {Router} from "@angular/router";
+import {Region} from '../../models/region';
+import {SearchService} from "../../services/search.service";
 
 @Component({
-  selector: 'app-search-event',
-  templateUrl: './search-event.component.html',
-  styleUrls: ['./search-event.component.scss']
+    selector: 'app-search-event',
+    templateUrl: './search-event.component.html',
+    styleUrls: ['./search-event.component.scss']
 })
 export class SearchEventComponent implements OnInit {
 
-  public region$: Observable<Region>;
-  public eventTypes$: Observable<EventType>;
-  public latestEvent$: Observable<LatestEvent>;
+    public regionList: Region;
+    public eventTypes: EventType;
+    public searchResult: any;
 
-  public type_id: any;
-  public name: any;
-  public region: any;
-  public need_vol: any;
-  public limit: number;
-  public page: number;
+    public limit: number;
+    public page: number;
 
-  constructor(public commonService: CommonService,
-    public eventService: EventService,
-    public router: Router) {
-  }
-
-  ngOnInit() {
-
-    this.resetSearch();
-
-    this.getCity();
-    this.getEventType();
-    this.search();
-  }
-
-  resetSearch(){
-    this.limit = 20;
-    this.page = 1;
-    this.name = null;
-    this.region = null;
-    this.type_id = null;
-    this.need_vol = null;
-  }
-
-  getCity(): void {
-    this.region$ = this.commonService.getRegion().pipe();
-  }
-
-  getEventType(): void {
-    this.eventTypes$ = this.commonService.getEventType().pipe();
-  }
-
-
-  public search() {
-    this.latestEvent$ = this.eventService.search(this.limit, this.page, this.name, this.type_id, this.region, this.need_vol).pipe();
-  }
-
-  public searchAll(){
-    this.resetSearch()
-    this.search();
-  }
-
-
-  public filterRegion(id: any) {
-    if (id == this.region) {
-      this.region = '';
-    } else {
-      this.region = id;
+    constructor(
+        public commonService: CommonService,
+        public eventService: EventService,
+        public searchService: SearchService,
+        public router: Router) {
+        this.resetSearch();
     }
-  }
 
-  public filterType(id: any) {
-    if (id == this.type_id) {
-      this.type_id = '';
-
-    } else {
-      this.type_id = id;
+    ngOnInit() {
+        console.log(this.searchService)
+        this.getRegion();
+        this.getEventType();
+        this.search();
     }
-  }
 
-  public filterVOL(id: any) {
-    if (id == this.need_vol) {
-      this.need_vol = '';
-    } else {
-      this.need_vol = id;
+
+    resetSearch() {
+        if (!this.searchService.name)
+            this.searchService.name = '';
+        if (!this.searchService.need_vol)
+            this.searchService.need_vol = '';
+        if (!this.searchService.type)
+            this.searchService.type = '';
+        if (!this.searchService.region)
+            this.searchService.region = '';
+        this.limit = 20;
+        this.page = 1;
     }
-  }
+
+    getRegion(): void {
+        this.commonService.getRegion().subscribe(res => {
+            this.regionList = res;
+        }, err => {
+
+        })
+    }
+
+    getEventType(): void {
+        this.commonService.getEventType().subscribe(res => {
+            this.eventTypes = res;
+        }, err => {
+
+        })
+    }
+
+    public search() {
+        this.eventService.search(this.limit, this.page, this.searchService.name, this.searchService.type, this.searchService.region, this.searchService.need_vol).subscribe(
+            res => {
+                this.searchResult = res
+            }, err => {
+
+            }
+        );
+    }
+
+    public searchAll() {
+        this.resetSearch();
+        this.searchService.name = '';
+        this.searchService.need_vol = '';
+        this.searchService.type = '';
+        this.searchService.region = '';
+        this.search();
+    }
 
 
 }
