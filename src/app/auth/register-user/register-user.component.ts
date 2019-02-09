@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-register-user',
@@ -16,10 +17,14 @@ export class RegisterUserComponent implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
+    public title: Title,
+    public meta: Meta,
     public router: Router) {
   }
   ngOnInit() {
-    this.initForm();
+      this.title.setTitle('التسجيل');
+      this.meta.addTag({name: "description", content: 'التسجيل في ايفينتو'})
+      this.initForm();
   }
 
   public initForm() {

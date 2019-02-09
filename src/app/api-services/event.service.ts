@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LatestEvent } from "../models/latest-event";
 import { EventDetails } from "../models/event-details";
+import {SearchEvents} from "../models/search-events";
 
 @Injectable({
     providedIn: 'root'
@@ -25,7 +26,7 @@ export class EventService {
         return this.httpClient.get<EventDetails>(url);
     }
 
-    public search(limit: number, page: number, name: any, type_id: any, region: any, need_vol: any): Observable<LatestEvent> {
+    public search(limit: number, page: number, name: any, type_id: any, region: any, need_vol: any): Observable<SearchEvents> {
         let url = NetworkConfig.BASE_URL + NetworkConfig.SEARCH + '?limit=' + limit + '&page=' + page;
 
         if (name != null && name !== '') {
@@ -44,7 +45,7 @@ export class EventService {
             url = url + '&need_vol=' + need_vol;
         }
 
-        return this.httpClient.get<LatestEvent>(url);
+        return this.httpClient.get<SearchEvents>(url);
 
     }
 

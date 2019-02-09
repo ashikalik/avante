@@ -6,6 +6,7 @@ import {AuthService} from "../../api-services/auth.service";
 import {UserAuthService} from "../../core/user-auth.service";
 import {Router} from "@angular/router";
 import {ForgetPasswordRespons} from "../../models/forget-password";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-forget-password',
@@ -22,12 +23,17 @@ export class ForgetPasswordComponent implements OnInit {
     constructor(public formBuilder: FormBuilder,
                 public authService: AuthService,
                 public userAuthService: UserAuthService,
+                public title: Title,
+                public meta: Meta,
                 public router: Router) {
     }
 
 
     ngOnInit() {
-      this.forgetResponse = null;
+        this.title.setTitle('استعادة كلمة المرور');
+        this.meta.addTag({name: "description", content: 'استعادة كلمة مرور حسابك في ايفينتو'})
+
+        this.forgetResponse = null;
         this.initForm();
 
     }

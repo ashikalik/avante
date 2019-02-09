@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AuthService} from '../../api-services/auth.service';
 import {EventoError} from '../../models/error';
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-reset-password',
@@ -21,13 +22,15 @@ export class ResetPasswordComponent implements OnInit {
     constructor(public formBuilder: FormBuilder,
                 public authService: AuthService,
                 private route: ActivatedRoute,
+                public title: Title,
+                public meta: Meta,
                 public router: Router) {
-
-
     }
 
 
     ngOnInit() {
+        this.title.setTitle('إعادة تعيين كلمة المرور');
+        this.meta.addTag({name: "description", content: 'إعادة تعييم كلمة المرور في ايفينتو'})
         this.isTokenValid = false;
         this.initForm();
         this.route.params.subscribe(params => {

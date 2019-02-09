@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { UserAuthService } from "../../../core/user-auth.service";
-import { SnotifyService } from "ng-snotify";
-import { Observable } from "rxjs";
+import {Component, OnInit} from '@angular/core';
+import {UserAuthService} from "../../../core/user-auth.service";
+import {SnotifyService} from "ng-snotify";
+import {Observable} from "rxjs";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-root',
@@ -16,7 +17,9 @@ export class RootComponent implements OnInit {
     public isRequestSupervisor: boolean;
 
 
-    constructor(public userAuthService: UserAuthService) {
+    constructor(public userAuthService: UserAuthService,
+                public title: Title,
+                public meta: Meta) {
         this.isRequestSupervisor = false;
         this.isSellerSupervisor = false;
 
@@ -39,6 +42,8 @@ export class RootComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.title.setTitle('لوحة تحكم الفعالية');
+        this.meta.addTag({name: "description", content: 'لوحة تحكم الفعالية'})
     }
 
 
