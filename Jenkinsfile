@@ -52,7 +52,7 @@ pipeline {
   stages {
 
 
-    stage('Build image') {
+    stage('Push image') {
       when {
         anyOf {
             branch 'develop'
@@ -64,46 +64,15 @@ pipeline {
           sh """
                 docker build --no-cache --force-rm --pull -t manasstech/website:${env.IMAGE_SUB_TAG} .
 
-            """
-        }
-      }
-    }
-
-    stage('Push image') {
-      when {
-        anyOf {
-            branch 'develop'
-            branch 'prod'
-        }
-     }
-      steps{
-        script {
-          sh """
-
                 docker push manasstech/website:${env.IMAGE_SUB_TAG}
 
-            """
-        }
-      }
-    }
-
-    stage('Remove image') {
-      when {
-        anyOf {
-            branch 'develop'
-            branch 'prod'
-        }
-     }
-      steps{
-        script {
-          sh """
-
                 docker rmi manasstech/website:${env.IMAGE_SUB_TAG}
-
             """
         }
       }
     }
+
+
 
     stage('Deploy to Dev environment') {
       when {
