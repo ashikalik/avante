@@ -30,6 +30,7 @@ export class AppComponent implements AfterViewChecked{
 
 
         router.events.forEach((event) => {
+            window.scroll(0,0);
             if (event instanceof NavigationStart) {
                 if(this.userAuthService.getToken()) {
                     this.isAuthenticated = true;
