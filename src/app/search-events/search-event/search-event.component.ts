@@ -5,6 +5,8 @@ import {EventService} from "../../api-services/event.service";
 import {Router} from "@angular/router";
 import {Region} from '../../models/region';
 import {SearchService} from "../../services/search.service";
+import {SearchEvents} from "../../models/search-events";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-search-event',
@@ -15,7 +17,7 @@ export class SearchEventComponent implements OnInit {
 
     public regionList: Region;
     public eventTypes: EventType;
-    public searchResult: any;
+    public searchResult: SearchEvents;
 
     public limit: number;
     public page: number;
@@ -24,11 +26,16 @@ export class SearchEventComponent implements OnInit {
         public commonService: CommonService,
         public eventService: EventService,
         public searchService: SearchService,
+        public title: Title,
+        public meta: Meta,
         public router: Router) {
         this.resetSearch();
     }
 
     ngOnInit() {
+        this.title.setTitle('ايفينتو');
+        this.meta.addTag({name: "description", content: 'ايفينتو منصة إلكترونية لإدارة وتنظيم الفعاليات'})
+
         console.log(this.searchService)
         this.getRegion();
         this.getEventType();

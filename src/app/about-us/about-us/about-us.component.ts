@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-about-us',
@@ -8,9 +9,13 @@ import {Router} from "@angular/router";
 })
 export class AboutUsComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router,
+              public title: Title,
+              public meta: Meta) { }
 
   ngOnInit() {
+    this.title.setTitle('من نحن - ايفينتو');
+    this.meta.addTag({name: "description" , content: 'من نحن ، من ايفينتو، مميزات ايفينتو، خدمات ايفينتو'})
   }
 
   public join() {

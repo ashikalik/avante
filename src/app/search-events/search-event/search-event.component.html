@@ -68,14 +68,20 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid search-container">
-        <div class="row">
+    <div class="container-fluid tabs-container latest-event">
+        <div class="row ml-0 mr-0" *ngIf="searchResult">
             <!-- <div class="col-lg-3 col-md-12 col-sm-12 text-center justify-content-center">
               <app-search-bar></app-search-bar>
             </div> -->
-            <div class="col-lg-12 col-md-12 col-sm-12 text-left justify-content-start">
-                <app-event-list [searchResult]="searchResult"></app-event-list>
-            </div>
+            <app-event-list [searchResult]="searchResult"></app-event-list>
+            <app-pagination
+                    (goPage)="goToPage($event)"
+                    (goNext)="onNext()"
+                    (goPrev)="onPrev()"
+                    [pagesToShow]="10"
+                    [page]="searchResult.meta.query.page"
+                    [perPage]="searchResult.meta.query.limit"
+                    [count]="searchResult.meta.query.total"></app-pagination>
         </div>
     </div>
 </div>

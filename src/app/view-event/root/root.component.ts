@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {EventService} from "../../api-services/event.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {EventDetails} from "../../models/event-details";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,8 @@ export class RootComponent implements OnInit {
 
     constructor(public eventService: EventService,
                 public activatedRout: ActivatedRoute,
+                public title: Title,
+                public meta: Meta,
                 public router: Router) {
       this.activatedRout.params.subscribe(params => {
           this.eventKey = params['id'];
@@ -33,6 +36,9 @@ export class RootComponent implements OnInit {
       if(res.data.details == null)
         this.router.navigate(['/home'])
       this.eventDetail = res;
+        this.title.setTitle(this.eventDetail.data.details.name);
+        this.meta.addTag({name: "description", content: this.eventDetail.data.details.details})
+
     }, err => {
       console.log(err)
         this.router.navigate(['/home'])

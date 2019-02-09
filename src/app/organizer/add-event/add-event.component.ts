@@ -8,6 +8,7 @@ import {Audiences} from "../../models/audience";
 import {MyDatePickerOptions} from '../../models/date-picker-object';
 import {EventService} from '../../api-services/event.service';
 import {Router, ActivatedRoute} from '@angular/router';
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-add-event',
@@ -41,7 +42,9 @@ export class AddEventComponent implements OnInit {
                 public eventService: EventService,
                 public router: Router,
                 private route: ActivatedRoute,
-                public validatorService: ValidatorService) {
+                public validatorService: ValidatorService,
+                public title: Title,
+                public meta: Meta) {
 
         this.hidePricesScree = false;
 
@@ -52,6 +55,9 @@ export class AddEventComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.title.setTitle('إنشاء فعالية جديدة');
+        this.meta.addTag({name: "description", content: 'إنشاء فعالية جديدة'})
+
         this.loadCityList();
         this.loadEventTypeList();
         this.loadRegionList();
@@ -68,15 +74,16 @@ export class AddEventComponent implements OnInit {
         if (value == 1) {
             this.isOnBackageOne = true;
             this.isOnBackageTwo = false;
-        } if (value == 2) {
+        }
+        if (value == 2) {
             this.isOnBackageOne = false;
             this.isOnBackageTwo = true;
-        } if (value == 3) {
+        }
+        if (value == 3) {
             this.isOnBackageOne = false;
             this.isOnBackageTwo = false;
         }
     }
-
 
 
     public initFormAggrement() {

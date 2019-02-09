@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AuthService} from '../../api-services/auth.service';
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-activate-account',
@@ -15,6 +16,8 @@ export class ActivateAccountComponent implements OnInit {
 
     constructor(private authService: AuthService,
                 private route: ActivatedRoute,
+                public title: Title,
+                public meta: Meta,
                 public router: Router) {
 
         this.isActivated = false;
@@ -22,6 +25,9 @@ export class ActivateAccountComponent implements OnInit {
 
 
     ngOnInit() {
+        this.title.setTitle('تنشيط الحساب');
+        this.meta.addTag({name: "description", content: 'تفعيل حسابك في ايفينتو'})
+
         this.route.params.subscribe(params => {
             this.token = params['id'];
             this.activateAccount(this.token);

@@ -6,6 +6,7 @@ import {UserAuthService} from '../../core/user-auth.service';
 import {LoginBody, LoginResponse} from "../../models/login";
 import {EventoError} from "../../models/error";
 import { UserProfile } from '../../models/user-profile';
+import {Meta, Title} from "@angular/platform-browser";
 
 
 @Component({
@@ -24,11 +25,15 @@ export class LoginComponent implements OnInit {
     constructor(public formBuilder: FormBuilder,
                 public authService: AuthService,
                 public userAuthService: UserAuthService,
+                public title: Title,
+                public meta: Meta,
                 public router: Router) {
     }
 
 
     ngOnInit() {
+        this.title.setTitle('تسجيل الدخول');
+        this.meta.addTag({name: "description", content: 'تسجيل الدخول في حسابك في ايفينتو'})
         this.initForm();
 
     }

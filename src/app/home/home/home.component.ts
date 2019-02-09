@@ -7,6 +7,7 @@ import {LatestEvent} from "../../models/latest-event";
 import {Router} from "@angular/router";
 import {SearchService} from "../../services/search.service";
 import {UserAuthService} from "../../core/user-auth.service";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-home',
@@ -26,8 +27,15 @@ export class HomeComponent implements OnInit, OnDestroy {
                 public eventService: EventService,
                 public searchService: SearchService,
                 public userAuthService: UserAuthService,
+                public title: Title,
+                public meta: Meta,
                 public router: Router) {
+
+        this.title.setTitle('ايفينتو');
+        this.meta.addTag({name: "description", content: 'ايفينتو منصة إلكترونية لإدارة وتنظيم الفعاليات'})
+
         this.isAuthenticated = false;
+
         if (!this.searchService.name)
             this.searchService.name = '';
 

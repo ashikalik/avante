@@ -12,6 +12,7 @@ import {SearchEventsRoutingModule} from './search-events-routing.module';
 import {SearchEventComponent} from './search-event/search-event.component';
 import {SearchBarComponent} from './search-bar/search-bar.component';
 import {EventListComponent} from './event-list/event-list.component';
+import {SharedModule} from "../shared/shared.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -26,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         HttpClientModule,
         NetworkLayerModule,
         FormsModule,
+        SharedModule,
         NgxPaginationModule,
         TranslateModule.forChild({
             loader: {

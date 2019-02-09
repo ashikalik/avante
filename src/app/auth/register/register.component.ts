@@ -4,6 +4,7 @@ import {CommonService} from "../../api-services/common.service";
 import {City} from "../../models/city";
 import {Router} from '@angular/router';
 import {EventoError} from "../../models/error";
+import {Meta, Title} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-register',
@@ -28,11 +29,15 @@ export class RegisterComponent implements OnInit {
     public registrationError: EventoError;
     constructor(private authService: AuthService,
                 public router: Router,
+                public title: Title,
+                public meta: Meta,
                 public commonService: CommonService) {
     }
 
 
     ngOnInit() {
+        this.title.setTitle('التسجيل');
+        this.meta.addTag({name: "description", content: 'التسجيل في ايفينتو'})
         this.getCity();
         this.onMember();
         this.showRegForm = false;
