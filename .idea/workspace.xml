@@ -2,34 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd8778e4-0179-4faf-bc5b-f8f3ad6f1173" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/models/search-events.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/about-us/about-us/about-us.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about-us/about-us/about-us.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/api-services/event.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/api-services/event.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/activate-account/activate-account.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/activate-account/activate-account.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/forget-password/forget-password.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/forget-password/forget-password.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/register-company/register-company.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/register-company/register-company.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/register-user/register-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/register-user/register-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/register-volu/register-volu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/register-volu/register-volu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/auth/reset-password/reset-password.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/auth/reset-password/reset-password.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/buy-ticket/root/root.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/buy-ticket/root/root.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/contact-us/contact-us/contact-us.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact-us/contact-us/contact-us.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/home/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/my-profile/root/root.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/my-profile/root/root.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/add-event/add-event.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/add-event/add-event.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/add-event/add-event.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/add-event/add-event.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/organizer/my-events/my-events.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/organizer/my-events/my-events.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-events/event-list/event-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-events/event-list/event-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-events/event-list/event-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-events/event-list/event-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-events/search-event/search-event.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-events/search-event/search-event.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-events/search-event/search-event.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-events/search-event/search-event.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/search-events/search-events.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/search-events/search-events.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view-event/root/root.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view-event/root/root.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
     </list>
     <list id="2e49be08-2139-485b-a64e-d4011daa807e" name="upload scss files" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -46,7 +20,17 @@
     <favorites_list name="website" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Jenkinsfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="118" column="125" selection-start-line="118" selection-start-column="125" selection-end-line="118" selection-end-column="125" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -109,14 +93,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="ssr-title" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/my-profile/experience/experience.component.ts" />
         <option value="$PROJECT_DIR$/src/app/my-profile/experience/experience.component.html" />
         <option value="$PROJECT_DIR$/src/app/auth/register-user/register-user.component.html" />
         <option value="$PROJECT_DIR$/nginx/default.conf" />
@@ -167,6 +150,7 @@
         <option value="$PROJECT_DIR$/src/app/organizer/add-event/add-event.component.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/add-event/add-event.component.html" />
+        <option value="$PROJECT_DIR$/Jenkinsfile" />
       </list>
     </option>
   </component>
@@ -186,45 +170,6 @@
             <path>
               <item name="website" type="b2602c69:ProjectViewProjectNode" />
               <item name="website" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="organizer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="organizer" type="462c0819:PsiDirectoryNode" />
-              <item name="add-event" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="website" type="b2602c69:ProjectViewProjectNode" />
-              <item name="website" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -267,7 +212,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="npm.build:ssr">
+  <component name="RunManager">
     <configuration name="build:client-and-server-bundles" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -463,11 +408,25 @@
       <option name="project" value="LOCAL" />
       <updated>1549045505571</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Merge remote-tracking branch 'remotes/origin/develop' into terms&#10;&#10;# Conflicts:&#10;#&#9;src/app/organizer/dashboard/dashboard.module.ts">
+      <created>1549726896302</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1549726896302</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Merge remote-tracking branch 'remotes/origin/develop' into terms&#10;&#10;# Conflicts:&#10;#&#9;src/app/organizer/dashboard/dashboard.module.ts">
+      <created>1549727725102</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1549727725102</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256434000" />
+    <option name="totallyTimeSpent" value="256834000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
@@ -596,7 +555,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dist/server.js" />
     <entry file="file://$PROJECT_DIR$/webpack.server.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-28" />
@@ -1048,6 +1006,13 @@
             <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Jenkinsfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="118" column="125" selection-start-line="118" selection-start-column="125" selection-end-line="118" selection-end-column="125" />
         </state>
       </provider>
     </entry>
