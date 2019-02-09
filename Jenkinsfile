@@ -116,7 +116,7 @@ pipeline {
          sshagent(credentials : ['development-server']) {
              sh """
                     ssh -i ~/.ssh/jenkins_development root@157.230.101.175 docker-compose -f /home/docker-compose.yml down
-                    ssh -i ~/.ssh/jenkins_development root@157.230.101.175 docker-compose -f /home/docker-compose.yml pull manasstech/website:dev
+                    ssh -i ~/.ssh/jenkins_development root@157.230.101.175 docker-compose -f /home/docker-compose.yml pull website
                     ssh -i ~/.ssh/jenkins_development root@157.230.101.175 docker-compose -f /home/docker-compose.yml up --build -d
                 """
          }
