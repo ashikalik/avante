@@ -11,7 +11,7 @@ RUN npm run build:ssr
 RUN ls | grep -v dist | xargs rm -R 
 
 # Expose the listening port of your app
-EXPOSE 6021
+EXPOSE 4000
 
 # Show current folder structure in logs
 CMD [ "pm2-runtime", "start", "dist/server.js"]
