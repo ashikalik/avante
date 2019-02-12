@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fd8778e4-0179-4faf-bc5b-f8f3ad6f1173" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Jenkinsfile" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile" afterDir="false" />
     </list>
     <list id="2e49be08-2139-485b-a64e-d4011daa807e" name="upload scss files" comment="" />
     <ignored path="$PROJECT_DIR$/node_modules/" />
@@ -21,11 +20,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/auth/register/register.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1380">
+              <caret line="98" column="20" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#55#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/auth/register-user/register-user.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="49" column="61" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="61" />
+              <folding>
+                <element signature="e#0#78#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Jenkinsfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
+            <state relative-caret-position="1770">
               <caret line="118" column="125" selection-start-line="118" selection-start-column="125" selection-end-line="118" selection-end-column="125" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/auth/register-user/register-user.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1410">
+              <caret line="94" column="49" selection-start-line="94" selection-start-column="15" selection-end-line="94" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -34,8 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Total Price</find>
-      <find>Number of Tickets</find>
       <find>Agm</find>
       <find>Email</find>
       <find>showCreate</find>
@@ -64,6 +94,8 @@
       <find>logo</find>
       <find>SEARCH</find>
       <find>onMoreDetails</find>
+      <find>favicon</find>
+      <find>jwt</find>
     </findStrings>
     <replaceStrings>
       <replace>Direction</replace>
@@ -93,14 +125,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ssr-title" />
+        <entry key="$PROJECT_DIR$" value="scroll-up" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/my-profile/experience/experience.component.html" />
         <option value="$PROJECT_DIR$/src/app/auth/register-user/register-user.component.html" />
         <option value="$PROJECT_DIR$/nginx/default.conf" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -114,7 +145,6 @@
         <option value="$PROJECT_DIR$/src/app/seller/add-ticket/ticket-info/ticket-info.component.html" />
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/requests/requests.component.ts" />
         <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/angular.json" />
         <option value="$PROJECT_DIR$/src/app/home/home.module.ts" />
         <option value="$PROJECT_DIR$/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/src/app/services/search.service.ts" />
@@ -122,14 +152,12 @@
         <option value="$PROJECT_DIR$/src/app/about-us/about-us/about-us.component.html" />
         <option value="$PROJECT_DIR$/src/assets/i18n/ar.json" />
         <option value="$USER_HOME$/Desktop/HR leave request email templates/request-created.html" />
-        <option value="$PROJECT_DIR$/src/app/home/home/home.component.html" />
         <option value="$PROJECT_DIR$/src/app/search-events/event-list/event-list.component.ts" />
         <option value="$PROJECT_DIR$/src/app/models/search-events.ts" />
         <option value="$PROJECT_DIR$/src/app/api-services/event.service.ts" />
         <option value="$PROJECT_DIR$/src/app/search-events/search-events.module.ts" />
         <option value="$PROJECT_DIR$/src/app/search-events/search-event/search-event.component.html" />
         <option value="$PROJECT_DIR$/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/src/app/network-layer/network.config.ts" />
         <option value="$PROJECT_DIR$/src/app/home/home/home.component.ts" />
         <option value="$PROJECT_DIR$/src/app/about-us/about-us/about-us.component.ts" />
         <option value="$PROJECT_DIR$/src/app/contact-us/contact-us/contact-us.component.ts" />
@@ -151,6 +179,10 @@
         <option value="$PROJECT_DIR$/src/app/organizer/dashboard/root/root.component.ts" />
         <option value="$PROJECT_DIR$/src/app/organizer/add-event/add-event.component.html" />
         <option value="$PROJECT_DIR$/Jenkinsfile" />
+        <option value="$PROJECT_DIR$/src/app/home/home/home.component.html" />
+        <option value="$PROJECT_DIR$/angular.json" />
+        <option value="$PROJECT_DIR$/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/network-layer/network.config.ts" />
       </list>
     </option>
   </component>
@@ -163,7 +195,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -171,10 +202,16 @@
               <item name="website" type="b2602c69:ProjectViewProjectNode" />
               <item name="website" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="website" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -212,7 +249,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.build:client-and-server-bundles">
     <configuration name="build:client-and-server-bundles" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -239,6 +276,7 @@
         <item itemvalue="npm.build:client-and-server-bundles" />
         <item itemvalue="npm.build:ssr" />
         <item itemvalue="npm.build:client-and-server-bundles" />
+        <item itemvalue="npm.build:ssr" />
       </list>
     </recent_temporary>
   </component>
@@ -274,6 +312,13 @@
       <workItem from="1549129101361" duration="503000" />
       <workItem from="1549337384876" duration="1063000" />
       <workItem from="1549390970993" duration="5479000" />
+      <workItem from="1549735533003" duration="177000" />
+      <workItem from="1549742903296" duration="1264000" />
+      <workItem from="1549834739775" duration="3359000" />
+      <workItem from="1549884290413" duration="5000" />
+      <workItem from="1549895107628" duration="3038000" />
+      <workItem from="1549907617415" duration="100000" />
+      <workItem from="1549997869173" duration="99000" />
     </task>
     <task id="LOCAL-00001" summary="upload scss files">
       <created>1547076641963</created>
@@ -422,16 +467,45 @@
       <option name="project" value="LOCAL" />
       <updated>1549727725102</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Merge remote-tracking branch 'remotes/origin/develop' into terms&#10;&#10;# Conflicts:&#10;#&#9;src/app/organizer/dashboard/dashboard.module.ts">
+      <created>1549729839571</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1549729839571</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Merge remote-tracking branch 'remotes/origin/develop' into terms&#10;&#10;# Conflicts:&#10;#&#9;src/app/organizer/dashboard/dashboard.module.ts">
+      <created>1549729937867</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1549729937867</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Merge remote-tracking branch 'remotes/origin/develop' into terms&#10;&#10;# Conflicts:&#10;#&#9;src/app/organizer/dashboard/dashboard.module.ts">
+      <created>1549735673686</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1549735673686</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Merge remote-tracking branch 'remotes/origin/develop' into terms&#10;&#10;# Conflicts:&#10;#&#9;src/app/organizer/dashboard/dashboard.module.ts">
+      <created>1549743575819</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1549743575819</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256834000" />
+    <option name="totallyTimeSpent" value="265158000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49945593" visible="true" weight="0.27045178" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49945593" visible="true" weight="0.26312578" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5005441" side_tool="true" weight="0.21841942" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -442,7 +516,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="8" sideWeight="0.497558" visible="true" weight="0.3265306" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.496337" weight="0.44183674" />
       <window_info anchor="bottom" id="Statistic" order="9" sideWeight="0.4997057" weight="0.329927" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4968051" weight="0.36734694" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50319487" side_tool="true" weight="0.34851485" />
@@ -555,71 +629,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webpack.server.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/angular.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="137" column="45" lean-forward="true" selection-start-line="137" selection-start-column="45" selection-end-line="137" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/network-layer/error.object.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/home/home.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/search.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sass/main.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
@@ -633,16 +642,6 @@
             <element signature="e#13356#13968#0" />
             <element signature="e#13999#14236#0" />
             <element signature="e#14264#14501#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="34" column="47" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -675,16 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/auth-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="34" column="29" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -773,13 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/network-layer/network.config.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/about-us/about-us/about-us.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -796,16 +778,6 @@
           <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/home/home/home.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="292" column="99" selection-start-line="292" selection-start-column="83" selection-end-line="292" selection-end-column="99" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#ng-container#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -839,16 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/login/login.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="89" selection-start-line="35" selection-start-column="89" selection-end-line="35" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/auth/activate-account/activate-account.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -869,32 +831,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/register/register.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="33" selection-start-line="31" selection-end-line="33" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/auth/register-company/register-company.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="22" selection-start-line="22" selection-end-line="24" />
           <folding>
             <element signature="e#0#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/auth/register-user/register-user.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" selection-start-line="19" selection-end-line="21" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1009,9 +951,146 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/angular.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="91" column="26" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/home/home/home.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="75" column="47" lean-forward="true" selection-start-line="75" selection-start-column="47" selection-end-line="75" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#ng-container#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/auth-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="40" column="7" selection-start-line="16" selection-start-column="6" selection-end-line="40" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/network-layer/network.config.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/network-layer/network-layer.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/models/modules.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="25" selection-start-line="23" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="28" column="19" lean-forward="true" selection-start-line="28" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" selection-start-line="26" selection-end-line="35" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/auth.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-457">
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/login/login.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="36" column="59" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="41" selection-start-line="41" selection-end-line="71" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/register/register.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1380">
+          <caret line="98" column="20" selection-start-line="98" selection-start-column="20" selection-end-line="98" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/register-user/register-user.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1410">
+          <caret line="94" column="49" selection-start-line="94" selection-start-column="15" selection-end-line="94" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/auth/register-user/register-user.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="49" column="61" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
+        <state relative-caret-position="1770">
           <caret line="118" column="125" selection-start-line="118" selection-start-column="125" selection-end-line="118" selection-end-column="125" />
         </state>
       </provider>
