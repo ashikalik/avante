@@ -62,7 +62,7 @@ pipeline {
       steps{
         script {
           sh """
-                docker build --no-cache --force-rm --pull -t manasstech/website:${env.IMAGE_SUB_TAG} .
+                docker build --no-cache --force-rm --pull -t manasstech/website .
 
             """
         }
@@ -80,7 +80,7 @@ pipeline {
         script {
           sh """
 
-                docker push manasstech/website:${env.IMAGE_SUB_TAG}
+                docker push manasstech/website
 
             """
         }
@@ -98,7 +98,7 @@ pipeline {
         script {
           sh """
 
-                docker rmi manasstech/website:${env.IMAGE_SUB_TAG}
+                docker rmi manasstech/website
 
             """
         }

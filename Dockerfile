@@ -8,6 +8,8 @@ COPY . .
 
 RUN npm run build:ssr
 
+RUN ls | grep -v dist | xargs rm -R 
+
 # Expose the listening port of your app
 EXPOSE 6021
 
