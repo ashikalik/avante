@@ -62,7 +62,7 @@ pipeline {
       steps{
         script {
           sh """
-                docker build --no-cache --force-rm --pull -t manasstech/website .
+                docker build -t manasstech/website .
 
             """
         }
