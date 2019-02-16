@@ -824,6 +824,10 @@ input[type="checkbox"]:focus {
     max-width: 250px;
   }
 
+  .tab_img_content-view img {
+    max-width: 100% !important;
+  }
+
 }
 
 @media (min-width: 1200px) and (max-width: 1449px) {
@@ -905,6 +909,10 @@ input[type="checkbox"]:focus {
 
   .tab_img_content img {
     max-width: 250px;
+  }
+
+  .tab_img_content-view img {
+    max-width: 100 !important;
   }
 
   .main_container {
