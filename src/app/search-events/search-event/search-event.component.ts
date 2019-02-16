@@ -56,7 +56,7 @@ export class SearchEventComponent implements OnInit {
         this.page = 1;
     }
 
-    getRegion(): void {
+    public getRegion() {
         this.commonService.getRegion().subscribe(res => {
             this.regionList = res;
         }, err => {
@@ -64,7 +64,7 @@ export class SearchEventComponent implements OnInit {
         })
     }
 
-    getEventType(): void {
+    public getEventType() {
         this.commonService.getEventType().subscribe(res => {
             this.eventTypes = res;
         }, err => {
