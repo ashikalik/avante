@@ -55,6 +55,7 @@ export class AppComponent implements AfterViewChecked {
     }
 
     ngAfterViewChecked() {
+        this.onRtlStyle('');
         let show = this.loaderService.loaderStatus;
         if (show != this.show) { // check if it change, tell CD update view
             this.show = show;
