@@ -28,10 +28,6 @@ export class AppComponent implements AfterViewChecked {
         private cdRef: ChangeDetectorRef,
         private router: Router) {
 
-        $('body').css('direction', 'rtl').css('text-align', 'right');
-        var rtlStyle = '.fas.fa-chevron-down.embed, .embed-text{right:auto !important; left:20px !important;}.border-left-right {border-left:none !important;  border-right:1px solid #9e9e9e !important;}.mr_auto{margin-right:unset !important; margin-left: auto !important;}.ml_auto{margin-left:unset !important; margin-right: auto !important;}.notification{right: auto !important; left: -46px !important;}.header .setting{right:auto !important;left:0px !important;border-radius: 0 8px 8px 0 !important;}.search-accodian .form-check-input{left:auto !important;right:0px !important;}.text_left{text-align: right !important;}.text_left label{margin: 0 20px !important;}.text-right{text-align: left !important;}.search-accodian ul li i{right: auto !important;left: 0 !important;}.steps-setting.float-not-left div:not(.float-not-left), .eventdetail div{float: right !important;}.steps-setting.float-not-left .float-not-left{float:left !important;}.signup_content .form-check-label input[type="checkbox"]{left:auto !important; right:-20px !important;}.badge{right:auto !important;left:-60% !important;}.float_left div{float:right !important;}.calendar .back{right: 0px !important;  left:auto !important; float:right;}.calendar .back .fa-chevron-right{display: inline-block !important;}.calendar .back .fa-chevron-left{display: none !important;}.span-left{float:right !important;}.span-right{float:left !important;}.custom-text-label{left: 0.5rem !important;right: auto !important;}.border-radius-left{border-radius: 0 20px 20px 0;}.active .border-radius-left{border-radius: 0 20px 0 0;}@keyframes doshboard{0% {margin-right: -100%;}100% {margin-right: 0;}}.left-0{right:0 !important;left:auto !important;}';
-        $('#langStyle').html(rtlStyle);
-
 
         router.events.forEach((event) => {
             window.scroll(0, 0);
@@ -55,7 +51,6 @@ export class AppComponent implements AfterViewChecked {
     }
 
     ngAfterViewChecked() {
-        this.onRtlStyle('');
         let show = this.loaderService.loaderStatus;
         if (show != this.show) { // check if it change, tell CD update view
             this.show = show;
@@ -65,6 +60,8 @@ export class AppComponent implements AfterViewChecked {
 
 
     ngOnInit() {
+        this.onRtlStyle('');
+
         console.log(this.languageSettingService.getLanguage())
         if (this.languageSettingService.getLanguage()) {
             if (this.languageSettingService.getLanguage() == 'ar') {
