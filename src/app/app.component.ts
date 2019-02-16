@@ -1,16 +1,16 @@
-import {AfterViewChecked, ChangeDetectorRef, Component} from '@angular/core';
-import {LanguageSettingService} from "./core/language-setting.service";
-import {TranslateService} from "@ngx-translate/core";
-import {UserAuthService} from "./core/user-auth.service";
-import {NavigationStart, Router} from "@angular/router";
-import {LoaderService} from "./loader-service.service";
+import { AfterViewChecked, ChangeDetectorRef, Component } from '@angular/core';
+import { LanguageSettingService } from "./core/language-setting.service";
+import { TranslateService } from "@ngx-translate/core";
+import { UserAuthService } from "./core/user-auth.service";
+import { NavigationStart, Router } from "@angular/router";
+import { LoaderService } from "./loader-service.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewChecked{
+export class AppComponent implements AfterViewChecked {
     title = 'Evento';
 
     public direction: string;
@@ -22,22 +22,24 @@ export class AppComponent implements AfterViewChecked{
 
 
     constructor(public languageSettingService: LanguageSettingService,
-                private translate: TranslateService,
-                public userAuthService: UserAuthService,
-                public loaderService: LoaderService,
-                private cdRef : ChangeDetectorRef,
-                private router: Router) {
+        private translate: TranslateService,
+        public userAuthService: UserAuthService,
+        public loaderService: LoaderService,
+        private cdRef: ChangeDetectorRef,
+        private router: Router) {
+
+        this.onRtlStyle('');
 
 
         router.events.forEach((event) => {
-            window.scroll(0,0);
+            window.scroll(0, 0);
             if (event instanceof NavigationStart) {
-                if(this.userAuthService.getToken()) {
+                if (this.userAuthService.getToken()) {
                     this.isAuthenticated = true;
                     let profile = this.userAuthService.getUserProfile();
                     this.username = profile.data.first_name;
                     this.userType = profile.data.user_type;
-                    if(profile.data.event_key){
+                    if (profile.data.event_key) {
                         this.event_key = profile.data.event_key;
                     }
                 } else {
@@ -61,8 +63,8 @@ export class AppComponent implements AfterViewChecked{
 
     ngOnInit() {
         console.log(this.languageSettingService.getLanguage())
-        if(this.languageSettingService.getLanguage()) {
-            if(this.languageSettingService.getLanguage() == 'ar') {
+        if (this.languageSettingService.getLanguage()) {
+            if (this.languageSettingService.getLanguage() == 'ar') {
                 this.onRtlStyle(0);
             } else {
                 this.onLtrStyle(0);
