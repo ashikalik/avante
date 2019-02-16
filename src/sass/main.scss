@@ -770,8 +770,10 @@ input[type="checkbox"]:focus {
     }
   }
 
-  .tab_img_content img {
-    width: 100% !important;
+  .tab_img_content-view img {
+    max-width: 100% !important;
+    height: 400px;
+    width: 100%;
   }
 
 }
@@ -826,7 +828,7 @@ input[type="checkbox"]:focus {
 
   .tab_img_content-view img {
     max-width: 100% !important;
-    height: 350px;
+    height: 400px;
     width: 100%;
   }
 
@@ -836,6 +838,12 @@ input[type="checkbox"]:focus {
 
   .tab_img_content img {
     max-width: 250px;
+  }
+
+  .tab_img_content-view img {
+    max-width: 100% !important;
+    height: 400px;
+    width: 100%;
   }
 
   .main_container {
@@ -914,8 +922,8 @@ input[type="checkbox"]:focus {
   }
 
   .tab_img_content-view img {
-    max-width: 100 !important;
-    height: 350px;
+    max-width: 100% !important;
+    height: 400px;
     width: 100%;
   }
 
