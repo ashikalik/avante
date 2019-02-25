@@ -44,7 +44,7 @@ pipeline {
      }
       steps{
         script {
-            sh "git config --global http.sslVerify false"
+            sh ""
         }
         checkout scm
       }
