@@ -33,23 +33,23 @@ pipeline {
 
   }
   agent any
-  triggers {
-      GenericTrigger(
-       genericVariables: [
-        [key: 'ref', value: '$.ref']
-       ],
-       causeString: 'Triggered on $ref',
 
-       token: 'dSDsjfSAFD-Develop',
-
-       printContributedVariables: true,
-       printPostContent: true,
-
-       regexpFilterText: '$ref',
-       regexpFilterExpression: 'refs/heads/' + BRANCH_NAME
-      )
-    }
   stages {
+
+    stage('Check Out') {
+      when {
+        anyOf {
+            branch 'develop'
+            branch 'prod'
+        }
+     }
+      steps{
+        script {
+            sh "git config --global http.sslVerify false"
+        }
+        checkout scm
+      }
+    }
 
 
     stage('Build image') {
