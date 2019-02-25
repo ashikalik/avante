@@ -2,7 +2,7 @@ import { AfterViewChecked, ChangeDetectorRef, Component } from '@angular/core';
 import { LanguageSettingService } from "./core/language-setting.service";
 import { TranslateService } from "@ngx-translate/core";
 import { UserAuthService } from "./core/user-auth.service";
-import { NavigationStart, Router } from "@angular/router";
+import { NavigationStart, Router, NavigationEnd } from "@angular/router";
 import { LoaderService } from "./loader-service.service";
 
 @Component({
@@ -45,6 +45,13 @@ export class AppComponent implements AfterViewChecked {
                 }
             }
         });
+
+        this.router.events.subscribe(event => {
+            if (event instanceof NavigationEnd) {
+              (<any>window).ga('set', 'page', event.urlAfterRedirects);
+              (<any>window).ga('send', 'pageview');
+            }
+          });
 
 
 
