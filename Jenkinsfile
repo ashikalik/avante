@@ -32,11 +32,22 @@ pipeline {
     IMAGE_SUB_TAG = defineImageSubTag()
 
   }
-  
+  agent any
   stages {
+
+    stage('Check out') {
+      when {
+        anyOf {
+            branch 'develop'
+            branch 'prod'
+        }
+     }
+      checkout scm
+    }
 
 
     stage('Build image') {
+      when {
         anyOf {
             branch 'develop'
             branch 'prod'
@@ -107,6 +118,7 @@ pipeline {
 
     }
   }
+}
 
 
 
