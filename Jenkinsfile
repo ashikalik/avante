@@ -43,7 +43,6 @@ pipeline {
         }
      }
       steps{
-        checkout scm
         script {
           sh """
                 docker build -t manasstech/website .
