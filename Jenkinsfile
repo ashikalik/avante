@@ -41,8 +41,14 @@ pipeline {
             branch 'develop'
             branch 'prod'
         }
+
+        steps{
+          script {
+              sh "git config --global http.sslVerify false"
+          }
+          checkout scm
+        }
      }
-      checkout scm
     }
 
 
