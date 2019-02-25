@@ -32,34 +32,18 @@ pipeline {
     IMAGE_SUB_TAG = defineImageSubTag()
 
   }
-  agent any
-
+  
   stages {
-
-    stage('Check Out') {
-      when {
-        anyOf {
-            branch 'develop'
-            branch 'prod'
-        }
-     }
-      steps{
-        script {
-            sh "git config --global http.sslVerify false"
-        }
-        checkout scm
-      }
-    }
 
 
     stage('Build image') {
-      when {
         anyOf {
             branch 'develop'
             branch 'prod'
         }
      }
       steps{
+        checkout scm
         script {
           sh """
                 docker build -t manasstech/website .
