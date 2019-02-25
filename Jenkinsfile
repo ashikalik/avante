@@ -35,21 +35,6 @@ pipeline {
   agent any
   stages {
 
-    stage('Checkout') {
-      when {
-        anyOf {
-            branch 'develop'
-            branch 'prod'
-        }
-     }
-      steps{
-        script {
-            sh ""
-        }
-        checkout scm
-      }
-    }
-
     stage('Build image') {
       when {
         anyOf {
