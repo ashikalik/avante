@@ -35,6 +35,21 @@ pipeline {
   agent any
   stages {
 
+    stage('Checkout') {
+      when {
+        anyOf {
+            branch 'develop'
+            branch 'prod'
+        }
+     }
+      steps{
+        script {
+            sh "git config --global http.sslVerify false"
+        }
+        checkout scm
+      }
+    }
+
     stage('Build image') {
       when {
         anyOf {
