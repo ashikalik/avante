@@ -4,7 +4,7 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 import {Router} from '@angular/router';
 import {City} from "../../models/city";
 import {Meta, Title} from "@angular/platform-browser";
-import { Region } from 'src/app/models/region';
+import { Region } from '../../models/region';
 
 @Component({
     selector: 'app-register-volu',
