@@ -5,6 +5,7 @@ import {City} from "../../models/city";
 import {Router} from '@angular/router';
 import {EventoError} from "../../models/error";
 import {Meta, Title} from "@angular/platform-browser";
+import { Region } from 'src/app/models/region';
 
 @Component({
     selector: 'app-register',
@@ -26,6 +27,8 @@ export class RegisterComponent implements OnInit {
 
 
     public cities: City;
+    public regions: Region;
+
     public registrationError: EventoError;
     constructor(private authService: AuthService,
                 public router: Router,
@@ -39,13 +42,24 @@ export class RegisterComponent implements OnInit {
         this.title.setTitle('التسجيل');
         this.meta.addTag({name: "description", content: 'التسجيل في ايفينتو'})
         this.getCity();
+        this.getRegion();
         this.onMember();
         this.showRegForm = false;
     }
 
-    getCity(): void {
+    getCity() {
         this.commonService.getCity().subscribe(res => {
             this.cities = res
+        }, err => {
+
+
+        })
+
+    }
+
+    getRegion() {
+        this.commonService.getRegion().subscribe(res => {
+            this.regions = res
         }, err => {
 
 

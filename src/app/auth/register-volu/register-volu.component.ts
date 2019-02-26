@@ -1,8 +1,10 @@
+import { cityObj } from './../../models/city';
 import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {City} from "../../models/city";
 import {Meta, Title} from "@angular/platform-browser";
+import { Region } from 'src/app/models/region';
 
 @Component({
     selector: 'app-register-volu',
@@ -12,10 +14,12 @@ import {Meta, Title} from "@angular/platform-browser";
 export class RegisterVoluComponent implements OnInit {
 
     @Input() cities: City;
+    @Input() regions: Region;
     @Output() onCancel: EventEmitter<any> = new EventEmitter();
     @Output() onRegister: EventEmitter<any> = new EventEmitter();
 
     public signupForm: FormGroup;
+    public updatedCityList: cityObj[];
 
     constructor(
         public formBuilder: FormBuilder,
@@ -35,9 +39,11 @@ export class RegisterVoluComponent implements OnInit {
             {
                 'first_name': ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
                 'last_name': ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(40)])],
+                'region_id': ['', Validators.compose([Validators.required])],
                 'city_id': ['', Validators.compose([Validators.required])],
                 'gender': ['', Validators.compose([Validators.required])],
                 'email': ['', Validators.compose([Validators.required, Validators.email, Validators.minLength(3)])],
+                'confirm_email': ['', Validators.compose([Validators.required, Validators.email, Validators.minLength(3)])],
                 'mobile': ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
                 'password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
                 'confirm_password': ['', Validators.compose([Validators.required, Validators.minLength(6)])],
@@ -45,7 +51,7 @@ export class RegisterVoluComponent implements OnInit {
                 'recaptcha': ['', Validators.compose([Validators.required])],
             },
             {
-                validator: this.passwordConfirm
+                validator: [this.passwordConfirm, this.emailConfirm]
             });
     }
 
@@ -54,6 +60,18 @@ export class RegisterVoluComponent implements OnInit {
             return {invalid: true};
         }
     }
+    public emailConfirm(AC: AbstractControl): { invalid: boolean } {
+        if (AC.get('email').value !== AC.get('confirm_email').value) {
+            return {invalid: true};
+        }
+    }
+
+    public onChangeRegion(event) {
+        this.updatedCityList = this.cities.data.filter((item) => item.region_id == event);
+        this.signupForm.get('city_id').setValue('');
+    }
+
+
 
     onCancelButton() {
         this.onCancel.emit();
