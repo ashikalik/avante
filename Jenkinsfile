@@ -34,6 +34,7 @@ pipeline {
   }
   agent any
   stages {
+    
     stage('Build image') {
       when {
         anyOf {
