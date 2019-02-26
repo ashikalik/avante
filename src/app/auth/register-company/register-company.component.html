@@ -32,6 +32,23 @@
              translate>Last name most have less than 40 letters
         </div>
 
+        <div class="form-group d-flex  mt-3 gender-items">
+          <label class="form-label mr-2 mb-0 align-items-center" translate>Gender</label>
+          <div class="form position-relative">
+              <input formControlName="gender" value="1" type="radio" class="form-check-input" name="gender" checked>
+              <button class="btn signup_select_btn width_100 mr-1 ml-1" translate>Male</button>
+          </div>
+          <div class="form position-relative">
+              <input formControlName="gender" value="2" type="radio" class="form-check-input" name="gender">
+              <button class="btn signup_select_btn width_100 mr-1 ml-1" translate>Female</button>
+          </div>
+      </div>
+      <div class="error"
+           *ngIf="signupForm.controls['gender'].hasError('required') && !signupForm.controls['gender'].pristine"
+           translate>This field is required
+      </div>
+
+
         <input formControlName="company_name" type="input" class="form-control evento_input  mt-3"
                placeholder="{{ 'Company Name' | translate}}"/>
         <div class="error"
@@ -63,10 +80,24 @@
         </div>
 
         <div class="form-group  mt-3 position-relative">
+            <select class="form-control evento_input evento_select" formControlName="region_id" (change)="onChangeRegion($event.target.value)">
+                <option translate value="">Choose Region</option>
+                <ng-container *ngIf="regions">
+                    <option [value]="region.region_id" *ngFor="let region of regions.data">{{ region.name }}</option>
+                </ng-container>
+            </select>
+            <i class="fas fa-chevron-down embed"></i>
+        </div>
+        <div class="error"
+             *ngIf="signupForm.controls['region_id'].hasError('required') && !signupForm.controls['region_id'].pristine"
+             translate>This field is required
+        </div>
+
+        <div class="form-group  mt-3 position-relative">
             <select class="form-control evento_input evento_select" formControlName="city_id">
-                <option disabled selected hidden translate value="">Choose City</option>
-                <ng-container *ngIf="cities">
-                    <option [value]="city.id" *ngFor="let city of cities.data">{{ city.name }}</option>
+                <option translate value="">Choose City</option>
+                <ng-container *ngIf="updatedCityList">
+                    <option [value]="city.id" *ngFor="let city of updatedCityList">{{ city.name }}</option>
                 </ng-container>
             </select>
             <i class="fas fa-chevron-down embed"></i>
@@ -76,25 +107,7 @@
              translate>This field is required
         </div>
 
-
-        <div class="form-group d-flex  mt-3 gender-items">
-            <label class="form-label mr-2 mb-0 align-items-center" translate>Gender</label>
-            <div class="form position-relative">
-                <input formControlName="gender" value="1" type="radio" class="form-check-input" name="gender" checked>
-                <button class="btn signup_select_btn width_100 mr-1 ml-1" translate>Male</button>
-            </div>
-            <div class="form position-relative">
-                <input formControlName="gender" value="2" type="radio" class="form-check-input" name="gender">
-                <button class="btn signup_select_btn width_100 mr-1 ml-1" translate>Female</button>
-            </div>
-        </div>
-        <div class="error"
-             *ngIf="signupForm.controls['gender'].hasError('required') && !signupForm.controls['gender'].pristine"
-             translate>This field is required
-        </div>
-
-
-        <input formControlName="email" type="input" class="form-control evento_input  mt-3"
+        <input formControlName="email" type="input" class="form-control evento_input"
                placeholder="{{ 'Email Address' | translate}}"/>
         <div class="error"
              *ngIf="signupForm.controls['email'].hasError('required') && !signupForm.controls['email'].pristine"
@@ -103,6 +116,21 @@
         <div class="error"
              *ngIf="signupForm.controls['email'].hasError('email') && !signupForm.controls['email'].pristine" translate>
             Email format is not valid
+        </div>
+
+        <input formControlName="confirm_email" type="input" class="form-control evento_input mt-3"
+               placeholder="{{ 'Confirm Email Address' | translate}}"/>
+        <div class="error"
+             *ngIf="signupForm.controls['confirm_email'].hasError('required') && !signupForm.controls['confirm_email'].pristine"
+             translate>This field is required
+        </div>
+        <div class="error"
+             *ngIf="signupForm.controls['confirm_email'].hasError('email') && !signupForm.controls['confirm_email'].pristine" translate>
+            Email format is not valid
+        </div>
+        <div class="error"
+             *ngIf="signupForm.controls['email'].value !== signupForm.controls['confirm_email'].value" translate>
+             Email doesn't match
         </div>
 
         <input formControlName="mobile" maxlength="10" type="input" class="form-control evento_input  mt-3"
