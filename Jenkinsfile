@@ -32,8 +32,11 @@ pipeline {
     IMAGE_SUB_TAG = defineImageSubTag()
 
   }
+
+  
   agent any
   stages {
+
     stage('Build image') {
       when {
         anyOf {
