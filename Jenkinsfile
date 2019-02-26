@@ -32,7 +32,6 @@ pipeline {
     IMAGE_SUB_TAG = defineImageSubTag()
 
   }
-
   agent any
   stages {
 
