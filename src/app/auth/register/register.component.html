@@ -70,15 +70,15 @@
 
                 <ng-container *ngIf="showRegForm">
                     <ng-container *ngIf="organizer">
-                        <app-register-volu [cities]="cities" [regions]="regions" (onCancel)='onCancel($event)'
+                        <app-register-volu [signupForm]="signupForm" [cities]="cities" [regions]="regions" (onCancel)='onCancel($event)'
                                            (onRegister)='onSignup($event)'></app-register-volu>
                     </ng-container>
                     <ng-container *ngIf="member">
-                        <app-register-user (onCancel)='onCancel($event)'
+                        <app-register-user [signupForm]="signupForm" (onCancel)='onCancel($event)'
                                            (onRegister)='onSignup($event)'></app-register-user>
                     </ng-container>
                     <ng-container *ngIf="company">
-                        <app-register-company [cities]="cities" [regions]="regions" (onCancel)='onCancel($event)'
+                        <app-register-company [signupForm]="signupForm" [cities]="cities" [regions]="regions" (onCancel)='onCancel($event)'
                                               (onRegister)='onSignup($event)'></app-register-company>
                     </ng-container>
                 </ng-container>
