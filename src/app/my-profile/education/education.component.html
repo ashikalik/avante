@@ -48,7 +48,7 @@
                     <select class="form-control evento_input evento_select"
                             formControlName="education_id"
                             name="nationality_id">
-                        <option disabled selected hidden translate value="">Choose Degree</option>
+                        <option translate value="">Choose Degree</option>
                         <ng-container *ngIf="educations">
                             <option *ngFor="let education of educations.data" [value]="education.id">{{ education.name
                                 }}
@@ -173,7 +173,7 @@
                     <select class="form-control evento_input evento_select"
                             formControlName="education_id"
                             name="nationality_id">
-                        <option disabled selected hidden translate value="">Choose Degree</option>
+                        <option translate value="">Choose Degree</option>
                         <ng-container *ngIf="educations">
                             <option *ngFor="let education of educations.data" [value]="education.id">{{ education.name
                                 }}

@@ -64,6 +64,10 @@ const routes: Routes = [
     loadChildren: './terms-conditions/terms-conditions.module#TermsConditionsModule',   
   },
   {
+    path: 'validate-payment',
+    loadChildren: './validate-payment/validate-payment.module#ValidatePaymentModule',   
+  },
+  {
       path: 'seller',
       loadChildren: './seller/seller.module#SellerModule',   
       canActivate: [AuthGuard, SellerGuard],

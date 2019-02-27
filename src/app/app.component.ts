@@ -134,5 +134,4 @@ export class AppComponent implements AfterViewChecked {
         $('#langStyle').html(rtlStyle);
     }
 
-
 }

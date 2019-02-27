@@ -98,7 +98,7 @@
 <router-outlet></router-outlet>
 
 <div class="footer container-fluid">
-  <div class="footer_top pl-4 pr-4">
+  <!-- <div class="footer_top pl-4 pr-4">
     <div class="container_footer">
       <div class="row">
         <div class="col-lg-8 col-sm-8 col-12">
@@ -124,19 +124,25 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="footer_content p-4">
     <div class="container_footer">
       <div class="row">
         <div class="col-lg-4 col-sm-4 col-12 pt-1">
           <p class="text_label" translate>Site Map</p>
-          <p class="text_label" translate>About Evento</p>
-          <p class="text_label" translate>Contact US</p>
+          <p class="text_label">
+            <a style="color: #fff" [routerLink]="['/about-us']" translate>About Evento</a>
+          </p>
+          <p class="text_label">
+              <a style="color: #fff" [routerLink]="['/contact-us']" translate>Contact US</a>
+          </p>
         </div>
         <div class="col-lg-4 col-sm-4 col-12  pt-1">
-          <p class="text_label" translate>Q&A</p>
-          <p class="text_label" translate>Privacy Policy</p>
-          <p class="text_label" translate>Terms & Conditions</p>
+          <!-- <p class="text_label" translate>Q&A</p> -->
+          <!-- <p class="text_label" translate>Privacy Policy</p> -->
+          <p class="text_label">
+              <a style="color: #fff" [routerLink]="['/terms&conditions']" translate>Terms & Conditions</a>
+          </p>
         </div>
         <div class="col-lg-4 col-sm-4 col-12  pt-1">
           <p class="text_label" translate>Pay Safelyusing</p>
