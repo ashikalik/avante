@@ -135,13 +135,14 @@ export class RootComponent implements OnInit {
             res => {
                 console.log(res);
                 // this is for free ticket to show success payment
-                if (res.price === 0 && res.total_with_vat === 0) {
+                if (res.data.price == 0 && res.data.total_with_vat == 0) {
                     this.completedPayment = true;
+                    this.router.navigate(['/validate-payment/' + res.data.reference])
                 } else {
                     this.completedPayment = false;
+                    this.changeStepForward(null);
                 }
 
-                this.changeStepForward(null);
 
             }, err => {
                 this.errorsBuyTicket = err.value.error;

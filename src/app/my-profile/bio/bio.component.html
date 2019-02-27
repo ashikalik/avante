@@ -38,7 +38,7 @@
                 <select class="form-control evento_input evento_select"
                         formControlName="nationality_id"
                         name="nationality_id">
-                    <option disabled selected hidden translate value="">Choose Nationality</option>
+                    <option  translate value="">Choose Nationality</option>
                     <ng-container *ngIf="nationality">
                         <option *ngFor="let n of nationality.data" [value]="n.id">{{ n.name }}</option>
                     </ng-container>
@@ -126,7 +126,7 @@
                 <select class="form-control evento_input evento_select"
                         formControlName="nationality_id"
                         name="nationality_id">
-                    <option disabled selected hidden translate value="">Choose Nationality</option>
+                    <option translate value="">Choose Nationality</option>
                     <ng-container *ngIf="nationality">
                         <option *ngFor="let n of nationality.data" [value]="n.id">{{ n.name }}</option>
                     </ng-container>

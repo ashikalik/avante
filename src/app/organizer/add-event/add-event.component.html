@@ -7,9 +7,9 @@
                     <div class="tab-event-content">
 
 
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4 pl-5 pr-5" *ngIf="error">
-                                    <app-errors [errors]="error"></app-errors>
-                                </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4 pl-5 pr-5" *ngIf="error">
+                            <app-errors [errors]="error"></app-errors>
+                        </div>
 
 
                         <div class="content mt-3" id="event-details">
@@ -19,12 +19,14 @@
                                     <p class="event-edit"><b translate>Upload Event Image</b></p>
                                     <div class="event-edit form-group grey-color">
                                         <label class="fileContainer">
-                                {{ 'Click here to trigger the file uploader' | translate }}
-                                <input type="file" (change)="fileEvent($event)" name="imageUpload" id="imageUpload"/>
-                                         </label>
+                                            {{ 'Click here to trigger the file uploader' | translate }}
+                                            <input type="file" (change)="fileEvent($event)" name="imageUpload"
+                                                id="imageUpload" />
+                                        </label>
                                     </div>
 
-                                    <p class="event-edit notice-color text-sm mt-2" translate>Minimum size 1100 Px * 1100 Px</p>
+                                    <p class="event-edit notice-color text-sm mt-2" translate>Minimum size 1100 Px *
+                                        1100 Px</p>
                                 </div>
 
 
@@ -33,14 +35,21 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                             <p class="event-edit"><b translate>Event name</b></p>
                                             <div class="event-edit form-group grey-color">
-                                                <input type="text" class="form-control evento_input" placeholder="" formControlName="name">
-                                                <div class="error" *ngIf="form.controls['name'].hasError('required') && !form.controls['name'].pristine" translate>
+                                                <input type="text" class="form-control evento_input" placeholder=""
+                                                    formControlName="name">
+                                                <div class="error"
+                                                    *ngIf="form.controls['name'].hasError('required') && !form.controls['name'].pristine"
+                                                    translate>
                                                     This field is required
                                                 </div>
-                                                <div class="error" *ngIf="form.controls['name'].hasError('minlength') && !form.controls['name'].pristine" translate>
+                                                <div class="error"
+                                                    *ngIf="form.controls['name'].hasError('minlength') && !form.controls['name'].pristine"
+                                                    translate>
                                                     Field should be at least 3 characters
                                                 </div>
-                                                <div class="error" *ngIf="form.controls['name'].hasError('maxlength') && !form.controls['name'].pristine" translate>
+                                                <div class="error"
+                                                    *ngIf="form.controls['name'].hasError('maxlength') && !form.controls['name'].pristine"
+                                                    translate>
                                                     Field should be at most 40 characters
                                                 </div>
                                             </div>
@@ -48,16 +57,20 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                             <p class="event-edit"><b translate>Event Category</b></p>
                                             <div class="event-edit form-group position-relative grey-color">
-                                                <select class="form-control evento_input evento_select" name="" formControlName="type_id">
-                                        <option value="" translate>Choose Event Type</option>
-                                        <ng-container *ngIf="eventTypeList">
-                                            <option *ngFor="let type of eventTypeList.data" [value]="type.id">{{
+                                                <select class="form-control evento_input evento_select" name=""
+                                                    formControlName="type_id">
+                                                    <option value="" translate>Choose Event Type</option>
+                                                    <ng-container *ngIf="eventTypeList">
+                                                        <option *ngFor="let type of eventTypeList.data"
+                                                            [value]="type.id">{{
                                                 type.name }}
-                                            </option>
-                                        </ng-container>
-                                    </select>
+                                                        </option>
+                                                    </ng-container>
+                                                </select>
                                                 <i class="fas fa-chevron-down embed"></i>
-                                                <div class="error" *ngIf="form.controls['type_id'].hasError('required') && !form.controls['type_id'].pristine" translate>
+                                                <div class="error"
+                                                    *ngIf="form.controls['type_id'].hasError('required') && !form.controls['type_id'].pristine"
+                                                    translate>
                                                     This field is required
                                                 </div>
                                             </div>
@@ -65,17 +78,21 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                             <p class="event-edit"><b translate>District</b></p>
                                             <div class="event-edit form-group position-relative grey-color">
-                                                <select class="form-control evento_input evento_select" name="" (change)="onChangeRegion($event.target.value)" formControlName="region">
-                                        <option value="" translate>Choose Region</option>
-                                        <ng-container *ngIf="regionList">
-                                            <option *ngFor="let region of regionList.data"
-                                                    [value]="region.region_id">
-                                                {{ region.name }}
-                                            </option>
-                                        </ng-container>
-                                    </select>
+                                                <select class="form-control evento_input evento_select" name=""
+                                                    (change)="onChangeRegion($event.target.value)"
+                                                    formControlName="region">
+                                                    <option value="" translate>Choose Region</option>
+                                                    <ng-container *ngIf="regionList">
+                                                        <option *ngFor="let region of regionList.data"
+                                                            [value]="region.region_id">
+                                                            {{ region.name }}
+                                                        </option>
+                                                    </ng-container>
+                                                </select>
                                                 <i class="fas fa-chevron-down embed"></i>
-                                                <div class="error" *ngIf="form.controls['region'].hasError('required') && !form.controls['region'].pristine" translate>
+                                                <div class="error"
+                                                    *ngIf="form.controls['region'].hasError('required') && !form.controls['region'].pristine"
+                                                    translate>
                                                     This field is required
                                                 </div>
                                             </div>
@@ -83,16 +100,19 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                             <p class="event-edit"><b translate>City</b></p>
                                             <div class="event-edit form-group position-relative grey-color">
-                                                <select class="form-control evento_input evento_select" name="" formControlName="city_id">
-                                        <option value="" translate>Choose City</option>
-                                        <ng-container *ngIf="cityList">
-                                            <option *ngFor="let city of updatedCityList" [value]="city.id">
-                                                {{ city.name }}
-                                            </option>
-                                        </ng-container>
-                                    </select>
+                                                <select class="form-control evento_input evento_select" name=""
+                                                    formControlName="city_id">
+                                                    <option value="" translate>Choose City</option>
+                                                    <ng-container *ngIf="cityList">
+                                                        <option *ngFor="let city of updatedCityList" [value]="city.id">
+                                                            {{ city.name }}
+                                                        </option>
+                                                    </ng-container>
+                                                </select>
                                                 <i class="fas fa-chevron-down embed"></i>
-                                                <div class="error" *ngIf="form.controls['city_id'].hasError('required') && !form.controls['city_id'].pristine" translate>
+                                                <div class="error"
+                                                    *ngIf="form.controls['city_id'].hasError('required') && !form.controls['city_id'].pristine"
+                                                    translate>
                                                     This field is required
                                                 </div>
                                             </div>
@@ -101,14 +121,21 @@
                                             <p class="event-edit"><b translate>Event Description</b>
                                             </p>
                                             <div class="event-edit form-group w-100 grey-color">
-                                                <textarea rows="4" cols="50" class="form-control evento_input" formControlName="details" placeholder=""></textarea>
-                                                <div class="error" *ngIf="form.controls['details'].hasError('required') && !form.controls['details'].pristine" translate>
+                                                <textarea rows="4" cols="50" class="form-control evento_input"
+                                                    formControlName="details" placeholder=""></textarea>
+                                                <div class="error"
+                                                    *ngIf="form.controls['details'].hasError('required') && !form.controls['details'].pristine"
+                                                    translate>
                                                     This field is required
                                                 </div>
-                                                <div class="error" *ngIf="form.controls['details'].hasError('minlength') && !form.controls['details'].pristine" translate>
+                                                <div class="error"
+                                                    *ngIf="form.controls['details'].hasError('minlength') && !form.controls['details'].pristine"
+                                                    translate>
                                                     Field should be at least 10 characters
                                                 </div>
-                                                <div class="error" *ngIf="form.controls['details'].hasError('maxlength') && !form.controls['details'].pristine" translate>
+                                                <div class="error"
+                                                    *ngIf="form.controls['details'].hasError('maxlength') && !form.controls['details'].pristine"
+                                                    translate>
                                                     Field should be at most 1000 characters
                                                 </div>
 
@@ -117,14 +144,21 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                             <p class="event-edit"><b translate>Event Address</b></p>
                                             <div class="event-edit form-group grey-color">
-                                                <input type="text" class="event-edit form-control evento_input" formControlName="address" placeholder="">
-                                                <div class="error" *ngIf="form.controls['address'].hasError('required') && !form.controls['address'].pristine" translate>
+                                                <input type="text" class="event-edit form-control evento_input"
+                                                    formControlName="address" placeholder="">
+                                                <div class="error"
+                                                    *ngIf="form.controls['address'].hasError('required') && !form.controls['address'].pristine"
+                                                    translate>
                                                     This field is required
                                                 </div>
-                                                <div class="error" *ngIf="form.controls['address'].hasError('minlength') && !form.controls['address'].pristine" translate>
+                                                <div class="error"
+                                                    *ngIf="form.controls['address'].hasError('minlength') && !form.controls['address'].pristine"
+                                                    translate>
                                                     Field should be at least 3 characters
                                                 </div>
-                                                <div class="error" *ngIf="form.controls['address'].hasError('maxlength') && !form.controls['address'].pristine" translate>
+                                                <div class="error"
+                                                    *ngIf="form.controls['address'].hasError('maxlength') && !form.controls['address'].pristine"
+                                                    translate>
                                                     Field should be at most 1000 characters
                                                 </div>
 
@@ -135,16 +169,20 @@
 
 
 
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-12 border-left-right span-left pl-5 pr-5">
+                                    <div
+                                        class="col-lg-6 col-md-12 col-sm-12 col-12 border-left-right span-left pl-5 pr-5">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                             <p class="event-edit"><b translate>Maximum Number Of Audience</b></p>
                                             <div class="event-edit form-group grey-color">
-                                                <input type="number" class="form-control evento_input" placeholder="" formControlName="maximum_capacity">
-                                                <div class="error" *ngIf="form.controls['maximum_capacity'].hasError('required') && !form.controls['maximum_capacity'].pristine"
+                                                <input type="number" class="form-control evento_input" placeholder=""
+                                                    formControlName="maximum_capacity">
+                                                <div class="error"
+                                                    *ngIf="form.controls['maximum_capacity'].hasError('required') && !form.controls['maximum_capacity'].pristine"
                                                     translate>
                                                     This field is required
                                                 </div>
-                                                <div class="error" *ngIf="form.controls['maximum_capacity'].hasError('min') && !form.controls['maximum_capacity'].pristine"
+                                                <div class="error"
+                                                    *ngIf="form.controls['maximum_capacity'].hasError('min') && !form.controls['maximum_capacity'].pristine"
                                                     translate>
                                                     Field should be at least 1
                                                 </div>
@@ -153,11 +191,16 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                             <p class="event-edit"><b translate>Minimum Age</b></p>
                                             <div class="event-edit form-group grey-color">
-                                                <input type="text" class="form-control evento_input" placeholder="" formControlName="minimum_age">
-                                                <div class="error" *ngIf="form.controls['minimum_age'].hasError('required') && !form.controls['minimum_age'].pristine" translate>
+                                                <input type="text" class="form-control evento_input" placeholder=""
+                                                    formControlName="minimum_age">
+                                                <div class="error"
+                                                    *ngIf="form.controls['minimum_age'].hasError('required') && !form.controls['minimum_age'].pristine"
+                                                    translate>
                                                     This field is required
                                                 </div>
-                                                <div class="error" *ngIf="form.controls['minimum_age'].hasError('min') && !form.controls['minimum_age'].pristine" translate>
+                                                <div class="error"
+                                                    *ngIf="form.controls['minimum_age'].hasError('min') && !form.controls['minimum_age'].pristine"
+                                                    translate>
                                                     Field should be at least Zero
                                                 </div>
                                             </div>
@@ -166,17 +209,19 @@
                                             <p class="event-edit"><b translate>Targeted Audience</b>
                                             </p>
                                             <div class="event-edit form-group position-relative grey-color">
-                                                <select class="form-control evento_input evento_select" name="" formControlName="audience_gender">
-                                        <option value="" translate>Choose Audience</option>
-                                        <ng-container *ngIf="audiencesList">
-                                            <option *ngFor="let audience of audiencesList.data"
-                                                    [value]="audience.audience_id">
-                                                {{ audience.name }}
-                                            </option>
-                                        </ng-container>
-                                    </select>
+                                                <select class="form-control evento_input evento_select" name=""
+                                                    formControlName="audience_gender">
+                                                    <option value="" translate>Choose Audience</option>
+                                                    <ng-container *ngIf="audiencesList">
+                                                        <option *ngFor="let audience of audiencesList.data"
+                                                            [value]="audience.audience_id">
+                                                            {{ audience.name }}
+                                                        </option>
+                                                    </ng-container>
+                                                </select>
                                                 <i class="fas fa-chevron-down embed"></i>
-                                                <div class="error" *ngIf="form.controls['audience_gender'].hasError('required') && !form.controls['audience_gender'].pristine"
+                                                <div class="error"
+                                                    *ngIf="form.controls['audience_gender'].hasError('required') && !form.controls['audience_gender'].pristine"
                                                     translate>
                                                     This field is required
                                                 </div>
@@ -188,8 +233,12 @@
                                             <p class="event-edit"><b translate>Event Starts Date</b></p>
                                             <div class="form-group w-100 d-block">
                                                 <div class="event-edit form-group position-relative grey-color">
-                                                    <my-date-picker [options]="myDatePickerOptions" formControlName="from_date" class="data-evento"></my-date-picker>
-                                                    <div class="error" *ngIf="form.controls['from_date'].hasError('required') && !form.controls['from_date'].pristine" translate>
+                                                    <my-date-picker [options]="myDatePickerOptions"
+                                                        formControlName="from_date" class="data-evento">
+                                                    </my-date-picker>
+                                                    <div class="error"
+                                                        *ngIf="form.controls['from_date'].hasError('required') && !form.controls['from_date'].pristine"
+                                                        translate>
                                                         This field is required
                                                     </div>
                                                 </div>
@@ -201,27 +250,38 @@
                                             <div class="form-group w-100 d-flex">
                                                 <div class="w-50">
                                                     <p class="event-edit"><b translate>Event Starts Time</b></p>
-                                                    <input type="text" class="event-edit form-control evento_input  w-50" placeholder="00:00" formControlName="from_time" style="width: 100% !important">
-                                                    <div class="error" *ngIf="form.controls['from_time'].hasError('required') && !form.controls['from_time'].pristine" translate>
+                                                    <input type="text"
+                                                        class="event-edit form-control evento_input  w-50"
+                                                        placeholder="00:00" formControlName="from_time"
+                                                        style="width: 100% !important">
+                                                    <div class="error"
+                                                        *ngIf="form.controls['from_time'].hasError('required') && !form.controls['from_time'].pristine"
+                                                        translate>
                                                         This field is required
                                                     </div>
-                                                    <div class="error" *ngIf="form.controls['from_time'].hasError('pattern') && !form.controls['from_time'].pristine" translate>
+                                                    <div class="error"
+                                                        *ngIf="form.controls['from_time'].hasError('pattern') && !form.controls['from_time'].pristine"
+                                                        translate>
                                                         Time pattern invalid
                                                     </div>
 
                                                 </div>
                                                 <div class="event-edit form position-relative w-25 pl-1 pr-1">
                                                     <p class="event-edit"> &nbsp;</p>
-                                                    <input type="radio" class="form-check-input" value="am" formControlName="from_time_type">
-                                                    <button class="btn btn-outline-dark mr-1 ml-1" style="width: 100% !important;" translate>Am
-                                            </button>
+                                                    <input type="radio" class="form-check-input" value="am"
+                                                        formControlName="from_time_type">
+                                                    <button class="btn btn-outline-dark mr-1 ml-1"
+                                                        style="width: 100% !important;" translate>Am
+                                                    </button>
 
                                                 </div>
                                                 <div class="event-edit form position-relative w-25 pr-1">
                                                     <p class="event-edit"> &nbsp;</p>
-                                                    <input type="radio" class="form-check-input" value="pm" formControlName="from_time_type">
-                                                    <button class="btn btn-outline-dark mr-1 ml-1" style="width: 100% !important;" translate>Pm
-                                            </button>
+                                                    <input type="radio" class="form-check-input" value="pm"
+                                                        formControlName="from_time_type">
+                                                    <button class="btn btn-outline-dark mr-1 ml-1"
+                                                        style="width: 100% !important;" translate>Pm
+                                                    </button>
 
                                                 </div>
                                             </div>
@@ -231,11 +291,15 @@
                                             <p class="event-edit"><b translate>Event Ends Date</b></p>
                                             <div class="form-group w-100 d-block">
                                                 <div class="event-edit form-group position-relative grey-color">
-                                                    <my-date-picker [options]="myDatePickerOptions" formControlName="end_date" class="data-evento"></my-date-picker>
-                                                    <div class="error" *ngIf="form.controls['end_date'].hasError('required') && !form.controls['end_date'].pristine" translate>
+                                                    <my-date-picker [options]="myDatePickerOptions"
+                                                        formControlName="end_date" class="data-evento"></my-date-picker>
+                                                    <div class="error"
+                                                        *ngIf="form.controls['end_date'].hasError('required') && !form.controls['end_date'].pristine"
+                                                        translate>
                                                         This field is required
                                                     </div>
-                                                    <div class="error" *ngIf="form.hasError('dateError') && form.dirty" translate>
+                                                    <div class="error" *ngIf="form.hasError('dateError') && form.dirty"
+                                                        translate>
                                                         End date should be more than or equal From date
                                                     </div>
                                                 </div>
@@ -245,30 +309,42 @@
                                             <div class="form-group w-100 d-flex">
                                                 <div class="w-50">
                                                     <p class="event-edit"><b translate>Event Ends Time</b></p>
-                                                    <input type="text" class="event-edit form-control evento_input  w-50" placeholder="00:00" formControlName="end_time" style="width: 100% !important">
-                                                    <div class="error" *ngIf="form.controls['end_time'].hasError('required') && !form.controls['end_time'].pristine" translate>
+                                                    <input type="text"
+                                                        class="event-edit form-control evento_input  w-50"
+                                                        placeholder="00:00" formControlName="end_time"
+                                                        style="width: 100% !important">
+                                                    <div class="error"
+                                                        *ngIf="form.controls['end_time'].hasError('required') && !form.controls['end_time'].pristine"
+                                                        translate>
                                                         This field is required
                                                     </div>
-                                                    <div class="error" *ngIf="form.controls['end_time'].hasError('pattern') && !form.controls['end_time'].pristine" translate>
+                                                    <div class="error"
+                                                        *ngIf="form.controls['end_time'].hasError('pattern') && !form.controls['end_time'].pristine"
+                                                        translate>
                                                         Time pattern invalid
                                                     </div>
-                                                    <div class="error" *ngIf="form.hasError('timeError') && form.dirty" translate>
+                                                    <div class="error" *ngIf="form.hasError('timeError') && form.dirty"
+                                                        translate>
                                                         End time should be more than start time
                                                     </div>
 
                                                 </div>
                                                 <div class="event-edit form position-relative w-25 pl-1 pr-1">
                                                     <p class="event-edit"> &nbsp;</p>
-                                                    <input type="radio" class="form-check-input" value="am" formControlName="end_time_type">
-                                                    <button class="btn btn-outline-dark mr-1 ml-1" style="width: 100% !important;" translate>Am
-                                        </button>
+                                                    <input type="radio" class="form-check-input" value="am"
+                                                        formControlName="end_time_type">
+                                                    <button class="btn btn-outline-dark mr-1 ml-1"
+                                                        style="width: 100% !important;" translate>Am
+                                                    </button>
 
                                                 </div>
                                                 <div class="event-edit form position-relative w-25 pr-1">
                                                     <p class="event-edit"> &nbsp;</p>
-                                                    <input type="radio" class="form-check-input" value="pm" formControlName="end_time_type">
-                                                    <button class="btn btn-outline-dark mr-1 ml-1" style="width: 100% !important;" translate>Pm
-                                        </button>
+                                                    <input type="radio" class="form-check-input" value="pm"
+                                                        formControlName="end_time_type">
+                                                    <button class="btn btn-outline-dark mr-1 ml-1"
+                                                        style="width: 100% !important;" translate>Pm
+                                                    </button>
 
                                                 </div>
                                             </div>
@@ -279,9 +355,11 @@
 
 
 
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex  pl-5 pr-5" style="display: grid !important;">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex  pl-5 pr-5"
+                                    style="display: grid !important;">
                                     <p class="event-edit"><b translate>Event Location on Map</b></p>
-                                    <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="placeMarker($event)" [zoom]="14">
+                                    <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="placeMarker($event)"
+                                        [zoom]="14">
                                         <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
                                     </agm-map>
                                 </div>
@@ -292,9 +370,10 @@
 
                                         <div class="checkbox">
                                             <label>
-                                                            <input type="checkbox"  name="agreementChecked" formControlName="agreementChecked">
-                                                            <span class="title">موافق على ‏الشروط‏ و الاحكام  </span>
-                                                        </label>
+                                                <input type="checkbox" name="agreementChecked"
+                                                    formControlName="agreementChecked">
+                                                <span class="title">موافق على ‏الشروط‏ و الاحكام </span>
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -306,13 +385,16 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex justify-content-end pl-5 pr-5">
-                                    <button type="button" class="event-edit btn btn-dark pr-5 pl-5 ml-2 mr-2" (click)="onCancel()" translate>
-                            Cancel
-                        </button>
-                                    <button [disabled]="!form.valid" type="submit" class="event-edit btn btn-danger pr-5 pl-5 ml-2 mr-2" translate>
-                            SAVE
-                        </button>
+                                <div
+                                    class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex justify-content-end pl-5 pr-5">
+                                    <button type="button" class="event-edit btn btn-dark pr-5 pl-5 ml-2 mr-2"
+                                        (click)="onCancel()" translate>
+                                        Cancel
+                                    </button>
+                                    <button [disabled]="!form.valid" type="submit"
+                                        class="event-edit btn btn-danger pr-5 pl-5 ml-2 mr-2" translate>
+                                        SAVE
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -336,47 +418,60 @@
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center select-package">
                 <div class="col-lg-6 col-md-10 col-sm-12 col-12 d-flex flex-wrap text-center justify-content-center">
-                    <div (click)="onBox(1)" class="col-lg-4 col-md-4 col-sm-4 col-12 text-center justify-content-center  mt-5 package" [ngClass]="{'depth' : isOnBackageOne, 'normal' : !isOnBackageOne }"
-                         id="package-1">
+                    <div (click)="onBox(1)"
+                        class="col-lg-4 col-md-4 col-sm-4 col-12 text-center justify-content-center  mt-5 package"
+                        [ngClass]="{'depth' : isOnBackageOne, 'normal' : !isOnBackageOne }" id="package-1">
                         <h2 class="text-white" translate>PACKAGE 1</h2>
-                        <h5 class="text-white">5 <small>{{ 'SR' | translate }}</small> - 49 <small>{{ 'SR' | translate }}</small></h5>
+                        <h5 class="text-white">5 <small>{{ 'SR' | translate }}</small> - 49
+                            <small>{{ 'SR' | translate }}</small></h5>
                         <h3 class="mt-5" style="text-decoration: line-through">4% + 2 {{ 'SR' | translate }}</h3>
                         <h3>3.5% + 1.5 {{ 'SR' | translate }}</h3>
                         <p class="text-danger" translate>Per Ticket Sale</p>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                            standard dummy text</p>
+                        <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                            standard dummy text</p> -->
                     </div>
-                    <div (click)="onBox(3)" class="col-lg-5 col-md-5 col-sm-4 col-12 text-center justify-content-center package" id="package-3">
+                    <div (click)="onBox(3)"
+                        class="col-lg-5 col-md-5 col-sm-4 col-12 text-center justify-content-center package"
+                        id="package-3">
                         <h2 class="text-white" translate>PACKAGE 3</h2>
                         <h5 class="text-white">120 <small>{{ 'SR' | translate }}</small> - {{ 'More' | translate }}</h5>
                         <h3 class="mt-5" style="text-decoration: line-through">3% + 2 {{ 'SR' | translate }}</h3>
-                        <h3 >2.5% + 1.5 {{ 'SR' | translate }}</h3>
+                        <h3>2.5% + 1.5 {{ 'SR' | translate }}</h3>
                         <p class="text-danger" translate>Per Ticket Sale</p>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                            standard dummy text</p>
+                        <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                            standard dummy text</p> -->
                     </div>
-                    <div (click)="onBox(2)" class="col-lg-4 col-md-4 col-sm-4 col-12 text-center justify-content-center mt-5 package" [ngClass]="{'depth' : isOnBackageTwo, 'normal' : !isOnBackageTwo }"
-                         id="package-2">
+                    <div (click)="onBox(2)"
+                        class="col-lg-4 col-md-4 col-sm-4 col-12 text-center justify-content-center mt-5 package"
+                        [ngClass]="{'depth' : isOnBackageTwo, 'normal' : !isOnBackageTwo }" id="package-2">
                         <h2 class="text-white" translate>PACKAGE 2</h2>
-                        <h5 class="text-white">50 <small>{{ 'SR' | translate }}</small> - 119 <small>{{ 'SR' | translate }}</small></h5>
+                        <h5 class="text-white">50 <small>{{ 'SR' | translate }}</small> - 119
+                            <small>{{ 'SR' | translate }}</small></h5>
                         <h3 class="mt-5" style="text-decoration: line-through">3.5% + 2 {{ 'SR' | translate }}</h3>
                         <h3>3% + 1.5 {{ 'SR' | translate }}</h3>
                         <p class="text-danger" translate>Per Ticket Sale</p>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-                            standard dummy text</p>
+                        <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                            standard dummy text</p> -->
                     </div>
                 </div>
             </div>
+
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center mt-5">
+                <p class="notes" translate>There is fixed price</p>
+            </div> -->
+
 
             <form [formGroup]="agreement">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
                     <div class="form-check-inline d-flex text-center justify-content-center mb-1">
                         <label class="form-check-label">
-                            <input formControlName="agreement"  type="checkbox" class="form-check-input"> {{ 'I have read and understand the above information' | translate }}
+                            <input formControlName="agreement" type="checkbox" class="form-check-input">
+                            {{ 'I have read and understand the above information' | translate }}
                         </label>
                     </div>
                     <div class="form-group d-flex justify-content-center">
-                        <button (click)="onAgree()" [disabled]="!agreement.valid" type="button" class="btn btn-danger pd-250" translate>continue</button>
+                        <button (click)="onAgree()" [disabled]="!agreement.valid" type="button"
+                            class="btn btn-danger pd-250" translate>continue</button>
                     </div>
                 </div>
             </form>

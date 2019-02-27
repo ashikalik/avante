@@ -35,10 +35,10 @@ export class BuyTicketService {
     }
 
 
-    public createInvoice(form: any, event_key: string):  Observable<any>{
+    public createInvoice(form: any, event_key: string): Observable<any> {
 
         let access_date;
-        if(form.access_date && form.access_date.formatted){
+        if (form.access_date && form.access_date.formatted) {
             access_date = form.access_date.formatted
         }
         var body = {
@@ -55,6 +55,15 @@ export class BuyTicketService {
         };
 
         const url = NetworkConfig.BASE_URL + NetworkConfig.CREATE_INVOICE_PAYMENT
+        return this.httpClient.post<any>(url, body);
+    }
+
+    public validatePayment(reference: string): Observable<any> {
+
+        const body = {
+            reference: reference
+        }
+        const url = NetworkConfig.BASE_URL + NetworkConfig.CHECK_INVOICE_STATUS
         return this.httpClient.post<any>(url, body);
     }
 
