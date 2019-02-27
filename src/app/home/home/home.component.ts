@@ -98,14 +98,20 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.router.navigate(['/search']);
     }
 
+    public onJoin(){
+        this.router.navigate(['/my-profile']);
+    }
+
     public createEvent() {
-        if(this.isAuthenticated && this.userType === 2) {
-            this.router.navigate(['/organizer/create-event']);
-        } else if(this.isAuthenticated && this.userType !== 2) {
-            this.router.navigate(['/auth/register']);
-        } else {
-            this.router.navigate(['/auth/register']);
-        }
+        // if(this.isAuthenticated && this.userType === 2) {
+        //     this.router.navigate(['/organizer/create-event']);
+        // } else if(this.isAuthenticated && this.userType !== 2) {
+        //     this.router.navigate(['/auth/register']);
+        // } else {
+        //     this.router.navigate(['/auth/register']);
+        // }
+        this.router.navigate(['/organizer/create-event']);
+
     }
 
 
