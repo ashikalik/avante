@@ -21,14 +21,14 @@
     </div>
   </div>
   <div class="col-lg-4 col-md-12 col-sm-12  text_left justify-content-start pl-3 pr-3 mt-5">
-    <div class="col-lg-12 col-md-12 col-sm-12 ">
-      <div class="col-lg-3 col-md-3 col-sm-3  text_left justify-content-start">
-        <div class="col-lg-12 col-md-12 col-sm-12 text-center justify-content-center bg-light">
-          <h4>{{ eventDetails.data.details.from_date | eventoDay}}</h4>
+    <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+      <div class=" col-lg-3 col-md-3 col-sm-3 d-flex text_left justify-content-start">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center justify-content-center date-box">
+          <h4 class="pt-1">{{ eventDetails.data.details.from_date | eventoDay}}</h4>
           <p><b>{{ eventDetails.data.details.from_date | eventoMonth}}</b></p>
         </div>
       </div>
-      <div class="col-lg-9 col-md-9 col-sm-9  text_left justify-content-start">
+      <div class="col-lg-9 col-md-9 col-sm-8  d-flex mt-3 mr-1  text_left justify-content-start">
         <h4>{{ eventDetails.data.details.name }}</h4>
       </div>
     </div>
