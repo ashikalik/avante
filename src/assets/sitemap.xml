@@ -9,27 +9,32 @@
 
 <url>
   <loc>https://www.eventoapps.com/</loc>
-  <lastmod>2019-02-21T19:08:06+00:00</lastmod>
+  <lastmod>2019-02-28T07:17:18+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://www.eventoapps.com/home</loc>
+  <lastmod>2019-02-28T07:17:18+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://www.eventoapps.com/about-us</loc>
-  <lastmod>2019-02-21T19:08:06+00:00</lastmod>
+  <lastmod>2019-02-28T07:17:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.eventoapps.com/contact-us</loc>
-  <lastmod>2019-02-21T19:08:06+00:00</lastmod>
+  <lastmod>2019-02-28T07:17:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.eventoapps.com/auth</loc>
-  <lastmod>2019-02-21T19:08:06+00:00</lastmod>
+  <loc>https://www.eventoapps.com/auth/login</loc>
+  <lastmod>2019-02-28T07:17:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.eventoapps.com/terms&amp;conditions</loc>
-  <lastmod>2019-02-21T19:08:06+00:00</lastmod>
+  <lastmod>2019-02-28T07:17:18+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
