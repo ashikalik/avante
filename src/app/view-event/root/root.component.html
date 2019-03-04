@@ -30,7 +30,7 @@
                             </div>
                             <app-event-roles [policy]="eventDetail.data.policy" *ngIf="eventDetail.data.policy"></app-event-roles>
 
-                            <ng-container *ngIf="eventDetail.data.packages.length > 0">
+                            <ng-container *ngIf="eventDetail.data.packages && eventDetail.data.packages.length > 0">
                                     <div class="col-lg-12 col-sm-12 col-12 underline mb-3">
                                             <h5 translate>Tickets</h5>
                                         </div>

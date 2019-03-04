@@ -46,7 +46,7 @@ pipeline {
       steps{
         script {
           sh """
-                docker build -t manasstech/website .
+                docker build -t manasstech/website:${env.IMAGE_SUB_TAG} .
 
             """
         }
@@ -64,7 +64,7 @@ pipeline {
         script {
           sh """
 
-                docker push manasstech/website
+                docker push manasstech/website${env.IMAGE_SUB_TAG}
 
             """
         }
@@ -82,7 +82,7 @@ pipeline {
         script {
           sh """
 
-                docker rmi manasstech/website
+                docker rmi manasstech/website${env.IMAGE_SUB_TAG}
 
             """
         }
