@@ -63,7 +63,6 @@ pipeline {
       steps{
         script {
           sh """
-
                 docker push manasstech/website:${env.IMAGE_SUB_TAG}
 
             """
@@ -81,7 +80,6 @@ pipeline {
       steps{
         script {
           sh """
-
                 docker rmi manasstech/website:${env.IMAGE_SUB_TAG}
 
             """
