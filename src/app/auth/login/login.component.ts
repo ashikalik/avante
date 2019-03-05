@@ -59,7 +59,6 @@ export class LoginComponent implements OnInit {
         this.authService.login(body).subscribe(res => {
             this.userAuthService.setToken(res.token);
              this.profile = this.userAuthService.getUserProfile();
-             console.log(this.profile)
              if(this.profile.data.user_type == 4){
                  this.router.navigate(['/seller/tickets']);
              }else{

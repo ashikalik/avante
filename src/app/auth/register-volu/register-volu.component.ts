@@ -48,7 +48,6 @@ export class RegisterVoluComponent implements OnInit {
 
 
     onRegisterButton(form: any) {
-        console.log(form.value);
         const body = {
             first_name: form.value.first_name,
             last_name: form.value.last_name,
@@ -57,7 +56,7 @@ export class RegisterVoluComponent implements OnInit {
             mobile: form.value.mobile,
             password: form.value.password,
             confirm_password: form.value.confirm_password,
-            user_type: 2,
+            user_type: 1,
             gender: form.value.gender,
             recaptcha: form.value.recaptcha
         };

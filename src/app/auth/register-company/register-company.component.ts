@@ -46,7 +46,6 @@ export class RegisterCompanyComponent implements OnInit {
 
 
     onRegisterButton(form: any) {
-        console.log(form.value);
         const body = {
             first_name: form.value.first_name,
             last_name: form.value.last_name,
