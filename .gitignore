@@ -48,3 +48,6 @@ package-lock.json
 yarn.lock
 yarn-lock.log
 skeleton.json
+
+.idea
+package-*

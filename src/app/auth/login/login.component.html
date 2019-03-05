@@ -1,0 +1,48 @@
+<div class="main_container mb-5 pt-5" >
+	<div class="container-fluid pt-5">
+		<div class="row">
+			<div class="col-lg-6 col-sm-6">
+
+				<div class="text-center ">
+					<img class="img_responsive" src="assets/signupmember.png" alt="" />
+				</div>
+			</div>
+
+
+			<div class="border-left-right col-lg-6 col-sm-6">
+				<div class="signup_content mt-3 text-center">
+
+					<h2 class="text-center" translate>Signin</h2>
+					<p translate>Don't have an account yet?<a [routerLink]="['/auth/register']" class="text-danger" translate>Sign up</a></p>
+
+
+
+
+					<app-errors [errors]="errorsLogin" *ngIf="errorsLogin"></app-errors>
+
+					<form [formGroup]="loginForm" (ngSubmit)="onlogin(loginForm)">
+
+						<div class="form-group">
+							<input formControlName="username" type="input" class="form-control evento_input  mt-3" placeholder="{{ 'Email Address' | translate}}"
+							/>
+						</div>
+						<div class="form-group">
+							<input formControlName="password" type="password" class="form-control evento_input  mt-3" placeholder="{{ 'Password' | translate}}"
+							/>
+						</div>
+
+						<!-- <div class="form-group d-flex justify-content-center mt-2">
+                            <button type="button" class="btn btn-dark" translate>Login</button>
+                        </div> -->
+						<input type="submit" class="btn btn-danger width_120 mt-3 mb-2 mr-2 ml-2" value="{{ 'Login' | translate }}"
+							   [disabled]="!loginForm.valid" />
+					</form>
+					<a [routerLink]="['/auth/forget-password']" translate>Forgot Your Password?</a>
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

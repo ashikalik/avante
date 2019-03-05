@@ -1,0 +1,79 @@
+<form [formGroup]="payment">
+
+  <div class="col-lg-10 col-md-10 col-sm-10 text-center justify-content-center steps-setting">
+
+    <app-errors [errors]="errorsValidatePackage" *ngIf="errorsValidatePackage"></app-errors>
+
+    <div *ngIf="isLessThanFive" class="alert alert-danger" >
+     {{ 'Remaining Tickets are' | translate}} {{this.validatePackageRes.left}} 
+    </div>
+
+    <div *ngIf="isSoldOut" class="alert alert-danger" translate >
+        All Tickets are sold out
+       </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center justify-content-center mt-3">
+        <div class="form-group position-relative">
+          <select class="form-control evento_input evento_select" name="sellist" formControlName="package_id" (change)="onChangePackage($event.target.value)">
+          <option value="" translate>Pick your tickets</option>
+          <option [value]="package.package_id" *ngFor="let package of eventDetail.data.packages"  >{{ package.name }}</option>
+        </select>
+          <i class="fas fa-chevron-down embed"></i>
+        </div>
+      </div>
+
+
+
+      <div *ngIf="isDateRequired" class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center mt-3 justify-content-center">
+        <div class="form-group position-relative">
+          <my-date-picker placeholder="{{ 'Date of entery' | translate }}" [options]="myDatePickerOptions" formControlName="access_date"
+            (dateChanged)="onChangeDate($event)"></my-date-picker>
+        </div>
+      </div>
+
+
+      <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut" class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center  mt-3 justify-content-center">
+        <div class="form-group position-relative">
+          <select class="form-control evento_input evento_select" name="sellist" formControlName="num_ticket" (change)="onChangeNumOfTickets($event.target.value)">
+          <option value="" translate>Number of tickets</option>
+          <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
+          <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
+          <option value="3" *ngIf="validatePackageRes.left >= 3">3</option>
+          <option value="4" *ngIf="validatePackageRes.left >= 4">4</option>
+          <option value="5" *ngIf="validatePackageRes.left >= 5">5</option>
+        </select>
+          <i class="fas fa-chevron-down embed"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center justify-content-center mt-3">
+            <div class="form-group position-relative">
+                <select class="form-control evento_input evento_select" name="sellist" formControlName="payment_type">
+                <option value="" translate>Payment Type</option>
+                <option value="2" translate> Cash</option>
+                <option value="3" translate> Credit</option>
+              </select>
+                <i class="fas fa-chevron-down embed"></i>
+              </div>
+        </div>
+    </div>
+
+    <div class="mt-10">
+      <div *ngIf="numbOfTickets && package" class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-right align-items-center justify-content-start ">
+        <p class="grey-color mb-0 d-flex align-items-center" style="margin-right: 7.5px;" translate>Price &nbsp;</p>
+        <button *ngIf="total > 0" type="button" class="btn btn-dark btn-md"> {{total}} {{ 'SR' | translate }}</button>
+        <button *ngIf="total == 0" type="button" class="btn btn-dark btn-md"> {{ 'Free' | translate }}</button>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-right align-items-center justify-content-end">
+        <button type="button" class="btn btn-secondary" (click)="onButtonBack()" translate>Cancel</button>
+        <button type="button" class="btn btn-danger" [disabled]="!payment.controls['num_ticket'].valid || !payment.controls['package_id'].valid || !payment.controls['access_date'].valid || !payment.controls['payment_type'].valid"
+          (click)="onButtonNext()" translate>Next Step &nbsp;<i class="fas fa-chevron-left"></i></button>
+      </div>
+    </div>
+
+  </div>
+</form>

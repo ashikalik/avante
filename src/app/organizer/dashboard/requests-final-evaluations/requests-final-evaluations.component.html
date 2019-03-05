@@ -1,0 +1,93 @@
+<div class=" application-container">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-center">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+
+          <div class="pr-3 col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
+            <h4 translate>Interviews results</h4>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap mb-3">
+          <div class="col-lg-4 col-md-12 col-sm-12 col-12 pl-2 pr-2   mb-3">
+            <input type="text" class="form-control evento_input" placeholder="{{ 'Search By Email or mobile or username' | translate }}" [(ngModel)]="searchInput">
+          </div>
+
+          <div class="col-lg-3 col-md-12 col-sm-12 col-12 pl-2 pr-2 ">
+              <div class="form-group position-relative">
+                <select class="form-control evento_input evento_select" name="" [(ngModel)]="status">
+                    <option *ngFor="let status of request_status" [value]="status.key">{{status.status}}</option>
+                </select>
+                <i class="fas fa-chevron-down embed"></i>
+              </div>
+            </div>
+
+          <div class="col-lg-2 col-md-12 col-sm-12 col-12 pl-2 pr-2 ">
+            <button type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="search()" translate>Search</button>
+          </div>
+        </div>
+
+        <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
+          <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+            Name
+          </div>
+          <div class="title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+              Phone Number
+          </div>
+          <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>
+            Status
+          </div>
+          <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>
+            Interview Rating
+          </div>
+        </div>
+
+        <ng-container *ngIf="requestList">
+          <ng-container *ngIf="requestList.data.length === 0">
+            <div class="pl-3 pr-3 col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+              <div class="alert alert-warning pl-3 pr-3" role="alert" translate>
+                You don't have any requests.
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngFor="let request of requestList.data">
+
+            <div class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
+              <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+                <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Name:</span> {{request.first_name}} {{request.last_name}}
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Phone Number:</span> {{request.mobile }}
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+                <span class="d-md-none d-lg-none d-xl-none" translate> Status:</span>{{request.status_name }}
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+                <span class="d-md-none d-lg-none d-xl-none" translate> Rating:</span>{{request.result }}
+              </div>
+              <div class="text-center col-lg-2 col-md-2 col-sm-12 col-12">
+                <button (click)="viewInterview(request.request_id)" type="button" class="btn btn-info btn-sm pl-4 pr-4" translate>View Interview</button>
+              </div>
+            </div>
+          </ng-container>
+
+
+
+
+          <app-pagination
+          (goPage)="goToPage($event)"
+          (goNext)="onNext()"
+          (goPrev)="onPrev()"
+          [pagesToShow]="10"
+          [page]="requestList.meta.query.page"
+          [perPage]="requestList.meta.query.limit"
+          [count]="requestList.meta.query.total"></app-pagination>
+
+          
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</div>

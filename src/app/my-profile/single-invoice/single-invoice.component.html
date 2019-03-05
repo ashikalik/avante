@@ -1,0 +1,58 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-3 d-flex flex-wrap bg-box-shadow border">
+  <div [class.active]="showMore" class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap active  underline ticket-main-info">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-3">
+      <img class="img-fluid border-radius-left" src="assets/dx34459.png" alt="">
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-6 p-3">
+      <p class="mb-1">{{ invoice.event_name }}</p>
+      <P class="text-danger mb-1">{{ invoice.total_with_vat }} {{ 'SR' | translate }}</P>
+      <div class="d-flex ticket-main-summary">
+        <p class="grey-color mb-0">{{ 'QTY' | translate }}: </p>
+        <button type="button" class="btn btn-outline-dark btn-sm ml-2 mr-2 pl-4 pr-4 pt-1 pb-1 h-sm">{{ invoice.num_ticket }}</button>
+        <p class="grey-color mb-0">{{ 'Price' | translate }}: </p>
+        <button type="button" class="btn btn-outline-dark btn-sm ml-2 mr-2 pl-2 pr-2 pt-1 pb-1 h-sm">{{ invoice.total_with_vat }} {{ 'SR' | translate }}</button>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-3 p-3">
+      <button type="button" class="show-more btn btn-danger btn-sm pt-1 pb-1 pl-3 pr-3 mt-3 span-right" (click)="onShow();" translate>SHOW MORE</button>
+    </div>
+  </div>
+  <div [class.active]="showMore" class="col-lg-12 col-md-12 col-sm-12 col-12 p-3 d-flex flex-wrap active ticket-more-detail">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 underline">
+      <p translate>Order Info</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
+      <p class="mb-0"><span class="grey-color">{{ 'Ticket' | translate }}: </span> {{ invoice.package_name }}</p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-3">
+      <p class="mb-0"><span class="grey-color">{{ 'QTY' | translate }}: </span> {{ invoice.num_ticket }} </p>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-3" *ngIf="invoice.access_date">
+      <p class="mb-0"><span class="grey-color">{{ 'Date' | translate }}: </span> {{ invoice.access_date }}</p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+      <p class="mb-0"><span class="grey-color">{{ 'First Name' | translate }}: </span> {{ invoice.first_name }}</p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-3">
+      <p class="mb-0"><span class="grey-color">{{ 'Last Name' | translate }}: </span> {{ invoice.last_name }}</p>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+      <p class="mb-0"><span class="grey-color">{{ 'Email' | translate }}: </span> {{ invoice.email }}</p>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-3">
+      <p class="mb-0"><span class="grey-color" >{{ 'Phone Number' | translate }}: </span> <span style="direction: ltr">{{ invoice.mobile }}</span></p>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 underline mt-4">
+      <p translate>Ticket Info</p>
+    </div>
+    <ng-container *ngIf="tickets">
+      <ng-container *ngFor="let ticket of tickets.data ; let i = index">
+        <app-single-ticket [ticket]="ticket" [index]="i" style="width: 100%;"></app-single-ticket>
+      </ng-container>
+
+    </ng-container>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex justify-content-end mt-3">
+      <button type="button" class="show-less btn btn-danger btn-sm pt-1 pb-1 pl-3 pr-3 mt-1 span-right" (click)="onShow();" translate>SHOW LESS</button>
+    </div>
+  </div>
+</div>

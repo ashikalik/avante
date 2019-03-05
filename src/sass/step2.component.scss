@@ -1,0 +1,134 @@
+// // src/app/buyticket/step2/step2.component.scss
+
+
+// .ticket-container {
+// 	padding-bottom:  250px;
+// 	padding-top: 50px;
+// 	h4 {
+// 		color: #b7b7b7;
+// 		margin-bottom: 33px;
+// 	}
+// 	h3 {
+// 	}
+// 	.explain {
+// 		font-size: 1rem;
+// 		color: #9e9e9e;
+// 		margin-bottom: 49px;
+// 	}
+// 	.steps {
+
+// 	}
+// 	.ticket-div {
+// 		width: 100px;
+// 		height: 100px;
+// 		border: 1px solid #9e9e9e;
+// 		border-radius: 18px;
+// 		padding-top: 15px;
+// 		p {
+// 			text-align: center;
+// 			margin-top: 1rem;
+// 			margin-bottom: 0;
+// 			font-size: 20px;
+// 			line-height: .5rem;
+// 			color: #9e9e9e;
+// 		}
+// 		span {
+// 			text-align: center;
+// 			font-size: 10px;
+// 			color: #9e9e9e;
+// 		}
+// 	}
+// 	.ticket-div.active {
+// 		border: 1px solid #0f1f2c;
+// 		span {
+// 			color: #0f1f2c;
+// 		}
+// 	}
+// 	.ticket-gap {
+// 		width: 100px;
+// 		.fas.fa-chevron-down.embed {
+// 			text-align: center;
+// 			position: initial;
+// 			margin-top: 18px;
+// 			margin-bottom: 18px;
+// 		}
+// 		.fas.fa-chevron-right.embed {
+// 			display: none;
+// 		}
+// 	}
+// 	.steps-setting {
+// 		//margin-top: 55px;
+// 		div {
+// 			padding-left: 0;
+// 			padding-right: 0;
+// 		}
+// 		.justify-content-end {
+// 			float: right;
+// 		}
+// 		.align-items-center {
+// 			height: 54px;
+// 			p {
+
+// 			}
+// 		}
+// 		.text-left p {
+// 			font-size: 18px;
+// 			font-weight: 600;
+// 			margin-bottom: 13px;
+// 		}
+// 		.underline {
+// 			border-bottom: 1px solid #9e9e9e;
+// 			margin-bottom: 10px;
+// 		}
+// 		.pd-0 {
+// 			padding-left: 0;
+// 			padding-right: 0;
+// 		}
+// 	}
+// }
+
+// @media (max-width: 768px) {
+// 	.ticket-container {
+// 		padding-bottom:  50px;
+// 		padding-top: 50px;
+
+// 	}
+// 	.steps {
+// 		padding: 0;
+// 		margin-left: auto;
+// 		margin-right: auto;
+// 		.ticket-div {
+// 		    padding-top: 5px;
+// 			max-width: 100px;
+// 			width: 22%;
+// 			height: auto;
+// 			min-height: 77px;
+// 			float: left;
+// 			.step-text {
+// 				margin-top: .4rem;
+// 			}
+// 			span {
+// 				font-size: 9px;
+// 			}
+// 		}
+// 		.ticket-gap {
+// 			min-height: 77px;
+// 			width: 4%;
+// 			float: left;
+// 			justify-content: center;
+//     		display: flex;
+// 			.fas.fa-chevron-down.embed {
+// 				display: none;
+// 			}
+// 			.fas.fa-chevron-right.embed {
+// 				display: block;
+// 				text-align: center;
+// 				position: initial;
+// 				margin-top: auto;
+// 				margin-bottom: auto;
+// 			}
+// 		}
+// 	}
+// }
+
+

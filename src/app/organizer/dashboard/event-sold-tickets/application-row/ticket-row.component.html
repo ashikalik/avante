@@ -1,0 +1,35 @@
+<div class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
+  <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Name:</span> {{ticket.first_name}} {{ticket.last_name}}
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Phone Number:</span> {{ticket.mobile }}
+  </div>
+  <div class="title col-lg-4 col-md-4 col-sm-12 col-12">
+    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Email:</span> {{ticket.email }}
+  </div>
+  <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+    <span class="d-md-none d-lg-none d-xl-none" translate> Status:</span>{{ticket.num_ticket }}
+  </div>
+  <div class="text-center col-lg-1 col-md-1 col-sm-12 col-12">
+    <button *ngIf="!showInfo" type="button" (click)="onShowInfo()" class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-down"></i></button>
+    <button *ngIf="showInfo" type="button" (click)="onShowInfo()" class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-up"></i></button>
+  </div>
+</div>
+
+<div *ngIf="showInfo" class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap ">
+  <div class=" pr-3 col-lg-12 col-md-12 col-sm-12 col-12 ">
+    <div class="underline h-120 ">
+      <p class="grey-color mb-0" translate>Package Name</p>
+      <p>{{ticket.package_name }}</p>
+    </div>
+    <div class="underline h-120">
+      <p class="grey-color mb-0" translate>Payment Chanel</p>
+      <p>{{ticket.payment_type }}</p>
+    </div>
+    <div class="underline h-120">
+      <p class="grey-color mb-0" translate>Total</p>
+      <p>{{ticket.total_with_vat }}</p>
+    </div>
+  </div>
+</div>

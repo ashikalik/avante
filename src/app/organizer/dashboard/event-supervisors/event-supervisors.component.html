@@ -1,0 +1,242 @@
+<div class=" application-container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-center">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+
+                    <div class="pr-3 col-lg-6 col-md-12 col-sm-12 col-12">
+                        <h4 translate>Event Supervisors</h4>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap" *ngIf="!showCreate">
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-12 mt-1 mb-3">
+                        <button type="button" class="btn btn-info btn-sm pl-4 pr-4 mr-3 ml-3 mb-3"
+                                (click)="onShowCreate();"><i class="fas fa-plus"></i> {{ 'Add New Supervisor' |
+                            translate }}
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap" *ngIf="!showCreate">
+                    <div class="col-lg-4 col-md-12 col-sm-12 col-12 pl-2 pr-2   mb-3">
+                        <input type="text" class="form-control evento_input"
+                               [(ngModel)]="search"
+                               placeholder="{{ 'Search By Email or mobile or username' | translate }}">
+                    </div>
+
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-12 pl-2 pr-2 ">
+                        <div class="form-group position-relative">
+                            <select class="form-control evento_input evento_select"
+                                    [(ngModel)]="status_id"
+                                    name="">
+                                <option value="" translate>Choose Status</option>
+                                <option value="1" translate>Active</option>
+                                <option value="3" translate>Blocked</option>
+                            </select>
+                            <i class="fas fa-chevron-down embed"></i>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-12 col-sm-12 col-12 pl-2 pr-2 ">
+                        <button type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="searchSupervisor();" translate>SEARCH</button>
+                    </div>
+                </div>
+
+                <ng-container *ngIf="supervisors && !showCreate">
+                    <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
+                        <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12" translate> Full Name</div>
+                        <div class="title col-lg-3 col-md-3 col-sm-12 col-12" translate>Phone Number</div>
+                        <div class="title col-lg-4 col-md-4 col-sm-12 col-12" translate>Email</div>
+                        <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>Status</div>
+                    </div>
+                    <app-supervisor-row [supervisor]="supervisor"
+                                        (onUpdate)="getEventSupervisor()"
+                                        *ngFor="let supervisor of supervisors.data"></app-supervisor-row>
+
+
+                    <app-pagination
+                            (goPage)="goToPage($event)"
+                            (goNext)="onNext()"
+                            (goPrev)="onPrev()"
+                            [pagesToShow]="10"
+                            [page]="supervisors.meta.query.page"
+                            [perPage]="supervisors.meta.query.limit"
+                            [count]="supervisors.meta.query.total"></app-pagination>
+
+
+
+                </ng-container>
+
+                <ng-container *ngIf="showCreate">
+                    <form [formGroup]="form" (ngSubmit)="addSupervisor(form)">
+                        <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+                                <p class="event-edit"><b translate>First Name</b></p>
+                                <div class="event-edit form-group grey-color">
+                                    <input type="text" class="form-control evento_input" placeholder="" formControlName="first_name">
+                                    <div class="error"
+                                         *ngIf="form.controls['first_name'].hasError('required') && !form.controls['first_name'].pristine"
+                                         translate>
+                                        This field is required
+                                    </div>
+                                    <div class="error"
+                                         *ngIf="form.controls['first_name'].hasError('minlength') && !form.controls['first_name'].pristine"
+                                         translate>
+                                        Field should be at least 3 characters
+                                    </div>
+                                    <div class="error"
+                                         *ngIf="form.controls['first_name'].hasError('maxlength') && !form.controls['first_name'].pristine"
+                                         translate>
+                                        Field should be at most 40 characters
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+                                <p class="event-edit"><b translate>Last Name</b></p>
+                                <div class="event-edit form-group grey-color">
+                                    <input type="text" class="form-control evento_input" placeholder="" formControlName="last_name">
+                                    <div class="error"
+                                         *ngIf="form.controls['last_name'].hasError('required') && !form.controls['last_name'].pristine"
+                                         translate>
+                                        This field is required
+                                    </div>
+                                    <div class="error"
+                                         *ngIf="form.controls['last_name'].hasError('minlength') && !form.controls['last_name'].pristine"
+                                         translate>
+                                        Field should be at least 3 characters
+                                    </div>
+                                    <div class="error"
+                                         *ngIf="form.controls['last_name'].hasError('maxlength') && !form.controls['last_name'].pristine"
+                                         translate>
+                                        Field should be at most 40 characters
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+                                <p class="event-edit"><b translate>Phone Number</b></p>
+                                <div class="event-edit form-group grey-color">
+                                    <input type="text" class="form-control evento_input" placeholder="" formControlName="mobile">
+                                    <div class="error"
+                                         *ngIf="form.controls['mobile'].hasError('required') && !form.controls['mobile'].pristine"
+                                         translate>
+                                        This field is required
+                                    </div>
+                                    <div class="error"
+                                         *ngIf="form.controls['mobile'].hasError('pattern') && !form.controls['mobile'].pristine"
+                                         translate>
+                                        Mobile number is invalid
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+                                <p class="event-edit"><b translate>Email</b></p>
+                                <div class="event-edit form-group grey-color">
+                                    <input type="text" class="form-control evento_input" placeholder="" formControlName="mail">
+                                    <div class="error"
+                                         *ngIf="form.controls['mail'].hasError('required') && !form.controls['mail'].pristine"
+                                         translate>This field is required
+                                    </div>
+                                    <div class="error"
+                                         *ngIf="form.controls['mail'].hasError('email') && !form.controls['mail'].pristine" translate>
+                                        Email format is not valid
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+                                <p class="event-edit"><b translate>Gender</b></p>
+                                <div class="event-edit form-group position-relative grey-color">
+                                    <select class="form-control evento_input evento_select"
+                                            formControlName="gender"
+                                            name="">
+                                        <option value="" translate>Choose Gender</option>
+                                        <option value="1" translate>Male</option>
+                                        <option value="2" translate>Female</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                    <div class="error"
+                                         *ngIf="form.controls['gender'].hasError('required') && !form.controls['gender'].pristine"
+                                         translate>This field is required
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+
+                            <div class="col-lg-6 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+                                <p class="setting-title mb-0" translate>Organizers</p>
+                                <p class="setting-description grey-color" translate>This will be authorized a supervisor
+                                    for managing organizers Interviews and joining requests</p>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3 mt-1">
+                                <div class="event-edit form-group position-relative grey-color">
+                                    <select class="form-control evento_input evento_select"
+                                            formControlName="requests"
+                                            name="">
+                                        <option value="" translate>Choose Permission</option>
+                                        <option value="1" translate>Authorized</option>
+                                        <option value="2" translate>UnAuthorized</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                    <div class="error"
+                                         *ngIf="form.controls['requests'].hasError('required') && !form.controls['requests'].pristine"
+                                         translate>This field is required
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+
+                            <div class="col-lg-6 col-md-3 col-sm-12 col-12 pl-3 pr-3">
+                                <p class="setting-title mb-0" translate>Sales</p>
+                                <p class="setting-description grey-color" translate>This will be authorized a supervisor
+                                    for managing Salesmen and create or delete or updated</p>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 col-12 pl-3 pr-3 mt-1">
+                                <div class="event-edit form-group position-relative grey-color">
+                                    <select class="form-control evento_input evento_select"
+                                            formControlName="sellers"
+                                            name="">
+                                        <option value="" translate>Choose Permission</option>
+                                        <option value="1" translate>Authorized</option>
+                                        <option value="2" translate>UnAuthorized</option>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                    <div class="error"
+                                         *ngIf="form.controls['sellers'].hasError('required') && !form.controls['sellers'].pristine"
+                                         translate>This field is required
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12 pl-5 pr-5 d-flex flex-wrap mt-3">
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <button type="submit" class="btn btn-info pl-4 pr-4 mb-3 mr-2 ml-2"
+                                        [disabled]="form.invalid"
+                                        translate>Add
+                                </button>
+                                <button type="button" class="btn btn-danger pl-4 pr-4 mb-3 mr-2 ml-2"
+                                        (click)="onShowCreate();" translate>Cancel
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </ng-container>
+
+            </div>
+        </div>
+    </div>
+</div>

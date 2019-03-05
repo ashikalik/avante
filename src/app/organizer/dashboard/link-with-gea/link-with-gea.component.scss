@@ -1,0 +1,26 @@
+.gea-logo {
+  margin: auto;
+}
+
+
+@media (max-width: 767px)  {
+  .gea-logo {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px)  {
+  .gea-logo {
+    width: auto;
+  }
+}
+
+
+.a-href {
+  color: #061626;
+}
+
+.a-href:hover {
+  color: #071f31;
+  text-decoration: none;
+}

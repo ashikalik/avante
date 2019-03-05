@@ -1,0 +1,85 @@
+<div class="main_container ">
+    <div class="container-fluid">
+        <div class="row main-content d-flex text-center justify-content-center">
+            <div class="col-lg-7 col-sm-12 col-12">
+                <h2 class="text-center"><span class="text-warning">{{ 'SEARCH' | translate }},&nbsp;</span><span
+                        class="text-danger">{{ 'CHOOSE'| translate }},&nbsp;</span><span
+                        class="text-primary">{{ 'BOOK' | translate }}&nbsp;</span>
+                    <span class="text-dark">{{ 'AND ENJOY' | translate }}</span>
+                </h2>
+                <div class="row form-row d-flex justify-content-center">
+                    <div class="col-sm-12">
+                        <div class="row">
+
+                            <div class="col-sm-4 pd-49">
+                                <div class="form-group">
+                                    <input [(ngModel)]="searchService.name" type="text"
+                                        class="form-control evento_input" placeholder="{{ 'Event Name' | translate }}">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pd-49">
+                                <div class="form-group position-relative">
+                                    <select class="form-control evento_input evento_select"
+                                        [(ngModel)]="searchService.region">
+                                        <option value="" translate>Choose Region</option>
+                                        <ng-container *ngIf="regionList">
+                                            <option *ngFor="let region of regionList.data" [value]="region.region_id">
+                                                {{ region.name }}
+                                            </option>
+                                        </ng-container>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4 pd-49">
+                                <div class="form-group position-relative">
+                                    <select class="form-control evento_input evento_select"
+                                        [(ngModel)]="searchService.type">
+                                        <option value="" translate>Event Type</option>
+                                        <ng-container *ngIf="eventTypes">
+                                            <option *ngFor="let type of eventTypes.data" [value]="type.id">
+                                                {{ type.name }}
+                                            </option>
+                                        </ng-container>
+                                    </select>
+                                    <i class="fas fa-chevron-down embed"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row find-row justify-content-center">
+                    <div class="form-group d-sm-flex justify-content-center">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-dark mb-2 pd-100" (click)="search()" translate>Find
+                            </button>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <button type="button" class="btn btn-danger mb-2 pd-100" (click)="searchAll()" translate>
+                                See All Events
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid tabs-container latest-event">
+        <div class="row ml-0 mr-0" *ngIf="searchResult">
+            <!-- <div class="col-lg-3 col-md-12 col-sm-12 text-center justify-content-center">
+              <app-search-bar></app-search-bar>
+            </div> -->
+            <div class="row mt-3">
+                <app-event-list *ngIf="searchResult.data.length > 0" [searchResult]="searchResult"></app-event-list>
+
+            </div>
+            <h3 class="no-result" *ngIf="searchResult.data.length == 0" translate>No Search Result</h3>
+            <app-pagination (goPage)="goToPage($event)" (goNext)="onNext()" (goPrev)="onPrev()" [pagesToShow]="10"
+                [page]="searchResult.meta.query.page" [perPage]="searchResult.meta.query.limit"
+                [count]="searchResult.meta.query.total"></app-pagination>
+        </div>
+    </div>
+</div>

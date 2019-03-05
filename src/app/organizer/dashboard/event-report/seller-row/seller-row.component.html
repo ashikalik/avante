@@ -1,0 +1,33 @@
+<div class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
+  <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+    <span class="pr-3 d-md-none d-lg-none d-xl-none"> {{ 'Name' | translate }}:</span> {{ seller.first_name }} {{ seller.last_name }}
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+    <span class="pr-3 d-md-none d-lg-none d-xl-none" style="direction: ltr"> {{ 'Phone Number' | translate }} :</span> {{ seller.mobile }}
+  </div>
+  <div class="title col-lg-4 col-md-4 col-sm-12 col-12">
+    <ng-container  *ngIf="seller.gender === 1">
+      <span class="pr-3 d-md-none d-lg-none d-xl-none"> {{ 'Gender' | translate }}:</span> {{ 'Male' | translate }}
+    </ng-container>
+    <ng-container *ngIf="seller.gender === 2">
+      <span class="pr-3 d-md-none d-lg-none d-xl-none" > {{ 'Gender' | translate }}:</span> {{ 'Female' | translate }}
+    </ng-container>
+  </div>
+  <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+    <ng-container *ngIf="seller.total != null">
+      <span class="d-md-none d-lg-none d-xl-none"> {{ 'Total Revenue' | translate }}:</span> {{ seller.total }}
+    </ng-container>
+    <ng-container *ngIf="seller.total == null">
+      <span class="d-md-none d-lg-none d-xl-none"> {{ 'Total Revenue' | translate }}:</span> 0
+    </ng-container>
+  </div>
+  <div class="text-center col-lg-1 col-md-1 col-sm-12 col-12">
+    <button *ngIf="showDetails"  (click)="onShowDetails();" type="button"  class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-up"></i></button>
+    <button *ngIf="!showDetails"  (click)="onShowDetails();" type="button"  class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-down"></i></button>
+  </div>
+</div>
+
+<ng-container *ngIf="showDetails">
+  <app-seller-details [seller_id]="seller.user_id"></app-seller-details>
+</ng-container>
+

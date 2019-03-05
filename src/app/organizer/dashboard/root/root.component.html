@@ -1,0 +1,56 @@
+<div class="main_container">
+  <div class="container-fluid event-container">
+    <div class="row justify-content-center">
+      <!-- side menu -->
+      <div class="col-lg-3 col-md-4 col-sm-6 col-12 side-toggle-menu nav_toggle left-0">
+        <i class="dashboard_toggle left-0 fas fa-bars ml-2 mr-2 mt-2" (click)="onDashboardToggle()" title="doshboard"></i>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-start side-menu">
+          <ul class="sidebar-nav">
+            <li class="sidebar-brand d-flex justify-content-center align-items-center">
+              <img class="rounded-circle" src="assets/user.png" alt="" />
+              <p class="mb-0">{{ username }} &nbsp; <br><a [routerLink]="['/my-profile']" class="mt-2" translate>My account<i class="fas fa-chevron-left"></i></a></p>
+            </li>
+            <li class="sidebar-list" *ngIf="isAdmin || isRequestSupervisor || isSellerSupervisor">
+              <a class="sidebar-item" [routerLink]="['/details']" (click)="onMenuHide()" translate><img class="img-fluid ml-2 mr-2" src="assets/EventIcon.png" alt=""/>EVENT</a>
+              <ul class="sidebar-nav">
+                <li *ngIf="isAdmin || isRequestSupervisor || isSellerSupervisor" class="sidebar-sublist " routerLinkActive="active"><a [routerLink]="['details']" (click)="onMenuHide()" translate>Event Details</a></li>
+                <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['setting']" (click)="onMenuHide()" translate>Event Setting</a></li>
+                <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['terms']" (click)="onMenuHide()" translate>Event Terms And Conditions</a></li>
+                <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['supervisors']" (click)="onMenuHide()" translate>Event Supervisors</a></li>
+                <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['link-gea']" (click)="onMenuHide()" translate>Link Event with GEA</a></li>
+                <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a (click)="onMenuHide()" translate>Event Badge Design</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-list" *ngIf="isAdmin || isRequestSupervisor">
+              <a class="sidebar-item" href="" (click)="onMenuHide()" translate><img class="img-fluid ml-2 mr-2" src="assets/OrganizersIcon.png" alt=""/>Organizers</a>
+              <ul class="sidebar-nav">
+                <li *ngIf="isAdmin || isRequestSupervisor" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['questions']" (click)="onMenuHide()" translate>Interviews Questions</a></li>
+                <li *ngIf="isAdmin || isRequestSupervisor" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['requests']" (click)="onMenuHide()" translate>Requests</a></li>
+                <li *ngIf="isAdmin || isRequestSupervisor" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['evaluations']" (click)="onMenuHide()" translate>Evaluations</a></li>
+                <li *ngIf="isAdmin || isRequestSupervisor" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['final-evaluations']" (click)="onMenuHide()" translate>Interviews results</a></li>
+                <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['final-rating']" (click)="onMenuHide()" translate>Final Rating</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-list" *ngIf="isAdmin || isSellerSupervisor">
+              <a class="sidebar-item" href="" (click)="onMenuHide()" translate><img class="img-fluid ml-2 mr-2" src="assets/TicketsIcon.png" alt=""/>Tickets</a>
+              <ul class="sidebar-nav">
+                <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['packages']" (click)="onMenuHide()" translate>Tickets Packages</a></li>
+                <li *ngIf="isAdmin || isSellerSupervisor" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['sales']" (click)="onMenuHide()" translate>Sales staff</a></li>
+                <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['sold-tickets']" (click)="onMenuHide()" translate>Sold Tickets</a></li>
+              </ul>
+            </li>
+            <li class="sidebar-list" *ngIf="isAdmin">
+              <a class="sidebar-item" href="" (click)="onMenuHide()" translate><img class="img-fluid ml-2 mr-2" src="assets/ReportsIcon.png" alt=""/>Reports</a>
+              <ul class="sidebar-nav">
+                <li class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['report']" (click)="onMenuHide()" translate>Statistics</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-10 col-sm-10 col-12 text_left justify-content-center side-content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

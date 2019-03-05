@@ -1,0 +1,104 @@
+<div class="main_container mb-5 pt-5">
+    <div class="container-fluid pt-5">
+        <div *ngIf="!isSignupCompleted" class="row">
+            <div class="col-lg-6 col-sm-6">
+
+                <div *ngIf="member" class="text-center ">
+                    <img class="img_responsive" src="assets/signupmember.png" alt=""/>
+                    <p class="signup_ques_small_1 text-center mt-4" translate>Join us as a member and enjoy the latest
+                        events</p>
+                </div>
+
+                <div *ngIf="company" class="text-center">
+                    <img class="img_responsive" src="assets/VectorSmartObject_0.png" alt=""/>
+                    <p class="signup_ques_small_1 text-center mt-4" translate>Are you an events organizing company?<br>Just
+                        join us and let us make yourjob easier</p>
+                </div>
+
+                <div *ngIf="organizer" class="text-center ">
+                    <img class="img_responsive" src="assets/signuporg.png" alt=""/>
+                    <p class="signup_ques_small_1 text-center mt-4" translate>Join us as an organizer and become part of
+                        the most fun job experience</p>
+                </div>
+            </div>
+
+
+            <div class="border-left-right col-lg-6 col-sm-6">
+                <div class="signup_content mt-3 text-center">
+
+                    <h3 translate>Let's Get Started</h3>
+                    <p class="signup_ques" translate>Already a member? <span><a [routerLink]="['/auth/login']"
+                                                                                style="color: red;" translate>Signin</a></span>
+                    </p>
+
+                    <div *ngIf="!showRegForm">
+
+                        <div class="form-group d-flex mb-4 gender-items">
+                            <div class="form position-relative">
+                                <input (click)="onMember()" type="radio" checked class="form-check-input"
+                                       name="userType">
+                                <button type="button" class="btn signup_select_btn width_220 mr-1 ml-1" translate>
+                                    Member
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group d-flex mb-4 gender-items">
+                            <div class="form position-relative">
+                                <input (click)="onOrganizer()" type="radio" class="form-check-input" name="userType">
+                                <button class="btn signup_select_btn width_220 mr-1 ml-1" translate>Organizer</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group d-flex mb-4 gender-items">
+                            <div class="form position-relative">
+                                <input (click)="onCompany()" type="radio" class="form-check-input" name="userType">
+                                <button class="btn signup_select_btn width_220 mr-1 ml-1" translate>Company</button>
+                            </div>
+                        </div>
+
+                        <input type="button" (click)="onNext()" class="btn width_120 signup_btn mt-3 mr-2 ml-2"
+                               value="{{ 'Next' | translate }}"
+                               [disabled]="!organizer && !member && !company"/>
+                    </div>
+                </div>
+
+
+                <div class="signup_content text-center">
+                    <app-errors [errors]="registrationError" *ngIf="registrationError"></app-errors>
+                </div>
+
+                <ng-container *ngIf="showRegForm">
+                    <ng-container *ngIf="organizer">
+                        <app-register-volu [signupForm]="signupForm" [cities]="cities" [regions]="regions" (onCancel)='onCancel($event)'
+                                           (onRegister)='onSignup($event)'></app-register-volu>
+                    </ng-container>
+                    <ng-container *ngIf="member">
+                        <app-register-user [signupForm]="signupForm" (onCancel)='onCancel($event)'
+                                           (onRegister)='onSignup($event)'></app-register-user>
+                    </ng-container>
+                    <ng-container *ngIf="company">
+                        <app-register-company [signupForm]="signupForm" [cities]="cities" [regions]="regions" (onCancel)='onCancel($event)'
+                                              (onRegister)='onSignup($event)'></app-register-company>
+                    </ng-container>
+                </ng-container>
+
+            </div>
+        </div>
+
+
+        <div *ngIf="isSignupCompleted">
+            <div class="text-center ">
+                <img class="img_responsive" src="assets/Step5-ART-407x258.png" alt=""/>
+                <h4 class="mt-3" style="color: inherit;" translate>Your account has been created successfuly!</h4>
+                <p class="grey-color" translate>A Verification email was sent to you</p>
+                <p class="signup_ques_small_1 text-center mt-4" translate>If you did not receive this email, please
+                    check your junk/spam folder</p>
+
+                <button (click)="toSigin()" type="button" class="btn btn-success md-15" translate> Signin <i
+                        class="fas fa-chevron-left"></i></button>
+            </div>
+        </div>
+
+    </div>
+</div>

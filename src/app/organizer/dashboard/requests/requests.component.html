@@ -1,0 +1,223 @@
+<div *ngIf="!onPreAcceptScreen" class=" application-container">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-center">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+
+          <div class="pr-3 col-lg-6 col-md-12 col-sm-12 col-12">
+            <h4 translate>Applications</h4>
+          </div>
+
+          <div *ngIf="requestList" class="col-lg-3 col-md-12 col-sm-12 col-12 mt-1 mb-3">
+            <button [ngClass]="[requestList.data.length == '0' ? 'disabled' : '']"  type="button" (click)="onPreAcceptRequest(requestList.data)" class="btn btn-info btn-sm pl-4 pr-4 mr-3 ml-3 mb-3" translate><i class="fas fa-check" ></i> Accept All Applications</button>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap ">
+          <div class="col-lg-4 col-md-12 col-sm-12 col-12 pl-2 pr-2   mb-3">
+            <input type="text" class="form-control evento_input" placeholder="{{ 'Search By Email or mobile or username' | translate }}" [(ngModel)]="searchInput">
+          </div>
+
+          <div class="col-lg-3 col-md-12 col-sm-12 col-12 pl-2 pr-2 ">
+            <div class="form-group position-relative">
+              <select class="form-control evento_input evento_select" name="" [(ngModel)]="status">
+                  <option *ngFor="let status of request_status" [value]="status.key">{{status.status}}</option>
+              </select>
+              <i class="fas fa-chevron-down embed"></i>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-12 col-sm-12 col-12 pl-2 pr-2 ">
+            <button type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="search()" translate>Search</button>
+          </div>
+        </div>
+
+        <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
+          <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+            Name
+          </div>
+          <div class="title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+            Phone Number
+          </div>
+          <div class="title col-lg-4 col-md-4 col-sm-12 col-12" translate>
+            Email
+          </div>
+          <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>
+            Status
+          </div>
+        </div>
+
+        <ng-container *ngIf="requestList">
+          <ng-container *ngIf="requestList.data.length === 0">
+            <div class="pl-3 pr-3 col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+              <div class="alert alert-warning pl-3 pr-3" role="alert" translate>
+                You don't have any requests.
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngFor="let request of requestList.data">
+            <app-application-row (onPreAcceptRequest)="onPreAcceptRequest($event)" (onUpdateRequests)="onUpdateRequest($event)" [request]="request"
+              [eventkey]="event_key"></app-application-row>
+          </ng-container>
+
+
+
+          <app-pagination
+          (goPage)="goToPage($event)"
+          (goNext)="onNext()"
+          (goPrev)="onPrev()"
+          [pagesToShow]="10"
+          [page]="requestList.meta.query.page"
+          [perPage]="requestList.meta.query.limit"
+          [count]="requestList.meta.query.total"></app-pagination>
+
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="onPreAcceptScreen">
+
+  <div class="pr-3 pt-4 col-lg-12 col-md-12 col-sm-12 col-12">
+    <h4 translate>Applications</h4>
+  </div>
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4 pl-5 pr-5" *ngIf="errorPreAccept">
+      <app-errors [errors]="errorPreAccept"></app-errors>
+  </div>
+
+  <div *ngIf="isMoreThanOneRequest" class="pr-3 pt-4 col-lg-12 col-md-12 col-sm-12 col-12">
+    <span class="font-bold" translate> Number of requests that will be accepted for the interview are: </span> <span class="font-bold" >{{numOfRequests}}</span>
+  </div>
+
+  <form [formGroup]="preAcceptForm" class="content" id="event-details" class="tab-event-content">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12   pl-5 pr-5">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+          <p class="event-edit"><b translate>Interview Start Date & Time</b></p>
+          <div class="form-group w-100 d-block">
+            <div class="event-edit form-group position-relative grey-color">
+              <my-date-picker [options]="myDatePickerOptions" formControlName="from_date" class="data-evento" placeholder="{{ 'Interview Start Date' | translate }}"></my-date-picker>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+          <div class="form-group w-100 d-flex">
+            <div class="w-50">
+              <input type="text" formControlName="from_time" class="event-edit form-control evento_input w-50" placeholder="00:00" style="width: 100% !important">
+              <div class="error" *ngIf="preAcceptForm.controls['from_time'].hasError('required') && !preAcceptForm.controls['from_time'].pristine"
+                translate>
+                This field is required
+              </div>
+              <div class="error" *ngIf="preAcceptForm.controls['from_time'].hasError('pattern') && !preAcceptForm.controls['from_time'].pristine"
+                translate>
+                Time pattern invalid
+              </div>
+            </div>
+            <div class="event-edit form position-relative w-25 pl-1 pr-1">
+              <input type="radio" class="" value="am" formControlName="from_time_type">
+              <button class="btn btn-outline-dark mr-1 ml-1" style="width: 100% !important;" translate>Am
+                                      </button>
+            </div>
+            <div class="event-edit form position-relative w-25 pr-1">
+              <input type="radio" class="" value="pm" formControlName="from_time_type">
+              <button class="btn btn-outline-dark mr-1 " style="width: 100% !important;" translate>Pm
+                                      </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+          <div class="form-group w-100 d-block">
+            <p class="event-edit"><b translate>Interview End Date & Time</b></p>
+            <div class="event-edit form-group position-relative grey-color">
+              <my-date-picker [options]="myDatePickerOptions" formControlName="end_date" class="data-evento" placeholder="{{ 'Interview End Date' | translate }}"></my-date-picker>
+              <div class="error" *ngIf="preAcceptForm.controls['end_date'].hasError('required') && !preAcceptForm.controls['end_date'].pristine"
+                translate>
+                This field is required
+              </div>
+              <div class="error" *ngIf="preAcceptForm.hasError('dateError') && preAcceptForm.dirty" translate>
+                The end date of the interview should be more than or equal the from date
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+          <div class="form-group w-100 d-flex">
+            <div class="w-50">
+              <input type="text" class="event-edit form-control evento_input  w-50" formControlName="end_time" placeholder="00:00" style="width: 100% !important">
+              <div class="error" *ngIf="preAcceptForm.controls['end_time'].hasError('required') && !preAcceptForm.controls['end_time'].pristine"
+                translate>
+                This field is required
+              </div>
+              <div class="error" *ngIf="preAcceptForm.controls['end_time'].hasError('pattern') && !preAcceptForm.controls['end_time'].pristine"
+                translate>
+                Time pattern invalid
+              </div>
+              <div class="error" *ngIf="preAcceptForm.hasError('timeError') && preAcceptForm.dirty" translate>
+                The end time of the interview should be more than the start time
+              </div>
+            </div>
+
+            <div class="event-edit form position-relative w-25 pl-1 pr-1">
+              <input type="radio" class="form-check-input" value="am" formControlName="end_time_type">
+              <button class="btn btn-outline-dark mr-1 ml-1" style="width: 100% !important;" translate>Am
+              </button>
+            </div>
+            <div class="event-edit form position-relative w-25 pr-1">
+              <input type="radio" class="form-check-input" value="pm" formControlName="end_time_type">
+              <button class="btn btn-outline-dark mr-1 ml-1" style="width: 100% !important;" translate>Pm
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+          <div class="form-group w-100 d-block">
+            <div class="event-edit form-group position-relative grey-color">
+              <input formControlName="contact" maxlength="10" class=" form-control evento_input" placeholder="{{ 'Contact Number' | translate }}"  />
+              <div *ngIf="preAcceptForm.controls['contact'].hasError('pattern')" class="error" translate>
+                  Mobile number is not valid
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4">
+          <div class="form-group w-100 d-block">
+            <div   class="event-edit form-group position-relative grey-color">
+              <input  formControlName="interview_location" type="text" class=" form-control evento_input" placeholder="{{ 'Interview Location' | translate }}"
+              />
+            </div>
+          </div>
+        </div>
+
+
+        <div *ngIf="displayMap" class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex" style="display: grid !important;">
+          <p class="event-edit"><b translate>Interview Location on Map</b></p>
+          <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="placeMarker($event)" [zoom]="14">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 pt-5 d-flex pl-5 pr-5">
+      <button type="button" class="event-edit btn btn-dark pr-5 pl-5 ml-2 mr-2" (click)="onPreAcceptRequest();" translate>
+            Cancel
+        </button>
+      <button  (click)="preAcceptRequest(preAcceptForm)" type="submit" class="event-edit btn btn-danger pr-5 pl-5 ml-2 mr-2"
+        translate>
+            Save
+        </button>
+    </div>
+
+  </form>
+
+</ng-container>

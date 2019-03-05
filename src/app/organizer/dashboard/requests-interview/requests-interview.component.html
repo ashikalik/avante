@@ -1,0 +1,224 @@
+<div class=" application-container">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-center">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+
+          <div class="pr-3 col-lg-6 col-md-12 col-sm-12 col-12 mb-3">
+            <h4 translate>Interview </h4>
+          </div>
+        </div>
+
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-2 pl-5 pr-5" *ngIf="error">
+          <app-errors class="pl-4" [errors]="error"></app-errors>
+        </div>
+
+        <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
+          <div class=" title  pr-3 col-lg-3 col-md-3 col-sm-12 col-12" translate>
+            Name
+          </div>
+          <div class="title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+            Email
+          </div>
+          <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>
+            Phone Number
+          </div>
+          <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>
+            Interview Time
+          </div>
+        </div>
+
+
+
+        <ng-container *ngIf="requestDetails">
+
+          <div class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
+            <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+              <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Name:</span> {{requestDetails.data.request.first_name}}
+              {{requestDetails.data.request.last_name}}
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+              <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Email:</span> {{requestDetails.data.request.email
+              }}
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+              <span class="d-md-none d-lg-none d-xl-none" translate> Phone Number:</span> {{requestDetails.data.request.mobile
+              }}
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+              <span class="d-md-none d-lg-none d-xl-none" translate> Interview Time:</span>{{requestDetails.data.request.status
+              }}
+            </div>
+          </div>
+
+          <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap ">
+            <div class="body-col pr-3 col-lg-5 col-md-5 col-sm-12 col-12 ">
+              <div class="underline h-120 ">
+                <p class="grey-color mb-0" translate>About me:</p>
+                <p>{{requestDetails.data.request.bio}}</p>
+              </div>
+              <div class="underline h-120">
+                <p class="grey-color mb-0" translate>Age:</p>
+                <p>{{requestDetails.data.request.age}}</p>
+              </div>
+              <div class="underline h-120">
+                <p class="grey-color mb-0" translate>City:</p>
+                <p> {{requestDetails.data.request.nationality}}</p>
+              </div>
+              <div class="star-rating mt-4 underline h-120">
+                <p class="grey-color mb-0" translate>Rating:</p>
+                <span class="fas fa-star checked"></span>
+                <span class="fas fa-star checked"></span>
+                <span class="fas fa-star checked"></span>
+                <span class="fas fa-star checked"></span>
+                <span class="fas fa-star"></span>
+                <span class="rating-value grey-color">(7.5/10)</span>
+              </div>
+
+            </div>
+
+            <div class="col-lg-1 col-md-1 col-sm-12 col-12"></div>
+
+            <div class="body-col col-lg-4 col-md-5 col-sm-12 col-12  ">
+              <app-application-cv [requestDetails]="requestDetails"></app-application-cv>
+            </div>
+
+          </div>
+
+
+          <div class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap mb-3">
+            <div class=" col-lg-6 col-md-6 col-sm-12 col-12" translate>
+              Question
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-12" translate>
+              Evaluation
+            </div>
+          </div>
+
+          <div *ngFor="let question of requestDetails.data.question;  let i = index;">
+            <div class=" pb-3 col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap ">
+              <div class=" pr-3 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                <div class=" ">
+                  <p>{{question.question}}</p>
+                </div>
+              </div>
+              <div class=" pr-3 col-lg-4 col-md-4 col-sm-12 col-12 ">
+                <div class="rating" *ngIf="!question.rating">
+                  <div *ngIf="!question.selectedRate">
+                    <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                    <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                    <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                    <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                    <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                  </div>
+
+                  <div *ngIf="question.selectedRate == '5' ">
+                    <input checked id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                    <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                    <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                    <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                    <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                  </div>
+
+                  <div *ngIf="question.selectedRate == '4' ">
+                    <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                    <input checked id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                    <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                    <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                    <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                  </div>
+
+                  <div *ngIf="question.selectedRate == '3' ">
+                    <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                    <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                    <input checked id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                    <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                    <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                  </div>
+
+                  <div *ngIf="question.selectedRate == '2' ">
+                    <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                    <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                    <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                    <input checked id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                    <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                  </div>
+
+                  <div *ngIf="question.selectedRate == '1' ">
+                    <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                    <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                    <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                    <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                    <input checked id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                  </div>
+
+                </div>
+                <div class="rating" *ngIf="question.rating">
+                  <label [ngClass]="[question.rating == '5' ? 'active_star' : '']" for="rating-5"><i class="fas  fa-star"></i></label>
+                  <label [ngClass]="[question.rating == '4' || question.rating > '4'  ? 'active_star' : '']" for="rating-4"><i class="fas  fa-star"></i></label>
+                  <label [ngClass]="[question.rating == '3' || question.rating > '3'  ? 'active_star' : '']" for="rating-3"><i class="fas  fa-star"></i></label>
+                  <label [ngClass]="[question.rating == '2' || question.rating > '2'  ? 'active_star' : '']" for="rating-2"><i class="fas  fa-star"></i></label>
+                  <label [ngClass]="[question.rating == '1' || question.rating > '1'  ? 'active_star' : '']" for="rating-1"><i class="fas fa-star"></i></label>
+                </div>
+              </div>
+
+
+              <div class="  pr-3 col-lg-2 col-md-2 col-sm-12 col-12 ">
+                <button *ngIf="!question.rating" (click)="rateQuestion(question.id, question.selectedRate )" type="button" class="btn btn-info btn-sm pl-4 pr-4"
+                  translate>Evaluate</button>
+                <button *ngIf="question.rating" disabled (click)="rateQuestion(question.id, question.selectedRate )" type="button" class="btn btn-info btn-sm pl-4 pr-4"
+                  translate>Evaluated</button>
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <form [formGroup]="interviewForm">
+            <div class=" col-lg-12 col-md-12 col-sm-12 col-12 pl-2 pr-2 d-flex flex-wrap mt-3">
+              <div class="col-lg-10 col-md-10 col-sm-12 col-12 pl-3 pr-3">
+                <p class="event-edit"><b translate> Comments</b></p>
+                <div *ngIf=" requestDetails.data.request.joining_status != 2" class="event-edit form-group grey-color">
+                  <textarea disabled formControlName="comment" type="text" cols="10" rows="5" class="form-control evento_input" placeholder=""></textarea>
+                </div>
+                <div *ngIf="requestDetails.data.request.joining_status != 5 && requestDetails.data.request.joining_status != 3 && requestDetails.data.request.joining_status != 4"
+                  class="event-edit form-group grey-color">
+                  <textarea formControlName="comment" type="text" cols="10" rows="5" class="form-control evento_input" placeholder=""></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class=" col-lg-12 col-md-12 col-sm-12 col-12 pl-2 pr-2 d-flex flex-wrap mt-3">
+
+              <div *ngIf="requestDetails.data.request.joining_status == 2" class="col-lg-3 col-md-3 col-sm-12 col-12 mt-2">
+                <button [disabled]="!interviewForm.valid"  (click)="endInterview(interviewForm)"
+                  type="submit" class="btn btn-info  pl-4 pr-4" translate>
+                    Complete Interview
+                </button>
+              </div>
+              <div *ngIf="requestDetails.data.request.joining_status == 2 || requestDetails.data.request.joining_status == 5" class="col-lg-3 col-md-3 col-sm-12 col-12 mt-2">
+                <button  (click)="rejectRequest(requestDetails.data.request.request_id)"
+                  type="submit" class="event-edit btn btn-danger pr-5 pl-5 " translate>
+                      Reject Request
+                  </button>
+              </div>
+
+              <div *ngIf="requestDetails.data.request.joining_status == 2 || requestDetails.data.request.joining_status == 5"  class="col-lg-3 col-md-3 col-sm-12 col-12 mt-2">
+                <button (click)="finalAccept(requestDetails.data.request.request_id)"
+                  type="submit" class="event-edit btn btn-danger pr-5 pl-5 " translate>
+                        Final Accept Request
+                    </button>
+              </div>
+            </div>
+          </form>
+
+        </ng-container>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<!-- </div> -->

@@ -1,0 +1,61 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-start pb-5 mb-5">
+  <div class="col-lg-8 col-md-12 col-sm-12 col-12 text_left justify-content-start">
+    <div class="col-lg-12 col-sm-12 col-12 event">
+      <div class="custom_tab mt-2">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs small justify-content-start" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active bg-danger position-relative">{{ eventDetails.data.details.type }}</a>
+          </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="content" id="education">
+            <!-- <div class="tab_img_content-view"> -->
+            <div class="">
+              <img style="max-height: 450px; width: 100%;" [src]="eventDetails.data.details.img" alt=""/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-12 col-sm-12  text_left justify-content-start pl-3 pr-3 mt-5">
+    <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+      <div class=" col-lg-3 col-md-3 col-sm-3 d-flex text_left justify-content-start">
+        <div class="col-lg-12 col-md-12 col-sm-12 text-center justify-content-center date-box">
+          <h4 class="pt-1">{{ eventDetails.data.details.from_date | eventoDay}}</h4>
+          <p><b>{{ eventDetails.data.details.from_date | eventoMonth}}</b></p>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-8  d-flex mt-3 mr-1  text_left justify-content-start">
+        <h4>{{ eventDetails.data.details.name }}</h4>
+      </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="col-lg-12 col-md-6 col-sm-6 col-12 text_left justify-content-start mt-3">
+        <p><b>{{ eventDetails.data.packages | minMaxPrice }}</b></p>
+        <!--<button type="button" class="btn btn-success btn-sm mt-1" translate>Buy Your Ticket</button>-->
+        <!--<p class="mt-3">Event will start in</p>-->
+      </div>
+      <div class="col-lg-12 col-md-6 col-sm-6 col-12 text_left justify-content-start mt-3" *ngIf="userType === 1 && eventDetails.data.eligibleToJoin">
+        <button (click)="submitRequest()" type="button" class="btn btn-danger pd-49" translate>APPLY NOW AS A ORGANIZER &nbsp;<i class="fas fa-chevron-left"></i></button>
+      </div>
+      <div class="col-lg-12 col-md-6 col-sm-6 col-12 text_left justify-content-start mt-3" *ngIf="userType === 1 && !eventDetails.data.eligibleToJoin">
+          <button  disabled type="button" class="btn btn-danger pd-49" translate>You have already applied &nbsp;</button>
+        </div>
+    </div>
+
+    <div class="" class="col-lg-12 col-md-12 col-sm-12 col-12 text-timer">
+      <span>ثانية : </span>
+      <span>دقيقة : </span>
+      <span>ساعة : </span>
+      <span>يوم </span>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-start mt-1">
+      <countdown-timer class="timer" end="{{ eventDetails.data.details.from_date }} {{ eventDetails.data.details.from_time }}"></countdown-timer>
+    </div>
+
+  </div>
+</div>

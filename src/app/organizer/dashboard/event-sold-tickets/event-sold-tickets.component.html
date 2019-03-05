@@ -1,0 +1,59 @@
+<div  class=" application-container">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-center">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+  
+            <div class="pr-3 col-lg-6 col-md-12 col-sm-12 col-12">
+              <h4 translate>Sold Tickets</h4>
+            </div>
+          </div>
+  
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap ">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12 pl-2 pr-2   mb-3">
+              <input type="text" class="form-control evento_input"  placeholder="{{ 'Search By Email or mobile or username' | translate }}" [(ngModel)]="searchInput">
+            </div>
+  
+  
+            <div class="col-lg-2 col-md-12 col-sm-12 col-12 pl-2 pr-2 ">
+              <button type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="search()" translate>Search</button>
+            </div>
+          </div>
+  
+          <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
+            <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+              Name
+            </div>
+            <div class="title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+              Phone Number
+            </div>
+            <div class="title col-lg-4 col-md-4 col-sm-12 col-12" translate>
+              Email
+            </div>
+            <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>
+              Status
+            </div>
+          </div>
+  
+          <ng-container *ngIf="ticketsList">
+            <ng-container *ngFor="let ticket of ticketsList.data">
+              <app-ticket-row [ticket]="ticket"></app-ticket-row>
+            </ng-container>
+
+
+          <app-pagination
+          (goPage)="goToPage($event)"
+          (goNext)="onNext()"
+          (goPrev)="onPrev()"
+          [pagesToShow]="10"
+          [page]="ticketsList.meta.query.page"
+          [perPage]="ticketsList.meta.query.limit"
+          [count]="ticketsList.meta.query.total"></app-pagination>            
+          </ng-container>
+
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  

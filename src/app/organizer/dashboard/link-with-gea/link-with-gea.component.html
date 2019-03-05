@@ -1,0 +1,119 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
+
+        <div class="tab-event-content" *ngIf="eventDetails">
+            <div class="content pl-4 pr-4" id="event-details">
+
+                <div class="row ml-0 mr-0 mt-5">
+                    <h4 class="add-condition" translate>Link With GEA</h4>
+                </div>
+
+                <div class="row ml-0 mr-0 mt-5 text-center">
+                    <img src="/assets/gealogo.png" alt="" class="gea-logo">
+                </div>
+
+
+                <ng-container *ngIf="showLink">
+
+
+                    <div class="row ml-0 mr-0 mt-5">
+                        <h6 translate>Connect With GEA To Send Tickets</h6>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
+                        <app-errors [errors]="errorMOI" *ngIf="errorMOI"></app-errors>
+                    </div>
+
+
+                    <form [formGroup]="form" (ngSubmit)="linkGEA(form);">
+                        <div class="row ml-0 mr-0 mt-5">
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-6">
+                                <p class="event-edit"><b translate>MOI Number</b></p>
+                                <div class="event-edit form-group grey-color">
+                                    <input type="text" class="form-control evento_input" placeholder=""
+                                           formControlName="moi_number">
+                                    <div class="error"
+                                         *ngIf="form.controls['moi_number'].hasError('required') && !form.controls['moi_number'].pristine"
+                                         translate>
+                                        This field is required
+                                    </div>
+                                    <div class="error"
+                                         *ngIf="form.controls['moi_number'].hasError('pattern') && !form.controls['moi_number'].pristine"
+                                         translate>
+                                        This field should be numeric
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                <p class="event-edit">&nbsp;</p>
+                                <button type="submit"
+                                        class="event-edit btn btn-danger pr-5 pl-5 mr-3 ml-3"
+                                        [disabled]="form.invalid"
+                                        translate>
+                                    SAVE
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+                </ng-container>
+
+                <ng-container *ngIf="!showLink">
+                    <div class="row ml-0 mr-0 mt-5">
+                        <h6 translate>{{ 'You are Already Linked with GEA' | translate}} <a class="a-href"
+                                                                                            [routerLink]="['/contact-us']"><b
+                                translate>Contact US</b></a></h6>
+                    </div>
+
+
+                    <div class="row ml-0 mtr-0 mt-3">
+                        <div class="col-lg-12col-md-12 col-sm-12 col-12">
+                            <div class="d-flex flex-wrap">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 pl-3 pr-3 mt-3 d-flex flex-wrap">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 pt-2 pb-2 d-flex flex-wrap bg-box-shadow">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <p class="mb-2 grey-color">
+                                                <small>Total Tickets</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                                            <h3 class="mr_auto">126</h3>
+                                            <h3 class=""><i class="far fa-file"></i></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 pl-3 pr-3 mt-3 d-flex flex-wrap">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 pt-2 pb-2 d-flex flex-wrap bg-box-shadow">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <p class="mb-2 grey-color">
+                                                <small>Total Linked</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                                            <h3 class="mr_auto">22</h3>
+                                            <h3 class="text-warning"><i class="far fa-check-circle"></i></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 pl-3 pr-3 mt-3 d-flex flex-wrap">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 pt-2 pb-2 d-flex flex-wrap bg-box-shadow">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <p class="mb-2 grey-color">
+                                                <small>Total Pending</small>
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
+                                            <h3 class="mr_auto">73</h3>
+                                            <h3 class="text-success"><i class="far fa-check-circle"></i></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

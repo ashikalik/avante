@@ -1,0 +1,60 @@
+<div class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
+  <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Name:</span> {{request.first_name}} {{request.last_name}}
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Phone Number:</span> {{request.mobile }}
+  </div>
+  <div class="title col-lg-4 col-md-4 col-sm-12 col-12">
+    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Email:</span> {{request.email }}
+  </div>
+  <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+    <span class="d-md-none d-lg-none d-xl-none" translate> Status:</span>{{request.status }}
+  </div>
+  <div class="text-center col-lg-1 col-md-1 col-sm-12 col-12">
+    <button *ngIf="!showInfo" type="button" (click)="onShowInfo(request.request_id)" class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-down"></i></button>
+    <button *ngIf="showInfo" type="button" (click)="onShowInfo(request.request_id)" class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-up"></i></button>
+  </div>
+</div>
+
+<div *ngIf="showInfo && requestDetails" class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap ">
+  <div class="body-col pr-3 col-lg-5 col-md-5 col-sm-12 col-12 ">
+    <div class="underline h-120 ">
+      <p class="grey-color mb-0" translate>About me:</p>
+      <p>{{requestDetails.data.request.bio}}</p>
+    </div>
+    <div class="underline h-120">
+      <p class="grey-color mb-0" translate>Age:</p>
+      <p>{{requestDetails.data.request.age}}</p>
+    </div>
+    <div class="underline h-120">
+      <p class="grey-color mb-0" translate>City:</p>
+      <p>{{requestDetails.data.request.nationality}}</p>
+    </div>
+    <div class="star-rating mt-4 underline h-120">
+      <p class="grey-color mb-0" translate>Rating:</p>
+      <span class="fas fa-star checked"></span>
+      <span class="fas fa-star checked"></span>
+      <span class="fas fa-star checked"></span>
+      <span class="fas fa-star checked"></span>
+      <span class="fas fa-star"></span>
+      <span class="rating-value grey-color">(7.5/10)</span>
+    </div>
+
+    <br>
+    <div class="">
+      <button *ngIf="requestDetails.data.request.joining_status != 4 && requestDetails.data.request.joining_status != 3" (click)="rejectRequest(requestDetails.data.request.request_id)" type="button" class="btn btn-danger pl-4 pr-4 mb-3" translate>Reject Request</button>
+      <button *ngIf="requestDetails.data.request.joining_status == 1"  type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="onPreAcceptRequestButton(requestDetails.data.request.request_id)" translate>Preaccept Request</button>
+      <button *ngIf="requestDetails.data.request.joining_status == 2" type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="viewInterview(requestDetails.data.request.request_id)" translate>Start Interview</button>
+      <button *ngIf="requestDetails.data.request.joining_status == 5" type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="finalAccept(requestDetails.data.request.request_id)" translate>Final Accept Request</button>
+      <button *ngIf="requestDetails.data.request.joining_status == 5" type="button" class="btn btn-danger pl-4 pr-4 mb-3" (click)="viewInterview(requestDetails.data.request.request_id)" translate>View Interview</button>
+    </div>
+  </div>
+
+  <div class="col-lg-1 col-md-1 col-sm-12 col-12"></div>
+
+  <div class="body-col col-lg-4 col-md-5 col-sm-12 col-12  ">
+    <app-application-cv [requestDetails]="requestDetails"></app-application-cv>
+  </div>
+
+</div>
