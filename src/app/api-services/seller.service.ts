@@ -39,6 +39,11 @@ export class SellerService {
 
     public addVistor(form: any, event_key: string): any {
 
+        let access_date;
+        if (form.access_date && form.access_date.formatted) {
+            access_date = form.access_date.formatted
+        }
+
         const body = {
             package_id: form.package_id,
             first_name: form.first_name,
@@ -46,7 +51,7 @@ export class SellerService {
             mobile: form.mobile,
             email: form.email,
             num_ticket: form.num_ticket,
-            access_date: form.access_date,
+            access_date: access_date,
             payment_type: form.payment_type,
             list: form.visitors,
             event_key: event_key
