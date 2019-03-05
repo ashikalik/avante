@@ -1,3 +1,4 @@
+import { ConvertTo24 } from './../shared/convert-to-24.pipe';
 import { Injectable } from '@angular/core';
 import { NetworkConfig } from '../network-layer/network.config';
 import { HttpClient } from '@angular/common/http';
@@ -62,7 +63,9 @@ export class EventService {
 
     public addEvent(form: any, imageURL: any): any {
 
-        const body = {
+        console.log(form)
+
+        let body = {
             name: form.name,
             city_id: form.city_id,
             details: form.details,
@@ -81,6 +84,9 @@ export class EventService {
             audience_gender: form.audience_gender,
             recaptcha: form.recaptcha
         };
+
+        body.from_time = new ConvertTo24().transform(body.from_time, form.from_time_type);
+        body.end_time = new ConvertTo24().transform(body.end_time, form.end_time_type);
 
         if (imageURL) {
             body.img = imageURL;
