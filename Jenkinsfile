@@ -40,7 +40,7 @@ pipeline {
       when {
         anyOf {
             branch 'develop'
-            branch 'prod'
+            branch 'master'
         }
      }
       steps{
@@ -57,7 +57,7 @@ pipeline {
       when {
         anyOf {
             branch 'develop'
-            branch 'prod'
+            branch 'master'
         }
      }
       steps{
@@ -74,7 +74,7 @@ pipeline {
       when {
         anyOf {
             branch 'develop'
-            branch 'prod'
+            branch 'master'
         }
      }
       steps{
