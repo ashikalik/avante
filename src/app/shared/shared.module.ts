@@ -1,23 +1,24 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {EventoDatePipe} from './evento-date.pipe';
-import {EventoTimePipe} from './evento-time.pipe';
-import {CoreModule} from "../core/core.module";
-import {EventoDayPipe} from './evento-day.pipe';
-import {EventoMonthPipe} from './evento-month.pipe';
-import {MinMaxPricePipe} from './min-max-price.pipe';
-import {HttpClient} from "@angular/common/http";
-import {TranslateHttpLoader} from "@ngx-translate/http-loader";
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {ErrorsComponent} from './errors/errors.component';
-import {MobilePipe} from './mobile.pipe';
-import {DisableDateUntilPipe} from './disable-date-until.pipe';
-import {DisableDateSincePipe} from './disable-date-since.pipe';
-import {DatePickerYear} from './date-picker-year.pipe';
-import {DatePickerInputPipe} from './date-picker-input.pipe';
-import {ConvertFrom24To12FormatPipe} from './convert-from24-to12-format.pipe';
-import {AmPmTimePipe} from './am-pm-time.pipe';
-import {PaginationComponent} from './pagination-component/pagination.component';
+import { ConvertTo24 } from './convert-to-24.pipe';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { EventoDatePipe } from './evento-date.pipe';
+import { EventoTimePipe } from './evento-time.pipe';
+import { CoreModule } from "../core/core.module";
+import { EventoDayPipe } from './evento-day.pipe';
+import { EventoMonthPipe } from './evento-month.pipe';
+import { MinMaxPricePipe } from './min-max-price.pipe';
+import { HttpClient } from "@angular/common/http";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { ErrorsComponent } from './errors/errors.component';
+import { MobilePipe } from './mobile.pipe';
+import { DisableDateUntilPipe } from './disable-date-until.pipe';
+import { DisableDateSincePipe } from './disable-date-since.pipe';
+import { DatePickerYear } from './date-picker-year.pipe';
+import { DatePickerInputPipe } from './date-picker-input.pipe';
+import { ConvertFrom24To12FormatPipe } from './convert-from24-to12-format.pipe';
+import { AmPmTimePipe } from './am-pm-time.pipe';
+import { PaginationComponent } from './pagination-component/pagination.component';
 import { ValidatorService } from './validator.service';
 import { TruncatePipe } from './truncate.pipe';
 import { AuthGuard } from './auth-guards/auth-guard';
@@ -50,7 +51,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         ConvertFrom24To12FormatPipe,
         AmPmTimePipe,
         PaginationComponent,
-        TruncatePipe
+        TruncatePipe,
+        ConvertTo24
     ],
     imports: [
         CommonModule,
@@ -79,14 +81,15 @@ export function HttpLoaderFactory(http: HttpClient) {
         ConvertFrom24To12FormatPipe,
         AmPmTimePipe,
         PaginationComponent,
-        TruncatePipe
+        TruncatePipe,
+        ConvertTo24
     ],
-    providers:[
+    providers: [
         ValidatorService,
         AuthGuard,
         SellerGuard,
         OrganizerGuard,
-        OrganizerSupervisorGuard,        
+        OrganizerSupervisorGuard,
         SupervisorRequestsGuard,
         SupervisorSellersGuard
     ]

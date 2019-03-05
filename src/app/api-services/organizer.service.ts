@@ -1,3 +1,4 @@
+import { ConvertTo24 } from './../shared/convert-to-24.pipe';
 import {Injectable} from '@angular/core';
 import {NetworkConfig} from '../network-layer/network.config';
 import {HttpClient} from '@angular/common/http';
@@ -42,8 +43,12 @@ export class OrganizerService {
         let body = form;
         body.lat = lat;
         body.lng = lng;
-        body.from_date = form.from_date.formatted
-        body.end_date = form.end_date.formatted
+        body.from_date = form.from_date.formatted;
+
+        body.from_time = new ConvertTo24().transform(body.from_time, form.from_time_type);
+        body.end_time = new ConvertTo24().transform(body.end_time, form.end_time_type);
+
+        body.end_date = form.end_date.formatted;
         if (imageURL) {
             body.img = imageURL;
         }
