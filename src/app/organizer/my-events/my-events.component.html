@@ -37,7 +37,8 @@
         <div class="tab-content">
           <div id="education" class="d-flex">
             <div class="tab_img_content">
-              <img [src]="event.img" alt="" />
+              <img *ngIf="event.img" [src]="event.img" alt="" />
+              <img *ngIf="!event.img" src="../../../assets/Logo.png" alt="" />
             </div>
             <div class="tab_desc">
               <div class="tab_desc_inner">
