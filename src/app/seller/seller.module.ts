@@ -32,8 +32,7 @@ import { EventService } from '../api-services/event.service';
     SellerService,
     BuyTicketService,
     EventService,
-    PrintBadge,
-    Window
+    PrintBadge
   ]
 })
 export class SellerModule { }
