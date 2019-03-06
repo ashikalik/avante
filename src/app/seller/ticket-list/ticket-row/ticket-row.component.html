@@ -29,8 +29,8 @@
                 <span class="pr-3 d-md-none d-lg-none d-xl-none"> {{ 'Total Price' | translate }}:</span> {{ ticket.total_with_vat }}
             </div>
             <div class="col-lg-1 col-md-1 col-sm-12 col-12">
-                <button type="button" class="btn btn-outline-dark btn-sm mt-2 pt-1 pb-1" translate>
-                    DOWNLOAD INVOICE
+                <button type="button" class="btn btn-outline-dark btn-sm mt-2 pt-1 pb-1" (click)="print(ticket)" translate>
+                    Print
                 </button>
             </div>
         </div>
