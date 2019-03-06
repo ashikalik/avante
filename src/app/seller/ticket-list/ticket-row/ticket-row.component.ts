@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { PrintBadge } from './../../../services/print-badge.service';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { SellerService } from '../../../api-services/seller.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class TicketRowComponent implements OnInit {
 
   constructor(
     public sellerService: SellerService,
+    public PrintBadge: PrintBadge
   ) { }
 
   ngOnInit() {
@@ -36,5 +38,15 @@ export class TicketRowComponent implements OnInit {
       }, err => {
       
       });
+  }
+
+
+  public print(ticket: any) {
+    console.log(ticket)
+    let popupWin;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    popupWin.document.open();
+    popupWin.document.write(this.PrintBadge.BuildInvoice(ticket));
+    popupWin.document.close();
   }
 }

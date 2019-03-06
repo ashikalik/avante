@@ -1,3 +1,4 @@
+import { PrintBadge } from './../services/print-badge.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SellerRoutingModule } from './seller-routing.module';
@@ -30,7 +31,9 @@ import { EventService } from '../api-services/event.service';
   providers: [
     SellerService,
     BuyTicketService,
-    EventService
+    EventService,
+    PrintBadge,
+    Window
   ]
 })
 export class SellerModule { }
