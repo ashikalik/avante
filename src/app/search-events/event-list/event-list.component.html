@@ -1,7 +1,7 @@
 
 
 <ng-container *ngIf="searchResult">
-    <div class="event-row-search" *ngFor="let event of searchResult.data">
+    <div class="event-row" *ngFor="let event of searchResult.data">
         <div class="custom_tab mt-2">
           <!-- Nav tabs -->
           <ul class="nav nav-tabs small justify-content-end" role="tablist">
@@ -14,7 +14,7 @@
             <div id="education" class="d-flex">
               <div class="tab_img_content">
                 <img *ngIf="event.img" [src]="event.img" alt="" />
-                <img *ngIf="!event.img" src="assets/dx34459.png" alt="" />
+                <img *ngIf="!event.img" src="../../../assets/Logo.png"  alt="" />
               </div>
               <div class="tab_desc">
                 <div class="tab_desc_inner">
