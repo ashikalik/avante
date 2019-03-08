@@ -45,7 +45,9 @@ export class RequestsService {
             from_time: form.from_time,
             end_time: form.end_time,
             interview_location: form.interview_location,
-            contact: form.contact
+            contact: form.contact,
+            lat: form.lat,
+            lng: form.lng
         }
 
         body.from_time = new ConvertTo24().transform(body.from_time, form.from_time_type);
