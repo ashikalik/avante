@@ -296,7 +296,7 @@
                                 <div id="education" class="d-flex">
                                     <div class="tab_img_content">
                                         <img *ngIf="event.img" [src]="event.img" alt="" />
-                                        <img *ngIf="!event.img" src="assets/dx34459.png" alt="" />
+                                        <img *ngIf="!event.img" src="../../../assets/Logo.png" alt="" />
                                     </div>
                                     <div class="tab_desc">
                                         <div class="tab_desc_inner">
@@ -304,7 +304,8 @@
                                             <p style="color:#b0b0b0;">{{ event.details | truncate:[100] }}</p>
                                             <div class="row">
                                                 <div class="col-sm-7 col-lg-7">
-                                                    <p class="local_desc"><i class="fa fa-map-marker"></i>{{ event.city }} , {{ event.address | truncate:[20] }}</p>
+                                                    <p class="local_desc"><i class="fa fa-map-marker"></i>{{ event.city }} , {{ event.address |
+                                                        truncate:[20] }}</p>
                                                 </div>
                                                 <div class="col-sm-5 col-lg-5 text-center">
                                                     <button type="button" class="btn btn-outline-dark btn-bold" (click)="onMoreDetails(event.event_key);" translate>SEE MORE
