@@ -3,7 +3,7 @@ import { EventService } from "../../api-services/event.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { EventDetails } from "../../models/event-details";
 import { Meta, Title } from "@angular/platform-browser";
-import { EventoError } from 'src/app/models/error';
+import { EventoError } from '../../models/error';
 
 @Component({
   selector: 'app-root',
