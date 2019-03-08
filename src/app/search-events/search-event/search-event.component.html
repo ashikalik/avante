@@ -68,14 +68,14 @@
         </div>
     </div>
     <div class="container-fluid tabs-container latest-event">
-        <div class="row ml-0 mr-0" *ngIf="searchResult">
+        <div class="row" *ngIf="searchResult">
             <!-- <div class="col-lg-3 col-md-12 col-sm-12 text-center justify-content-center">
               <app-search-bar></app-search-bar>
             </div> -->
-            <div class="row mt-3">
+            <!-- <div class="row mt-3"> -->
                 <app-event-list *ngIf="searchResult.data.length > 0" [searchResult]="searchResult"></app-event-list>
 
-            </div>
+            <!-- </div> -->
             <h3 class="no-result" *ngIf="searchResult.data.length == 0" translate>No Search Result</h3>
             <app-pagination (goPage)="goToPage($event)" (goNext)="onNext()" (goPrev)="onPrev()" [pagesToShow]="10"
                 [page]="searchResult.meta.query.page" [perPage]="searchResult.meta.query.limit"
