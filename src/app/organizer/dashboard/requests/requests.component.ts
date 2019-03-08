@@ -132,9 +132,6 @@ export class RequestsComponent implements OnInit {
 
 
     public onPreAcceptRequest(event) {
-
-
-
         this.onPreAcceptScreen = !this.onPreAcceptScreen;
 
         //To be able to use this method for closing screen
@@ -154,6 +151,7 @@ export class RequestsComponent implements OnInit {
         this.errorPreAccept = null;
         this.requestsService.preAccept(form.value, this.preAcceptList, this.event_key).subscribe(
             res => {
+                this.onPreAcceptRequest(null);
                 this.getRequests();
             }, err => {
                 this.errorPreAccept = err.value.error;
