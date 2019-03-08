@@ -81,7 +81,7 @@
   "Phone Number":"رقم الجوال",
   "Password":"كلمة المرور",
   "Confirm Password":"تأكيد كلمة المرور",
-  "A Verification email was sent to you": "بريد التحقق تم إرساله لبريدكم المسجل",
+  "A verification email has been sent secuussfully to your email address": "بريد التحقق تم إرساله لبريدكم المسجل",
   "Your account has been created successfuly!":"تم إنشاء حسابك بنجاح!",
   "If you did not receive this email, please check your junk/spam folder":"في حال لم يتم إستقبال الإيميل، الرجاء التحقق من ملفات السبام او التواصل معنا",
   "Signin":"تسجيل الدخول",
@@ -419,5 +419,6 @@
   "Your reference number": "الرقم المرجعي لتذكرتك",
   "There was an error buying your ticket": "حدث خطأ أثناء شراء تذكرتك",
   "Print": "طباعة",
-  "There is fixed price": "للفعاليات والمؤتمرات المجانية يمكن استخدام النظام في إضافة فعاليتين مجانا، وسيتم احتساب رسوم ثابتة قدرها ٥٠٠ ريال للفعاليات المجانية."
+  "There is fixed price": "للفعاليات والمؤتمرات المجانية يمكن استخدام النظام في إضافة فعاليتين مجانا، وسيتم احتساب رسوم ثابتة قدرها ٥٠٠ ريال للفعاليات المجانية.",
+  "Resend the raccivation email":"إعادة إرسال ايميل التحقق"
 }

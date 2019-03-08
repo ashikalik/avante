@@ -27,6 +27,7 @@ import { OrganizerGuard } from './auth-guards/organizer-guard';
 import { SupervisorRequestsGuard } from './auth-guards/supervisor-requests.guard';
 import { OrganizerSupervisorGuard } from './auth-guards/organizer-supervisor.guard';
 import { SupervisorSellersGuard } from './auth-guards/supervisor-sellers.guard';
+import { LoggedGuard } from './auth-guards/logged-guard';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -91,7 +92,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         OrganizerGuard,
         OrganizerSupervisorGuard,
         SupervisorRequestsGuard,
-        SupervisorSellersGuard
+        SupervisorSellersGuard,
+        LoggedGuard
     ]
 })
 export class SharedModule {

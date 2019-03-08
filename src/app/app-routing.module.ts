@@ -5,6 +5,7 @@ import { SellerGuard } from './shared/auth-guards/seller-guard';
 import { OrganizerGuard } from './shared/auth-guards/organizer-guard';
 import { SupervisorRequestsGuard } from './shared/auth-guards/supervisor-requests.guard';
 import { OrganizerSupervisorGuard } from './shared/auth-guards/organizer-supervisor.guard';
+import { LoggedGuard } from './shared/auth-guards/logged-guard';
 
 
 const routes: Routes = [
@@ -57,7 +58,8 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren: './auth/auth.module#AuthModule',   
+    loadChildren: './auth/auth.module#AuthModule',  
+    canActivate: [LoggedGuard],
   },
   {
     path: 'terms&conditions',

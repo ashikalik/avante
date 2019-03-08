@@ -1,10 +1,11 @@
 export const NetworkConfig = {
     // BASE_URL: 'http://localhost:6021/api',
-    // BASE_URL                : 'https://www.development.eventoapps.com/api',
-    BASE_URL                : '/api',
+    BASE_URL                : 'https://www.development.eventoapps.com/api',
+    // BASE_URL                : '/api',
     LOGIN_URL               : '/auth',
     LOGOUT_URL              : '/auth/logout',
     FORGET_PASSWORD         : '/auth/forgot_password',
+    REACTIVATE              : '/auth/reactivate',
     RESET_PASSWORD          : '/auth/reset_password/',
     ACTIVATE_ACCOUNT        : '/auth/activate_account/',
     EVENT                   : '/event',

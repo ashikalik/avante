@@ -27,6 +27,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {BASE_MODULES} from "../models/modules";
+import { ReactivateAccountComponent } from './reactivate-account/reactivate-account.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -42,7 +43,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         ActivateAccountComponent,
         ForgetPasswordComponent,
         ResetPasswordComponent,
-        AuthRootComponent
+        AuthRootComponent,
+        ReactivateAccountComponent
     ],
     imports: [
         CommonModule,
