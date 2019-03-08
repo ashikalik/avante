@@ -51,7 +51,9 @@ export class RequestsRatingComponent implements OnInit {
         res.data.forEach(value => {
           value.selectedRate = null;
         });
-        console.log(this.requestList);
+
+
+
       }, err => {
         this.error = err.value.error;
         

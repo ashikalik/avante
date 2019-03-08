@@ -34,12 +34,12 @@ export class TicketReviewComponent implements OnInit {
 }
 
   onBuyButton() {
-    console.log(this.payment)
     this.onBuyTickets.emit();
   }
 
   onButtonBack(){
-    console.log(this.payment)        
+
+
     this.onBack.emit();        
 }
 

@@ -50,8 +50,10 @@ export class RequestsInterviewComponent implements OnInit {
         res.data.question.forEach(value => {
           value.selectedRate = null;
         });
-        console.log(this.requestDetails);
 
+
+
+        
       }, err => {
         this.error = err.value.error;
 

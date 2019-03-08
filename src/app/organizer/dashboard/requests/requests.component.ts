@@ -102,7 +102,6 @@ export class RequestsComponent implements OnInit {
             res => {
 
                 if (this.preAcceptForm.get('interview_location').value == null || this.preAcceptForm.get('interview_location').value == '') {
-                    console.log("false");
                     this.displayMap = false;
                     this.preAcceptForm.get('lat').clearValidators();
                     this.preAcceptForm.get('lng').clearValidators();
@@ -133,7 +132,9 @@ export class RequestsComponent implements OnInit {
 
 
     public onPreAcceptRequest(event) {
-        console.log(event)
+
+
+
         this.onPreAcceptScreen = !this.onPreAcceptScreen;
 
         //To be able to use this method for closing screen

@@ -19,7 +19,6 @@ export class RootComponent implements OnInit {
               public meta: Meta
   ) {
       this.userProfile = this.userAuthService.getUserProfile();
-      console.log(this.userProfile)
   }
 
   ngOnInit() {
@@ -28,8 +27,8 @@ export class RootComponent implements OnInit {
   }
 
   public onMyCV() {
-      console.log('to CV')
-      this.router.navigate(['/my-profile/cv'])
+
+    this.router.navigate(['/my-profile/cv'])
   }
 
 }

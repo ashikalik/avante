@@ -69,7 +69,6 @@ export class AddTicketComponent implements OnInit {
     this.sellerService.viewEventDetails(this.eventKey).subscribe(
       res => {
         this.eventDetail = res;
-        console.log(this.eventDetail)
 
         //to check if the payment is opned or not
         if (this.eventDetail.data.details.ticket_payment != 1) {
@@ -117,7 +116,6 @@ export class AddTicketComponent implements OnInit {
 
     this.sellerService.addVistor(this.payment.value, this.eventDetail.data.details.event_key).subscribe(
       res => {
-        console.log(res);
         // this is for free ticket to show success payment
           this.completedPayment = true;        
 

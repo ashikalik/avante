@@ -58,7 +58,9 @@ export class RequestsFinalEvaluationsComponent implements OnInit {
     this.requestsService.getRatingList(this.event_key, this.page, this.status,  this.searchInput).subscribe(
       res => {
         this.requestList = res;
-        console.log(this.requestList);
+
+
+
       }, err => {
 
       });

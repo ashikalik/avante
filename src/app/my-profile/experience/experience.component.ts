@@ -52,7 +52,6 @@ export class ExperienceComponent implements OnInit {
 
 
     public showUpdate(selected?: Experience) {
-        console.log(selected)
         if (!this.showUpdateForm) {
             this.selectedExperience = selected;
             this.initFormUpdate();
@@ -79,7 +78,6 @@ export class ExperienceComponent implements OnInit {
                 'end_date': [new DatePickerInputPipe().transform(this.selectedExperience.end_date), Validators.compose([Validators.required])],
             });
 
-            console.log(this.updateForm)
             
     }
 
@@ -113,7 +111,7 @@ export class ExperienceComponent implements OnInit {
 
 
     public deleteExperience() {
-        console.log()
+
         let body = {
             id: this.selectedExperience.id
         }

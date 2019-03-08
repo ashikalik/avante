@@ -40,7 +40,6 @@ export class RootComponent implements OnInit {
         this.meta.addTag({name: "description", content: this.eventDetail.data.details.details})
 
     }, err => {
-      console.log(err)
         this.router.navigate(['/home'])
     });
   }

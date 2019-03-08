@@ -31,7 +31,6 @@ export class UserComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.userProfile)
         this.initInfoForm();
         this.initPasswordForm();
 

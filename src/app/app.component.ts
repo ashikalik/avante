@@ -69,7 +69,6 @@ export class AppComponent implements AfterViewChecked {
     ngOnInit() {
         this.onRtlStyle('');
 
-        console.log(this.languageSettingService.getLanguage())
         if (this.languageSettingService.getLanguage()) {
             if (this.languageSettingService.getLanguage() == 'ar') {
                 this.onRtlStyle(0);
@@ -97,7 +96,6 @@ export class AppComponent implements AfterViewChecked {
 
 
     onMenuView(event) {
-        console.log('menu view');
         $('.nav_toggle .fas.fa-bars').hide();
         $('.nav_toggle .fas.fa-times').show();
         $('.setting').hide();
@@ -105,7 +103,6 @@ export class AppComponent implements AfterViewChecked {
         $('body').css('overflow-y', 'hidden')
     }
     onMenuHide(event) {
-        console.log('menu hide');
         $('.nav_toggle .fas.fa-times').hide();
         $('.nav_toggle .fas.fa-bars').show();
         $('.setting').show();

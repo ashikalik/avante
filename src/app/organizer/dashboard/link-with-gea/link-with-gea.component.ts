@@ -36,7 +36,7 @@ export class LinkWithGeaComponent implements OnInit {
     }
 
     public getEventDetails() {
-        console.log(this.event_key)
+
         this.organizerService.getEvent(1, 1, null, this.event_key, null).subscribe(res => {
             this.eventDetails = res.data[0];
             if(!this.eventDetails.moi_number)

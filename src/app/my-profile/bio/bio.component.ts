@@ -94,7 +94,6 @@ export class BioComponent implements OnInit {
     }
 
     updateCV (form: FormGroup) {
-        console.log(form.value);
         this.profileService.updateCV(form.value).subscribe(
             res => {
                 this.onChangeCV.emit();

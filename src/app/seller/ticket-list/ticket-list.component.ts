@@ -48,7 +48,6 @@ export class TicketListComponent implements OnInit {
   public getInvoicesList() {
     this.sellerService.listInvoices(this.page, this.searchInput).subscribe(res => {
       this.invoicesList = res;
-      console.log(this.invoicesList);
     }, err => {
     }
     );

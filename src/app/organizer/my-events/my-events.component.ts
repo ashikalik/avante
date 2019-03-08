@@ -33,7 +33,6 @@ export class MyEventsComponent implements OnInit {
   public getMyEvents() {
     this.eventService.getMyEvents().subscribe(res => {
       this.myEvents = res;
-      console.log(res);
     }, err => {
     });
   }
