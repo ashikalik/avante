@@ -63,7 +63,6 @@ export class EventService {
 
     public addEvent(form: any, imageURL: any): any {
 
-        console.log(form)
 
         let body = {
             name: form.name,

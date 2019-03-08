@@ -67,7 +67,6 @@ export class EventDetailsComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.event_key)
         this.loadCityList();
         this.loadEventTypeList();
         this.loadRegionList();
@@ -84,7 +83,6 @@ export class EventDetailsComponent implements OnInit {
     }
 
     public getEventDetails() {
-        console.log(this.event_key)
         this.organizerService.getEvent(1, 1, null, this.event_key, null).subscribe(res => {
             this.eventDetails = res.data[0];
             // this.changeEdit();
@@ -96,7 +94,6 @@ export class EventDetailsComponent implements OnInit {
     public initForm() {
 
         this.updatedCityList = this.cityList.data.filter((item) => item.region_id == this.eventDetails.region_id);
-        console.log(new ConvertFrom24To12FormatPipe().transform(this.eventDetails.from_time))
         this.lat = this.eventDetails.lat;
         this.lng = this.eventDetails.lng;
 
@@ -125,7 +122,6 @@ export class EventDetailsComponent implements OnInit {
 
             });
 
-        console.log(this.form.value)
     }
 
 
@@ -183,7 +179,7 @@ export class EventDetailsComponent implements OnInit {
 
             myReader.onloadend = (e) => {
                 this.imageURL = myReader.result;
-                console.log(this.imageURL)
+
             };
 
             myReader.readAsDataURL(file);

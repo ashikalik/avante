@@ -49,7 +49,6 @@ export class SkillsComponent implements OnInit {
 
 
     public showUpdate(selected?: Skill) {
-        console.log(selected)
         if (!this.showUpdateForm){
             this.selectedSkill = selected;
             this.initFormUpdate();
@@ -100,7 +99,7 @@ export class SkillsComponent implements OnInit {
     }
 
     public deleteSkill() {
-        console.log()
+
         let body = {
             skill_id: this.selectedSkill.skill_id
         }

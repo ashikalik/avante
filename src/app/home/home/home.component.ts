@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     public onSearch() {
-        console.log(this.searchService)
+
         this.router.navigate(['/search']);
     }
 

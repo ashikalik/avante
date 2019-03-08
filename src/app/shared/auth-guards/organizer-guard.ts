@@ -14,7 +14,6 @@ export class OrganizerGuard implements CanActivate {
 
 
     const userType = this.userAuthService.getUserProfile();
-    console.log(userType);
     if (userType != null && userType.data.user_type && userType.data.user_type == '2' ) {
       return true;
     } else {

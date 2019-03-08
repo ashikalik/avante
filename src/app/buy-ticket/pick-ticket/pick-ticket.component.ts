@@ -47,7 +47,6 @@ export class PickTicketComponent implements OnInit {
 
     onChangePackage(event) {
         this.payment.get('access_date').setValue(null);
-        console.log(this.payment.get('access_date').value);
         
         this.package = this.eventDetail.data.packages.find(x => x.package_id == event);
 
@@ -77,7 +76,6 @@ export class PickTicketComponent implements OnInit {
     onChangeDate(event) {
         this.payment.get('access_date').setValue(event.formatted);
         this.validatePackage(event.formatted, this.package.package_id)
-        console.log(event.formatted)
     }
 
 
@@ -102,7 +100,6 @@ export class PickTicketComponent implements OnInit {
     calcuateTotal() {
         this.numbOfTickets = this.payment.get('num_ticket').value;
         this.total = this.numbOfTickets * this.package.price;
-        console.log(this.total)
     }
 
 
@@ -121,7 +118,6 @@ export class PickTicketComponent implements OnInit {
         }
         this.buyTicketService.validatePackage(body).subscribe(res => {
             this.validatePackageRes = res.data;
-            console.log(this.validatePackageRes)
             if (this.validatePackageRes.left == 0) {
                 this.isSoldOut = true;
             }
@@ -134,12 +130,10 @@ export class PickTicketComponent implements OnInit {
     }
 
     onButtonNext() {
-        console.log(this.payment)
         this.onNext.emit();
     }
 
     onButtonBack() {
-        console.log(this.payment)
         this.onBack.emit();
     }
 

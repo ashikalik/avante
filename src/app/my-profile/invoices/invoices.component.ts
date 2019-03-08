@@ -20,10 +20,8 @@ export class InvoicesComponent implements OnInit {
 
     public getInvoices() {
         this.profileService.getInvoices().subscribe(res => {
-            console.log(res);
             this.invoices = res;
         } , err => {
-            console.log(err)
         })
     }
 
