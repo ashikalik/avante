@@ -151,7 +151,6 @@ export class RequestsComponent implements OnInit {
 
     public preAcceptRequest(form: any, reques_id) {
         this.errorPreAccept = null;
-        console.log(form.value);
         this.requestsService.preAccept(form.value, this.preAcceptList, this.event_key).subscribe(
             res => {
                 this.onPreAcceptRequest(null);
@@ -181,7 +180,6 @@ export class RequestsComponent implements OnInit {
 
 
     public placeMarker(event: any) {
-        console.log(event);
         this.lat = event.coords.lat;
         this.lng = event.coords.lng;
         this.preAcceptForm.controls['lat'].setValue(this.lat);
