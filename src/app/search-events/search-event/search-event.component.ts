@@ -36,7 +36,6 @@ export class SearchEventComponent implements OnInit {
         this.title.setTitle('ايفينتو');
         this.meta.addTag({name: "description", content: 'ايفينتو منصة إلكترونية لإدارة وتنظيم الفعاليات'})
 
-        console.log(this.searchService)
         this.getRegion();
         this.getEventType();
         this.search();

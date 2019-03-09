@@ -15,7 +15,6 @@ export class BuyTicketService {
     }
 
     public isDateRequired(selectedPackage: Package): boolean {
-        console.log(selectedPackage)
         if (selectedPackage.specific_tickets === 1) {
             return true;
         }

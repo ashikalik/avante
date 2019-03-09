@@ -6,6 +6,7 @@ import { ActivateAccountComponent } from './activate-account/activate-account.co
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AuthRootComponent } from './auth-root/auth-root.component';
+import { ReactivateAccountComponent } from './reactivate-account/reactivate-account.component';
 
 
 const routes: Routes =
@@ -38,6 +39,10 @@ const routes: Routes =
       {
         path: 'activate_account/:id',
         component: ActivateAccountComponent
+      },
+      {
+        path: 'reactivation',
+        component: ReactivateAccountComponent
       }
     ]
   }

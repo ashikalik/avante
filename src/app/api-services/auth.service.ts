@@ -21,7 +21,6 @@ export class AuthService {
 
 
   public login(body: LoginBody): Observable<LoginResponse> {
-    console.log('try login')
     const url = NetworkConfig.BASE_URL + NetworkConfig.LOGIN_URL;
     return this.httpClient.post<LoginResponse>(url, body);
   }
@@ -35,6 +34,11 @@ export class AuthService {
   public forgetPassword(body: any): Observable<ForgetPasswordRespons> {
     const url = NetworkConfig.BASE_URL + NetworkConfig.FORGET_PASSWORD;
     return this.httpClient.post<ForgetPasswordRespons>(url, body);
+  }
+
+  public reactivateEmail(body: any): Observable<ForgetPasswordRespons> {
+    const url = NetworkConfig.BASE_URL + NetworkConfig.REACTIVATE;
+    return this.httpClient.post<any>(url, body);
   }
 
   public resetPassword(form: any, token: any): Observable<any> {

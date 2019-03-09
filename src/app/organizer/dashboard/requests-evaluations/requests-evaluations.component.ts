@@ -51,7 +51,8 @@ export class RequestsEvaluationsComponent implements OnInit {
     this.requestsService.getPreAcceptedList(this.event_key, this.page, this.searchInput).subscribe(
       res => {
         this.requestList = res;
-        console.log(this.requestList);
+
+
       }, err => {
 
       });

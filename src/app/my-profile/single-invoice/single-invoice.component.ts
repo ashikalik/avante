@@ -27,7 +27,7 @@ export class SingleInvoiceComponent implements OnInit {
         invoice_id: this.invoice.invoice_id
       }
       this.profileService.getTickets(body).subscribe(res => {
-        console.log(res);
+
         this.tickets = res;
       }, err => {
 

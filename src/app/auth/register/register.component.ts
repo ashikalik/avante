@@ -35,10 +35,12 @@ export class RegisterComponent implements OnInit {
     public registrationError: EventoError;
     constructor(private authService: AuthService,
         public router: Router,
-        public formBuilder: FormBuilder,        
+        public formBuilder: FormBuilder,    
         public title: Title,
         public meta: Meta,
         public commonService: CommonService) {
+
+            
     }
 
 

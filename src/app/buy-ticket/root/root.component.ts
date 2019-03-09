@@ -133,7 +133,6 @@ export class RootComponent implements OnInit {
 
         this.buyTicketService.createInvoice(this.payment.value, this.eventDetail.data.details.event_key).subscribe(
             res => {
-                console.log(res);
                 // this is for free ticket to show success payment
                 if (res.data.price == 0 && res.data.total_with_vat == 0) {
                     this.completedPayment = true;

@@ -38,21 +38,16 @@ export class ValidatorService {
 
 
             if (from_date_type == 'am' && end_date_type == 'pm') {
-                console.log('true 1')
                 return null
             } else if (from_date_type == 'pm' && end_date_type == 'am') {
-                console.log('error 1')
                 return { timeError: { valid: false } };
             } else {
                 if (Number(from_time.split(':')[0]) > Number(end_time.split(':')[0])) {
-                    console.log('error 2')
                     return { timeError: { valid: false } };
                 } else if (Number(from_time.split(':')[0]) === Number(end_time.split(':')[0])) {
                     if (Number(from_time.split(':')[1]) >= Number(end_time.split(':')[1])) {
-                        console.log('error 3')
                         return { timeError: { valid: false } };
                     } else {
-                        console.log('true 2')
                         return null;
                     }
                 }

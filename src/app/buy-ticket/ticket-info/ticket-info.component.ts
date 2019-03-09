@@ -21,12 +21,10 @@ export class TicketInfoComponent implements OnInit {
 
 
     onButtonNext(){
-        console.log(this.payment)        
         this.onNext.emit();        
     }
 
     onButtonBack(){
-        console.log(this.payment)        
         this.onBack.emit();        
     }
 

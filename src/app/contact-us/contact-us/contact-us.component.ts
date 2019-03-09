@@ -46,7 +46,6 @@ export class ContactUsComponent implements OnInit {
     }
 
     public sendQuestion(form: any) {
-        console.log(form.value)
 
         this.sendQuestionSuccess = null;
 

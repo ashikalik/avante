@@ -64,7 +64,6 @@ export class EducationComponent implements OnInit {
     }
 
     public showUpdate(selected?: EducationQualification) {
-        console.log(selected)
         if (!this.showUpdateForm){
             this.selectedEducations = selected;
             this.initFormUpdate();
@@ -109,7 +108,6 @@ export class EducationComponent implements OnInit {
     }
 
     public updateEducation(form: FormGroup) {
-        console.log(form.value)
         this.profileService.updateEducation(form.value , this.selectedEducations.eq_id).subscribe(
             res => {
                 this.onChangeCV.emit();
@@ -121,7 +119,7 @@ export class EducationComponent implements OnInit {
     }
 
     public deleteEducation() {
-        console.log()
+
         let body = {
             eq_id: this.selectedEducations.eq_id
         }

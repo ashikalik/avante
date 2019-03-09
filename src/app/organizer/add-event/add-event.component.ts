@@ -181,7 +181,7 @@ export class AddEventComponent implements OnInit {
 
             myReader.onloadend = (e) => {
                 this.imageURL = myReader.result;
-                console.log(this.imageURL)
+
             };
 
             myReader.readAsDataURL(file);

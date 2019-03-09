@@ -21,7 +21,7 @@ export class PaymentComponent implements OnInit {
 
 
   onButtonNext(){
-    console.log(this.payment)        
+
     this.onNext.emit();        
 }
 

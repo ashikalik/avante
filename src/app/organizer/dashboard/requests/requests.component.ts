@@ -93,6 +93,8 @@ export class RequestsComponent implements OnInit {
             });
 
         this.onChangeLocation();
+        this.preAcceptForm.updateValueAndValidity();
+        
     }
 
 
@@ -102,7 +104,6 @@ export class RequestsComponent implements OnInit {
             res => {
 
                 if (this.preAcceptForm.get('interview_location').value == null || this.preAcceptForm.get('interview_location').value == '') {
-                    console.log("false");
                     this.displayMap = false;
                     this.preAcceptForm.get('lat').clearValidators();
                     this.preAcceptForm.get('lng').clearValidators();
@@ -133,7 +134,6 @@ export class RequestsComponent implements OnInit {
 
 
     public onPreAcceptRequest(event) {
-        console.log(event)
         this.onPreAcceptScreen = !this.onPreAcceptScreen;
 
         //To be able to use this method for closing screen
@@ -151,8 +151,10 @@ export class RequestsComponent implements OnInit {
 
     public preAcceptRequest(form: any, reques_id) {
         this.errorPreAccept = null;
+        console.log(form.value);
         this.requestsService.preAccept(form.value, this.preAcceptList, this.event_key).subscribe(
             res => {
+                this.onPreAcceptRequest(null);
                 this.getRequests();
             }, err => {
                 this.errorPreAccept = err.value.error;
@@ -179,8 +181,12 @@ export class RequestsComponent implements OnInit {
 
 
     public placeMarker(event: any) {
+        console.log(event);
         this.lat = event.coords.lat;
         this.lng = event.coords.lng;
+        this.preAcceptForm.controls['lat'].setValue(this.lat);
+        this.preAcceptForm.controls['lng'].setValue(this.lng);
+
     }
 
 
