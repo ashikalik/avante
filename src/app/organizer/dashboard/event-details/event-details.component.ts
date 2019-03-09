@@ -40,6 +40,7 @@ export class EventDetailsComponent implements OnInit {
     public errorUpdate: EventoError;
     public sucessUpdate: string;
     public isAdmin: boolean;
+    public copy: boolean;
 
 
 
@@ -63,6 +64,7 @@ export class EventDetailsComponent implements OnInit {
         }
 
         this.showUpdate = false;
+        this.copy = false;
 
     }
 
@@ -196,6 +198,14 @@ export class EventDetailsComponent implements OnInit {
 
     public onChangeRegion(event) {
         this.updatedCityList = this.cityList.data.filter((item) => item.region_id == event);
+    }
+
+    public copied(event: any) {
+        this.copy = true;
+
+        setTimeout(()=>{    //<<<---    using ()=> syntax
+            this.copy = false;
+       }, 800);
     }
 
 }

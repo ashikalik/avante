@@ -51,7 +51,6 @@ export class ReactivateAccountComponent implements OnInit {
   public onReset(form: any) {
     this.forgetResponse = null;
     this.errorReactivation = null;
-    console.log(form);
 
     this.authService.reactivateEmail(form.value).subscribe(res => {
       this.forgetResponse = res;

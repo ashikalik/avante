@@ -18,7 +18,7 @@
                 <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['terms']" (click)="onMenuHide()" translate>Event Terms And Conditions</a></li>
                 <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['supervisors']" (click)="onMenuHide()" translate>Event Supervisors</a></li>
                 <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['link-gea']" (click)="onMenuHide()" translate>Link Event with GEA</a></li>
-                <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a (click)="onMenuHide()" translate>Event Badge Design</a></li>
+                <!-- <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a (click)="onMenuHide()" translate>Event Badge Design</a></li> -->
               </ul>
             </li>
             <li class="sidebar-list" *ngIf="isAdmin || isRequestSupervisor">
