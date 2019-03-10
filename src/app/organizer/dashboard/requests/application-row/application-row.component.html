@@ -33,12 +33,13 @@
     </div>
     <div class="star-rating mt-4 underline h-120">
       <p class="grey-color mb-0" translate>Rating:</p>
+      <!-- <span class="fas fa-star checked"></span>
       <span class="fas fa-star checked"></span>
       <span class="fas fa-star checked"></span>
       <span class="fas fa-star checked"></span>
-      <span class="fas fa-star checked"></span>
-      <span class="fas fa-star"></span>
-      <span class="rating-value grey-color">(7.5/10)</span>
+      <span class="fas fa-star"></span> --> 
+      <p *ngIf="requestDetails.data.request.rating" class="">{{requestDetails.data.request.rating}}</p>
+      <p *ngIf="!requestDetails.data.request.rating" class="" translate>Not rated yet</p>
     </div>
 
     <br>

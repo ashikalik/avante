@@ -12,6 +12,7 @@ export interface RequestDetials {
     skills: Skill[];
     experience: Experience[];
     question: Question[];
+    rating: number
   }
   
   export  interface Experience {

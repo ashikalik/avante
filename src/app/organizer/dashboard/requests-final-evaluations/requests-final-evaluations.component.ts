@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { Requests } from '../../../models/requests';
 import { RequestsService } from '../../../api-services/requests.service';
+import { EventoError } from '../../../models/error';
 
 @Component({
   selector: 'app-requests-final-evaluations',
@@ -15,6 +16,7 @@ export class RequestsFinalEvaluationsComponent implements OnInit {
   public page: number;
   public meta: any;
   public event_key: string;
+  public error: EventoError;
   
   //for search requests
   public request_status  = [
@@ -54,6 +56,7 @@ export class RequestsFinalEvaluationsComponent implements OnInit {
 
 
   public getRatingList() {
+    this.error = null;    
     this.requestList = null;
     this.requestsService.getRatingList(this.event_key, this.page, this.status,  this.searchInput).subscribe(
       res => {
@@ -62,7 +65,8 @@ export class RequestsFinalEvaluationsComponent implements OnInit {
 
 
       }, err => {
-
+        this.error = err.value.error;
+        
       });
   }
 

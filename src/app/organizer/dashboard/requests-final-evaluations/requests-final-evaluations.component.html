@@ -28,6 +28,10 @@
           </div>
         </div>
 
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4 pl-5 pr-5" *ngIf="error">
+            <app-errors class="pl-4" [errors]="error"></app-errors>
+          </div>
+
         <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
           <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12" translate>
             Name
