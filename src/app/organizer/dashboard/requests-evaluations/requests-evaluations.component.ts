@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { Requests } from '../../../models/requests';
 import { RequestsService } from '../../../api-services/requests.service';
+import { EventoError } from '../../../models/error';
 
 @Component({
   selector: 'app-requests-evaluations',
@@ -15,6 +16,7 @@ export class RequestsEvaluationsComponent implements OnInit {
   public page: number;
   public meta: any;
   public event_key: string;
+  public error: EventoError;
   
   //for search requests
   public searchInput: any;
@@ -47,14 +49,15 @@ export class RequestsEvaluationsComponent implements OnInit {
 
 
   public getPreacceptedList() {
+    this.error = null;    
     this.requestList = null;
     this.requestsService.getPreAcceptedList(this.event_key, this.page, this.searchInput).subscribe(
       res => {
         this.requestList = res;
 
-
       }, err => {
-
+        this.error = err.value.error;
+        
       });
   }
 

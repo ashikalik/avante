@@ -370,6 +370,7 @@
   "Interview Location":"موقع المقابلة",
   "Contact Number":"رقم التواصل",
   "Interview Time":"وقت المقابلة",
+  "Interview Time:":"وقت المقابلة",
   "Interview":"المقابلة",
   "Question":"السؤال",
   "Evaluation":"التقييم",
@@ -423,5 +424,6 @@
   "Resend the raccivation email":"إعادة إرسال ايميل التحقق",
   "Copy Event Link":"نسخ رابط الفعالية",
   "Copy Success":"تم النسخ بنجاح",
-  "Resend Activation Link":"إعادة إرسال رابط التفعيل"
+  "Resend Activation Link":"إعادة إرسال رابط التفعيل",
+  "Not rated yet":"لايوجد لديه تقييم"
 }
