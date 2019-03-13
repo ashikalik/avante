@@ -64,7 +64,7 @@
                 <span class="d-md-none d-lg-none d-xl-none" translate> Status:</span>{{request.status_name }}
               </div>
               <div class="col-lg-2 col-md-2 col-sm-12 col-12">
-                <span class="d-md-none d-lg-none d-xl-none" translate> Rating:</span>{{request.result }}
+                <span class="d-md-none d-lg-none d-xl-none" translate> Rating:</span>{{request.result | number : '1.1-1' }}
               </div>
               <div class="text-center col-lg-2 col-md-2 col-sm-12 col-12">
                 <button (click)="viewInterview(request.request_id)" type="button" class="btn btn-info btn-sm pl-4 pr-4" translate>View Interview</button>
