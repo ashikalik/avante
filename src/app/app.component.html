@@ -11,12 +11,12 @@
         <a class="menu-link" [routerLink]="['/home']"><li translate>Home</li></a>
         <a class="menu-link" [routerLink]="['/about-us']" ><li translate>About US</li></a>
         <a class="menu-link" [routerLink]="['/contact-us']" ><li translate>Contact US</li></a>
-        <!-- <ng-container *ngIf="isAuthenticated">
+        <ng-container *ngIf="isAuthenticated">
           <a class="menu-link" [routerLink]="['/my-profile']" ><li translate>My account</li></a>
           <a class="menu-link" [routerLink]="['/organizer']" *ngIf="userType === 2"><li translate>My dashboard</li></a>
           <a class="menu-link" [routerLink]="['/organizer/event', event_key]" *ngIf="userType === 6"><li translate>My dashboard</li></a>
           <a class="menu-link" [routerLink]="['/seller']" *ngIf="userType === 4"><li translate>My dashboard</li></a>
-        </ng-container> -->
+        </ng-container>
         <!--<a class="menu-link" [routerLink]="['/calendar']" ><li translate>Calendar</li></a>-->
         <!--<a class="menu-link" [routerLink]="['/organize']" ><li translate>Organize</li></a>-->
       </ul>
@@ -90,7 +90,7 @@
     </div>
   </a>
 
-  <!-- <ng-container *ngIf="isAuthenticated">
+  <ng-container *ngIf="isAuthenticated">
     <a [routerLink]="['/organizer']" *ngIf="userType === 2" (click)="onMenuHide($event)">
       <div class="d-flex">
         <p class="mr-right" translate>My dashboard</p>
@@ -106,7 +106,7 @@
         <p class="mr-right" translate>My dashboard</p>
       </div>
     </a>  
-  </ng-container> -->
+  </ng-container>
   <!--<a [routerLink]="['/calendar']" (click)="onMenuHide($event)">-->
     <!--<div class="d-flex">-->
       <!--<p class="mr-right" translate>Calendar</p>-->
