@@ -38,12 +38,11 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4 pl-5 pr-5">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                         <p class="event-view" 
-                                ngxClipboard 
-                                (cbOnSuccess)="copied($event)" 
-                                [cbContent]="'https://www.eventoapps.com/event/' + eventDetails.event_key"> 
+                        [copy-clipboard]="'https://www.eventoapps.com/event/' + eventDetails.event_key" (copied)="copied($event)"
+                                > 
                                     <i class="fas fa-copy"></i>  
                                     &nbsp; 
-                                    <b translate>Copy Event Link</b> 
+                                    <span translate>Copy Event Link</span> 
                                     &nbsp; 
                                     <span *ngIf="copy" class="copy-success" translate>Copy Success</span>
                         </p>

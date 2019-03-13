@@ -106,6 +106,19 @@
                             <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5 mb-3">
                                 <p class="setting-title" translate>Private Event</p>
                                 <p class="setting-description grey-color" translate>If you enable this feature, your will need to share event link to able view event</p>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-4 pl-5 pr-5">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <p class="event-view" 
+                                        [copy-clipboard]="'https://www.eventoapps.com/event/' + eventDetails.event_key" (copied)="copied($event)"
+                                                > 
+                                                    <i class="fas fa-copy"></i>  
+                                                    &nbsp; 
+                                                    <span translate>Copy Event Link</span> 
+                                                    &nbsp; 
+                                                    <span *ngIf="copy" class="copy-success" translate>Copy Success</span>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-lg-6 col-md-12 col-sm-12 col-12 span-left pl-5 pr-5">
                                 <div class="event-edit form-group position-relative grey-color w-50">

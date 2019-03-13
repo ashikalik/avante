@@ -27,7 +27,6 @@ import { EventSalesComponent } from './event-sales/event-sales.component';
 import { SalesRowComponent } from './event-sales/sales-row/sales-row.component';
 import { EventPackagesComponent } from './event-packages/event-packages.component';
 import { PackageRowComponent } from './event-packages/package-row/package-row.component';
-import { ClipboardModule } from 'ngx-clipboard';
 
 
 @NgModule({
@@ -61,8 +60,7 @@ import { ClipboardModule } from 'ngx-clipboard';
     imports: [
         ...BASE_MODULES,
         DashboardRoutingModule,
-        AgmCoreModule,
-        ClipboardModule
+        AgmCoreModule
     ],
     providers: [
         OrganizerService

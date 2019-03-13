@@ -28,6 +28,7 @@ import { SupervisorRequestsGuard } from './auth-guards/supervisor-requests.guard
 import { OrganizerSupervisorGuard } from './auth-guards/organizer-supervisor.guard';
 import { SupervisorSellersGuard } from './auth-guards/supervisor-sellers.guard';
 import { LoggedGuard } from './auth-guards/logged-guard';
+import { CopyClipboardDirective } from './copyClipboardDirective.pipe';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -53,7 +54,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         AmPmTimePipe,
         PaginationComponent,
         TruncatePipe,
-        ConvertTo24
+        ConvertTo24,
+        CopyClipboardDirective
+        
     ],
     imports: [
         CommonModule,
@@ -83,7 +86,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         AmPmTimePipe,
         PaginationComponent,
         TruncatePipe,
-        ConvertTo24
+        ConvertTo24,
+        CopyClipboardDirective
     ],
     providers: [
         ValidatorService,
