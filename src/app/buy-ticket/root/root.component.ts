@@ -76,7 +76,7 @@ export class RootComponent implements OnInit {
                 // 'csv': ['', Validators.compose([Validators.required, Validators.pattern('^([0-9]{3})$')])],
                 // 'callback_url': ['', Validators.compose([])],
                 // 'amount': ['', Validators.compose([])],
-                // 'recaptcha': [null, Validators.compose([Validators.required])],
+                'recaptcha': [null, Validators.compose([Validators.required])],
             });
 
         // to update the num of tickets when the value has been changed
