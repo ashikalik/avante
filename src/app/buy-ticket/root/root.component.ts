@@ -1,13 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {EventService} from "../../api-services/event.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Observable} from "rxjs";
-import {EventDetails, Package} from "../../models/event-details";
-import {BuyTicketService} from '../../api-services/buy-ticket.service';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {EventoError} from '../../models/error';
-import {Meta, Title} from "@angular/platform-browser";
+import { Component, OnInit } from '@angular/core';
+import { EventService } from "../../api-services/event.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Observable } from "rxjs";
+import { EventDetails, Package } from "../../models/event-details";
+import { BuyTicketService } from '../../api-services/buy-ticket.service';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EventoError } from '../../models/error';
+import { Meta, Title } from "@angular/platform-browser";
 
+
+declare var Checkout: any;
 
 @Component({
     selector: 'app-root',
@@ -30,12 +32,12 @@ export class RootComponent implements OnInit {
 
 
     constructor(public eventService: EventService,
-                public buyTicketService: BuyTicketService,
-                public activatedRout: ActivatedRoute,
-                public formBuilder: FormBuilder,
-                public router: Router,
-                public title: Title,
-                public meta: Meta
+        public buyTicketService: BuyTicketService,
+        public activatedRout: ActivatedRoute,
+        public formBuilder: FormBuilder,
+        public router: Router,
+        public title: Title,
+        public meta: Meta
     ) {
 
         this.completedPayment = false;
@@ -52,16 +54,17 @@ export class RootComponent implements OnInit {
     }
 
     ngOnInit() {
+
     }
 
 
     public initForm() {
         this.payment = this.formBuilder.group(
             {
-                'first_name': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
-                'last_name': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
-                'mobile': ['', Validators.compose([Validators.required, Validators.pattern('^(05)([0-9]{8})$')])],
-                'email': ['', Validators.compose([Validators.required, Validators.email])],
+                'first_name': ['jksdfhdsjk', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
+                'last_name': ['jdkfhsdjkf', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
+                'mobile': ['0537745020', Validators.compose([Validators.required, Validators.pattern('^(05)([0-9]{8})$')])],
+                'email': ['mmalmoutairi@gmail.com', Validators.compose([Validators.required, Validators.email])],
                 'package_id': ['', Validators.compose([Validators.required])],
                 'num_ticket': ['', Validators.compose([Validators.required])],
                 'visitors': this.formBuilder.array([]),
@@ -86,7 +89,7 @@ export class RootComponent implements OnInit {
             res => {
                 this.eventDetail = res;
                 this.title.setTitle(this.eventDetail.data.details.name);
-                this.meta.addTag({name: "description", content: this.eventDetail.data.details.details})
+                this.meta.addTag({ name: "description", content: this.eventDetail.data.details.details })
 
 
                 //to check if the payment is opned or not
@@ -134,13 +137,41 @@ export class RootComponent implements OnInit {
         this.buyTicketService.createInvoice(this.payment.value, this.eventDetail.data.details.event_key).subscribe(
             res => {
                 // this is for free ticket to show success payment
-                if (res.data.price == 0 && res.data.total_with_vat == 0) {
-                    this.completedPayment = true;
-                    this.router.navigate(['/validate-payment/' + res.data.reference])
-                } else {
-                    this.completedPayment = false;
-                    this.changeStepForward(null);
-                }
+                // if (res.data.price == 0 && res.data.total_with_vat == 0) {
+                //     this.completedPayment = true;
+                //     this.router.navigate(['/validate-payment/' + res.data.reference])
+                // } else {
+                //     this.completedPayment = false;
+                //     this.changeStepForward(null);
+                // }
+                console.log(res)
+
+                Checkout.configure({
+                    merchant: '3000000016',
+                    order: {
+                        amount: res.data.price,
+                        currency: 'SAR',
+                        description: res.data.event_name,
+                        id: res.data.reference
+                    },
+                    interaction: {
+                        merchant: {
+                            name: 'Evento ايفينتو',
+                            logo: 'https://i.ibb.co/BGDvmqs/Logo-PNG-1-copy.png'
+                        },
+                        locale: 'ar_SA',
+                        theme: 'default',
+                        displayControl: {
+                            billingAddress: 'HIDE',
+                            customerEmail: 'HIDE',
+                            orderSummary: 'HIDE',
+                            shipping: 'HIDE'
+                        }
+                    }
+                });
+
+                Checkout.showPaymentPage()
+
 
 
             }, err => {
