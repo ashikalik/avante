@@ -1,3 +1,8 @@
+<app-errors [errors]="errorInfo" *ngIf="errorInfo"></app-errors>
+<div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3">
+  <p class="grey-color mb-2" translate>SKILLS</p>
+</div>
+
 <ng-container *ngIf="CV">
   <ng-container *ngIf="CV.data.skill === null && !showCreateForm">
     <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap pl-3 pr-3 mt-4">
@@ -25,22 +30,14 @@
     <form action="" [formGroup]="createForm" (ngSubmit)="createSkill(createForm);">
       <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
-          <input class="form-control evento_input grey-color"
-                 formControlName="name"
-                 placeholder="{{ 'Your Skill' | translate }}">
-          <div class="error"
-               *ngIf="createForm.controls['name'].hasError('required') && !createForm.controls['name'].pristine"
-               translate>
+          <input class="form-control evento_input grey-color" formControlName="name" placeholder="{{ 'Your Skill' | translate }}">
+          <div class="error" *ngIf="createForm.controls['name'].hasError('required') && !createForm.controls['name'].pristine" translate>
             This field is required
           </div>
-          <div class="error"
-               *ngIf="createForm.controls['name'].hasError('maxlength') && !createForm.controls['name'].pristine"
-               translate>
+          <div class="error" *ngIf="createForm.controls['name'].hasError('maxlength') && !createForm.controls['name'].pristine" translate>
             Field should be at most 40 characters
           </div>
-          <div class="error"
-               *ngIf="createForm.controls['name'].hasError('minlength') && !createForm.controls['name'].pristine"
-               translate>
+          <div class="error" *ngIf="createForm.controls['name'].hasError('minlength') && !createForm.controls['name'].pristine" translate>
             Field should be at least 3 characters
           </div>
         </div>
@@ -49,10 +46,7 @@
         <button type="button" class="btn btn-dark pl-4 pr-4 mt-3 ml-2 mr-2" (click)="showCreate();" translate>
           Cancel
         </button>
-        <button type="submit"
-                class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2"
-                [disabled]="createForm.invalid"
-                translate>SAVE
+        <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" [disabled]="createForm.invalid" translate>SAVE
         </button>
       </div>
     </form>
@@ -94,22 +88,14 @@
     <form action="" [formGroup]="updateForm" (ngSubmit)="updateSkill(updateForm);">
       <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
-          <input class="form-control evento_input grey-color"
-                 formControlName="name"
-                 placeholder="{{ 'Your Skill' | translate }}">
-          <div class="error"
-               *ngIf="updateForm.controls['name'].hasError('required') && !updateForm.controls['name'].pristine"
-               translate>
+          <input class="form-control evento_input grey-color" formControlName="name" placeholder="{{ 'Your Skill' | translate }}">
+          <div class="error" *ngIf="updateForm.controls['name'].hasError('required') && !updateForm.controls['name'].pristine" translate>
             This field is required
           </div>
-          <div class="error"
-               *ngIf="updateForm.controls['name'].hasError('maxlength') && !updateForm.controls['name'].pristine"
-               translate>
+          <div class="error" *ngIf="updateForm.controls['name'].hasError('maxlength') && !updateForm.controls['name'].pristine" translate>
             Field should be at most 40 characters
           </div>
-          <div class="error"
-               *ngIf="updateForm.controls['name'].hasError('minlength') && !updateForm.controls['name'].pristine"
-               translate>
+          <div class="error" *ngIf="updateForm.controls['name'].hasError('minlength') && !updateForm.controls['name'].pristine" translate>
             Field should be at least 3 characters
           </div>
         </div>
@@ -118,10 +104,7 @@
         <button type="button" class="btn btn-dark pl-4 pr-4 mt-3 ml-2 mr-2" (click)="showUpdate();" translate>
           Cancel
         </button>
-        <button type="submit"
-                class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2"
-                [disabled]="updateForm.invalid"
-                translate>SAVE
+        <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" [disabled]="updateForm.invalid" translate>SAVE
         </button>
       </div>
     </form>
@@ -136,8 +119,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap justify-content-end">
         <button type="submit" class="btn btn-info pl-5 pr-5 mt-3 ml-2 mr-2" (click)="showSure();" translate>NO
         </button>
-        <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" (click)="deleteSkill();"
-                translate>YES
+        <button type="submit" class="btn btn-danger pl-5 pr-5 mt-3 ml-2 mr-2" (click)="deleteSkill();" translate>YES
         </button>
       </div>
     </div>

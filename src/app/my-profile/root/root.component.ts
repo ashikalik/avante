@@ -19,6 +19,7 @@ export class RootComponent implements OnInit {
               public meta: Meta
   ) {
       this.userProfile = this.userAuthService.getUserProfile();
+      console.log(this.userProfile)
   }
 
   ngOnInit() {
