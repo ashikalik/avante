@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BuyTicketService } from 'src/app/api-services/buy-ticket.service';
+import { BuyTicketService } from '../../api-services/buy-ticket.service';
 declare var Checkout: any;
 
 @Component({
