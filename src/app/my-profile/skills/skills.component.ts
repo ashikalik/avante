@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Educations} from "../../models/educations";
 import {ProfileService} from "../../api-services/profile.service";
 import {CommonService} from "../../api-services/common.service";
+import { EventoError } from 'src/app/models/error';
 
 @Component({
     selector: 'app-skills',
@@ -14,13 +15,16 @@ export class SkillsComponent implements OnInit {
 
     @Input() CV: CVDetails;
     @Output() onChangeCV: EventEmitter<any> = new EventEmitter();
+    @Output() onUpdates: EventEmitter<any> = new EventEmitter();
+    
     public showCreateForm: boolean;
     public showUpdateForm: boolean;
     public areYouSure: boolean;
     public createForm: FormGroup;
     public updateForm: FormGroup;
     public selectedSkill: Skill;
-
+    public errorInfo: EventoError;
+    
 
     constructor(public profileService: ProfileService,
                 public formBuilder: FormBuilder,
@@ -40,11 +44,15 @@ export class SkillsComponent implements OnInit {
             this.initFormCreate();
 
         this.showCreateForm = !this.showCreateForm;
+        this.checkUpdates();
+        
     }
 
     public showSure(selected?: Skill) {
         this.selectedSkill = selected;
         this.areYouSure = !this.areYouSure;
+        this.checkUpdates();
+        
     }
 
 
@@ -54,7 +62,17 @@ export class SkillsComponent implements OnInit {
             this.initFormUpdate();
         }
         this.showUpdateForm = !this.showUpdateForm;
+        this.checkUpdates();
+        
     }
+
+    public checkUpdates(){
+        if(this.showCreateForm || this.showUpdateForm || this.areYouSure){
+            this.onUpdates.emit(true)
+        } else{
+            this.onUpdates.emit(false);
+        }
+     }
 
     public initFormCreate() {
         this.createForm = this.formBuilder.group(
@@ -73,12 +91,15 @@ export class SkillsComponent implements OnInit {
 
     public createSkill(form: FormGroup) {
         let body = form.value;
+        this.errorInfo = null;
         this.profileService.createSkill(body).subscribe(
             res => {
                 this.onChangeCV.emit();
                 this.showCreate();
             },
             err => {
+                this.errorInfo = err.value.error;
+                
             }
         );
 
@@ -86,6 +107,7 @@ export class SkillsComponent implements OnInit {
 
     public updateSkill(form: FormGroup) {
         let body = form.value;
+        this.errorInfo = null;        
         body['skill_id'] = this.selectedSkill.skill_id;
         this.profileService.updateSkill(body).subscribe(
             res => {
@@ -93,13 +115,16 @@ export class SkillsComponent implements OnInit {
                 this.showUpdate();
             },
             err => {
+                this.errorInfo = err.value.error;
+                
             }
         );
 
     }
 
     public deleteSkill() {
-
+        this.errorInfo = null;
+        
         let body = {
             skill_id: this.selectedSkill.skill_id
         }
@@ -109,6 +134,8 @@ export class SkillsComponent implements OnInit {
                 this.showSure();
             },
             err => {
+                this.errorInfo = err.value.error;
+                
             }
         );
 
