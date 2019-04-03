@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Educations} from "../../models/educations";
 import {ProfileService} from "../../api-services/profile.service";
 import {CommonService} from "../../api-services/common.service";
-import { EventoError } from 'src/app/models/error';
+import { EventoError } from '../../models/error';
 
 @Component({
     selector: 'app-skills',
