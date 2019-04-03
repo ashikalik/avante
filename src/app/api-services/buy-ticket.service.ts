@@ -66,5 +66,14 @@ export class BuyTicketService {
         return this.httpClient.post<any>(url, body);
     }
 
+    public getMobileInvoice(reference: string): Observable<any> {
+
+        const body = {
+            reference: reference
+        }
+        const url = NetworkConfig.BASE_URL + NetworkConfig.GET_MOBILE_INVOICE
+        return this.httpClient.post<any>(url, body);
+    }
+
 
 }

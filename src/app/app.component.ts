@@ -4,6 +4,7 @@ import { TranslateService } from "@ngx-translate/core";
 import { UserAuthService } from "./core/user-auth.service";
 import { NavigationStart, Router, NavigationEnd } from "@angular/router";
 import { LoaderService } from "./loader-service.service";
+import {Location} from '@angular/common';
 
 @Component({
     selector: 'app-root',
@@ -20,18 +21,34 @@ export class AppComponent implements AfterViewChecked {
     public event_key: string;
     show = false;
 
+    public mobilePayment: boolean;
+    public navStartUrl: string;
+
+
 
     constructor(public languageSettingService: LanguageSettingService,
         private translate: TranslateService,
         public userAuthService: UserAuthService,
         public loaderService: LoaderService,
         private cdRef: ChangeDetectorRef,
+        public location: Location,
         private router: Router) {
+            this.navStartUrl = this.location.path();
 
 
         router.events.forEach((event) => {
             window.scroll(0, 0);
             if (event instanceof NavigationStart) {
+                console.log(this.navStartUrl)
+                if(this.navStartUrl = event.url) {
+                    if(this.navStartUrl && this.navStartUrl.indexOf('/mobile-payment') > -1) {
+                        this.mobilePayment = true;
+                        console.log('true')
+                    } else {
+                        this.mobilePayment = false;
+                        console.log('false')
+                    }
+                }
                 if (this.userAuthService.getToken()) {
                     this.isAuthenticated = true;
                     let profile = this.userAuthService.getUserProfile();
