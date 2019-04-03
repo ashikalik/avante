@@ -8,7 +8,7 @@ import { UserAuthService } from "../../core/user-auth.service";
 import { CVDetails } from "../../models/CV";
 import { DatePickerInputPipe } from "../../shared/date-picker-input.pipe";
 import { MyDatePickerOptions } from '../../models/date-picker-object';
-import { EventoError } from 'src/app/models/error';
+import { EventoError } from '../../models/error';
 
 @Component({
     selector: 'app-bio',

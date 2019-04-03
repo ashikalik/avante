@@ -5,7 +5,7 @@ import {ProfileService} from "../../api-services/profile.service";
 import {IMyDpOptions} from 'mydatepicker';
 import { MyDatePickerOptions } from '../../models/date-picker-object';
 import { DatePickerInputPipe } from '../../shared/date-picker-input.pipe';
-import { EventoError } from 'src/app/models/error';
+import { EventoError } from '../../models/error';
 
 
 @Component({
