@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BuyTicketService } from 'src/app/api-services/buy-ticket.service';
+import { BuyTicketService } from '../../api-services/buy-ticket.service';
 
 @Component({
   selector: 'app-root',
