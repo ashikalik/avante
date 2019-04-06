@@ -70,6 +70,10 @@ const routes: Routes = [
     loadChildren: './validate-payment/validate-payment.module#ValidatePaymentModule',   
   },
   {
+    path: 'validate-payment-mobile',
+    loadChildren: './validate-payment-mobile/validate-payment-mobile.module#ValidatePaymentMobileModule',   
+  },
+  {
     path: 'mobile-payment',
     loadChildren: './mobile-payment/mobile-payment.module#MobilePaymentModule',   
   },
