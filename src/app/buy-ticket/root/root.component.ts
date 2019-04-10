@@ -61,10 +61,10 @@ export class RootComponent implements OnInit {
     public initForm() {
         this.payment = this.formBuilder.group(
             {
-                'first_name': ['jksdfhdsjk', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
-                'last_name': ['jdkfhsdjkf', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
-                'mobile': ['0537745020', Validators.compose([Validators.required, Validators.pattern('^(05)([0-9]{8})$')])],
-                'email': ['mmalmoutairi@gmail.com', Validators.compose([Validators.required, Validators.email])],
+                'first_name': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
+                'last_name': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
+                'mobile': ['', Validators.compose([Validators.required, Validators.pattern('^(05)([0-9]{8})$')])],
+                'email': ['', Validators.compose([Validators.required, Validators.email])],
                 'package_id': ['', Validators.compose([Validators.required])],
                 'num_ticket': ['', Validators.compose([Validators.required])],
                 'visitors': this.formBuilder.array([]),
@@ -76,7 +76,7 @@ export class RootComponent implements OnInit {
                 // 'csv': ['', Validators.compose([Validators.required, Validators.pattern('^([0-9]{3})$')])],
                 // 'callback_url': ['', Validators.compose([])],
                 // 'amount': ['', Validators.compose([])],
-                // 'recaptcha': [null, Validators.compose([Validators.required])],
+                'recaptcha': [null, Validators.compose([Validators.required])],
             });
 
         // to update the num of tickets when the value has been changed
