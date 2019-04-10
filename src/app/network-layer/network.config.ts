@@ -35,6 +35,7 @@ export const NetworkConfig = {
     LAST_TICKET             : '/seller/tickets/',
     LIST_PACKAGES           : '/seller/listPackages/',
     CREATE_INVOICE_PAYMENT  : '/invoice/create',
+    GET_MOBILE_INVOICE      : '/invoice/get_mobile_invoice',
     GET_INVOICE_DETAILS     : '/invoice/get_invoice',
     CHECK_INVOICE_STATUS    : '/invoice/check_invoice',
     UPDATE_INVOICE_MOYASAR  : '/invoice/update_invoice',

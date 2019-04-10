@@ -11,7 +11,7 @@
           <!--<p class="grey-color mt-2">Upload Image</p>-->
           <!--<input type="file" class="">-->
         <!--</div>-->
-        <div class="col-lg-10 col-md-10 col-sm-12 col-12 pl-4 pr-4 account-content">
+        <div *ngIf="userProfile" class="col-lg-10 col-md-10 col-sm-12 col-12 pl-4 pr-4 account-content">
 
           <app-user [userProfile]="userProfile"></app-user>
 
@@ -19,7 +19,9 @@
             <button type="button" class="w-100 btn btn-gradient" (click)="onMyCV();" translate>View CV</button>
           </div>
 
-          <app-invoices></app-invoices>
+          <div *ngIf="userProfile.data.user_type !== 4 &&  userProfile.data.user_type !== 6">
+            <app-invoices></app-invoices>            
+          </div>
         </div>
       </div>
     </div>

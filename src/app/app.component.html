@@ -1,125 +1,131 @@
 <div class="loading" *ngIf="show">Loading&#8230;</div>
 
-<div class="header">
-  <div class="container_header d-flex">
-    <div class="logo" (click)="goHome();">
-      <img *ngIf="direction == 'rtl'" src="assets/LogoAR.png" />
-      <img *ngIf="direction == 'ltr'" src="assets/LogoEN.png" />
-    </div>
-    <div class="menu menu_item">
-      <ul class="d-flex">
-        <a class="menu-link" [routerLink]="['/home']"><li translate>Home</li></a>
-        <a class="menu-link" [routerLink]="['/about-us']" ><li translate>About US</li></a>
-        <a class="menu-link" [routerLink]="['/contact-us']" ><li translate>Contact US</li></a>
-        <!-- <ng-container *ngIf="isAuthenticated">
-          <a class="menu-link" [routerLink]="['/my-profile']" ><li translate>My account</li></a>
-          <a class="menu-link" [routerLink]="['/organizer']" *ngIf="userType === 2"><li translate>My dashboard</li></a>
-          <a class="menu-link" [routerLink]="['/organizer/event', event_key]" *ngIf="userType === 6"><li translate>My dashboard</li></a>
-          <a class="menu-link" [routerLink]="['/seller']" *ngIf="userType === 4"><li translate>My dashboard</li></a>
-        </ng-container> -->
-        <!--<a class="menu-link" [routerLink]="['/calendar']" ><li translate>Calendar</li></a>-->
-        <!--<a class="menu-link" [routerLink]="['/organize']" ><li translate>Organize</li></a>-->
-      </ul>
-    </div>
-    <div class="header_right menu_item ">
-      <ul class="d-flex" *ngIf="!isAuthenticated" style="float: left;">
-        <li class="position-relative user-list" >
-          <a [routerLink]="['/auth/login']" class="login-btn" translate><i class="far fa-user" aria-hidden="true"></i>&nbsp; Login</a>
-        </li>
-        <li class="position-relative nav_toggle">
-          <i class="fas fa-bars" (click)="onMenuView($event)"></i>
-          <i class="fas fa-times" (click)="onMenuHide($event)" style="display: none;"></i>
-        </li>
 
-      </ul>
-      <ul class="d-flex" *ngIf="isAuthenticated">
-        <li class="position-relative user-list">
-          <i class="far fa-user"></i>&nbsp; {{ username }} &nbsp;<i class="fas fa-chevron-down"></i>
-          <div class="user">
-            <a [routerLink]="['/my-profile']"><p translate><i class="far fa-user"></i>&nbsp; My account</p></a>
-            <a [routerLink]="['/organizer']" *ngIf="userType === 2"><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
-            <a [routerLink]="['/organizer/event', event_key]" *ngIf="userType === 6"><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
-            <a [routerLink]="['/seller']" *ngIf="userType === 4"><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
-            <!--<a href=""><p translate><i class="fas fa-sliders-h"></i>&nbsp; Settings</p></a>-->
-            <!--<a href=""><p translate><i class="far fa-question-circle"></i>&nbsp; Help</p></a>-->
-            <a href="" (click)="logout()"><p translate><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</p></a>
+<ng-container *ngIf="!mobilePayment">
+  <div class="header">
+    <div class="container_header d-flex">
+      <div class="logo" (click)="goHome();">
+        <img *ngIf="direction == 'rtl'" src="assets/LogoAR.png" />
+        <img *ngIf="direction == 'ltr'" src="assets/LogoEN.png" />
+      </div>
+      <div class="menu menu_item">
+        <ul class="d-flex">
+          <a class="menu-link" [routerLink]="['/home']"><li translate>Home</li></a>
+          <a class="menu-link" [routerLink]="['/about-us']" ><li translate>About US</li></a>
+          <a class="menu-link" [routerLink]="['/contact-us']" ><li translate>Contact US</li></a>
+          <ng-container *ngIf="isAuthenticated">
+            <a class="menu-link" [routerLink]="['/my-profile']" ><li translate>My account</li></a>
+            <a class="menu-link" [routerLink]="['/organizer']" *ngIf="userType === 2"><li translate>My dashboard</li></a>
+            <a class="menu-link" [routerLink]="['/organizer/event', event_key]" *ngIf="userType === 6"><li translate>My dashboard</li></a>
+            <a class="menu-link" [routerLink]="['/seller']" *ngIf="userType === 4"><li translate>My dashboard</li></a>
+          </ng-container>
+          <!--<a class="menu-link" [routerLink]="['/calendar']" ><li translate>Calendar</li></a>-->
+          <!--<a class="menu-link" [routerLink]="['/organize']" ><li translate>Organize</li></a>-->
+        </ul>
+      </div>
+      <div class="header_right menu_item ">
+        <ul class="d-flex" *ngIf="!isAuthenticated" style="float: left;">
+          <li class="position-relative user-list" >
+            <a [routerLink]="['/auth/login']" class="login-btn" translate><i class="far fa-user" aria-hidden="true"></i>&nbsp; Login</a>
+          </li>
+          <li class="position-relative nav_toggle">
+            <i class="fas fa-bars" (click)="onMenuView($event)"></i>
+            <i class="fas fa-times" (click)="onMenuHide($event)" style="display: none;"></i>
+          </li>
+  
+        </ul>
+        <ul class="d-flex" *ngIf="isAuthenticated">
+          <li class="position-relative user-list">
+            <i class="far fa-user"></i>&nbsp; {{ username }} &nbsp;<i class="fas fa-chevron-down"></i>
+            <div class="user">
+              <a [routerLink]="['/my-profile']"><p translate><i class="far fa-user"></i>&nbsp; My account</p></a>
+              <a [routerLink]="['/organizer']" *ngIf="userType === 2"><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
+              <a [routerLink]="['/organizer/event', event_key]" *ngIf="userType === 6"><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
+              <a [routerLink]="['/seller']" *ngIf="userType === 4"><p translate><i class="fas fa-box"></i>&nbsp; My dashboard</p></a>
+              <!--<a href=""><p translate><i class="fas fa-sliders-h"></i>&nbsp; Settings</p></a>-->
+              <!--<a href=""><p translate><i class="far fa-question-circle"></i>&nbsp; Help</p></a>-->
+              <a href="" (click)="logout()"><p translate><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</p></a>
+            </div>
+          </li>
+          <!--<li class="position-relative notification-list">-->
+            <!--<i class="far fa-bell position-relative"><span class="badge bg-danger">2</span></i>&nbsp;&nbsp;<i class="fas fa-chevron-down"></i>-->
+            <!--<div class="notification mr--20">-->
+              <!--<a href=""><p><i class="fas fa-dollar-sign"></i>&nbsp; <span>Your payment was successful completed</span></p></a>-->
+              <!--<a href=""><p><i class="far fa-credit-card"></i>&nbsp; <span>Your order <span class="text-danger">#89792 </span> is processing. Thanks for buying!</span></p></a>-->
+              <!--<a href=""><p><i class="fas fa-phone"></i>&nbsp; <span>Your phone number was successfully completed</span></p></a>-->
+              <!--<a href=""><p><i class="far fa-envelope"></i>&nbsp; <span>Your E-mail is now confirmed!</span></p></a>-->
+              <!--<a href=""><p><i class="fas fa-dollar-sign"></i>&nbsp; <span>Your payment was successful completed</span></p></a>-->
+            <!--</div>-->
+          <!--</li>-->
+          <li class="position-relative nav_toggle">
+            <i class="fas fa-bars" (click)="onMenuView($event)"></i>
+            <i class="fas fa-times" (click)="onMenuHide($event)" style="display: none;"></i>
+          </li>
+        </ul>
+      </div>
+      <!-- <div class="setting bg-dark">
+        <i class="fas fa-cog d-flex" style="color: white; font-size: 32px;">
+          <a href="login" class="btn btn-info btn-sm ml-1 mr-1">English</a>
+          <a href="login-rtl" class="btn btn-warning btn-sm ml-1 mr-1">Arabic</a>
+          <div class="btn-group pl-1 pr-1 ml-1 mr-1 btn-group-sm">
+            <button type="button" class="btn btn-primary" (click)="onLtrStyle($event)">English</button>
+            <button type="button" class="btn btn-warning" (click)="onRtlStyle($event)">العربية</button>
           </div>
-        </li>
-        <!--<li class="position-relative notification-list">-->
-          <!--<i class="far fa-bell position-relative"><span class="badge bg-danger">2</span></i>&nbsp;&nbsp;<i class="fas fa-chevron-down"></i>-->
-          <!--<div class="notification mr--20">-->
-            <!--<a href=""><p><i class="fas fa-dollar-sign"></i>&nbsp; <span>Your payment was successful completed</span></p></a>-->
-            <!--<a href=""><p><i class="far fa-credit-card"></i>&nbsp; <span>Your order <span class="text-danger">#89792 </span> is processing. Thanks for buying!</span></p></a>-->
-            <!--<a href=""><p><i class="fas fa-phone"></i>&nbsp; <span>Your phone number was successfully completed</span></p></a>-->
-            <!--<a href=""><p><i class="far fa-envelope"></i>&nbsp; <span>Your E-mail is now confirmed!</span></p></a>-->
-            <!--<a href=""><p><i class="fas fa-dollar-sign"></i>&nbsp; <span>Your payment was successful completed</span></p></a>-->
-          <!--</div>-->
-        <!--</li>-->
-        <li class="position-relative nav_toggle">
-          <i class="fas fa-bars" (click)="onMenuView($event)"></i>
-          <i class="fas fa-times" (click)="onMenuHide($event)" style="display: none;"></i>
-        </li>
-      </ul>
+        </i>
+      </div> -->
     </div>
-    <!-- <div class="setting bg-dark">
-      <i class="fas fa-cog d-flex" style="color: white; font-size: 32px;">
-        <a href="login" class="btn btn-info btn-sm ml-1 mr-1">English</a>
-        <a href="login-rtl" class="btn btn-warning btn-sm ml-1 mr-1">Arabic</a>
-        <div class="btn-group pl-1 pr-1 ml-1 mr-1 btn-group-sm">
-          <button type="button" class="btn btn-primary" (click)="onLtrStyle($event)">English</button>
-          <button type="button" class="btn btn-warning" (click)="onRtlStyle($event)">العربية</button>
-        </div>
-      </i>
-    </div> -->
   </div>
-</div>
-<div class="menu_toggle">
-  <a [routerLink]="['/home']" (click)="onMenuHide($event)">
-    <div class="d-flex">
-      <p class="mr-right" translate>Home</p>
-    </div>
-  </a>
-  <a [routerLink]="['/about-us']" (click)="onMenuHide($event)">
-    <div class="d-flex">
-      <p class="mr-right" translate>About US</p>
-    </div>
-  </a>
-  <a [routerLink]="['/contact-us']" (click)="onMenuHide($event)">
-    <div class="d-flex">
-      <p class="mr-right" translate>Contact US</p>
-    </div>
-  </a>
+  <div class="menu_toggle">
+    <a [routerLink]="['/home']" (click)="onMenuHide($event)">
+      <div class="d-flex">
+        <p class="mr-right" translate>Home</p>
+      </div>
+    </a>
+    <a [routerLink]="['/about-us']" (click)="onMenuHide($event)">
+      <div class="d-flex">
+        <p class="mr-right" translate>About US</p>
+      </div>
+    </a>
+    <a [routerLink]="['/contact-us']" (click)="onMenuHide($event)">
+      <div class="d-flex">
+        <p class="mr-right" translate>Contact US</p>
+      </div>
+    </a>
+  
+    <ng-container *ngIf="isAuthenticated">
+      <a [routerLink]="['/organizer']" *ngIf="userType === 2" (click)="onMenuHide($event)">
+        <div class="d-flex">
+          <p class="mr-right" translate>My dashboard</p>
+        </div>
+      </a>  
+      <a [routerLink]="['/organizer/event', event_key]" *ngIf="userType === 6" (click)="onMenuHide($event)">
+        <div class="d-flex">
+          <p class="mr-right" translate>My dashboard</p>
+        </div>
+      </a>  
+      <a [routerLink]="['/seller']" *ngIf="userType === 4" (click)="onMenuHide($event)">
+        <div class="d-flex">
+          <p class="mr-right" translate>My dashboard</p>
+        </div>
+      </a>  
+    </ng-container>
+    <!--<a [routerLink]="['/calendar']" (click)="onMenuHide($event)">-->
+      <!--<div class="d-flex">-->
+        <!--<p class="mr-right" translate>Calendar</p>-->
+      <!--</div>-->
+    <!--</a>-->
+    <!-- <a [routerLink]="['/organize']" (click)="onMenuHide($event)">
+      <div class="d-flex">
+        <p class="mr-right" translate>Organize</p>
+      </div>
+    </a> -->
+  </div>
+</ng-container>
 
-  <!-- <ng-container *ngIf="isAuthenticated">
-    <a [routerLink]="['/organizer']" *ngIf="userType === 2" (click)="onMenuHide($event)">
-      <div class="d-flex">
-        <p class="mr-right" translate>My dashboard</p>
-      </div>
-    </a>  
-    <a [routerLink]="['/organizer/event', event_key]" *ngIf="userType === 6" (click)="onMenuHide($event)">
-      <div class="d-flex">
-        <p class="mr-right" translate>My dashboard</p>
-      </div>
-    </a>  
-    <a [routerLink]="['/seller']" *ngIf="userType === 4" (click)="onMenuHide($event)">
-      <div class="d-flex">
-        <p class="mr-right" translate>My dashboard</p>
-      </div>
-    </a>  
-  </ng-container> -->
-  <!--<a [routerLink]="['/calendar']" (click)="onMenuHide($event)">-->
-    <!--<div class="d-flex">-->
-      <!--<p class="mr-right" translate>Calendar</p>-->
-    <!--</div>-->
-  <!--</a>-->
-  <!-- <a [routerLink]="['/organize']" (click)="onMenuHide($event)">
-    <div class="d-flex">
-      <p class="mr-right" translate>Organize</p>
-    </div>
-  </a> -->
-</div>
 
 <router-outlet></router-outlet>
+
+<ng-container *ngIf="!mobilePayment">
 
 <div class="footer container-fluid">
   <!-- <div class="footer_top pl-4 pr-4">
@@ -184,3 +190,5 @@
     Copyright
   </div>
 </div>
+
+</ng-container>

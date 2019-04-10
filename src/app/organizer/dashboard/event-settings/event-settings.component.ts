@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Event} from "../../../models/event-organizer";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {EventoError} from "../../../models/error";
-import {OrganizerService} from "../../../api-services/organizer.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { Event } from "../../../models/event-organizer";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { EventoError } from "../../../models/error";
+import { OrganizerService } from "../../../api-services/organizer.service";
 
 @Component({
     selector: 'app-event-settings',
@@ -16,15 +16,19 @@ export class EventSettingsComponent implements OnInit {
     public form: FormGroup;
     public errorUpdate: EventoError;
     public sucessUpdate: string;
+    public copy: boolean;
 
 
 
     constructor(public activatedRoute: ActivatedRoute,
-                public organizerService: OrganizerService,
-                public formBuilder: FormBuilder) {
+        public organizerService: OrganizerService,
+        public formBuilder: FormBuilder) {
         this.activatedRoute.parent.params.subscribe(params => {
             this.event_key = params['event-key']
         })
+
+        this.copy = false;
+
 
     }
 
@@ -56,7 +60,7 @@ export class EventSettingsComponent implements OnInit {
     }
 
     public updateSetting(form: FormGroup) {
-        this.organizerService.updateEventSetting(form.value , this.event_key).subscribe(
+        this.organizerService.updateEventSetting(form.value, this.event_key).subscribe(
             res => {
                 this.getEventDetails();
                 this.sucessUpdate = res.meta.message;
@@ -65,6 +69,16 @@ export class EventSettingsComponent implements OnInit {
             }
         )
 
+    }
+
+
+
+    public copied(event: any) {
+        this.copy = true;
+
+        setTimeout(() => {    //<<<---    using ()=> syntax
+            this.copy = false;
+        }, 800);
     }
 
 }

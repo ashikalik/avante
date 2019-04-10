@@ -1,3 +1,9 @@
+<app-errors [errors]="errorInfo" *ngIf="errorInfo"></app-errors>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap pl-3 pr-3">
+    <p class="grey-color mb-2" translate>EDUCATION</p>
+</div>
+
 <ng-container *ngIf="CV">
     <ng-container *ngIf="CV.data.education === null && !showCreateForm">
         <div class="col-lg-12 col-md-12 col-sm-12  d-flex flex-wrap pl-3 pr-3 mt-4">

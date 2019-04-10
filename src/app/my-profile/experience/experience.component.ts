@@ -5,6 +5,7 @@ import {ProfileService} from "../../api-services/profile.service";
 import {IMyDpOptions} from 'mydatepicker';
 import { MyDatePickerOptions } from '../../models/date-picker-object';
 import { DatePickerInputPipe } from '../../shared/date-picker-input.pipe';
+import { EventoError } from '../../models/error';
 
 
 @Component({
@@ -16,13 +17,16 @@ export class ExperienceComponent implements OnInit {
 
     @Input() CV: CVDetails;
     @Output() onChangeCV: EventEmitter<any> = new EventEmitter();
+    @Output() onUpdates: EventEmitter<any> = new EventEmitter();
+    
     public showCreateForm: boolean;
     public showUpdateForm: boolean;
     public areYouSure: boolean;
     public createForm: FormGroup;
     public updateForm: FormGroup;
     public selectedExperience: Experience;
-
+    public errorInfo: EventoError;
+    
     public myDatePickerOptions = MyDatePickerOptions;
     
 
@@ -43,11 +47,15 @@ export class ExperienceComponent implements OnInit {
             this.initFormCreate();
 
         this.showCreateForm = !this.showCreateForm;
+        this.checkUpdates();
+        
     }
 
     public showSure(selected?: Experience) {
         this.selectedExperience = selected;
         this.areYouSure = !this.areYouSure;
+        this.checkUpdates();
+        
     }
 
 
@@ -57,7 +65,18 @@ export class ExperienceComponent implements OnInit {
             this.initFormUpdate();
         }
         this.showUpdateForm = !this.showUpdateForm;
+        this.checkUpdates();
+        
     }
+
+    public checkUpdates(){
+        if(this.showCreateForm || this.showUpdateForm || this.areYouSure){
+            this.onUpdates.emit(true)
+        } else{
+            this.onUpdates.emit(false);
+        }
+     }
+
 
     public initFormCreate() {
         this.createForm = this.formBuilder.group(
@@ -83,6 +102,8 @@ export class ExperienceComponent implements OnInit {
 
 
     public createExperience(form: FormGroup) {
+        this.errorInfo = null;
+        
         let body = form.value;
         body.from_date = form.value.from_date.formatted;
         body.end_date = form.value.end_date.formatted;
@@ -92,18 +113,22 @@ export class ExperienceComponent implements OnInit {
                 this.showCreate();
             },
             err => {
+                this.errorInfo = err.value.error;                
             }
         );
 
     }
 
     public updateExperience(form: FormGroup) {
+        this.errorInfo = null;
+        
         this.profileService.updateExperience(form.value, this.selectedExperience.id).subscribe(
             res => {
                 this.onChangeCV.emit();
                 this.showUpdate();
             },
             err => {
+                this.errorInfo = err.value.error;                
             }
         );
 
@@ -111,7 +136,7 @@ export class ExperienceComponent implements OnInit {
 
 
     public deleteExperience() {
-
+        this.errorInfo = null;        
         let body = {
             id: this.selectedExperience.id
         }
@@ -121,6 +146,7 @@ export class ExperienceComponent implements OnInit {
                 this.showSure();
             },
             err => {
+                this.errorInfo = err.value.error;                
             }
         );
 

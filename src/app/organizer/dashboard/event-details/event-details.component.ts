@@ -202,8 +202,7 @@ export class EventDetailsComponent implements OnInit {
 
     public copied(event: any) {
         this.copy = true;
-
-        setTimeout(()=>{    //<<<---    using ()=> syntax
+        setTimeout(()=>{    
             this.copy = false;
        }, 800);
     }

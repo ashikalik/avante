@@ -68,12 +68,13 @@
               </div>
               <div class="star-rating mt-4 underline h-120">
                 <p class="grey-color mb-0" translate>Rating:</p>
+                <!-- <span class="fas fa-star checked"></span>
                 <span class="fas fa-star checked"></span>
                 <span class="fas fa-star checked"></span>
                 <span class="fas fa-star checked"></span>
-                <span class="fas fa-star checked"></span>
-                <span class="fas fa-star"></span>
-                <span class="rating-value grey-color">(7.5/10)</span>
+                <span class="fas fa-star"></span> -->
+                <p *ngIf="requestDetails.data.request.rating" class="">{{requestDetails.data.request.rating}}</p>
+                <p *ngIf="!requestDetails.data.request.rating" class="" translate>Not rated yet</p>
               </div>
 
             </div>
@@ -105,55 +106,62 @@
               </div>
               <div class=" pr-3 col-lg-4 col-md-4 col-sm-12 col-12 ">
                 <div class="rating" *ngIf="!question.rating">
-                  <div *ngIf="!question.selectedRate">
-                    <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
-                    <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
-                    <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
-                    <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
-                    <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                  <div *ngIf="requestDetails.data.request.joining_status == 3 || requestDetails.data.request.joining_status ==5">
+                    You cannot rate this question
+                  </div>
+                  <div *ngIf="requestDetails.data.request.joining_status != 3 && requestDetails.data.request.joining_status !=5">
+                    <div *ngIf="!question.selectedRate">
+                      <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                      <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                      <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                      <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                      <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                    </div>
+
+                    <div *ngIf="question.selectedRate == '5' ">
+                      <input checked id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                      <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                      <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                      <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                      <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                    </div>
+
+                    <div *ngIf="question.selectedRate == '4' ">
+                      <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                      <input checked id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                      <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                      <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                      <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                    </div>
+
+                    <div *ngIf="question.selectedRate == '3' ">
+                      <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                      <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                      <input checked id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                      <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                      <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                    </div>
+
+                    <div *ngIf="question.selectedRate == '2' ">
+                      <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                      <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                      <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                      <input checked id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                      <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                    </div>
+
+                    <div *ngIf="question.selectedRate == '1' ">
+                      <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
+                      <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
+                      <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
+                      <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
+                      <input checked id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
+                    </div>
                   </div>
 
-                  <div *ngIf="question.selectedRate == '5' ">
-                    <input checked id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
-                    <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
-                    <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
-                    <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
-                    <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
-                  </div>
-
-                  <div *ngIf="question.selectedRate == '4' ">
-                    <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
-                    <input checked id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
-                    <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
-                    <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
-                    <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
-                  </div>
-
-                  <div *ngIf="question.selectedRate == '3' ">
-                    <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
-                    <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
-                    <input checked id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
-                    <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
-                    <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
-                  </div>
-
-                  <div *ngIf="question.selectedRate == '2' ">
-                    <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
-                    <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
-                    <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
-                    <input checked id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
-                    <input id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
-                  </div>
-
-                  <div *ngIf="question.selectedRate == '1' ">
-                    <input id="rating-5" type="radio" /><label (click)="onSelectRate(i,5)" for="rating-5"><i class="fas  fa-star"></i></label>
-                    <input id="rating-4" type="radio" /><label (click)="onSelectRate(i,4)" for="rating-4"><i class="fas  fa-star"></i></label>
-                    <input id="rating-3" type="radio" /><label (click)="onSelectRate(i,3)" for="rating-3"><i class="fas  fa-star"></i></label>
-                    <input id="rating-2" type="radio" /><label (click)="onSelectRate(i,2)" for="rating-2"><i class="fas  fa-star"></i></label>
-                    <input checked id="rating-1" type="radio" /><label (click)="onSelectRate(i,1)" for="rating-1"><i class="fas fa-star"></i></label>
-                  </div>
 
                 </div>
+
                 <div class="rating" *ngIf="question.rating">
                   <label [ngClass]="[question.rating == '5' ? 'active_star' : '']" for="rating-5"><i class="fas  fa-star"></i></label>
                   <label [ngClass]="[question.rating == '4' || question.rating > '4'  ? 'active_star' : '']" for="rating-4"><i class="fas  fa-star"></i></label>
@@ -163,8 +171,13 @@
                 </div>
               </div>
 
+              <!-- To prevent the user from rating volu when s/he is already interviewed -->
+              <div *ngIf="requestDetails.data.request.joining_status == 3 || requestDetails.data.request.joining_status ==5" class="  pr-3 col-lg-2 col-md-2 col-sm-12 col-12 ">
+                <button *ngIf="!question.rating" disabled type="button" class="btn btn-info btn-sm pl-4 pr-4" translate>Evaluate</button>
+                <button *ngIf="question.rating" disabled type="button" class="btn btn-info btn-sm pl-4 pr-4" translate>Evaluated</button>
+              </div>
 
-              <div class="  pr-3 col-lg-2 col-md-2 col-sm-12 col-12 ">
+              <div *ngIf="requestDetails.data.request.joining_status == 2" class="  pr-3 col-lg-2 col-md-2 col-sm-12 col-12 ">
                 <button *ngIf="!question.rating" (click)="rateQuestion(question.id, question.selectedRate )" type="button" class="btn btn-info btn-sm pl-4 pr-4"
                   translate>Evaluate</button>
                 <button *ngIf="question.rating" disabled (click)="rateQuestion(question.id, question.selectedRate )" type="button" class="btn btn-info btn-sm pl-4 pr-4"
@@ -193,21 +206,21 @@
             <div class=" col-lg-12 col-md-12 col-sm-12 col-12 pl-2 pr-2 d-flex flex-wrap mt-3">
 
               <div *ngIf="requestDetails.data.request.joining_status == 2" class="col-lg-3 col-md-3 col-sm-12 col-12 mt-2">
-                <button [disabled]="!interviewForm.valid"  (click)="endInterview(interviewForm)"
-                  type="submit" class="btn btn-info  pl-4 pr-4" translate>
+                <button [disabled]="!interviewForm.valid" (click)="endInterview(interviewForm)" type="submit" class="btn btn-info  pl-4 pr-4"
+                  translate>
                     Complete Interview
                 </button>
               </div>
               <div *ngIf="requestDetails.data.request.joining_status == 2 || requestDetails.data.request.joining_status == 5" class="col-lg-3 col-md-3 col-sm-12 col-12 mt-2">
-                <button  (click)="rejectRequest(requestDetails.data.request.request_id)"
-                  type="submit" class="event-edit btn btn-danger pr-5 pl-5 " translate>
+                <button (click)="rejectRequest(requestDetails.data.request.request_id)" type="submit" class="event-edit btn btn-danger pr-5 pl-5 "
+                  translate>
                       Reject Request
                   </button>
               </div>
 
-              <div *ngIf="requestDetails.data.request.joining_status == 2 || requestDetails.data.request.joining_status == 5"  class="col-lg-3 col-md-3 col-sm-12 col-12 mt-2">
-                <button (click)="finalAccept(requestDetails.data.request.request_id)"
-                  type="submit" class="event-edit btn btn-danger pr-5 pl-5 " translate>
+              <div *ngIf="requestDetails.data.request.joining_status == 2 || requestDetails.data.request.joining_status == 5" class="col-lg-3 col-md-3 col-sm-12 col-12 mt-2">
+                <button (click)="finalAccept(requestDetails.data.request.request_id)" type="submit" class="event-edit btn btn-danger pr-5 pl-5 "
+                  translate>
                         Final Accept Request
                     </button>
               </div>

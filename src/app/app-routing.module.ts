@@ -70,20 +70,18 @@ const routes: Routes = [
     loadChildren: './validate-payment/validate-payment.module#ValidatePaymentModule',   
   },
   {
+    path: 'validate-payment-mobile',
+    loadChildren: './validate-payment-mobile/validate-payment-mobile.module#ValidatePaymentMobileModule',   
+  },
+  {
+    path: 'mobile-payment',
+    loadChildren: './mobile-payment/mobile-payment.module#MobilePaymentModule',   
+  },
+  {
       path: 'seller',
       loadChildren: './seller/seller.module#SellerModule',   
       canActivate: [AuthGuard, SellerGuard],
-  },
-  // {
-  //     path: 'supervisor',
-  //     loadChildren: './organizer/organizer.module#OrganizerModule',   
-  //     canActivate: [AuthGuard, SupervisorRequestsGuard],
-  // }
-  // },
-  // {
-  //     path: '**',
-  //     component: PageNotFoundComponent
-  // }
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -11,7 +11,7 @@
               <p class="mb-0">{{ username }} &nbsp; <br><a [routerLink]="['/my-profile']" class="mt-2" translate>My account<i class="fas fa-chevron-left"></i></a></p>
             </li>
             <li class="sidebar-list" *ngIf="isAdmin || isRequestSupervisor || isSellerSupervisor">
-              <a class="sidebar-item" [routerLink]="['/details']" (click)="onMenuHide()" translate><img class="img-fluid ml-2 mr-2" src="assets/EventIcon.png" alt=""/>EVENT</a>
+              <ul class="sidebar-item" translate><img class="img-fluid ml-2 mr-2" src="assets/EventIcon.png" alt=""/>EVENT</ul>
               <ul class="sidebar-nav">
                 <li *ngIf="isAdmin || isRequestSupervisor || isSellerSupervisor" class="sidebar-sublist " routerLinkActive="active"><a [routerLink]="['details']" (click)="onMenuHide()" translate>Event Details</a></li>
                 <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['setting']" (click)="onMenuHide()" translate>Event Setting</a></li>
@@ -22,7 +22,7 @@
               </ul>
             </li>
             <li class="sidebar-list" *ngIf="isAdmin || isRequestSupervisor">
-              <a class="sidebar-item" href="" (click)="onMenuHide()" translate><img class="img-fluid ml-2 mr-2" src="assets/OrganizersIcon.png" alt=""/>Organizers</a>
+              <ul class="sidebar-item"  translate><img class="img-fluid ml-2 mr-2" src="assets/OrganizersIcon.png" alt=""/>Organizers</ul>
               <ul class="sidebar-nav">
                 <li *ngIf="isAdmin || isRequestSupervisor" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['questions']" (click)="onMenuHide()" translate>Interviews Questions</a></li>
                 <li *ngIf="isAdmin || isRequestSupervisor" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['requests']" (click)="onMenuHide()" translate>Requests</a></li>
@@ -32,7 +32,7 @@
               </ul>
             </li>
             <li class="sidebar-list" *ngIf="isAdmin || isSellerSupervisor">
-              <a class="sidebar-item" href="" (click)="onMenuHide()" translate><img class="img-fluid ml-2 mr-2" src="assets/TicketsIcon.png" alt=""/>Tickets</a>
+              <ul class="sidebar-item"  translate><img class="img-fluid ml-2 mr-2" src="assets/TicketsIcon.png" alt=""/>Tickets</ul>
               <ul class="sidebar-nav">
                 <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['packages']" (click)="onMenuHide()" translate>Tickets Packages</a></li>
                 <li *ngIf="isAdmin || isSellerSupervisor" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['sales']" (click)="onMenuHide()" translate>Sales staff</a></li>
@@ -40,7 +40,7 @@
               </ul>
             </li>
             <li class="sidebar-list" *ngIf="isAdmin">
-              <a class="sidebar-item" href="" (click)="onMenuHide()" translate><img class="img-fluid ml-2 mr-2" src="assets/ReportsIcon.png" alt=""/>Reports</a>
+              <ul class="sidebar-item"  translate><img class="img-fluid ml-2 mr-2" src="assets/ReportsIcon.png" alt=""/>Reports</ul>
               <ul class="sidebar-nav">
                 <li class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['report']" (click)="onMenuHide()" translate>Statistics</a></li>
               </ul>

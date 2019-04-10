@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {MyProfileRoutingModule} from './my-profile-routing.module';
 import {RootComponent} from './root/root.component';
 import {UserComponent} from './user/user.component';
-import {CompanyComponent} from './company/company.component';
 import {VoluComponent} from './volu/volu.component';
 import {BASE_MODULES} from "../models/modules";
 import {SingleTicketComponent} from './single-ticket/single-ticket.component';
@@ -21,7 +20,6 @@ import {CommonService} from "../api-services/common.service";
     declarations: [
         RootComponent,
         UserComponent,
-        CompanyComponent,
         VoluComponent,
         SingleTicketComponent,
         InvoicesComponent,
