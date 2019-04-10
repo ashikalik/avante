@@ -144,7 +144,7 @@ export class RootComponent implements OnInit {
                     // this.completedPayment = false;
                     // this.changeStepForward(null);
                     Checkout.configure({
-                        merchant: '3000000016',
+                        merchant: '3000000011',
                         order: {
                             amount: res.data.total_with_vat,
                             currency: 'SAR',

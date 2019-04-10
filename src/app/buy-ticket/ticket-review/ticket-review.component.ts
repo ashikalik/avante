@@ -30,7 +30,7 @@ export class TicketReviewComponent implements OnInit {
     let body = <HTMLDivElement> document.body;
     let script = document.createElement('script');
     script.innerHTML = '';
-    script.src = 'https://test-gateway.mastercard.com/checkout/version/51/checkout.js';
+    script.src = 'https://ap-gateway.mastercard.com/checkout/version/51/checkout.js';
     script.async = true;
     script.defer = true;
     body.appendChild(script);
