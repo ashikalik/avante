@@ -39,14 +39,11 @@ export class AppComponent implements AfterViewChecked {
         router.events.forEach((event) => {
             window.scroll(0, 0);
             if (event instanceof NavigationStart) {
-                console.log(this.navStartUrl)
                 if(this.navStartUrl = event.url) {
                     if(this.navStartUrl && this.navStartUrl.indexOf('/mobile-payment') > -1) {
                         this.mobilePayment = true;
-                        console.log('true')
                     } else {
                         this.mobilePayment = false;
-                        console.log('false')
                     }
                 }
                 if (this.userAuthService.getToken()) {

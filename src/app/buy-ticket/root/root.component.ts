@@ -173,7 +173,6 @@ export class RootComponent implements OnInit {
                     Checkout.showPaymentPage()
     
                 }
-                console.log(res)
 
 
 
