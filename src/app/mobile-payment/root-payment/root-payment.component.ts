@@ -20,6 +20,12 @@ export class RootPaymentComponent implements OnInit {
   }
 
   ngOnInit() {
+
+
+
+
+
+
     let body = <HTMLDivElement> document.body;
     let script = document.createElement('script');
     script.innerHTML = '';
