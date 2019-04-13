@@ -16,17 +16,25 @@ export class RootPaymentComponent implements OnInit {
               public router: Router,
               public buyTicketService: BuyTicketService) { 
     this.reference = this.route.snapshot.queryParams.reference;
+    // let body = <HTMLDivElement> document.body;
+    // let script = document.createElement('script');
+    // script.innerHTML = '';
+    // script.src = 'https://test-gateway.mastercard.com/checkout/version/51/checkout.js';
+    // script.async = true;
+    // script.defer = true;
+    // body.appendChild(script); 
+
+  }
+
+  ngOnInit() {
     let body = <HTMLDivElement> document.body;
     let script = document.createElement('script');
     script.innerHTML = '';
     script.src = 'https://test-gateway.mastercard.com/checkout/version/51/checkout.js';
     script.async = true;
     script.defer = true;
-    body.appendChild(script); 
+    body.appendChild(script);
 
-  }
-
-  ngOnInit() {
     
     if(this.reference) {
       this.buyTicketService.getMobileInvoice(this.reference).subscribe(
