@@ -164,7 +164,7 @@ export class RootComponent implements OnInit {
                             displayControl: {
                                 billingAddress: 'HIDE',
                                 customerEmail: 'HIDE',
-                                orderSummary: 'SHOW',
+                                orderSummary: 'HIDE',
                                 shipping: 'HIDE'
                             }
                         }
