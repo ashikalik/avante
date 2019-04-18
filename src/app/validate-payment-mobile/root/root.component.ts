@@ -27,7 +27,12 @@ export class RootComponent implements OnInit {
   }
 
   onButton(){
-    this.router.navigate(['eventoapps://slider']);
+    window.location.replace('eventoapps://slider');
+  }
+
+
+  onSecondButton(){
+    
   }
 
   // public validatePayment() {
