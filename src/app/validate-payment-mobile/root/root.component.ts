@@ -27,13 +27,11 @@ export class RootComponent implements OnInit {
   }
 
   onButton(){
-    window.location.replace('eventoapps://slider');
+    window.location.replace('eventoapps:/');
   }
 
 
-  onSecondButton(){
-    
-  }
+  onSecondButton
 
   // public validatePayment() {
   //   this.buyTicketService.validatePayment(this.reference).subscribe(res => {
