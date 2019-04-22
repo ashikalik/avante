@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class RootComponent implements OnInit {
   public validate: boolean;
 
   constructor(public buyTicketService: BuyTicketService,
+    public router: Router,    
     private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.reference = params['reference'];
@@ -25,6 +26,12 @@ export class RootComponent implements OnInit {
     // window.close();
   }
 
+  onButton(){
+    window.location.replace('eventoapps:/');
+  }
+
+
+  onSecondButton
 
   // public validatePayment() {
   //   this.buyTicketService.validatePayment(this.reference).subscribe(res => {

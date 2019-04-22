@@ -40,7 +40,7 @@ export class AppComponent implements AfterViewChecked {
             window.scroll(0, 0);
             if (event instanceof NavigationStart) {
                 if(this.navStartUrl = event.url) {
-                    if(this.navStartUrl && this.navStartUrl.indexOf('/mobile-payment') > -1) {
+                    if(this.navStartUrl && (this.navStartUrl.indexOf('/mobile-payment') > -1) || this.navStartUrl.indexOf('/validate-payment-mobile') > -1) {
                         this.mobilePayment = true;
                     } else {
                         this.mobilePayment = false;

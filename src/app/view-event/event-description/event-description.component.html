@@ -5,7 +5,7 @@
     <p class="grey-color mt-3 mb-3" translate>{{ 'ABOUT' | translate }} {{ eventDetails.data.details.name }}</p>
     <p class="grey-color">{{ eventDetails.data.details.details }}</p>
 
-    <div class="col-md-12 mt-3 mb-3">
+    <div class="col-md-12 mt-3 mb-3" *ngIf="eventDetails.data.details.company_name">
         <b translate>ORGANIZER:</b> <span class="grey-color">{{ eventDetails.data.details.company_name }}</span>
     </div>
 
