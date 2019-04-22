@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input, Renderer2 } from '@angular/core';
 import { Observable } from "rxjs";
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
@@ -19,22 +19,31 @@ export class TicketReviewComponent implements OnInit {
   public selectedPackage: Package;
   public isDateRequired: boolean;
   public totalWithoutVat: number;
+  public showSubmit: boolean;
   
-  constructor(private buyTicketService: BuyTicketService) { }
+  constructor(private buyTicketService: BuyTicketService, private renderer: Renderer2) { }
 
   ngOnInit() {
+    this.showSubmit = false;
     let package_id = this.payment.get('package_id').value;
     this.selectedPackage = this.eventDetail.data.packages.find(x => x.package_id == package_id); 
     this.isDateRequired = this.buyTicketService.isDateRequired(this.selectedPackage);    
     this.calculatTotal();
-    let body = <HTMLDivElement> document.body;
-    let script = document.createElement('script');
-    script.innerHTML = '';
-    script.src = 'https://test-gateway.mastercard.com/checkout/version/51/checkout.js';
-    script.async = true;
-    script.defer = true;
-    body.appendChild(script);
 
+    this.addJsToElement('https://test-gateway.mastercard.com/checkout/version/51/checkout.js').onload = () => {
+      this.showSubmit = true;
+    }
+
+
+  }
+
+
+  addJsToElement(src: string): HTMLScriptElement {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = src;
+    this.renderer.appendChild(document.body, script);
+    return script;
   }
 
   public calculatTotal() {
