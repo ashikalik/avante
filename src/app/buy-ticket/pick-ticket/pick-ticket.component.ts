@@ -118,7 +118,7 @@ export class PickTicketComponent implements OnInit {
         }
         this.buyTicketService.validatePackage(body).subscribe(res => {
             this.validatePackageRes = res.data;
-            if (this.validatePackageRes.left == 0) {
+            if (this.validatePackageRes.left <= 0) {
                 this.isSoldOut = true;
             }
             if (this.validatePackageRes.left <= 5 && this.validatePackageRes.left >= 1) {
