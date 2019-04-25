@@ -30,7 +30,7 @@ export class TicketReviewComponent implements OnInit {
     this.isDateRequired = this.buyTicketService.isDateRequired(this.selectedPackage);    
     this.calculatTotal();
 
-    this.addJsToElement('https://test-gateway.mastercard.com/checkout/version/51/checkout.js').onload = () => {
+    this.addJsToElement('https://ap-gateway.mastercard.com/checkout/version/51/checkout.js').onload = () => {
       this.showSubmit = true;
     }
 
