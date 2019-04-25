@@ -29,7 +29,6 @@ export class TicketReviewComponent implements OnInit {
     this.selectedPackage = this.eventDetail.data.packages.find(x => x.package_id == package_id); 
     this.isDateRequired = this.buyTicketService.isDateRequired(this.selectedPackage);    
     this.calculatTotal();
-
     this.addJsToElement('https://ap-gateway.mastercard.com/checkout/version/51/checkout.js').onload = () => {
       this.showSubmit = true;
     }
