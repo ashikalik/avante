@@ -33,7 +33,7 @@ export interface Event {
     address: string;
     created_at: Date;
     updated_at: Date;
-    moi_number?: any;
+    crNumber?: any;
     lng: number;
     lat: number;
     status_id: number;

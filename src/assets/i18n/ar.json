@@ -427,5 +427,8 @@
   "Resend Activation Link":"إعادة إرسال رابط التفعيل",
   "Not rated yet":"لايوجد لديه تقييم",
   "This failed should be not more than 10 numbers":"هذا الحقل يجب أن لايزيد عن ١٠ ارقام",
-  "This failed should be at least 10 numbers": "هذا الحقل يجب أن لايقل عن ١٠ ارقام"
+  "This failed should be at least 10 numbers": "هذا الحقل يجب أن لايقل عن ١٠ ارقام",
+  "Total Tickets": "إجمالي التذاكر",
+  "Total Linked": "تذاكر تم ربطها",
+  "Total Pending": "تذاكر قيد الربط"
 }
