@@ -22,6 +22,7 @@ export class EventHeaderComponent implements OnInit {
     let profile = this.userAuthService.getUserProfile();
     if (profile){
       this.userType = profile.data.user_type;
+      console.log(this.userType)
       
     }
   }
