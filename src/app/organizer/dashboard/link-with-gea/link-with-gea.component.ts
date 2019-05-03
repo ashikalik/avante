@@ -52,7 +52,7 @@ export class LinkWithGeaComponent implements OnInit {
     initForm() {
         this.form = this.formBuilder.group(
             {
-                'moi_number': ['', Validators.compose([Validators.required, Validators.pattern('^\\d+$')])],
+                'crNumber': ['', Validators.compose([Validators.required, Validators.pattern('^\\d+$'), Validators.minLength(10), Validators.maxLength(10)])],
             });
     }
 
