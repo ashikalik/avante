@@ -183,7 +183,7 @@
   "Field should be at most 1000 characters":"الحقل يجب ان لايزيد عن ١٠٠٠ حرف",
   "Field should be at least 1":"قيمة الحقل يجب ان لاتقل عن ١",
   "Field should be at least Zero":"قيمة الحقل يجب ان لاتقل عن صفر",
-  "This filed should be at most 40 characters":"الحقل يجب ان لايزيد عن ١٠٠٠ حرف",
+  "This filed should be at most 40 characters":"الحقل يجب ان لايزيد عن ٤٠ حرف",
   "Your information has been updated successfully":"تم تحديث المعلومات الشخصية بنجاح",
   "Your password has been updated successfully":"تم تحديث كلمة المرور بنجاح",
   "Order Info":"تفاصيل الطلب",
