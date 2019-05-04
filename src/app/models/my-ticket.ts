@@ -30,6 +30,7 @@ export interface Invoice {
     status_id: number;
     price: number;
     num_ticket: number;
+    img: string;
     total_without_vat: number;
     vat: number;
     total_with_vat: number;
