@@ -27,8 +27,8 @@ export class ProfileService {
         return this.httpClient.put<any>(url, body);
     }
 
-    public getInvoices(): Observable<Invoices> {
-        const url = NetworkConfig.BASE_URL + NetworkConfig.LIST_INVOCICE;
+    public getInvoices(limit:number, page:number): Observable<Invoices> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.LIST_INVOCICE + '?page=' + page + '&limit=' + limit;
         return this.httpClient.get<Invoices>(url);
     }
 
