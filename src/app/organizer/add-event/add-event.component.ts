@@ -162,6 +162,8 @@ export class AddEventComponent implements OnInit {
     public placeMarker(event: any) {
         this.lat = event.coords.lat;
         this.lng = event.coords.lng;
+        this.form.get('lat').setValue(this.lat);
+        this.form.get('lng').setValue(this.lng);
     }
 
     public onChangeRegion(event) {
@@ -201,6 +203,7 @@ export class AddEventComponent implements OnInit {
             },
             err => {
                 this.error = err.value.error;
+                this.form.get('recaptcha').reset();
             }
         );
     }
