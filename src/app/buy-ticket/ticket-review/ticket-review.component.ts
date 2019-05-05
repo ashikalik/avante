@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
 import { EventDetails, Package } from "../../models/event-details";
+import { NetworkConfig } from 'src/app/network-layer/network.config';
 
 @Component({
   selector: 'app-ticket-review',
@@ -29,7 +30,7 @@ export class TicketReviewComponent implements OnInit {
     this.selectedPackage = this.eventDetail.data.packages.find(x => x.package_id == package_id); 
     this.isDateRequired = this.buyTicketService.isDateRequired(this.selectedPackage);    
     this.calculatTotal();
-    this.addJsToElement('https://test-gateway.mastercard.com/checkout/version/51/checkout.js').onload = () => {
+    this.addJsToElement(NetworkConfig.MERCHANT_JS).onload = () => {
       this.showSubmit = true;
     }
 
