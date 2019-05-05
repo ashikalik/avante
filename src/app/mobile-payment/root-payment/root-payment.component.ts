@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
+import { NetworkConfig } from 'src/app/network-layer/network.config';
 declare var Checkout: any;
 
 @Component({
@@ -23,7 +24,7 @@ export class RootPaymentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.addJsToElement('https://test-gateway.mastercard.com/checkout/version/51/checkout.js').onload = () => {
+    this.addJsToElement(NetworkConfig.MERCHANT_JS).onload = () => {
       this.redirectUser();
     }
 
@@ -43,7 +44,7 @@ export class RootPaymentComponent implements OnInit {
         res => {
           if (res.data.status_id === 3 && res.data.total_with_vat > 0) {
             Checkout.configure({
-              merchant: '3000000016',
+              merchant: NetworkConfig.MERCHANT_ID,
               order: {
                 amount: res.data.total_with_vat,
                 currency: 'SAR',

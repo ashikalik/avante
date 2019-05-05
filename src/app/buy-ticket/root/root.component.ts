@@ -7,6 +7,7 @@ import { BuyTicketService } from '../../api-services/buy-ticket.service';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EventoError } from '../../models/error';
 import { Meta, Title } from "@angular/platform-browser";
+import { NetworkConfig } from 'src/app/network-layer/network.config';
 
 
 declare var Checkout: any;
@@ -144,7 +145,7 @@ export class RootComponent implements OnInit {
                     // this.completedPayment = false;
                     // this.changeStepForward(null);
                     Checkout.configure({
-                        merchant: '3000000016',
+                        merchant: NetworkConfig.MERCHANT_ID,
                         order: {
                             amount: res.data.total_with_vat,
                             currency: 'SAR',
