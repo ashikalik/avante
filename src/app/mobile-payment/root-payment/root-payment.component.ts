@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
-import { NetworkConfig } from 'src/app/network-layer/network.config';
+import { NetworkConfig } from '../../network-layer/network.config';
 declare var Checkout: any;
 
 @Component({

@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
 import { EventDetails, Package } from "../../models/event-details";
-import { NetworkConfig } from 'src/app/network-layer/network.config';
+import { NetworkConfig } from '../../network-layer/network.config';
 
 @Component({
   selector: 'app-ticket-review',
