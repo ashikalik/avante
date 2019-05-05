@@ -39,7 +39,8 @@ export class LinkWithGeaComponent implements OnInit {
 
         this.organizerService.getEvent(1, 1, null, this.event_key, null).subscribe(res => {
             this.eventDetails = res.data[0];
-            if(!this.eventDetails.moi_number)
+            console.log(!this.eventDetails.crNumber)
+            if(!this.eventDetails.crNumber)
                 this.showLink = true;
             else
                 this.showLink = false;
@@ -52,7 +53,7 @@ export class LinkWithGeaComponent implements OnInit {
     initForm() {
         this.form = this.formBuilder.group(
             {
-                'moi_number': ['', Validators.compose([Validators.required, Validators.pattern('^\\d+$')])],
+                'crNumber': ['', Validators.compose([Validators.required, Validators.pattern('^\\d+$'), Validators.minLength(10), Validators.maxLength(10)])],
             });
     }
 
@@ -63,6 +64,7 @@ export class LinkWithGeaComponent implements OnInit {
 
         this.organizerService.updateMOINumber(body , this.event_key) .subscribe(
             res => {
+                console.log('hdfkashdfjahsdflkjhasdkjlfh')
                 this.getEventDetails()
             }, err => {
                 this.errorMOI = err.value.error;

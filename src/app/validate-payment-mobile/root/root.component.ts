@@ -13,32 +13,25 @@ export class RootComponent implements OnInit {
   public validate: boolean;
 
   constructor(public buyTicketService: BuyTicketService,
-    public router: Router,    
     private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
       this.reference = params['reference'];
-      // this.validatePayment();
+      this.validatePayment();
   });
 
   }
 
   ngOnInit() {
-    // window.close();
-  }
-
-  onButton(){
-    window.location.replace('eventoapps:/');
   }
 
 
-  onSecondButton
+  public validatePayment() {
+    this.buyTicketService.validatePayment(this.reference).subscribe(res => {
+      this.validate = true;
+    }, err => {
+      this.validate = false;
+    });
+  }
 
-  // public validatePayment() {
-  //   this.buyTicketService.validatePayment(this.reference).subscribe(res => {
-  //     this.validate = true;
-  //   }, err => {
-  //     this.validate = false;
-  //   });
-  // }
 
 }

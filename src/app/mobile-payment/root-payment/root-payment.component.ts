@@ -23,7 +23,7 @@ export class RootPaymentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.addJsToElement('https://ap-gateway.mastercard.com/checkout/version/51/checkout.js').onload = () => {
+    this.addJsToElement('https://test-gateway.mastercard.com/checkout/version/51/checkout.js').onload = () => {
       this.redirectUser();
     }
 
@@ -43,7 +43,7 @@ export class RootPaymentComponent implements OnInit {
         res => {
           if (res.data.status_id === 3 && res.data.total_with_vat > 0) {
             Checkout.configure({
-              merchant: '3000000011',
+              merchant: '3000000016',
               order: {
                 amount: res.data.total_with_vat,
                 currency: 'SAR',

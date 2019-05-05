@@ -68,9 +68,9 @@
                     This field is required
                 </div>
                 <div class="error"
-                     *ngIf="createForm.controls['bio'].hasError('maxLength') && !createForm.controls['bio'].pristine"
+                     *ngIf="createForm.controls['bio'].hasError('maxlength') && !createForm.controls['bio'].pristine"
                      translate>
-                    Field should be at most 100 characters
+                     Field should be at most 1000 characters
                 </div>
                 <div class="error"
                      *ngIf="createForm.controls['bio'].hasError('minlength') && !createForm.controls['bio'].pristine"
@@ -93,7 +93,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
                 <p class="title" translate>About me</p>
-                <p class="details"> {{ CV.data.cv.bio }}</p>
+                <p class="details" style="text-align: justify"> {{ CV.data.cv.bio }}</p>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-3 pr-3 mt-2">
                 <p class="title" translate>Nationality</p>

@@ -183,7 +183,7 @@
   "Field should be at most 1000 characters":"الحقل يجب ان لايزيد عن ١٠٠٠ حرف",
   "Field should be at least 1":"قيمة الحقل يجب ان لاتقل عن ١",
   "Field should be at least Zero":"قيمة الحقل يجب ان لاتقل عن صفر",
-  "This filed should be at most 40 characters":"الحقل يجب ان لايزيد عن ١٠٠٠ حرف",
+  "This filed should be at most 40 characters":"الحقل يجب ان لايزيد عن ٤٠ حرف",
   "Your information has been updated successfully":"تم تحديث المعلومات الشخصية بنجاح",
   "Your password has been updated successfully":"تم تحديث كلمة المرور بنجاح",
   "Order Info":"تفاصيل الطلب",
@@ -279,8 +279,8 @@
   "Private Event": "فعالية خاصة",
   "If you enable this feature, your will need to share event link to able view event": "إذا قمت بتفعيل هذه الخاصية ، سوف تكون فعاليتك خاصة ويتطلب الوصول اليها عبر الرابط",
   "Add Event Terms And Conditions": "إضافة شروط وسياسات الفعالية",
-  "MOI Number": "رقم تصريح وزارة الداخلية",
-  "Connect With GEA To Send Tickets": "لتتمكن من إرسال بينات الفعالية لاحقاً لهيئة الترفيه، يجب عليك إضافة رقم تصريح الفعالية في وزارة الداخلية. إضافة رقم التصريح إجباري للفعاليات المدعومة من هيئة الترفيه.",
+  "MOI Number": "رقم السجل التجاري",
+  "Connect With GEA To Send Tickets": "لتتمكن من إرسال بينات الفعالية لاحقاً لهيئة الترفيه، يجب عليك إضافة رقم السجل التجاري. إضافة رقم السجل التجاري إجباري للفعاليات المرخصة من قبل هيئة الترفيه.",
   "You are Already Linked with GEA": "لقد ربطت بالفعل مع الهيئة العامة للترفيه، للتعديل الرجاء",
   "This field should be numeric": "هذا الحقل يجب ان يحتوي على ارقام فقط",
   "Add Interview Questions": "إضافة معايير المقابلات",
@@ -425,5 +425,10 @@
   "Copy Event Link":"نسخ رابط الفعالية",
   "Copy Success":"تم النسخ بنجاح",
   "Resend Activation Link":"إعادة إرسال رابط التفعيل",
-  "Not rated yet":"لايوجد لديه تقييم"
+  "Not rated yet":"لايوجد لديه تقييم",
+  "This failed should be not more than 10 numbers":"هذا الحقل يجب أن لايزيد عن ١٠ ارقام",
+  "This failed should be at least 10 numbers": "هذا الحقل يجب أن لايقل عن ١٠ ارقام",
+  "Total Tickets": "إجمالي التذاكر",
+  "Total Linked": "تذاكر تم ربطها",
+  "Total Pending": "تذاكر قيد الربط"
 }
