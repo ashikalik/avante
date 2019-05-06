@@ -156,6 +156,7 @@
   "Field should be at most 200 characters":"الحقل يجب أن لايزيد عن ٢٠٠ حرف",
   "Field should be at most 40 characters":"الحقل يجب أن لايزيد عن ٤٠ حرف",
   "Field should be at most 400 characters":"الحقل يجب أن لايزيد عن ٤٠٠ حرف",
+  "Field should be at most 500 characters":"الحقل يجب أن لايزيد عن ٥٠٠ حرف",
   "Field should be at most 100 characters":"الحقل يجب أن لايزيد عن ١٠٠٠ حرف",
   "Mobile number is invalid":"صيغة رقم الجوال غير صحيحة",
   "SEND MESSAGE":"ارسل رسالتك",
@@ -434,5 +435,6 @@
   "Choose Package Status": "اختر حالة الباقة",
   "Active Package": "باقة نشطة",
   "Deactivated Package": "باقة ملغاه",
-  "Alyasmin, Anas Ibn Malik Rd": "طريق انس ابن مالك، حي الياسمين "
+  "Alyasmin, Anas Ibn Malik Rd": "طريق انس ابن مالك، حي الياسمين ",
+  "Applications": "طلبات التنظيم"
 }
