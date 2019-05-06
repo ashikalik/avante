@@ -89,7 +89,7 @@ export class QuestionsComponent implements OnInit {
                 'question': ['', Validators.compose([
                     Validators.required,
                     Validators.minLength(3),
-                    Validators.maxLength(500)])]
+                    Validators.maxLength(200)])]
             });
     }
 
@@ -99,7 +99,7 @@ export class QuestionsComponent implements OnInit {
                 'question': [this.selectedQuestion.question, Validators.compose([
                     Validators.required,
                     Validators.minLength(3),
-                    Validators.maxLength(500)])]
+                    Validators.maxLength(200)])]
             });
     }
 
