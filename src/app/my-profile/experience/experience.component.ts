@@ -82,7 +82,7 @@ export class ExperienceComponent implements OnInit {
         this.createForm = this.formBuilder.group(
             {
                 'company_name': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
-                'role': ['', Validators.compose([Validators.required])],
+                'role': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
                 'from_date': ['', Validators.compose([Validators.required])],
                 'end_date': ['', Validators.compose([Validators.required])],
             });
