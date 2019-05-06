@@ -1,11 +1,11 @@
 export const NetworkConfig = {
-    // BASE_URL: 'http://localhost:6021/api',
+    BASE_URL: 'http://localhost:6021/api',
     // BASE_URL                : 'https://evento.sa/api',
-    // MERCHANT_ID              : '3000000016',          // DEV
-    MERCHANT_ID              : '3000000011',          // Production
-    // MERCHANT_JS             : "https://test-gateway.mastercard.com/checkout/version/51/checkout.js", // DEV
-    MERCHANT_JS             : "https://ap-gateway.mastercard.com/checkout/version/51/checkout.js", // Production
-    BASE_URL                : '/api',
+    MERCHANT_ID              : '3000000016',          // DEV
+    // MERCHANT_ID              : '3000000011',          // Production
+    MERCHANT_JS             : "https://test-gateway.mastercard.com/checkout/version/51/checkout.js", // DEV
+    // MERCHANT_JS             : "https://ap-gateway.mastercard.com/checkout/version/51/checkout.js", // Production
+    // BASE_URL                : '/api',
     LOGIN_URL               : '/auth',
     LOGOUT_URL              : '/auth/logout',
     FORGET_PASSWORD         : '/auth/forgot_password',

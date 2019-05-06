@@ -430,5 +430,8 @@
   "This failed should be at least 10 numbers": "هذا الحقل يجب أن لايقل عن ١٠ ارقام",
   "Total Tickets": "إجمالي التذاكر",
   "Total Linked": "تذاكر تم ربطها",
-  "Total Pending": "تذاكر قيد الربط"
+  "Total Pending": "تذاكر قيد الربط",
+  "Choose Package Status": "اختر حالة الباقة",
+  "Active Package": "باقة نشطة",
+  "Deactivated Package": "باقة ملغاه"
 }
