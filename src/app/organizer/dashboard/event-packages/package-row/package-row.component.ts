@@ -81,7 +81,8 @@ export class PackageRowComponent implements OnInit {
                 'price': [this.package.price, Validators.compose([Validators.required, Validators.min(1)])],
                 'specific_tickets': [this.package.specific_tickets, Validators.compose([Validators.required, Validators.min(1)])],
                 'max_tickets': [this.package.max_tickets, Validators.compose([Validators.required, Validators.min(1)])],
-                'audience_id': [this.package.audience_id, Validators.compose([Validators.required])]
+                'audience_id': [this.package.audience_id, Validators.compose([Validators.required])],
+                'status_id': [this.package.status_id, Validators.compose([Validators.required])]
             });
 
         this.onChangePackageType('');

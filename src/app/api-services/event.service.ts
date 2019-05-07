@@ -50,8 +50,8 @@ export class EventService {
 
     }
 
-    public getMyEvents(): Observable<LatestEvent> {
-        const url = NetworkConfig.BASE_URL + NetworkConfig.EVENT + '?limit=100&page=1';
+    public getMyEvents(limit: number, page: number): Observable<LatestEvent> {
+        const url = NetworkConfig.BASE_URL + NetworkConfig.EVENT + '?limit=' + limit + '&page=' + page;
         return this.httpClient.get<LatestEvent>(url);
     }
 

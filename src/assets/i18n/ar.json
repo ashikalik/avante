@@ -156,6 +156,7 @@
   "Field should be at most 200 characters":"الحقل يجب أن لايزيد عن ٢٠٠ حرف",
   "Field should be at most 40 characters":"الحقل يجب أن لايزيد عن ٤٠ حرف",
   "Field should be at most 400 characters":"الحقل يجب أن لايزيد عن ٤٠٠ حرف",
+  "Field should be at most 500 characters":"الحقل يجب أن لايزيد عن ٥٠٠ حرف",
   "Field should be at most 100 characters":"الحقل يجب أن لايزيد عن ١٠٠٠ حرف",
   "Mobile number is invalid":"صيغة رقم الجوال غير صحيحة",
   "SEND MESSAGE":"ارسل رسالتك",
@@ -413,7 +414,7 @@
   "Per Ticket Sale":"لكل تذكرة",
   "I have read and understand the above information":"لقد قرأت وفهمت المعلومات الواردة أعلاه",
   "continue":"استمرار",
-  "OUR VISION CONTENT":"إن نكون المرجع الأول لشركات تنظيم المعارض والمؤتمرات",
+  "OUR VISION CONTENT":"أن نكون المرجع الأول لشركات تنظيم المعارض والمؤتمرات",
   "ABOUT US CONTENT":"ابتكرت إيفنتو منصة تقدم باقة من الخدمات المتكاملة التي تمنح مستخدمها حلولًا تقنية مبتكرة لإدارة الفعاليات المختلفة بشكل احترافي ، كما توفر لهم خدمة حجز التذاكر وبيعها عبر الإنترنت، إضافة إلى ميزة تصفح أبرز الفعاليات القادمة والأنشطة الترويحية المتنوعة والملتقيات الثقافية والأعمال التطوعية.",
   "No Search Result": "لاتوجد نتائج بحث",
   "Your ticket was successfully purchased": "تم شراء تذكرتك بنجاح",
@@ -430,5 +431,10 @@
   "This failed should be at least 10 numbers": "هذا الحقل يجب أن لايقل عن ١٠ ارقام",
   "Total Tickets": "إجمالي التذاكر",
   "Total Linked": "تذاكر تم ربطها",
-  "Total Pending": "تذاكر قيد الربط"
+  "Total Pending": "تذاكر قيد الربط",
+  "Choose Package Status": "اختر حالة الباقة",
+  "Active Package": "باقة نشطة",
+  "Deactivated Package": "باقة ملغاه",
+  "Alyasmin, Anas Ibn Malik Rd": "طريق انس ابن مالك، حي الياسمين ",
+  "Applications": "طلبات التنظيم"
 }

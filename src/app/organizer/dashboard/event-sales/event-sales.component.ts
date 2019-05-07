@@ -58,6 +58,7 @@ export class EventSalesComponent implements OnInit {
     }
 
     public onShowCreate() {
+        this.errorCreate = null;
         if(!this.showCreate)
             this.initAddForm()
         this.showCreate = !this.showCreate;
@@ -76,6 +77,7 @@ export class EventSalesComponent implements OnInit {
     }
 
     public addSalesStaff(form: FormGroup) {
+        this.errorCreate = null;
         this.organizerService.createEventSales(form.value, this.event_key).subscribe(
             res => {
                 this.getEventSales();
