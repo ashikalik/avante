@@ -11,6 +11,7 @@ import {CommonService} from '../api-services/common.service';
 import {EventService} from '../api-services/event.service';
 import {RootOrganizerComponent} from './root-organizer/root-organizer.component';
 import {AgmCoreModule} from "@agm/core";
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {AgmCoreModule} from "@agm/core";
     imports: [
         ...BASE_MODULES,
         OrganizerRoutingModule,
-        AgmCoreModule
+        AgmCoreModule,
+        ImageCropperModule
     ],
     providers: [
         CommonService,

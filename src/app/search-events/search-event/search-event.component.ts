@@ -81,6 +81,21 @@ export class SearchEventComponent implements OnInit {
         );
     }
 
+    goToPage(n: number): void {
+        this.page = n;
+        this.search();
+      }
+    
+      onNext(): void {
+        this.page++;
+        this.search();
+      }
+    
+      onPrev(): void {
+        this.page--;
+        this.search();
+      }
+
     public searchAll() {
         this.resetSearch();
         this.searchService.name = '';
