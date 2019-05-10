@@ -1,15 +1,15 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {OrganizerService} from "../../../../api-services/organizer.service";
-import {CommonService} from "../../../../api-services/common.service";
-import {ActivatedRoute} from "@angular/router";
-import {Package} from "../../../../models/packages";
-import {Audiences} from "../../../../models/audience";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { OrganizerService } from "../../../../api-services/organizer.service";
+import { CommonService } from "../../../../api-services/common.service";
+import { ActivatedRoute } from "@angular/router";
+import { Package } from "../../../../models/packages";
+import { Audiences } from "../../../../models/audience";
 
 @Component({
-  selector: 'app-package-row',
-  templateUrl: './package-row.component.html',
-  styleUrls: ['./package-row.component.scss']
+    selector: 'app-package-row',
+    templateUrl: './package-row.component.html',
+    styleUrls: ['./package-row.component.scss']
 })
 export class PackageRowComponent implements OnInit {
     @Input() package: Package;
@@ -26,9 +26,9 @@ export class PackageRowComponent implements OnInit {
 
 
     constructor(public organizerService: OrganizerService,
-                public formBuilder: FormBuilder,
-                public commonService: CommonService,
-                public activatedRoute: ActivatedRoute) {
+        public formBuilder: FormBuilder,
+        public commonService: CommonService,
+        public activatedRoute: ActivatedRoute) {
         this.activatedRoute.parent.params.subscribe(params => {
             this.event_key = params['event-key']
         })
@@ -62,7 +62,7 @@ export class PackageRowComponent implements OnInit {
     }
 
     public onShowUpdatePackage() {
-        if(!this.showUpdate)
+        if (!this.showUpdate)
             this.initForm();
         this.showUpdate = !this.showUpdate;
     }
@@ -73,6 +73,7 @@ export class PackageRowComponent implements OnInit {
     }
 
     public initForm() {
+
         this.form = this.formBuilder.group(
             {
                 'name': [this.package.name, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
@@ -85,30 +86,46 @@ export class PackageRowComponent implements OnInit {
                 'status_id': [this.package.status_id, Validators.compose([Validators.required])]
             });
 
-        this.onChangePackageType('');
-        this.onChangeSpecificTickets('');
+        if (this.package.is_free == 1) {
+            this.onChangePackageType(1)
+        } else {
+            this.onChangePackageType(2);
+        }
 
+        if(this.package.specific_tickets == 1){
+            this.onChangeSpecificTickets(1);
+        }else{
+            this.onChangeSpecificTickets(2);    
+        }
 
     }
 
     public onChangePackageType(packageType: any) {
+        console.log(packageType)
         if (packageType == 1) {
             this.form.get('price').enable();
+            if (this.package && this.package.price) {
+                this.form.controls['price'].setValue(this.package.price);
+            }
         } else {
             this.form.get('price').disable();
             this.form.controls['price'].setValue(0);
         }
+        this.form.updateValueAndValidity();
     }
 
 
     public onChangeSpecificTickets(specificTickets: any) {
         if (specificTickets == 1) {
             this.form.get('max_tickets').enable();
+            if (this.package && this.package.max_tickets) {
+                this.form.controls['max_tickets'].setValue(this.package.max_tickets);
+            }
         } else {
             this.form.get('max_tickets').disable();
             this.form.controls['max_tickets'].setValue(0);
-
         }
+        this.form.updateValueAndValidity();        
     }
 
 
