@@ -3,8 +3,8 @@ import { Requests } from '../../../../models/requests';
 import { RequestsService } from '../../../../api-services/requests.service';
 import { RequestDetials } from '../../../../models/request-details';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PrintBadge } from 'src/app/services/print-badge.service';
-import { TicketsService } from 'src/app/api-services/tickets.service';
+import { PrintBadge } from '../../../../services/print-badge.service';
+import { TicketsService } from '../../../../api-services/tickets.service';
 
 @Component({
   selector: 'app-ticket-row',
