@@ -17,7 +17,15 @@
                     </div>
                 </div>
 
-                <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap" *ngIf="!showCreate">
+                <ng-container *ngIf="supervisors && supervisors.data.length === 0">
+                    <div class="pl-5 pr-5 col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+                      <div class="alert alert-warning pl-3 pr-3" role="alert" translate>
+                          You don't have any supervisors.
+                      </div>
+                  </div>
+                  </ng-container>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap" *ngIf="supervisors && supervisors.data.length > 0 &&  !showCreate">
                     <div class="col-lg-4 col-md-12 col-sm-12 col-12 pl-2 pr-2   mb-3">
                         <input type="text" class="form-control evento_input"
                                [(ngModel)]="search"
@@ -42,7 +50,7 @@
                     </div>
                 </div>
 
-                <ng-container *ngIf="supervisors && !showCreate">
+                <ng-container *ngIf="supervisors && supervisors.data.length > 0 && !showCreate">
                     <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
                         <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12" translate> Full Name</div>
                         <div class="title col-lg-3 col-md-3 col-sm-12 col-12" translate>Phone Number</div>

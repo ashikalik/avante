@@ -436,5 +436,7 @@
   "Active Package": "باقة نشطة",
   "Deactivated Package": "باقة ملغاه",
   "Alyasmin, Anas Ibn Malik Rd": "طريق انس ابن مالك، حي الياسمين ",
-  "Applications": "طلبات التنظيم"
+  "Applications": "طلبات التنظيم",
+  "You don't have any sales staff.":"لا يوجد لديك أي موظفين مبيعات",
+  "You don't have any supervisors.":"لا يوجد لديك أي مشرفين"
 }

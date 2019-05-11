@@ -1,15 +1,15 @@
 <div class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
   <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
-    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Name:</span> {{ticket.first_name}} {{ticket.last_name}}
+    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Name:</span> {{invoice.first_name}} {{invoice.last_name}}
   </div>
   <div class="col-lg-3 col-md-3 col-sm-12 col-12">
-    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Phone Number:</span> {{ticket.mobile }}
+    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Phone Number:</span> {{invoice.mobile }}
   </div>
   <div class="title col-lg-4 col-md-4 col-sm-12 col-12">
-    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Email:</span> {{ticket.email }}
+    <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Email:</span> {{invoice.email }}
   </div>
   <div class="col-lg-1 col-md-1 col-sm-12 col-12">
-    <span class="d-md-none d-lg-none d-xl-none" translate> Status:</span>{{ticket.num_ticket }}
+    <span class="d-md-none d-lg-none d-xl-none" translate> Status:</span>{{invoice.num_ticket }}
   </div>
   <div class="text-center col-lg-1 col-md-1 col-sm-12 col-12">
     <button *ngIf="!showInfo" type="button" (click)="onShowInfo()" class="btn btn-outline-dark btn-arrow-sm "><i class="fas fa-chevron-down"></i></button>
@@ -17,19 +17,46 @@
   </div>
 </div>
 
-<div *ngIf="showInfo" class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap ">
-  <div class=" pr-3 col-lg-12 col-md-12 col-sm-12 col-12 ">
+<div *ngIf="showInfo && ticketsList" class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap ">
+  <div class=" pr-3 col-lg-4 col-md-4 col-sm-12 col-12 ">
     <div class="underline h-120 ">
       <p class="grey-color mb-0" translate>Package Name</p>
-      <p>{{ticket.package_name }}</p>
-    </div>
-    <div class="underline h-120">
-      <p class="grey-color mb-0" translate>Payment Chanel</p>
-      <p>{{ticket.payment_type }}</p>
-    </div>
-    <div class="underline h-120">
-      <p class="grey-color mb-0" translate>Total</p>
-      <p>{{ticket.total_with_vat }}</p>
+      <p>{{invoice.package_name }}</p>
     </div>
   </div>
+  <div class=" pr-3 col-lg-4 col-md-4 col-sm-12 col-12 ">
+    <div class="underline h-120">
+      <p class="grey-color mb-0" translate>Payment Chanel</p>
+      <p>{{invoice.payment_type }}</p>
+    </div>
+  </div>
+  <div class=" pr-3 col-lg-4 col-md-4 col-sm-12 col-12 ">
+    <div class="underline h-120">
+      <p class="grey-color mb-0" translate>Total</p>
+      <p>{{invoice.total_with_vat }}</p>
+    </div>
+  </div>
+
+
+  <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap ">
+    <div class="table-body col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap " *ngFor="let ticket of ticketsList.data">
+      <div class=" col-lg-6 col-md-6 col-sm-11 ">
+        <span class="pr-3 d-md-none d-lg-none d-xl-none"> {{ 'Visitor Name' | translate }}:</span> {{ ticket.first_name }}
+        {{ ticket.last_name }}
+      </div>
+      <div class="col-lg-2 col-md-2 col-sm-1">
+        <button type="button" class="btn btn-outline-dark btn-sm mb-2 pt-1 pb-1" (click)="print(ticket)" translate>
+                Print
+            </button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+    <button type="button" class="btn btn-outline-dark btn-sm mt-2 pt-1 pb-1" (click)="printTicket(ticket)" translate>
+        Print
+    </button>
+</div> -->
 </div>
