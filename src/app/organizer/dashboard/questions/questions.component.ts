@@ -47,7 +47,7 @@ export class QuestionsComponent implements OnInit {
 
     ngOnInit() {
         this.page = 1;
-        this.limit = 20;
+        this.limit = 10;
         this.getEventQuestions();
     }
 
@@ -144,6 +144,21 @@ export class QuestionsComponent implements OnInit {
             }
         )
 
+    }
+
+    goToPage(n: number): void {
+        this.page = n;
+        this.getEventQuestions();
+    }
+
+    onNext(): void {
+        this.page++;
+        this.getEventQuestions();
+    }
+
+    onPrev(): void {
+        this.page--;
+        this.getEventQuestions();
     }
 
 }

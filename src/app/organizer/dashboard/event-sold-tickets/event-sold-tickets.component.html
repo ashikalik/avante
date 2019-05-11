@@ -37,7 +37,7 @@
   
           <ng-container *ngIf="ticketsList">
             <ng-container *ngFor="let ticket of ticketsList.data">
-              <app-ticket-row [ticket]="ticket"></app-ticket-row>
+              <app-ticket-row [eventkey]="event_key" [invoice]="ticket"></app-ticket-row>
             </ng-container>
 
 
