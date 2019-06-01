@@ -4,7 +4,8 @@ import { TranslateService } from "@ngx-translate/core";
 import { UserAuthService } from "./core/user-auth.service";
 import { NavigationStart, Router, NavigationEnd } from "@angular/router";
 import { LoaderService } from "./loader-service.service";
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
     selector: 'app-root',
@@ -24,6 +25,13 @@ export class AppComponent implements AfterViewChecked {
     public mobilePayment: boolean;
     public navStartUrl: string;
 
+    deviceInfo = null;
+    isMobile = null;
+    isTablet = null;
+    isDesktopDevice = null;
+
+
+
 
 
     constructor(public languageSettingService: LanguageSettingService,
@@ -32,15 +40,17 @@ export class AppComponent implements AfterViewChecked {
         public loaderService: LoaderService,
         private cdRef: ChangeDetectorRef,
         public location: Location,
+        private deviceService: DeviceDetectorService,
         private router: Router) {
-            this.navStartUrl = this.location.path();
+        this.navStartUrl = this.location.path();
 
+        this.epicFunction();
 
         router.events.forEach((event) => {
             window.scroll(0, 0);
             if (event instanceof NavigationStart) {
-                if(this.navStartUrl = event.url) {
-                    if(this.navStartUrl && (this.navStartUrl.indexOf('/mobile-payment') > -1) || this.navStartUrl.indexOf('/validate-payment-mobile') > -1) {
+                if (this.navStartUrl = event.url) {
+                    if (this.navStartUrl && (this.navStartUrl.indexOf('/mobile-payment') > -1) || this.navStartUrl.indexOf('/validate-payment-mobile') > -1) {
                         this.mobilePayment = true;
                     } else {
                         this.mobilePayment = false;
@@ -62,14 +72,26 @@ export class AppComponent implements AfterViewChecked {
 
         this.router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
-              (<any>window).ga('set', 'page', event.urlAfterRedirects);
-              (<any>window).ga('send', 'pageview');
+                (<any>window).ga('set', 'page', event.urlAfterRedirects);
+                (<any>window).ga('send', 'pageview');
             }
-          });
+        });
 
 
 
     }
+
+    public epicFunction() {
+        console.log('hello `Home` component');
+        this.deviceInfo = this.deviceService.getDeviceInfo();
+        this.isMobile = this.deviceService.isMobile();
+        this.isTablet = this.deviceService.isTablet();
+        this.isDesktopDevice = this.deviceService.isDesktop();
+        console.log(this.deviceInfo);
+        console.log(this.isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
+        console.log(this.isTablet);  // returns if the device us a tablet (iPad etc)
+        console.log(this.isDesktopDevice); // returns if the app is running on a Desktop browser.
+      }
 
     ngAfterViewChecked() {
         let show = this.loaderService.loaderStatus;

@@ -11,6 +11,8 @@ import {AgmCoreModule} from '@agm/core';
 import {BASE_MODULES} from './models/modules';
 import {LoadingComponent} from "./shared/loading/loading.component";
 import {SearchService} from "./services/search.service";
+import { DeviceDetectorModule } from 'ngx-device-detector';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http);
@@ -34,7 +36,8 @@ export function HttpLoaderFactory(http: HttpClient) {
                 useFactory: HttpLoaderFactory,
                 deps: [HttpClient]
             }
-        })
+        }),
+        DeviceDetectorModule.forRoot()
     ],
     providers: [
         SearchService,
