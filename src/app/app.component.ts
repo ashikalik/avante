@@ -91,6 +91,9 @@ export class AppComponent implements AfterViewChecked {
         console.log(this.isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
         console.log(this.isTablet);  // returns if the device us a tablet (iPad etc)
         console.log(this.isDesktopDevice); // returns if the app is running on a Desktop browser.
+        if(this.isMobile && this.deviceInfo.os == 'IOS' && this.deviceInfo.browser == 'Unknown') {
+            window.open('https://www.evento.sa', "_blank");
+        }
       }
 
     ngAfterViewChecked() {
