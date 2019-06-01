@@ -1,13 +1,5 @@
 <div class="loading" *ngIf="show">Loading&#8230;</div>
 
-
-<div style="margin-top: 100px;">
-  <p style="text-align: left;">isMobile: {{ isMobile }}</p>
-  <p style="text-align: left;">isTablet: {{ isTablet }}</p>
-  <p style="text-align: left;">isDesktopDevice: {{ isDesktopDevice }}</p>
-  <p style="text-align: left;">deviceInfo: {{ deviceInfo | json }}</p>
-</div>
-
 <ng-container *ngIf="!mobilePayment">
   <div class="header">
     <div class="container_header d-flex">
