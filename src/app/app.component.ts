@@ -5,7 +5,6 @@ import { UserAuthService } from "./core/user-auth.service";
 import { NavigationStart, Router, NavigationEnd } from "@angular/router";
 import { LoaderService } from "./loader-service.service";
 import { Location } from '@angular/common';
-import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
     selector: 'app-root',
@@ -25,10 +24,6 @@ export class AppComponent implements AfterViewChecked {
     public mobilePayment: boolean;
     public navStartUrl: string;
 
-    deviceInfo = null;
-    isMobile = null;
-    isTablet = null;
-    isDesktopDevice = null;
 
 
 
@@ -40,11 +35,9 @@ export class AppComponent implements AfterViewChecked {
         public loaderService: LoaderService,
         private cdRef: ChangeDetectorRef,
         public location: Location,
-        private deviceService: DeviceDetectorService,
         private router: Router) {
         this.navStartUrl = this.location.path();
 
-        this.epicFunction();
 
         router.events.forEach((event) => {
             window.scroll(0, 0);
@@ -81,20 +74,6 @@ export class AppComponent implements AfterViewChecked {
 
     }
 
-    public epicFunction() {
-        console.log('hello `Home` component');
-        this.deviceInfo = this.deviceService.getDeviceInfo();
-        this.isMobile = this.deviceService.isMobile();
-        this.isTablet = this.deviceService.isTablet();
-        this.isDesktopDevice = this.deviceService.isDesktop();
-        console.log(this.deviceInfo);
-        console.log(this.isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
-        console.log(this.isTablet);  // returns if the device us a tablet (iPad etc)
-        console.log(this.isDesktopDevice); // returns if the app is running on a Desktop browser.
-        if(this.isMobile && this.deviceInfo.browser == 'Unknown') {
-            window.open('https://www.evento.sa', "_blank");
-        }
-      }
 
     ngAfterViewChecked() {
         let show = this.loaderService.loaderStatus;

@@ -2,6 +2,8 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuyTicketService } from '../../api-services/buy-ticket.service';
 import { NetworkConfig } from '../../network-layer/network.config';
+import { DeviceDetectorService } from 'ngx-device-detector';
+
 declare var Checkout: any;
 
 @Component({
@@ -13,19 +15,27 @@ export class RootPaymentComponent implements OnInit {
 
   public reference: string;
   loadAPI: Promise<any>;
+  deviceInfo = null;
+  isMobile = null;
+  isTablet = null;
+  isDesktopDevice = null;
+
+  public showDownload: boolean = false;
+
 
 
   constructor(private route: ActivatedRoute,
     private renderer: Renderer2,
     public router: Router,
+    private deviceService: DeviceDetectorService,
     public buyTicketService: BuyTicketService) {
     this.reference = this.route.snapshot.queryParams.reference;
-
+      
   }
 
   ngOnInit() {
     this.addJsToElement(NetworkConfig.MERCHANT_JS).onload = () => {
-      this.redirectUser();
+      this.validateBrowser();
     }
 
   }
@@ -83,6 +93,24 @@ export class RootPaymentComponent implements OnInit {
       this.router.navigate(['/home']);
     }
   }
+
+  public validateBrowser() {
+    console.log('hello `Home` component');
+    this.deviceInfo = this.deviceService.getDeviceInfo();
+    this.isMobile = this.deviceService.isMobile();
+    this.isTablet = this.deviceService.isTablet();
+    this.isDesktopDevice = this.deviceService.isDesktop();
+    console.log(this.deviceInfo);
+    console.log(this.isMobile);  // returns if the device is a mobile device (android / iPhone / windows-phone etc)
+    console.log(this.isTablet);  // returns if the device us a tablet (iPad etc)
+    console.log(this.isDesktopDevice); // returns if the app is running on a Desktop browser.
+    if (!this.isMobile && this.deviceInfo.browser != 'Unknown') {
+       this.redirectUser()
+    } else {
+      this.showDownload = true;
+    }
+}
+
 
 
 
