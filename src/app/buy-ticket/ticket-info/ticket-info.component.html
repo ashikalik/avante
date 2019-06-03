@@ -87,7 +87,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
 
           <div class="form-group position-relative">
-            <my-date-picker placeholder="تاريخ الميلاد" [options]="myDatePickerOptions"
+            <my-date-picker placeholder="تاريخ الميلاد" [options]="datePicker"
               formControlName="dateOfBirthGregorian" (dateChanged)="onChangeDateBirth($event)"></my-date-picker>
             <div class="error"
               *ngIf="payment.controls['dateOfBirthGregorian'].hasError('required') && !payment.controls['dateOfBirthGregorian'].pristine" translate>

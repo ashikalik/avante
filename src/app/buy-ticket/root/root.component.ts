@@ -71,7 +71,7 @@ export class RootComponent implements OnInit {
                 'maleCount': ['', Validators.compose([Validators.required])],
                 'femaleCount': ['', Validators.compose([Validators.required])],
                 'childCount': ['', Validators.compose([Validators.required])],
-                'dateOfBirthGregorian': [null, Validators.compose([Validators.required])],
+                'dateOfBirthGregorian': ['', Validators.compose([Validators.required])],
                 'audienceGender': ['', Validators.compose([Validators.required])],
                 'visitors': this.formBuilder.array([]),
                 'access_date': [null],
