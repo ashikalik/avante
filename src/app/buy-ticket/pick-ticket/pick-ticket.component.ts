@@ -46,7 +46,13 @@ export class PickTicketComponent implements OnInit {
 
 
     onChangePackage(event) {
+
+        this.payment.get('maleCount').setValue(''); 
+        this.payment.get('femaleCount').setValue(''); 
+        this.payment.get('childCount').setValue(''); 
+        this.payment.get('num_ticket').setValue(''); 
         this.payment.get('access_date').setValue(null);
+        this.payment.updateValueAndValidity();
         
         this.package = this.eventDetail.data.packages.find(x => x.package_id == event);
 
@@ -79,8 +85,11 @@ export class PickTicketComponent implements OnInit {
     }
 
 
+
     onChangeNumOfTickets(event) {
-        this.numbOfTickets = event;
+        this.numbOfTickets = Number(this.payment.get('maleCount').value) + Number(this.payment.get('femaleCount').value) + Number(this.payment.get('childCount').value);
+        this.payment.get('num_ticket').setValue(this.numbOfTickets);
+        console.log(this.numbOfTickets)
         this.calcuateTotal();
         this.payment.setControl('visitors', new FormArray([]));
         for (let i = 0; i < this.numbOfTickets; i++) {
