@@ -20,6 +20,8 @@ export class TicketReviewComponent implements OnInit {
   public selectedPackage: Package;
   public isDateRequired: boolean;
   public totalWithoutVat: number;
+  public totalWithVAT: number;
+  public VAT: number;
   public showSubmit: boolean;
   
   constructor(private buyTicketService: BuyTicketService, private renderer: Renderer2) { }
@@ -47,7 +49,9 @@ export class TicketReviewComponent implements OnInit {
   }
 
   public calculatTotal() {
-    this.totalWithoutVat =  this.payment.get('num_ticket').value * this.selectedPackage.price;
+    this.totalWithoutVat =  (this.payment.get('num_ticket').value * this.selectedPackage.price);
+    this.VAT =  (this.payment.get('num_ticket').value * this.selectedPackage.price) * 0.05;
+    this.totalWithVAT =  (this.payment.get('num_ticket').value * this.selectedPackage.price) * 1.05;
 }
 
   onBuyButton() {

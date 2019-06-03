@@ -436,5 +436,9 @@
   "Active Package": "باقة نشطة",
   "Deactivated Package": "باقة ملغاه",
   "Alyasmin, Anas Ibn Malik Rd": "طريق انس ابن مالك، حي الياسمين ",
-  "Applications": "طلبات التنظيم"
+  "Applications": "طلبات التنظيم",
+  "Male Count": "عدد تذاكر الرجال",
+  "Female Count": "عدد تذاكر النساء",
+  "Children Count": "عدد تذاكر الاطفال",
+  "Total With VAT" : "الاجمالي مع الضريبة"
 }
