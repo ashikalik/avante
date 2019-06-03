@@ -27,6 +27,10 @@ const routes: Routes = [
     loadChildren: './buy-ticket/buy-ticket.module#BuyTicketModule',
   },
   {
+    path: 'cosmos',
+    loadChildren: './cosmos/cosmos.module#CosmosModule',
+  },
+  {
     path: 'calendar',
     loadChildren: './calendar/calendar.module#CalendarModule',
   },
