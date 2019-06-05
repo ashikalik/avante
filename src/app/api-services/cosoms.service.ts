@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LatestEvent } from "../models/latest-event";
 import { EventDetails } from "../models/event-details";
-import {SearchEvents} from "../models/search-events";
+import { SearchEvents } from "../models/search-events";
 
 @Injectable({
     providedIn: 'root'
@@ -23,10 +23,40 @@ export class CosmosService {
     }
 
 
-    public validatePackage(package_id: any): Observable<any> {
-        const url = NetworkConfig.BASE_URL + NetworkConfig.VALIDATE_COSMOS_PACKAGE;
-        return this.httpClient.post<any>(url, {package_id: package_id});
+    public validatePackage(package_id: any, event_key: any): Observable<any> {
+        const body = {
+            event_key: event_key,
+            package_id: package_id,
+            access_date: null,
+        }
+        const url = NetworkConfig.BASE_URL + '/cosmos/validate-package';
+        return this.httpClient.post<any>(url, body);
     }
+
+
+    public createInvoice(form: any, event_key: string): Observable<any> {
+
+                var body = {
+                    event_key: event_key,
+                    package_id: form.package_id,
+                    first_name: form.first_name,
+                    last_name: form.last_name,
+                    mobile: form.mobile,
+                    email: form.email,
+                    num_ticket: form.num_ticket,
+                    maleCount: form.maleCount,
+                    femaleCount: form.femaleCount,
+                    childCount: form.childCount,
+                    dateOfBirthGregorian: form.dateOfBirthGregorian.formatted,
+                    audienceGender: form.audienceGender,
+                    list: form.visitors,
+                    recaptcha: form.recaptcha
+                };
+                const url = NetworkConfig.BASE_URL + '/cosmos/create';
+                return this.httpClient.post<any>(url, body);
+            }
+
+
 
     public getEventDetail(eventKey: string): Observable<EventDetails> {
         const url = NetworkConfig.BASE_URL + NetworkConfig.VIEW_EVENT + eventKey;

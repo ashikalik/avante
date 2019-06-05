@@ -1,9 +1,9 @@
 export const NetworkConfig = {
-    BASE_URL: 'http://localhost:6021/api',
+    // BASE_URL: 'https://evento.sa/api',
     // BASE_URL                : '/api',
     // MERCHANT_ID              : '3000000011',          // Production
     // MERCHANT_JS             : "https://ap-gateway.mastercard.com/checkout/version/51/checkout.js", // Production
-    // BASE_URL                : 'https://development.evento.sa/api',
+    BASE_URL                : 'https://development.evento.sa/api',
     MERCHANT_ID              : '3000000016',          // DEV
     MERCHANT_JS             : "https://test-gateway.mastercard.com/checkout/version/51/checkout.js", // DEV
     LOGIN_URL               : '/auth',

@@ -50,7 +50,7 @@ export class RootComponent implements OnInit {
   }
 
   public buyTicket() {
-    if (this.eventKey != '359561444') {
+    if (this.eventKey != '214611584') {
       this.router.navigate(['/buy-ticket/' + this.eventKey]);
 
     } else {
