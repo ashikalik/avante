@@ -31,7 +31,6 @@ export class TicketInfoComponent implements OnInit {
     }
 
     onChangeDateBirth(event) {
-        console.log(event)
         this.payment.get('dateOfBirthGregorian').setValue(event.formatted);
     }
 

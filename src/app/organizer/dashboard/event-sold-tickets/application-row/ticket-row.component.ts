@@ -54,7 +54,6 @@ export class TicketRowComponent implements OnInit {
   }
 
   public print(ticket: any) {
-    console.log(this.ticketsList)
     let popupWin;
     popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
     popupWin.document.open();

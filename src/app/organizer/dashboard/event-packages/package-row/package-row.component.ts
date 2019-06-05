@@ -101,7 +101,6 @@ export class PackageRowComponent implements OnInit {
     }
 
     public onChangePackageType(packageType: any) {
-        console.log(packageType)
         if (packageType == 1) {
             this.form.get('price').enable();
             if (this.package && this.package.price) {

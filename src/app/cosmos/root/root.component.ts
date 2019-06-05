@@ -112,7 +112,6 @@ export class RootComponent implements OnInit {
     this.isSonger = false;
     this.selectPackage = p;
     this.selectedTime(this.selectPackage);
-    console.log(this.selectPackage)
   }
 
 
@@ -122,7 +121,6 @@ export class RootComponent implements OnInit {
     this.isReqPackage = false;
     this.selectedSonger = p;
     this.onViewCategories();
-    console.log(this.selectPackageSonger)
   }
 
   public onBackToEvent() {
@@ -174,7 +172,6 @@ export class RootComponent implements OnInit {
 
 
   public selectedTime(sp: any) {
-    console.log(sp);
     this.validatePackage(sp);
     this.initForm();
     this.onChangePackage(sp)
@@ -206,7 +203,6 @@ export class RootComponent implements OnInit {
 
     this.package = selectedPackage;
     this.payment.get('package_id').setValue(this.package.package_id);
-    console.log(this.package);
     if (this.package.package_id == 51) {
       this.cosmosOffer = true;
     } else {
@@ -242,12 +238,9 @@ export class RootComponent implements OnInit {
 
 
   public calculatTotal() {
-    console.log(this.package.price);
-    console.log(this.payment.get('num_ticket').value)
     this.totalWithoutVat = (this.payment.get('num_ticket').value * this.package.price);
-    console.log(this.totalWithoutVat)
-    this.VAT = (this.payment.get('num_ticket').value * this.package.price) * 0.05;
-    this.totalWithVAT = (this.payment.get('num_ticket').value * this.package.price) * 1.05;
+    // this.VAT = (this.payment.get('num_ticket').value * this.package.price) * 0.05;
+    // this.totalWithVAT = (this.payment.get('num_ticket').value * this.package.price) * 1.05;
   }
 
   onChangeNumOfTickets(event) {
@@ -278,7 +271,6 @@ export class RootComponent implements OnInit {
 
 
   onChangeDateBirth(event) {
-    console.log(event)
     this.payment.get('dateOfBirthGregorian').setValue(event.formatted);
   }
 

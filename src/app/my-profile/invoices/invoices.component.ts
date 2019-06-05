@@ -26,7 +26,6 @@ export class InvoicesComponent implements OnInit {
     public getInvoices() {
         this.profileService.getInvoices(this.limit, this.page).subscribe(res => {
             this.invoices = res;
-            console.log(this.invoices)
         } , err => {
         })
     }
