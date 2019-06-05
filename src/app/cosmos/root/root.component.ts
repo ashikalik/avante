@@ -268,8 +268,7 @@ export class RootComponent implements OnInit {
         'childCount': [''],
         'dateOfBirthGregorian': ['', Validators.compose([Validators.required])],
         'audienceGender': ['', Validators.compose([Validators.required])],
-        // 'recaptcha': [null, Validators.compose([Validators.required])],
-        'recaptcha': [null],
+        'recaptcha': [null, Validators.compose([Validators.required])]
       });
   }
 
