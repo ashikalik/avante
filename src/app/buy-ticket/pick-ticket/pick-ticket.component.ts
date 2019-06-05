@@ -34,8 +34,12 @@ export class PickTicketComponent implements OnInit {
     public total: number;
     public numbOfTickets: number;
 
+
+    public cosmosOffer: boolean;
+
     constructor(private buyTicketService: BuyTicketService,
         public formBuilder: FormBuilder) {
+            this.cosmosOffer = false;
 
     }
 
@@ -46,13 +50,24 @@ export class PickTicketComponent implements OnInit {
 
 
     onChangePackage(event) {
+
+        this.payment.get('maleCount').setValue(''); 
+        this.payment.get('femaleCount').setValue(''); 
+        this.payment.get('childCount').setValue(''); 
+        this.payment.get('num_ticket').setValue(''); 
         this.payment.get('access_date').setValue(null);
+        this.payment.updateValueAndValidity();
         
         this.package = this.eventDetail.data.packages.find(x => x.package_id == event);
 
         this.myDatePickerOptions.disableUntil = new DisableDateUntilPipe().transform(this.eventDetail.data.details.from_date);
         this.myDatePickerOptions.disableSince = new DisableDateSincePipe().transform(this.eventDetail.data.details.end_date);
 
+        if(this.package.package_id == 51){
+            this.cosmosOffer = true;
+        }else{
+            this.cosmosOffer = false;
+        }
 
         this.isDateRequired = this.buyTicketService.isDateRequired(this.package);
 
@@ -79,8 +94,11 @@ export class PickTicketComponent implements OnInit {
     }
 
 
+
     onChangeNumOfTickets(event) {
-        this.numbOfTickets = event;
+        this.numbOfTickets = Number(this.payment.get('maleCount').value) + Number(this.payment.get('femaleCount').value) + Number(this.payment.get('childCount').value);
+        this.payment.get('num_ticket').setValue(this.numbOfTickets);
+        console.log(this.numbOfTickets)
         this.calcuateTotal();
         this.payment.setControl('visitors', new FormArray([]));
         for (let i = 0; i < this.numbOfTickets; i++) {
