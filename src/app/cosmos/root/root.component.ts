@@ -71,6 +71,7 @@ export class RootComponent implements OnInit {
     private renderer: Renderer2,
     public formBuilder: FormBuilder,
   ) {
+    this.showSubmit = false;
     this.isReqPackage = false;
     this.isSonger = false;
 
@@ -78,9 +79,7 @@ export class RootComponent implements OnInit {
       this.eventKey = params['id'];
     });
 
-    this.addJsToElement(NetworkConfig.MERCHANT_JS).onload = () => {
-      this.showSubmit = true;
-    }
+    
   }
 
   addJsToElement(src: string): HTMLScriptElement {
@@ -92,6 +91,7 @@ export class RootComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.getPackages();
   }
 
@@ -167,6 +167,9 @@ export class RootComponent implements OnInit {
   public onReviewInfo() {
     this.isOnTicketInfo = false;
     this.isOnTicketReview = true;
+    this.addJsToElement(NetworkConfig.MERCHANT_JS).onload = () => {
+      this.showSubmit = true;
+    }
   }
 
 
