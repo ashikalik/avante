@@ -189,6 +189,7 @@ export class RootComponent implements OnInit {
     this.errorsValidatePackage = null;
     this.isLessThanFive = false;
     this.isSoldOut = false;
+    this.cosmosOffer = false;
   }
 
 
@@ -267,7 +268,8 @@ export class RootComponent implements OnInit {
         'childCount': [''],
         'dateOfBirthGregorian': ['', Validators.compose([Validators.required])],
         'audienceGender': ['', Validators.compose([Validators.required])],
-        'recaptcha': [null, Validators.compose([Validators.required])],
+        // 'recaptcha': [null, Validators.compose([Validators.required])],
+        'recaptcha': [null],
       });
   }
 
