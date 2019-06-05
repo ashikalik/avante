@@ -98,7 +98,6 @@ export class PickTicketComponent implements OnInit {
     onChangeNumOfTickets(event) {
         this.numbOfTickets = Number(this.payment.get('maleCount').value) + Number(this.payment.get('femaleCount').value) + Number(this.payment.get('childCount').value);
         this.payment.get('num_ticket').setValue(this.numbOfTickets);
-        console.log(this.numbOfTickets)
         this.calcuateTotal();
         this.payment.setControl('visitors', new FormArray([]));
         for (let i = 0; i < this.numbOfTickets; i++) {
