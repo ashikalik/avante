@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { CosmosService } from 'src/app/api-services/cosoms.service';
-import { EventoError } from 'src/app/models/error';
-import { MyDatePickerOptions } from 'src/app/models/date-picker-object';
+import { CosmosService } from '../../../app/api-services/cosoms.service';
+import { EventoError } from '../../../app/models/error';
+import { MyDatePickerOptions } from '../../../app/models/date-picker-object';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { NetworkConfig } from '../../network-layer/network.config';
