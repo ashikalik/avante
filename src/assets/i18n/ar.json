@@ -438,5 +438,11 @@
   "Alyasmin, Anas Ibn Malik Rd": "طريق انس ابن مالك، حي الياسمين ",
   "Applications": "طلبات التنظيم",
   "You don't have any sales staff.":"لا يوجد لديك أي موظفين مبيعات",
-  "You don't have any supervisors.":"لا يوجد لديك أي مشرفين"
+  "You don't have any supervisors.":"لا يوجد لديك أي مشرفين",
+  "Choice": "اختر",
+  "Male Count": "عدد تذاكر الرجال",
+  "Fmale Count": "عدد تذاكر النساء",
+  "Children Count": "عدد تذاكر الاطفال",
+  "Date of birth": "تاريخ الميلاد",
+  "Total With VAT": "الإجمالي مع الضريبة"
 }

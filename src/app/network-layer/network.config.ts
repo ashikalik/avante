@@ -1,9 +1,9 @@
 export const NetworkConfig = {
-    // BASE_URL: 'http://localhost:6021/api',
-    BASE_URL                : '/api',
+    // BASE_URL: 'https://evento.sa/api',
+    // BASE_URL                : '/api',
     // MERCHANT_ID              : '3000000011',          // Production
     // MERCHANT_JS             : "https://ap-gateway.mastercard.com/checkout/version/51/checkout.js", // Production
-    // BASE_URL                : 'https://development.evento.sa/api',
+    BASE_URL                : 'https://development.evento.sa/api',
     MERCHANT_ID              : '3000000016',          // DEV
     MERCHANT_JS             : "https://test-gateway.mastercard.com/checkout/version/51/checkout.js", // DEV
     LOGIN_URL               : '/auth',
@@ -76,6 +76,8 @@ export const NetworkConfig = {
     RATING_ORGANIZERS       : '/rating_organizers/',
     VALIDATE_PACKAGE        : '/home/validate-package/',
     SELLER_EVENT            : '/seller/sellerEvent/',
-    SUPER_EVENT             : '/supervisor/superEvent/'
+    SUPER_EVENT             : '/supervisor/superEvent/',
+    COSMOS_PACKAGES         : '/cosmos/packages/',
+    VALIDATE_COSMOS_PACKAGE : '/cosmos/validate-package/'
     
 };

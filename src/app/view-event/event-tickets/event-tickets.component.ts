@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Package} from "../../models/event-details";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-event-tickets',
@@ -11,9 +12,14 @@ export class EventTicketsComponent implements OnInit {
 
   @Input() ticket: Package;
   public show: boolean;
+  public eventKey: string;
 
-  constructor() {
+  constructor(public activatedRout: ActivatedRoute) {
     this.show = false;
+    this.activatedRout.params.subscribe(params => {
+      this.eventKey = params['id'];
+    });
+
   }
 
   ngOnInit() {

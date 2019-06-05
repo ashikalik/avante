@@ -18,7 +18,7 @@ export class RootComponent implements OnInit {
   lng: number = 7.809007;
 
   public errorSubmitRequest: EventoError;
-  
+
 
 
   constructor(public eventService: EventService,
@@ -32,7 +32,7 @@ export class RootComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.errorSubmitRequest = null;    
+    this.errorSubmitRequest = null;
     this.getEventDetail();
   }
 
@@ -50,7 +50,12 @@ export class RootComponent implements OnInit {
   }
 
   public buyTicket() {
-    this.router.navigate(['/buy-ticket/' + this.eventKey]);
+    if (this.eventKey != '214611584') {
+      this.router.navigate(['/buy-ticket/' + this.eventKey]);
+
+    } else {
+      this.router.navigate(['/cosmos/' + this.eventKey]);
+    }
   }
 
 
