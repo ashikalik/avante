@@ -145,7 +145,7 @@ export class PrintBadge {
             </style>
         </head>
         
-        <body onload="window.print();window.close()">
+        <body onload="window.print();">
             <div class="invoice-box rtl">
                 <table cellpadding="0" cellspacing="0">
                     <tr class="top">
