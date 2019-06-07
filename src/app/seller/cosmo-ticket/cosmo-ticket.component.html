@@ -78,8 +78,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center mt-71">
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center">
           <div class="form-group text-center">
-            <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToMainPackages()"
-              translate>Back</button>
+            <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToMainPackages()" translate>Back</button>
           </div>
         </div>
       </div>
@@ -135,8 +134,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center mt-71">
           <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center">
             <div class="form-group text-center">
-              <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToCategories()"
-                translate>Back</button>
+              <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToCategories()" translate>Back</button>
             </div>
           </div>
         </div>
@@ -156,8 +154,7 @@
   <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-end mt-71">
     <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center">
       <div class="form-group text-center">
-        <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToTimeOrMainPackages()"
-          translate>Back</button>
+        <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToTimeOrMainPackages()" translate>Back</button>
       </div>
     </div>
   </div>
@@ -168,7 +165,7 @@
   <div class="col-lg-12 col-md-12 col-sm-12 text-center justify-content-center steps-setting">
 
 
-    <div *ngIf="isLessThanFive" class="alert alert-danger">
+    <div  class="alert alert-danger">
       {{ 'Remaining Tickets are' | translate}} {{this.validatePackageRes.left}}
     </div>
 
@@ -186,62 +183,47 @@
         <div class="col-lg-8 col-md-10 col-sm-12 col-12 mt-1 mb-1">
           <div class="content pl-4 pr-4" id="event-details">
             <div class="row ml-0 mr-0 mt-4">
-              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut"
-                class="bg-box-shadow w-100 span-left p-3">
+              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut" class="bg-box-shadow w-100 span-left p-3">
 
                 <form [formGroup]="payment">
 
-                  <div
-                    class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting float-not-left span-left">
-                    <p><span class="grey-color span-left">{{ 'Package Name' | translate }}: &nbsp;</span>
-                      {{package.package_name}}</p>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting float-not-left span-left">
+                    <p><span class="grey-color span-left">{{ 'Package Name' | translate }}: &nbsp;</span> {{package.package_name}}
+                    </p>
                   </div>
 
-                  <div
-                    class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting float-not-left span-left">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting float-not-left span-left">
 
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center">
-                      <div
-                        class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline float-not-left">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline float-not-left">
                         <p translate>Your Info</p>
                       </div>
 
-                      <div
-                        class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end mt-3 float-not-left">
-                        <div
-                          class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end mt-3 float-not-left">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
                           <div class="form-group full_width">
-                            <input formControlName="first_name" type="text" class="form-control evento_input"
-                              placeholder="{{ 'First Name' | translate }}">
-                            <div class="error"
-                              *ngIf="payment.controls['first_name'].hasError('required') && !payment.controls['first_name'].pristine"
+                            <input formControlName="first_name" type="text" class="form-control evento_input" placeholder="{{ 'First Name' | translate }}">
+                            <div class="error" *ngIf="payment.controls['first_name'].hasError('required') && !payment.controls['first_name'].pristine"
                               translate>This field is required
                             </div>
-                            <div class="error"
-                              *ngIf="payment.controls['first_name'].hasError('minlength') && !payment.controls['first_name'].pristine"
+                            <div class="error" *ngIf="payment.controls['first_name'].hasError('minlength') && !payment.controls['first_name'].pristine"
                               translate>First name most have more than 3 letters
                             </div>
-                            <div class="error"
-                              *ngIf="payment.controls['first_name'].hasError('maxlength') && !payment.controls['first_name'].pristine">
+                            <div class="error" *ngIf="payment.controls['first_name'].hasError('maxlength') && !payment.controls['first_name'].pristine">
                               First name most have less than 40 letters
                             </div>
                           </div>
                         </div>
-                        <div
-                          class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
                           <div class="form-group full_width">
-                            <input formControlName="last_name" type="text" class="form-control evento_input"
-                              placeholder="{{ 'Last Name' | translate }}">
-                            <div class="error"
-                              *ngIf="payment.controls['last_name'].hasError('required') && !payment.controls['last_name'].pristine"
+                            <input formControlName="last_name" type="text" class="form-control evento_input" placeholder="{{ 'Last Name' | translate }}">
+                            <div class="error" *ngIf="payment.controls['last_name'].hasError('required') && !payment.controls['last_name'].pristine"
                               translate>This field is required
                             </div>
-                            <div class="error"
-                              *ngIf="payment.controls['last_name'].hasError('minlength') && !payment.controls['last_name'].pristine"
+                            <div class="error" *ngIf="payment.controls['last_name'].hasError('minlength') && !payment.controls['last_name'].pristine"
                               translate>Last name most have more than 3 letters
                             </div>
-                            <div class="error"
-                              *ngIf="payment.controls['last_name'].hasError('maxlength') && !payment.controls['last_name'].pristine"
+                            <div class="error" *ngIf="payment.controls['last_name'].hasError('maxlength') && !payment.controls['last_name'].pristine"
                               translate>Last name most have less than 40 letters
                             </div>
                           </div>
@@ -250,37 +232,25 @@
 
 
                       <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end float-not-left">
-                        <div
-                          class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
                           <div class="form-group full_width">
-                            <input formControlName="email" type="text" class="form-control evento_input"
-                              placeholder="{{ 'Email' | translate }}">
-                            <div class="error"
-                              *ngIf="payment.controls['email'].hasError('required') && !payment.controls['email'].pristine"
-                              translate>
+                            <input formControlName="email" type="text" class="form-control evento_input" placeholder="{{ 'Email' | translate }}">
+                            <div class="error" *ngIf="payment.controls['email'].hasError('required') && !payment.controls['email'].pristine" translate>
                               This field is required
                             </div>
-                            <div class="error"
-                              *ngIf="payment.controls['email'].hasError('email') && !payment.controls['email'].pristine"
-                              translate>
+                            <div class="error" *ngIf="payment.controls['email'].hasError('email') && !payment.controls['email'].pristine" translate>
                               Email format is not valid
                             </div>
                           </div>
                         </div>
 
-                        <div
-                          class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
                           <div class="form-group full_width">
-                            <input maxlength="10" formControlName="mobile" type="text" class="form-control evento_input"
-                              placeholder="{{ 'Phone Number' | translate }}">
-                            <div class="error"
-                              *ngIf="payment.controls['mobile'].hasError('required') && !payment.controls['mobile'].pristine"
-                              translate>
+                            <input maxlength="10" formControlName="mobile" type="text" class="form-control evento_input" placeholder="{{ 'Phone Number' | translate }}">
+                            <div class="error" *ngIf="payment.controls['mobile'].hasError('required') && !payment.controls['mobile'].pristine" translate>
                               This field is required
                             </div>
-                            <div class="error"
-                              *ngIf="payment.controls['mobile'].hasError('pattern') && !payment.controls['mobile'].pristine"
-                              translate>
+                            <div class="error" *ngIf="payment.controls['mobile'].hasError('pattern') && !payment.controls['mobile'].pristine" translate>
                               Mobile number most have 10 numbers
                             </div>
                           </div>
@@ -292,18 +262,15 @@
 
                   <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end">
-                      <div
-                        class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
                         <div class="form-group position-relative full_width">
-                          <select class="form-control evento_input evento_select" name="sellist"
-                            formControlName="audienceGender">
+                          <select class="form-control evento_input evento_select" name="sellist" formControlName="audienceGender">
                             <option value="" translate>Gender</option>
                             <option value="1" translate>Male</option>
                             <option value="2" translate>Female</option>
                           </select>
                           <i class="fas fa-chevron-down embed"></i>
-                          <div class="error"
-                            *ngIf="payment.controls['audienceGender'].hasError('required') && !payment.controls['audienceGender'].pristine"
+                          <div class="error" *ngIf="payment.controls['audienceGender'].hasError('required') && !payment.controls['audienceGender'].pristine"
                             translate>
                             This field is required
                           </div>
@@ -311,15 +278,11 @@
                       </div>
 
 
-                      <div
-                        class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1  left_floating">
+                      <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1  left_floating">
                         <div class="form-group full_width">
-                          <my-date-picker formControlName="dateOfBirthGregorian"
-                            placeholder="{{ 'Date of birth' | translate }}" [options]="myDatePickerOptions"
+                          <my-date-picker formControlName="dateOfBirthGregorian" placeholder="{{ 'Date of birth' | translate }}" [options]="myDatePickerOptions"
                             (dateChanged)="onChangeDateBirth($event)"></my-date-picker>
-                          <div class="error"
-                            *ngIf="payment.controls['mobile'].hasError('required') && !payment.controls['mobile'].pristine"
-                            translate>
+                          <div class="error" *ngIf="payment.controls['mobile'].hasError('required') && !payment.controls['mobile'].pristine" translate>
                             This field is required
                           </div>
                         </div>
@@ -327,23 +290,18 @@
                     </div>
                   </div>
 
-                  <div
-                    class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center float-not-left span-left">
-                    <div
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline float-not-left">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center float-not-left span-left">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline float-not-left">
                       <p translate>Number of tickets paid</p>
                     </div>
                   </div>
 
 
-                  <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut && package"
-                    class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting">
+                  <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut && package" class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end">
-                      <div *ngIf="package.package_id != 50 && package.package_id != 51"
-                        class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
+                      <div *ngIf="package.package_id != 50 && package.package_id != 51" class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
                         <div class="form-group position-relative full_width">
-                          <select class="form-control evento_input evento_select" name="sellist"
-                            formControlName="maleCount" (change)="onChangeNumOfTickets($event.target.value)">
+                          <select class="form-control evento_input evento_select" name="sellist" formControlName="maleCount" (change)="onChangeNumOfTickets($event.target.value)">
                             <option value="" translate>Male Count</option>
                             <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
                             <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
@@ -355,11 +313,9 @@
                         </div>
                       </div>
 
-                      <div *ngIf="package.package_id != 50 && package.package_id != 51"
-                        class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
+                      <div *ngIf="package.package_id != 50 && package.package_id != 51" class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
                         <div class="form-group position-relative full_width">
-                          <select class="form-control evento_input evento_select" name="sellist"
-                            formControlName="femaleCount" (change)="onChangeNumOfTickets($event.target.value)">
+                          <select class="form-control evento_input evento_select" name="sellist" formControlName="femaleCount" (change)="onChangeNumOfTickets($event.target.value)">
                             <option value="" translate>Fmale Count</option>
                             <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
                             <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
@@ -371,11 +327,9 @@
                         </div>
                       </div>
 
-                      <div *ngIf="package.package_id != 49"
-                        class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
+                      <div *ngIf="package.package_id != 49" class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
                         <div class="form-group position-relative full_width">
-                          <select class="form-control evento_input evento_select" name="sellist"
-                            formControlName="childCount" (change)="onChangeNumOfTickets($event.target.value)">
+                          <select class="form-control evento_input evento_select" name="sellist" formControlName="childCount" (change)="onChangeNumOfTickets($event.target.value)">
                             <option value="" translate>Children Count</option>
                             <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
                             <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
@@ -391,10 +345,9 @@
                   </div>
 
                   <div class="mt-10">
-                    <div *ngIf="numbOfTickets && package"
-                      class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-right align-items-center justify-content-start ">
-                      <p class="grey-color mb-0 d-flex align-items-center" style="margin-right: 7.5px;" translate>Price
-                        &nbsp;</p>
+                    <div *ngIf="numbOfTickets && package" class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-right align-items-center justify-content-start ">
+                      <p class="grey-color mb-0 d-flex align-items-center" style="margin-right: 7.5px;" translate>Price &nbsp;
+                      </p>
                       <button *ngIf="totalWithoutVat > 0" type="button" class="btn btn-dark btn-md"> {{totalWithoutVat}}
                         {{ 'SR' | translate }}</button>
                     </div>
@@ -403,13 +356,12 @@
                   <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-end mt-71">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center">
                       <div class="form-group text-center">
-                        <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToTimeOrMainPackages()"
-                          translate>Back</button>
+                        <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToTimeOrMainPackages()" translate>Back</button>
                         <button type="button" class="btn btn-success md-15" [disabled]="!payment.controls['first_name'].valid ||
                           !payment.controls['last_name'].valid || numbOfTickets == 0 || numbOfTickets > validatePackageRes.left ||
                           !payment.controls['mobile'].valid || !payment.controls['audienceGender'].valid ||
-                          !payment.controls['email'].valid || !payment.controls['dateOfBirthGregorian'].valid"
-                          (click)="onReviewInfo()" translate>Next Step &nbsp;<i
+                          !payment.controls['email'].valid || !payment.controls['dateOfBirthGregorian'].valid" (click)="onReviewInfo()"
+                          translate>Next Step &nbsp;<i
                             class="fas fa-chevron-left"></i></button>
                       </div>
                     </div>
@@ -436,14 +388,12 @@
         <div class="col-lg-8 col-md-10 col-sm-12 col-12 mt-1 mb-1">
           <div class="content pl-4 pr-4" id="event-details">
             <div class="row ml-0 mr-0 mt-4">
-              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut"
-                class="bg-box-shadow w-100 span-left p-3">
+              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut" class="bg-box-shadow w-100 span-left p-3">
 
 
                 <form [formGroup]="payment">
 
-                  <div
-                    class="col-lg-10 col-md-10 col-sm-10 col-12 d-flex text-center justify-content-center steps-setting float-not-left span-left">
+                  <div class="col-lg-10 col-md-10 col-sm-10 col-12 d-flex text-center justify-content-center steps-setting float-not-left span-left">
                     <div class="col-lg-10 col-md-10 col-sm-12 col-12 text-center justify-content-center">
                       <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center">
 
@@ -453,31 +403,30 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center mt-3">
                           <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
                             <p><span class="grey-color span-left">{{ 'Name' | translate }}: &nbsp;</span> {{ payment.get('first_name').value
-                                }} {{ payment.get('last_name').value }}</p>
+                              }} {{ payment.get('last_name').value }}</p>
                           </div>
                           <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
                             <p><span class="grey-color span-left">{{ 'Phone Number' | translate }}: &nbsp;</span> {{ payment.get('mobile').value
-                                }}
+                              }}
                             </p>
                           </div>
-                          <div
-                            class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
                             <p><span class="grey-color span-left">{{ 'Email' | translate }} : &nbsp;</span> {{ payment.get('email').value
-                                }}</p>
+                              }}
+                            </p>
                           </div>
                           <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
-                            <p><span class="grey-color span-left">{{ 'Ticket' | translate }}: &nbsp;</span>
-                              {{package.package_name}}</p>
+                            <p><span class="grey-color span-left">{{ 'Ticket' | translate }}: &nbsp;</span> {{package.package_name}}
+                            </p>
                           </div>
                           <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
                             <p><span class="grey-color span-left">{{ 'QTY' | translate }}: &nbsp;</span> {{ payment.get('num_ticket').value
-                                }}
+                              }}
                             </p>
                           </div>
-                          <div *ngIf="isDateRequired"
-                            class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+                          <div *ngIf="isDateRequired" class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
                             <p><span class="grey-color span-left">{{ 'Date' | translate }}: &nbsp;</span> {{ payment.get('access_date').value.formatted
-                                }}
+                              }}
                             </p>
                           </div>
                         </div>
@@ -490,10 +439,9 @@
                           <p translate>Payment Review</p>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end mt-3">
-                          <div
-                            class="col-lg-2 col-md-2 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pt-3">
-                            <p><span class="grey-color span-left">{{ 'QTY' | translate }}: &nbsp;</span>
-                              {{payment.get('num_ticket').value}}</p>
+                          <div class="col-lg-2 col-md-2 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pt-3">
+                            <p><span class="grey-color span-left">{{ 'QTY' | translate }}: &nbsp;</span> {{payment.get('num_ticket').value}}
+                            </p>
                           </div>
                           <div class="col-lg-5 col-md-5 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
                             <p class="grey-color mb-0 d-flex align-items-center" style="margin-right: 7.5px;">
@@ -501,10 +449,8 @@
                             <button type="button" class="mt-2 btn btn-dark btn-sm">{{package.price}}
                               {{ 'SR' | translate }}</button>
                           </div>
-                          <div
-                            class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0">
-                            <p><span class="grey-color span-left">{{ 'Total' | translate }} : &nbsp;</span>
-                              {{totalWithoutVat}}
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0">
+                            <p><span class="grey-color span-left">{{ 'Total' | translate }} : &nbsp;</span> {{totalWithoutVat}}
                               {{ 'SR' | translate }}
                               <!-- <p><span class="grey-color span-left">{{ 'VAT' | translate }} : &nbsp;</span> {{VAT}} {{ 'SR'
                                   | translate }}
@@ -512,14 +458,10 @@
                                     {{ 'SR' | translate }}
                                   </p> -->
                           </div>
-                          <div
-                            class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0 mt-5">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0 mt-5">
                             <div class="form-group text-center">
-                              <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToTicketInfo()"
-                                translate>Back</button>
-                              <button type="button" class="btn btn-warning md-15"
-                                [disabled]="!payment.valid || !showSubmit" (click)="buyTicket()"
-                                style="color:white;">{{ 'Next Step' | translate }} &nbsp;<i
+                              <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToTicketInfo()" translate>Back</button>
+                              <button type="button" class="btn btn-warning md-15" [disabled]="!payment.valid" (click)="buyTicket()" style="color:white;">{{ 'Next Step' | translate }} &nbsp;<i
                                   class="fas fa-chevron-left"></i></button>
                             </div>
                           </div>
@@ -540,15 +482,36 @@
   </div>
 </div>
 
-<div class="main_container" *ngIf="selectPaymentType">
+<div class="main_container more_margin" *ngIf="selectPaymentType">
   <div class="container-fluid event-container">
     <div class="row justify-content-center mt-5 mb-5">
       <ng-container>
         <div class="col-lg-8 col-md-10 col-sm-12 col-12 mt-1 mb-1">
           <div class="content pl-4 pr-4" id="event-details">
             <div class="row ml-0 mr-0 mt-4">
-              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut"
-                class="bg-box-shadow w-100 span-left p-3">
+              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut" class="bg-box-shadow w-100 span-left p-3">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center  mt-3 justify-content-center">
+                  <div class="form-group position-relative">
+                    <select class="form-control evento_input evento_select" name="sellist" (change)="onChangePaymentType($event.target.value)">
+                    <option value="" >اختر طريقة الدفع</option>
+                    <option value="2" >الدفع نقداً</option>
+                    <option value="3" >الدفع عن طريق الشبكة</option>
+                  </select>
+                    <i class="fas fa-chevron-down embed"></i>
+                  </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end mt-3">
+                  <div class="col-lg-2 col-md-2 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pt-3">
+                    <p><span class="grey-color span-left">{{ 'QTY' | translate }}: &nbsp;</span> {{payment.get('num_ticket').value}}
+                    </p>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0">
+                    <p><span class="grey-color span-left">{{ 'Total' | translate }} : &nbsp;</span> {{totalWithoutVat}} {{ 'SR'
+                      | translate }}
+                  </div>
+                </div>
+
                 <button type="button" class="btn btn-success md-15" (click)="confirmPayment()">تاكيد الدفع &nbsp;<i
                     class="fas fa-chevron-left"></i></button>
               </div>
@@ -561,23 +524,81 @@
   </div>
 </div>
 
+
 <div class="main_container" *ngIf="showPrint">
   <div class="container-fluid event-container">
-    <div class="row justify-content-center mt-5 mb-5">
-      <ng-container>
-        <div class="col-lg-8 col-md-10 col-sm-12 col-12 mt-1 mb-1">
-          <div class="content pl-4 pr-4" id="event-details">
-            <div class="row ml-0 mr-0 mt-4">
-              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut"
-                class="bg-box-shadow w-100 span-left p-3">
-                <button type="button" class="btn btn-success md-15" (click)="confirmPayment()">تاكيد الدفع &nbsp;<i
-                    class="fas fa-chevron-left"></i></button>
+    <div class="row justify-content-center">
+      <div class="col-lg-11 col-md-11 col-sm-11 col-12 text_left justify-content-center side-content">
+
+        <div class=" application-container">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-center">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex flex-wrap">
+
+                  <div class="pr-3 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <h4 translate>Tickets</h4>
+                  </div>
+                </div>
+
+                <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
+                  <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+                    Name
+                  </div>
+                  <div class="title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+                    Email
+                  </div>
+                  <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>
+                    Phone Number
+                  </div>
+                  <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>
+                    Package Name
+                  </div>
+                  <div class="title col-lg-1 col-md-1 col-sm-12 col-12" translate>
+                    Price
+                  </div>
+                  <div class="title col-lg-1 col-md-1 col-sm-12 col-12">
+                    طباعة
+                  </div>
+                </div>
+
+                <ng-container *ngIf="tickets">
+                  <div *ngFor="let invoice of tickets" class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
+                    <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
+                      <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Name:</span> {{invoice.first_name}} {{invoice.last_name}}
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                      <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Email:</span> {{invoice.email }}
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-12">
+                      <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Phone Number:</span> {{invoice.mobile }}
+                    </div>
+                    <div class="title col-lg-2 col-md-2 col-sm-12 col-12">
+                      <span class="pr-3 d-md-none d-lg-none d-xl-none" translate> Package:</span> {{invoice.package_name}}
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+                      {{invoice.price}}
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+                      <button type="button" class="btn btn-outline-dark btn-sm mt-2 pt-1 pb-1" (click)="print(invoice)" translate>
+                          Print
+                      </button>
+                    </div>
+                  </div>
+                </ng-container>
+
               </div>
             </div>
           </div>
         </div>
-      </ng-container>
 
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0 mt-5">
+          <div class="form-group text-center">
+            <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToMainPackages()" translate>الرئيسية</button>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>

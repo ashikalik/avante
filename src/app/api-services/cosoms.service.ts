@@ -79,11 +79,11 @@ export class CosmosService {
     }
 
 
-    public confirmPayment(reference: any): Observable<any> {
+    public confirmPayment(reference: any, paymentType: any): Observable<any> {
 
         var body = {
             reference: reference,
-            payment_type: 3
+            payment_type: Number(paymentType)
         };
         const url = NetworkConfig.BASE_URL + '/cosmos/makePurchase';
         return this.httpClient.post<any>(url, body);

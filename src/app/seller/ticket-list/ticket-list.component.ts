@@ -57,6 +57,10 @@ public addTicket(){
   this.router.navigate(['../add-ticket'], { relativeTo: this.route });
 }
 
+public addCosmosTicket(){
+  this.router.navigate(['../cosmo-ticket'], { relativeTo: this.route });  
+}
+
 
 public getEventDetail() {
   this.sellerService.viewEventDetails(this.event_key).subscribe(
