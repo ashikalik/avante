@@ -61,6 +61,11 @@ export class AddTicketComponent implements OnInit {
         'visitors': this.formBuilder.array([]),
         'access_date': [null],
         'payment_type': ['', Validators.compose([Validators.required])],
+        'maleCount': [''],
+        'femaleCount': [''],
+        'childCount': [''],
+        'dateOfBirthGregorian': ['', Validators.compose([Validators.required])],
+        'audienceGender': ['', Validators.compose([Validators.required])],
       });
   }
 

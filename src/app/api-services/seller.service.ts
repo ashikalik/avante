@@ -54,7 +54,12 @@ export class SellerService {
             access_date: access_date,
             payment_type: form.payment_type,
             list: form.visitors,
-            event_key: event_key
+            event_key: event_key,
+            maleCount: form.maleCount || 0,
+            femaleCount: form.femaleCount  || 0,
+            childCount: form.childCount  || 0,
+            dateOfBirthGregorian: form.dateOfBirthGregorian,
+            audienceGender:form.audienceGender
         };
         const url = NetworkConfig.BASE_URL + NetworkConfig.CREATE_INVOICE;
         return this.httpClient.post<any>(url, body);

@@ -19,7 +19,10 @@ export class TicketInfoComponent implements OnInit {
     ngOnInit() {
     }
 
-
+    onChangeDateBirth(event) {
+        this.payment.get('dateOfBirthGregorian').setValue(event.formatted);
+    }
+    
     onButtonNext(){
         this.onNext.emit();        
     }

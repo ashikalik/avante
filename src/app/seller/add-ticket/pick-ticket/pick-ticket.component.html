@@ -33,19 +33,53 @@
       </div>
 
 
+
+      <!-- Male -->
       <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut" class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center  mt-3 justify-content-center">
         <div class="form-group position-relative">
-          <select class="form-control evento_input evento_select" name="sellist" formControlName="num_ticket" (change)="onChangeNumOfTickets($event.target.value)">
-          <option value="" translate>Number of tickets</option>
-          <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
-          <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
-          <option value="3" *ngIf="validatePackageRes.left >= 3">3</option>
-          <option value="4" *ngIf="validatePackageRes.left >= 4">4</option>
-          <option value="5" *ngIf="validatePackageRes.left >= 5">5</option>
-        </select>
+          <select class="form-control evento_input evento_select" name="sellist" formControlName="maleCount" (change)="onChangeNumOfTickets($event.target.value)">
+            <option value="" translate>Male Count</option>
+            <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
+            <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
+            <option value="3" *ngIf="validatePackageRes.left >= 3">3</option>
+            <option value="4" *ngIf="validatePackageRes.left >= 4">4</option>
+            <option value="5" *ngIf="validatePackageRes.left >= 5">5</option>
+          </select>
           <i class="fas fa-chevron-down embed"></i>
         </div>
       </div>
+
+      <!-- Female -->
+      <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut" class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center  mt-3 justify-content-center">
+        <div class="form-group position-relative">
+          <select class="form-control evento_input evento_select" name="sellist" formControlName="femaleCount" (change)="onChangeNumOfTickets($event.target.value)">
+            <option value="" translate>Female Count</option>
+            <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
+            <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
+            <option value="3" *ngIf="validatePackageRes.left >= 3">3</option>
+            <option value="4" *ngIf="validatePackageRes.left >= 4">4</option>
+            <option value="5" *ngIf="validatePackageRes.left >= 5">5</option>
+          </select>
+          <i class="fas fa-chevron-down embed"></i>
+        </div>
+      </div>
+
+      <!-- // Children -->
+      <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut"
+        class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center  mt-3 justify-content-center">
+        <div class="form-group position-relative">
+          <select class="form-control evento_input evento_select" name="sellist" formControlName="childCount" (change)="onChangeNumOfTickets($event.target.value)">
+            <option value="" translate>Children Count</option>
+            <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
+            <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
+            <option value="3" *ngIf="validatePackageRes.left >= 3">3</option>
+            <option value="4" *ngIf="validatePackageRes.left >= 4">4</option>
+            <option value="5" *ngIf="validatePackageRes.left >= 5">5</option>
+          </select>
+          <i class="fas fa-chevron-down embed"></i>
+        </div>
+      </div>
+
 
     </div>
 
