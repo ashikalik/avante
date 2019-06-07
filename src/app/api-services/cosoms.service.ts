@@ -23,7 +23,7 @@ export class CosmosService {
     }
 
     public getEventPackagesC(): Observable<any> {
-        const url = NetworkConfig.BASE_URL + "/cosmos/packagesC";
+        const url = NetworkConfig.BASE_URL + "/cosmos/packages-c";
         return this.httpClient.get<any>(url);
     }
 
