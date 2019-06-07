@@ -45,7 +45,7 @@ export class TicketRowComponent implements OnInit {
     let popupWin;
     popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
     popupWin.document.open();
-    popupWin.document.write(this.PrintBadge.BuildInvoice(ticket));
+    popupWin.document.write(this.PrintBadge.BuildInvoiceForCosmos(ticket));
     popupWin.document.close();
   }
 }
