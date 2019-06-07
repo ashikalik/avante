@@ -26,8 +26,13 @@
                   </div>
 
 
-                  <div  class="col-lg-2 col-md-2 col-sm-6 col-12 justify-content-center  mb-3">
+                  <div *ngIf="event_key && event_key != 214611584"  class="col-lg-2 col-md-2 col-sm-6 col-12 justify-content-center  mb-3">
                       <button [disabled]="!isPaymentOpend" type="button" (click)="addTicket()"
+                        class="btn btn-info pl-4 pr-4 mr-3 ml-3 mb-3" translate> Add Ticket</button>
+                    </div>
+
+                    <div *ngIf="event_key && event_key == 214611584"  class="col-lg-2 col-md-2 col-sm-6 col-12 justify-content-center  mb-3">
+                      <button [disabled]="!isPaymentOpend" type="button" (click)="addCosmosTicket()"
                         class="btn btn-info pl-4 pr-4 mr-3 ml-3 mb-3" translate> Add Ticket</button>
                     </div>
                 </div>

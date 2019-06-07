@@ -5,6 +5,7 @@ import { EventoError } from '../../models/error';
 import { MyDatePickerOptions } from '../../models/date-picker-object';
 import { NetworkConfig } from '../../network-layer/network.config';
 import { CosmosService } from '../../../app/api-services/cosoms.service';
+import { PrintBadge } from './../../services/print-badge.service';
 
 @Component({
   selector: 'app-cosmo-ticket',
@@ -43,7 +44,7 @@ export class CosmoTicketComponent implements OnInit {
   public VAT: number;
   public errorsBuyTicket: EventoError;
   public completedPayment: boolean;
-  public showSubmit:boolean;
+  // public showSubmit: boolean;
 
 
   public packages: any;
@@ -68,10 +69,11 @@ export class CosmoTicketComponent implements OnInit {
   constructor(public cosmosService: CosmosService,
     public activatedRout: ActivatedRoute,
     public router: Router,
+    public PrintBadge: PrintBadge,   
     private renderer: Renderer2,
     public formBuilder: FormBuilder,
   ) {
-    this.showSubmit = false;
+    // this.showSubmit = false;
     this.isReqPackage = false;
     this.isSonger = false;
     this.selectPaymentType = false;
@@ -81,7 +83,7 @@ export class CosmoTicketComponent implements OnInit {
       this.eventKey = '214611584';
     });
 
-    
+
   }
 
   addJsToElement(src: string): HTMLScriptElement {
@@ -93,7 +95,7 @@ export class CosmoTicketComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
     this.getPackages();
   }
 
@@ -138,6 +140,7 @@ export class CosmoTicketComponent implements OnInit {
     this.isSonger = false;
     this.isReqPackage = false;
     this.isOnViewMainPackages = true;
+    this.showPrint = false;
   }
 
   public selectCategory(c: any) {
@@ -152,6 +155,7 @@ export class CosmoTicketComponent implements OnInit {
     this.isOnViewCategoriesTimes = false;
     this.validatePackageRes = null;
     this.errorsValidatePackage = null;
+    this.isLessThanFive = false;
   }
 
   public onViewTicketInfo() {
@@ -159,17 +163,17 @@ export class CosmoTicketComponent implements OnInit {
     this.isOnTicketInfo = true;
   }
 
-  public onBackToTicketInfo(){
+  public onBackToTicketInfo() {
     this.isOnTicketInfo = true;
     this.isOnTicketReview = false
-    }
+  }
 
   public onReviewInfo() {
     this.isOnTicketInfo = false;
     this.isOnTicketReview = true;
-    this.addJsToElement(NetworkConfig.MERCHANT_JS).onload = () => {
-      this.showSubmit = true;
-    }
+    // this.addJsToElement(NetworkConfig.MERCHANT_JS).onload = () => {
+    //   this.showSubmit = true;
+    // }
   }
 
 
@@ -278,6 +282,8 @@ export class CosmoTicketComponent implements OnInit {
 
   public buyTicket() {
     this.errorsBuyTicket = null;
+    this.paymentType = null;
+    this.tickets = null;
 
     this.cosmosService.createInvoiceSeller(this.payment.value, this.eventKey).subscribe(
       res => {
@@ -292,14 +298,36 @@ export class CosmoTicketComponent implements OnInit {
   }
 
 
-  public confirmPayment() {
-    this.cosmosService.confirmPayment(this.createInvoiceSellerRes.data.reference).subscribe(res => {
-      this.showPrint = true;
-      this.selectPaymentType = false
-    }, err => {
 
-    });
+  public paymentType: any;
+  public tickets: any;
+  
+  public onChangePaymentType(type: any){
+    console.log(type)
+    this.paymentType = type;
   }
+
+  public confirmPayment(paymentType: any) {
+    console.log(paymentType);
+    this.cosmosService.confirmPayment(this.createInvoiceSellerRes.data.reference, this.paymentType).subscribe(
+      res => {
+        this.showPrint = true;
+        this.selectPaymentType = false
+        this.tickets = res.data;
+      }, err => {
+
+      });
+  }
+
+  public print(ticket: any) {
+    console.log(ticket)
+    let popupWin;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    popupWin.document.open();
+    popupWin.document.write(this.PrintBadge.BuildInvoiceForCosmos(ticket));
+    popupWin.document.close();
+  }
+
 }
 
 
