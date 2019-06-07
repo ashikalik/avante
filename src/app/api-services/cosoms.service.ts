@@ -36,25 +36,58 @@ export class CosmosService {
 
     public createInvoice(form: any, event_key: string): Observable<any> {
 
-                var body = {
-                    event_key: event_key,
-                    package_id: form.package_id,
-                    first_name: form.first_name,
-                    last_name: form.last_name,
-                    mobile: form.mobile,
-                    email: form.email,
-                    num_ticket: form.num_ticket,
-                    maleCount: form.maleCount || 0,
-                    femaleCount: form.femaleCount || 0,
-                    childCount: form.childCount || 0,
-                    dateOfBirthGregorian: form.dateOfBirthGregorian.formatted,
-                    audienceGender: form.audienceGender,
-                    list: form.visitors,
-                    recaptcha: form.recaptcha
-                };
-                const url = NetworkConfig.BASE_URL + '/cosmos/create';
-                return this.httpClient.post<any>(url, body);
-            }
+        var body = {
+            event_key: event_key,
+            package_id: form.package_id,
+            first_name: form.first_name,
+            last_name: form.last_name,
+            mobile: form.mobile,
+            email: form.email,
+            num_ticket: form.num_ticket,
+            maleCount: form.maleCount || 0,
+            femaleCount: form.femaleCount || 0,
+            childCount: form.childCount || 0,
+            dateOfBirthGregorian: form.dateOfBirthGregorian.formatted,
+            audienceGender: form.audienceGender,
+            list: form.visitors,
+            recaptcha: form.recaptcha
+        };
+        const url = NetworkConfig.BASE_URL + '/cosmos/create';
+        return this.httpClient.post<any>(url, body);
+    }
+
+
+    public createInvoiceSeller(form: any, event_key: string): Observable<any> {
+
+        var body = {
+            event_key: event_key,
+            package_id: form.package_id,
+            first_name: form.first_name,
+            last_name: form.last_name,
+            mobile: form.mobile,
+            email: form.email,
+            num_ticket: form.num_ticket,
+            maleCount: form.maleCount || 0,
+            femaleCount: form.femaleCount || 0,
+            childCount: form.childCount || 0,
+            dateOfBirthGregorian: form.dateOfBirthGregorian.formatted,
+            audienceGender: form.audienceGender,
+            list: form.visitors
+        };
+        const url = NetworkConfig.BASE_URL + '/cosmos/sellerInvoice';
+        return this.httpClient.post<any>(url, body);
+    }
+
+
+    public confirmPayment(reference: any): Observable<any> {
+
+        var body = {
+            reference: reference,
+            payment_type: 3
+        };
+        const url = NetworkConfig.BASE_URL + '/cosmos/makePurchase';
+        return this.httpClient.post<any>(url, body);
+    }
 
 
 

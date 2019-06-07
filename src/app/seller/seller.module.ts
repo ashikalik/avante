@@ -5,6 +5,7 @@ import { SellerRoutingModule } from './seller-routing.module';
 import { BASE_MODULES } from '../models/modules';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { AddTicketComponent } from './add-ticket/add-ticket.component';
+import { CosmoTicketComponent } from './cosmo-ticket/cosmo-ticket.component';
 import { TicketRowComponent } from './ticket-list/ticket-row/ticket-row.component';
 import { SellerService } from '../api-services/seller.service';
 import { PickTicketComponent } from './add-ticket/pick-ticket/pick-ticket.component';
@@ -18,11 +19,12 @@ import { EventService } from '../api-services/event.service';
   declarations: [
     TicketListComponent,
     AddTicketComponent,
+    CosmoTicketComponent,
     TicketRowComponent,
     PickTicketComponent,
     TicketInfoComponent,
     TicketReviewComponent,
-    PaymentComponent
+    PaymentComponent,
   ],
   imports: [
     SellerRoutingModule,
