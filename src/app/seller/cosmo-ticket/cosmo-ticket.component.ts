@@ -101,7 +101,7 @@ export class CosmoTicketComponent implements OnInit {
 
 
   public getPackages() {
-    this.cosmosService.getEventPackages().subscribe(res => {
+    this.cosmosService.getEventPackagesC().subscribe(res => {
       this.isOnViewMainPackages = true;
       this.packages = res;
     }, err => {
