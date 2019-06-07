@@ -1,0 +1,583 @@
+<div class="main_container ">
+  <div class="container-fluid event-container mt-5 mb-5">
+    <div class="row justify-content-center mt-5 mb-5">
+      <ng-container *ngIf="packages && isOnViewMainPackages">
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mt-1 mb-1" *ngFor="let p of packages.songers">
+          <div class="content pl-4 pr-4" id="event-details">
+            <div class="row ml-0 mr-0 mt-4">
+              <div class="bg-box-shadow w-100 span-left p-3">
+                <img [src]="p.img" alt="" style="max-width: 100%">
+
+                <p class="mt-3">{{ p.songer_name }}</p>
+                <p>{{ p.desc }}</p>
+                <p class="span-right mb-0 pb-0">
+                </p>
+                <button type="button" class="btn btn-success" (click)="selectPackageSongerFunc(p)" translate>Choose
+                  &nbsp;<i class="fas fa-chevron-left"></i></button>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mt-1 mb-1" *ngFor="let p of packages.packages">
+          <div class="content pl-4 pr-4" id="event-details">
+            <div class="row ml-0 mr-0 mt-4">
+              <div class="bg-box-shadow w-100 span-left p-3">
+                <p class="mt-3">{{ p.package_name }}</p>
+                <p>{{p.package_desc}}</p>
+                <p class="span-right mb-0 pb-0">
+                </p>
+                <button type="button" class="btn btn-success" (click)="selectPackageFunc(p)" translate>Choose &nbsp;<i
+                    class="fas fa-chevron-left"></i></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center mt-71">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center">
+            <div class="form-group text-center">
+              <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToEvent()" translate>Back</button>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="main_container" *ngIf="isOnViewMainCategories && isSonger">
+  <div class="container-fluid event-container">
+    <div class="row justify-content-center mt-5 mb-5">
+      <ng-container *ngIf="selectedSonger">
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mt-1 mb-1" *ngFor="let c of selectedSonger.catogary">
+          <div class="content pl-4 pr-4" id="event-details">
+            <div class="row ml-0 mr-0 mt-4">
+              <div class="bg-box-shadow w-100 span-left p-3">
+
+                <p class="mt-3">{{ c.catogary_name }}</p>
+                <p>{{ c.catogary_desc }}</p>
+                <p class="span-right mb-0 pb-0">
+                </p>
+                <button type="button" class="btn btn-success" (click)="selectCategory(c)" translate>Choose
+                  &nbsp;<i class="fas fa-chevron-left"></i></button>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center mt-71">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center">
+          <div class="form-group text-center">
+            <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToMainPackages()"
+              translate>Back</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="main_container" *ngIf="isOnViewCategoriesTimes && isSonger">
+  <div class="container-fluid event-container">
+    <div class="col-lg-10 col-md-10 col-sm-10 text-center justify-content-center steps-setting">
+
+      <app-errors [errors]="errorsValidatePackage" *ngIf="errorsValidatePackage"></app-errors>
+
+      <div *ngIf="isLessThanFive" class="alert alert-danger">
+        {{ 'Remaining Tickets are' | translate}} {{validatePackageRes.left}}
+      </div>
+
+      <div *ngIf="isSoldOut" class="alert alert-danger" translate>
+        All Tickets are sold out
+      </div>
+
+      <div *ngIf="cosmosOffer" class="alert alert-danger">
+        هذا العرض ساري من تاريخ 06/06/2019 وحتى تاريخ 09/06/2019
+      </div>
+    </div>
+
+
+    <div class="row justify-content-center mt-5 mb-5">
+      <ng-container *ngIf="selectedCategory">
+
+        <!-- <app-errors [errors]="validateErr" *ngIf="validateErr"></app-errors> -->
+
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12 mt-1 mb-1" *ngFor="let sp of selectedCategory.packages">
+          <div class="content pl-4 pr-4" id="event-details">
+            <div class="row ml-0 mr-0 mt-4">
+              <div class="bg-box-shadow w-100 span-left p-3">
+
+                <p class="mt-3">{{ sp.package_name }}</p>
+                <p class="span-right mb-0 pb-0">
+                </p>
+                <button type="button" class="btn btn-success" (click)="selectedTime(sp)" translate>Choose
+                  &nbsp;<i class="fas fa-chevron-left"></i></button>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center mt-71">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center">
+            <div class="form-group text-center">
+              <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToCategories()"
+                translate>Back</button>
+            </div>
+          </div>
+        </div>
+
+      </ng-container>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="main_container more_margin" *ngIf="errorsValidatePackage && !isOnViewCategoriesTimes">
+  <div class="col-lg-12 col-md-12 col-sm-12 text-center justify-content-center steps-setting">
+    <app-errors [errors]="errorsValidatePackage" *ngIf="errorsValidatePackage"></app-errors>
+  </div>
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-end mt-71">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center">
+      <div class="form-group text-center">
+        <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToTimeOrMainPackages()"
+          translate>Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="main_container" *ngIf="isOnTicketInfo">
+  <div class="col-lg-12 col-md-12 col-sm-12 text-center justify-content-center steps-setting">
+
+
+    <div *ngIf="isLessThanFive" class="alert alert-danger">
+      {{ 'Remaining Tickets are' | translate}} {{this.validatePackageRes.left}}
+    </div>
+
+    <div *ngIf="isSoldOut" class="alert alert-danger" translate>
+      All Tickets are sold out
+    </div>
+
+    <div *ngIf="cosmosOffer" class="alert alert-danger">
+      هذا العرض ساري من تاريخ 06/06/2019 وحتى تاريخ 09/06/2019
+    </div>
+  </div>
+  <div class="container-fluid event-container">
+    <div class="row justify-content-center mt-5 mb-5">
+      <ng-container>
+        <div class="col-lg-8 col-md-10 col-sm-12 col-12 mt-1 mb-1">
+          <div class="content pl-4 pr-4" id="event-details">
+            <div class="row ml-0 mr-0 mt-4">
+              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut"
+                class="bg-box-shadow w-100 span-left p-3">
+
+                <form [formGroup]="payment">
+
+                  <div
+                    class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting float-not-left span-left">
+                    <p><span class="grey-color span-left">{{ 'Package Name' | translate }}: &nbsp;</span>
+                      {{package.package_name}}</p>
+                  </div>
+
+                  <div
+                    class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting float-not-left span-left">
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center">
+                      <div
+                        class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline float-not-left">
+                        <p translate>Your Info</p>
+                      </div>
+
+                      <div
+                        class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end mt-3 float-not-left">
+                        <div
+                          class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
+                          <div class="form-group full_width">
+                            <input formControlName="first_name" type="text" class="form-control evento_input"
+                              placeholder="{{ 'First Name' | translate }}">
+                            <div class="error"
+                              *ngIf="payment.controls['first_name'].hasError('required') && !payment.controls['first_name'].pristine"
+                              translate>This field is required
+                            </div>
+                            <div class="error"
+                              *ngIf="payment.controls['first_name'].hasError('minlength') && !payment.controls['first_name'].pristine"
+                              translate>First name most have more than 3 letters
+                            </div>
+                            <div class="error"
+                              *ngIf="payment.controls['first_name'].hasError('maxlength') && !payment.controls['first_name'].pristine">
+                              First name most have less than 40 letters
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
+                          <div class="form-group full_width">
+                            <input formControlName="last_name" type="text" class="form-control evento_input"
+                              placeholder="{{ 'Last Name' | translate }}">
+                            <div class="error"
+                              *ngIf="payment.controls['last_name'].hasError('required') && !payment.controls['last_name'].pristine"
+                              translate>This field is required
+                            </div>
+                            <div class="error"
+                              *ngIf="payment.controls['last_name'].hasError('minlength') && !payment.controls['last_name'].pristine"
+                              translate>Last name most have more than 3 letters
+                            </div>
+                            <div class="error"
+                              *ngIf="payment.controls['last_name'].hasError('maxlength') && !payment.controls['last_name'].pristine"
+                              translate>Last name most have less than 40 letters
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end float-not-left">
+                        <div
+                          class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
+                          <div class="form-group full_width">
+                            <input formControlName="email" type="text" class="form-control evento_input"
+                              placeholder="{{ 'Email' | translate }}">
+                            <div class="error"
+                              *ngIf="payment.controls['email'].hasError('required') && !payment.controls['email'].pristine"
+                              translate>
+                              This field is required
+                            </div>
+                            <div class="error"
+                              *ngIf="payment.controls['email'].hasError('email') && !payment.controls['email'].pristine"
+                              translate>
+                              Email format is not valid
+                            </div>
+                          </div>
+                        </div>
+
+                        <div
+                          class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1">
+                          <div class="form-group full_width">
+                            <input maxlength="10" formControlName="mobile" type="text" class="form-control evento_input"
+                              placeholder="{{ 'Phone Number' | translate }}">
+                            <div class="error"
+                              *ngIf="payment.controls['mobile'].hasError('required') && !payment.controls['mobile'].pristine"
+                              translate>
+                              This field is required
+                            </div>
+                            <div class="error"
+                              *ngIf="payment.controls['mobile'].hasError('pattern') && !payment.controls['mobile'].pristine"
+                              translate>
+                              Mobile number most have 10 numbers
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end">
+                      <div
+                        class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
+                        <div class="form-group position-relative full_width">
+                          <select class="form-control evento_input evento_select" name="sellist"
+                            formControlName="audienceGender">
+                            <option value="" translate>Gender</option>
+                            <option value="1" translate>Male</option>
+                            <option value="2" translate>Female</option>
+                          </select>
+                          <i class="fas fa-chevron-down embed"></i>
+                          <div class="error"
+                            *ngIf="payment.controls['audienceGender'].hasError('required') && !payment.controls['audienceGender'].pristine"
+                            translate>
+                            This field is required
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div
+                        class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1  left_floating">
+                        <div class="form-group full_width">
+                          <my-date-picker formControlName="dateOfBirthGregorian"
+                            placeholder="{{ 'Date of birth' | translate }}" [options]="myDatePickerOptions"
+                            (dateChanged)="onChangeDateBirth($event)"></my-date-picker>
+                          <div class="error"
+                            *ngIf="payment.controls['mobile'].hasError('required') && !payment.controls['mobile'].pristine"
+                            translate>
+                            This field is required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center float-not-left span-left">
+                    <div
+                      class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline float-not-left">
+                      <p translate>Number of tickets paid</p>
+                    </div>
+                  </div>
+
+
+                  <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut && package"
+                    class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center steps-setting">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end">
+                      <div *ngIf="package.package_id != 50 && package.package_id != 51"
+                        class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
+                        <div class="form-group position-relative full_width">
+                          <select class="form-control evento_input evento_select" name="sellist"
+                            formControlName="maleCount" (change)="onChangeNumOfTickets($event.target.value)">
+                            <option value="" translate>Male Count</option>
+                            <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
+                            <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
+                            <option value="3" *ngIf="validatePackageRes.left >= 3">3</option>
+                            <option value="4" *ngIf="validatePackageRes.left >= 4">4</option>
+                            <option value="5" *ngIf="validatePackageRes.left >= 5">5</option>
+                          </select>
+                          <i class="fas fa-chevron-down embed"></i>
+                        </div>
+                      </div>
+
+                      <div *ngIf="package.package_id != 50 && package.package_id != 51"
+                        class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
+                        <div class="form-group position-relative full_width">
+                          <select class="form-control evento_input evento_select" name="sellist"
+                            formControlName="femaleCount" (change)="onChangeNumOfTickets($event.target.value)">
+                            <option value="" translate>Fmale Count</option>
+                            <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
+                            <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
+                            <option value="3" *ngIf="validatePackageRes.left >= 3">3</option>
+                            <option value="4" *ngIf="validatePackageRes.left >= 4">4</option>
+                            <option value="5" *ngIf="validatePackageRes.left >= 5">5</option>
+                          </select>
+                          <i class="fas fa-chevron-down embed"></i>
+                        </div>
+                      </div>
+
+                      <div *ngIf="package.package_id != 49"
+                        class="col-lg-4 col-md-4 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pr-1 pl-1 left_floating ">
+                        <div class="form-group position-relative full_width">
+                          <select class="form-control evento_input evento_select" name="sellist"
+                            formControlName="childCount" (change)="onChangeNumOfTickets($event.target.value)">
+                            <option value="" translate>Children Count</option>
+                            <option value="1" *ngIf="validatePackageRes.left >= 1">1</option>
+                            <option value="2" *ngIf="validatePackageRes.left >= 2">2</option>
+                            <option value="3" *ngIf="validatePackageRes.left >= 3">3</option>
+                            <option value="4" *ngIf="validatePackageRes.left >= 4">4</option>
+                            <option value="5" *ngIf="validatePackageRes.left >= 5">5</option>
+                          </select>
+                          <i class="fas fa-chevron-down embed"></i>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="mt-10">
+                    <div *ngIf="numbOfTickets && package"
+                      class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-right align-items-center justify-content-start ">
+                      <p class="grey-color mb-0 d-flex align-items-center" style="margin-right: 7.5px;" translate>Price
+                        &nbsp;</p>
+                      <button *ngIf="totalWithoutVat > 0" type="button" class="btn btn-dark btn-md"> {{totalWithoutVat}}
+                        {{ 'SR' | translate }}</button>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-end mt-71">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center">
+                      <div class="form-group text-center">
+                        <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToTimeOrMainPackages()"
+                          translate>Back</button>
+                        <button type="button" class="btn btn-success md-15" [disabled]="!payment.controls['first_name'].valid ||
+                          !payment.controls['last_name'].valid || numbOfTickets == 0 || numbOfTickets > validatePackageRes.left ||
+                          !payment.controls['mobile'].valid || !payment.controls['audienceGender'].valid ||
+                          !payment.controls['email'].valid || !payment.controls['dateOfBirthGregorian'].valid"
+                          (click)="onReviewInfo()" translate>Next Step &nbsp;<i
+                            class="fas fa-chevron-left"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="main_container" *ngIf="isOnTicketReview">
+  <div class="container-fluid event-container">
+    <div class="row justify-content-center mt-5 mb-5">
+      <ng-container>
+        <div class="col-lg-8 col-md-10 col-sm-12 col-12 mt-1 mb-1">
+          <div class="content pl-4 pr-4" id="event-details">
+            <div class="row ml-0 mr-0 mt-4">
+              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut"
+                class="bg-box-shadow w-100 span-left p-3">
+
+
+                <form [formGroup]="payment">
+
+                  <div
+                    class="col-lg-10 col-md-10 col-sm-10 col-12 d-flex text-center justify-content-center steps-setting float-not-left span-left">
+                    <div class="col-lg-10 col-md-10 col-sm-12 col-12 text-center justify-content-center">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center">
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline">
+                          <p translate>Order Review</p>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center mt-3">
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+                            <p><span class="grey-color span-left">{{ 'Name' | translate }}: &nbsp;</span> {{ payment.get('first_name').value
+                                }} {{ payment.get('last_name').value }}</p>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+                            <p><span class="grey-color span-left">{{ 'Phone Number' | translate }}: &nbsp;</span> {{ payment.get('mobile').value
+                                }}
+                            </p>
+                          </div>
+                          <div
+                            class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+                            <p><span class="grey-color span-left">{{ 'Email' | translate }} : &nbsp;</span> {{ payment.get('email').value
+                                }}</p>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+                            <p><span class="grey-color span-left">{{ 'Ticket' | translate }}: &nbsp;</span>
+                              {{package.package_name}}</p>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+                            <p><span class="grey-color span-left">{{ 'QTY' | translate }}: &nbsp;</span> {{ payment.get('num_ticket').value
+                                }}
+                            </p>
+                          </div>
+                          <div *ngIf="isDateRequired"
+                            class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+                            <p><span class="grey-color span-left">{{ 'Date' | translate }}: &nbsp;</span> {{ payment.get('access_date').value.formatted
+                                }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-center mt-3">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-end underline">
+                          <p translate>Payment Review</p>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center justify-content-end mt-3">
+                          <div
+                            class="col-lg-2 col-md-2 col-sm-12 col-12 d-flex text-center justify-content-start pd-0 pt-3">
+                            <p><span class="grey-color span-left">{{ 'QTY' | translate }}: &nbsp;</span>
+                              {{payment.get('num_ticket').value}}</p>
+                          </div>
+                          <div class="col-lg-5 col-md-5 col-sm-12 col-12 d-flex text-center justify-content-start pd-0">
+                            <p class="grey-color mb-0 d-flex align-items-center" style="margin-right: 7.5px;">
+                              {{ 'Each tickets cost' | translate }}</p>
+                            <button type="button" class="mt-2 btn btn-dark btn-sm">{{package.price}}
+                              {{ 'SR' | translate }}</button>
+                          </div>
+                          <div
+                            class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0">
+                            <p><span class="grey-color span-left">{{ 'Total' | translate }} : &nbsp;</span>
+                              {{totalWithoutVat}}
+                              {{ 'SR' | translate }}
+                              <!-- <p><span class="grey-color span-left">{{ 'VAT' | translate }} : &nbsp;</span> {{VAT}} {{ 'SR'
+                                  | translate }}
+                                  <p><span class="grey-color span-left">{{ 'Total With VAT' | translate }} : &nbsp;</span> {{totalWithVAT}}
+                                    {{ 'SR' | translate }}
+                                  </p> -->
+                          </div>
+                          <div
+                            class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex text-center justify-content-center pd-0 mt-5">
+                            <div class="form-group text-center">
+                              <button type="button" class="btn btn-dark pd-60 md-15" (click)="onBackToTicketInfo()"
+                                translate>Back</button>
+                              <button type="button" class="btn btn-warning md-15"
+                                [disabled]="!payment.valid || !showSubmit" (click)="buyTicket()"
+                                style="color:white;">{{ 'Next Step' | translate }} &nbsp;<i
+                                  class="fas fa-chevron-left"></i></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+</div>
+
+<div class="main_container" *ngIf="selectPaymentType">
+  <div class="container-fluid event-container">
+    <div class="row justify-content-center mt-5 mb-5">
+      <ng-container>
+        <div class="col-lg-8 col-md-10 col-sm-12 col-12 mt-1 mb-1">
+          <div class="content pl-4 pr-4" id="event-details">
+            <div class="row ml-0 mr-0 mt-4">
+              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut"
+                class="bg-box-shadow w-100 span-left p-3">
+                <button type="button" class="btn btn-success md-15" (click)="confirmPayment()">تاكيد الدفع &nbsp;<i
+                    class="fas fa-chevron-left"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+</div>
+
+<div class="main_container" *ngIf="showPrint">
+  <div class="container-fluid event-container">
+    <div class="row justify-content-center mt-5 mb-5">
+      <ng-container>
+        <div class="col-lg-8 col-md-10 col-sm-12 col-12 mt-1 mb-1">
+          <div class="content pl-4 pr-4" id="event-details">
+            <div class="row ml-0 mr-0 mt-4">
+              <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut"
+                class="bg-box-shadow w-100 span-left p-3">
+                <button type="button" class="btn btn-success md-15" (click)="confirmPayment()">تاكيد الدفع &nbsp;<i
+                    class="fas fa-chevron-left"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+</div>
