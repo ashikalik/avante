@@ -262,13 +262,13 @@ export class CosmoTicketComponent implements OnInit {
         'first_name': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
         'last_name': ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(40)])],
         'mobile': ['', Validators.compose([Validators.required, Validators.pattern('^(05)([0-9]{8})$')])],
-        'email': ['', Validators.compose([Validators.required, Validators.email])],
+        'email': ['evento@evento.sa', Validators.compose([Validators.required, Validators.email])],
         'package_id': ['', Validators.compose([Validators.required])],
         'num_ticket': ['', Validators.compose([Validators.required])],
         'maleCount': [''],
         'femaleCount': [''],
         'childCount': [''],
-        'dateOfBirthGregorian': ['', Validators.compose([Validators.required])],
+        'dateOfBirthGregorian': ['1993-06-18', Validators.compose([Validators.required])],
         'audienceGender': ['', Validators.compose([Validators.required])]
       });
   }

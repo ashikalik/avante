@@ -75,7 +75,7 @@ export class CosmosService {
             maleCount: form.maleCount || 0,
             femaleCount: form.femaleCount || 0,
             childCount: form.childCount || 0,
-            dateOfBirthGregorian: form.dateOfBirthGregorian.formatted,
+            dateOfBirthGregorian: form.dateOfBirthGregorian,
             audienceGender: form.audienceGender,
             list: form.visitors
         };
