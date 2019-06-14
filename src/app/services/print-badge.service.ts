@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
+import * as moment from 'moment'; // add this 1 of 4
 
 
 @Injectable()
 export class PrintBadge {
 
+    public date: any
+    
     constructor() {
+        this.date = new Date();        
+        this.date = moment(new Date(), "YYYY-MM-DD").format("YYYY-MM-DD HH:MM");
     }
-
 
     public ticket: any;
 
@@ -22,11 +26,11 @@ export class PrintBadge {
 
     public Body() {
         return `
-            <body onload="window.print();window.close()">
-                  <div style="width: 8cm; height: 12cm;  display: block; margin: auto;">
-                      <div style="padding-top: 5cm; padding-left: 0.4cm; padding-right: 0.4cm; font-size:30px;">
+            <body onload="window.print();">
+                  <div style="width: 8cm; height: 12cm;  display: block; margin: auto; writing-mode: vertical-lr; transform: rotate(180deg); text-align: center;">
+                      <div style="padding-top: 5cm; padding-left: 0.4cm; padding-right: 0.4cm; font-size:20px;">
+                      <img src="` + this.ticket.img_url + `" height="60" width="60" style="display: block; margin: auto;" />                      
                         <p style="text-align: center;">` + this.ticket.first_name + ' ' + this.ticket.last_name + `</p>
-                        <img src="` + this.ticket.img_url + `" height="75" width="75" style="display: block; margin: auto;" />
                       </div>
                    </div>
             </body>
@@ -38,8 +42,34 @@ export class PrintBadge {
         this.ticket = ticket;
 
         return `
-                    ` + this.CosmosBody() + `
+                    ` + this.CosmosBodyV2() + `
                 `;
+    }
+
+    public CosmosBodyV2() {
+        return `
+            <body onload="window.print();">
+                   <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 380px; height:350px">
+                   <div  >
+                       اسم الباقة: ` + this.ticket.package_name + `
+                   </div>
+                 
+                 </div>
+                 
+                 <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 240px; height:150px; text-align: left; ">
+                   <div style=" font-size:10px;">
+                      Invoice ID #: ` + this.ticket.invoice_id + `
+                   </div> 
+                     <div style=" padding-right:10px; font-size:10px;">
+                       Access Date: ` + this.date + `
+                   </div> 
+                   
+                       <div style=" font-size:10px; padding-right:50px">
+                            <img src="` + this.ticket.img_url + `" height="60" width="60" style="display: block; margin: auto;" />                      
+                        </div> 
+                 </div>
+            </body>
+        `;
     }
 
 
