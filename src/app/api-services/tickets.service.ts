@@ -33,5 +33,13 @@ export class TicketsService {
         let url = NetworkConfig.BASE_URL + NetworkConfig.TICKET_DETAILS + event_key + '/' + invoic_id;
         return  this.httpClient.get<City>(url);
     }
+    
+    public refund(invoic_id: any, event_key: string): Observable<any> {
+        let body = {
+            invoice_id: invoic_id
+        }
+        let url = NetworkConfig.BASE_URL + NetworkConfig.REFUND + event_key + '/' + invoic_id;
+        return  this.httpClient.put<any>(url, body);
+    }
 
 }

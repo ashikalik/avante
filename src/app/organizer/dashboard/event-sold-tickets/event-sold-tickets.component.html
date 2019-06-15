@@ -31,13 +31,13 @@
               Email
             </div>
             <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>
-              Status
+                NO of Tickets
             </div>
           </div>
   
           <ng-container *ngIf="ticketsList">
             <ng-container *ngFor="let ticket of ticketsList.data">
-              <app-ticket-row [eventkey]="event_key" [invoice]="ticket"></app-ticket-row>
+              <app-ticket-row [eventkey]="event_key" [invoice]="ticket" (refunded)="updateList($event)"></app-ticket-row>
             </ng-container>
 
 

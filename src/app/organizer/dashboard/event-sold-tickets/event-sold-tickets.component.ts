@@ -50,6 +50,11 @@ export class EventSoldTicketssComponent implements OnInit {
 }
 
 
+updateList(event: any) {
+  this.page = 1;
+  this.getTickets();
+}
+
 goToPage(n: number): void {
   this.page = n;
   this.getTickets();

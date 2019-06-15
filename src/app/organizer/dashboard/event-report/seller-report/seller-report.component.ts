@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { OrganizerService } from 'src/app/api-services/organizer.service';
-import { CommonService } from 'src/app/api-services/common.service';
+import { OrganizerService } from '../../../../api-services/organizer.service';
+import { CommonService } from '../../../../api-services/common.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

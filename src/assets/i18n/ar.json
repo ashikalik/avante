@@ -445,5 +445,7 @@
   "Date of birth": "تاريخ الميلاد",
   "Female Count": "عدد تذاكر النساء",
   "Children Count": "عدد تذاكر الاطفال",
-  "Total With VAT" : "الاجمالي مع الضريبة"
+  "Total With VAT" : "الاجمالي مع الضريبة",
+  "Refund": "استرجاع",
+  "NO of Tickets": "عدد التذاكر"
 }

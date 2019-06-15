@@ -5,6 +5,7 @@ import { RequestDetials } from '../../../../models/request-details';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PrintBadge } from '../../../../services/print-badge.service';
 import { TicketsService } from '../../../../api-services/tickets.service';
+import { tick } from '@angular/core/testing';
 
 @Component({
   selector: 'app-ticket-row',
@@ -17,14 +18,17 @@ export class TicketRowComponent implements OnInit {
   public showInfo: boolean;
   @Input() invoice: any;
   @Input() eventkey: any;
-  
-  
-  
+  @Output() refunded: EventEmitter<any> = new EventEmitter();
+
+
+  public refundRes: any;
+
+
 
   constructor(private requestsService: RequestsService,
     public router: Router,
     public PrintBadge: PrintBadge,
-    private ticketsService: TicketsService,    
+    private ticketsService: TicketsService,
     private route: ActivatedRoute) {
 
     this.showInfo = false;
@@ -44,12 +48,12 @@ export class TicketRowComponent implements OnInit {
   }
 
 
-  public getTicketDetails(invoice_id:number, eventkey: string) {
+  public getTicketDetails(invoice_id: number, eventkey: string) {
     this.ticketsService.getTicketDetails(invoice_id, eventkey).subscribe(
       res => {
         this.ticketsList = res;
       }, err => {
-      
+
       });
   }
 
@@ -59,6 +63,18 @@ export class TicketRowComponent implements OnInit {
     popupWin.document.open();
     popupWin.document.write(this.PrintBadge.BuildInvoice(ticket));
     popupWin.document.close();
+  }
+
+  public refund() {
+    console.log(this.invoice)
+    this.ticketsService.refund(this.invoice.invoice_id, this.eventkey).subscribe(
+      res => {
+        this.refundRes = res;
+        this.refunded.emit();
+      }, err => {
+
+      });
+
   }
 
 

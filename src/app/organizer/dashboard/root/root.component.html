@@ -36,7 +36,7 @@
               <ul class="sidebar-nav">
                 <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['packages']" (click)="onMenuHide()" translate>Tickets Packages</a></li>
                 <li *ngIf="isAdmin || isSellerSupervisor" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['sales']" (click)="onMenuHide()" translate>Sales staff</a></li>
-                <li *ngIf="isAdmin" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['sold-tickets']" (click)="onMenuHide()" translate>Sold Tickets</a></li>
+                <li *ngIf="isAdmin || isSellerSupervisor" class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['sold-tickets']" (click)="onMenuHide()" translate>Sold Tickets</a></li>
               </ul>
             </li>
             <li class="sidebar-list" *ngIf="isAdmin || isSellerSupervisor">
