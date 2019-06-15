@@ -8,8 +8,7 @@ export class PrintBadge {
     public date: any
     
     constructor() {
-        this.date = new Date();        
-        this.date = moment(new Date(), "YYYY-MM-DD").format("YYYY-MM-DD HH:MM");
+
     }
 
     public ticket: any;
@@ -39,6 +38,9 @@ export class PrintBadge {
 
 
     public BuildInvoiceForCosmos(ticket: any) {
+        this.date = new Date();        
+        this.date = moment(new Date(), "YYYY-MM-DD").format("YYYY-MM-DD HH:MM");
+
         this.ticket = ticket;
 
         return `
@@ -55,12 +57,15 @@ export class PrintBadge {
                    </div>
                  
                  </div>
+
+                 <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 320px; height:70px;  text-align: left; ">
+                 </div>
                  
-                 <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 240px; height:150px; text-align: left; ">
-                   <div style=" font-size:10px;">
+                 <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 320px; height:150px; text-align: left; ">
+                   <div style=" font-size:10px;  font-weight:bold">
                       Invoice ID #: ` + this.ticket.invoice_id + `
                    </div> 
-                     <div style=" padding-right:10px; font-size:10px;">
+                     <div style=" padding-right:10px; font-size:10px;  font-weight:bold">
                        Access Date: ` + this.date + `
                    </div> 
                    
