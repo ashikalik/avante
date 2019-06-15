@@ -43,9 +43,10 @@ export class TicketRowComponent implements OnInit {
 
 
   public print(ticket: any) {
-    let date = moment(new Date(), "YYYY-MM-DD").format("YYYY-MM-DD HH:MM");
-    
-        console.log(ticket)
+      let date = moment(new Date(), "YYYY-MM-DD").format("YYYY-MM-DD HH:MM");
+        console.log(ticket);
+        console.log(date)
+        
         let popupWin;
         popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
         popupWin.document.open();
