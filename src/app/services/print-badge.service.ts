@@ -58,10 +58,10 @@ export class PrintBadge {
                  
                  </div>
 
-                 <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 320px; height:70px;  text-align: left; ">
+                 <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 320px; height:30px;  text-align: left; ">
                  </div>
                  
-                 <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 320px; height:150px; text-align: left; ">
+                 <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 280px; height:150px; text-align: left; ">
                    <div style=" font-size:10px;  font-weight:bold">
                       Invoice ID #: ` + this.ticket.invoice_id + `
                    </div> 
