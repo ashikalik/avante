@@ -112,7 +112,7 @@ const routes: Routes = [
             {
                 path: 'sold-tickets',
                 component: EventSoldTicketssComponent,
-                canActivate: [ OrganizerGuard],
+                canActivate: [ OrganizerSupervisorGuard],
                 
             }
         ]
