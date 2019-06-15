@@ -116,6 +116,11 @@ export class OrganizerService {
         return this.httpClient.get<SellerInvoiceReport>(url);
     }
 
+    public getSellerPayment(seller_id: number, event_key: string): Observable<SellerInvoiceReport> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.SELLER_PAYMENT + event_key + '/' + seller_id;
+        return this.httpClient.get<SellerInvoiceReport>(url);
+    }
+
     public getEventSupervisors(page: number, search: string, status_id: string, event_key: string): Observable<Supervisors> {
         let url = NetworkConfig.BASE_URL + NetworkConfig.LIST_SUPERVISORS + event_key + '?page=' + page;
 

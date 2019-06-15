@@ -28,6 +28,7 @@ import { SalesRowComponent } from './event-sales/sales-row/sales-row.component';
 import { EventPackagesComponent } from './event-packages/event-packages.component';
 import { PackageRowComponent } from './event-packages/package-row/package-row.component';
 import { PrintBadge } from '../../services/print-badge.service';
+import { SellerReportComponent } from './event-report/seller-report/seller-report.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { PrintBadge } from '../../services/print-badge.service';
         EventSalesComponent,
         SalesRowComponent,
         EventPackagesComponent,
-        PackageRowComponent
+        PackageRowComponent,
+        SellerReportComponent
     ],
     imports: [
         ...BASE_MODULES,

@@ -75,7 +75,7 @@ const routes: Routes = [
             {
                 path: 'report',
                 component: EventReportComponent,
-                canActivate: [ OrganizerGuard],
+                canActivate: [ OrganizerSupervisorGuard],
                 
             },
             {

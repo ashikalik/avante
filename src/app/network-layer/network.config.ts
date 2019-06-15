@@ -78,6 +78,8 @@ export const NetworkConfig = {
     SELLER_EVENT            : '/seller/sellerEvent/',
     SUPER_EVENT             : '/supervisor/superEvent/',
     COSMOS_PACKAGES         : '/cosmos/packages/',
-    VALIDATE_COSMOS_PACKAGE : '/cosmos/validate-package/'
+    VALIDATE_COSMOS_PACKAGE : '/cosmos/validate-package/',
+    SELLER_PAYMENT          : '/report/payments/'
+
     
 };

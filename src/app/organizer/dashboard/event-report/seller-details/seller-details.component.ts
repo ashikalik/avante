@@ -25,6 +25,7 @@ export class SellerDetailsComponent implements OnInit {
             this.event_key = params['event-key']
         })
 
+
     }
 
     ngOnInit() {
@@ -33,6 +34,8 @@ export class SellerDetailsComponent implements OnInit {
     }
 
     public getSellerSales() {
+        console.log(this.seller_id)
+
         this.organizerService.getSellerInvoices(this.seller_id, this.page, this.event_key).subscribe(
             res => {
                 this.sellerInvoicesReport = res;
