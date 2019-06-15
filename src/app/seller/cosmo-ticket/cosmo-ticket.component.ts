@@ -6,6 +6,7 @@ import { MyDatePickerOptions } from '../../models/date-picker-object';
 import { NetworkConfig } from '../../network-layer/network.config';
 import { CosmosService } from '../../../app/api-services/cosoms.service';
 import { PrintBadge } from './../../services/print-badge.service';
+import * as moment from 'moment'; // add this 1 of 4
 
 @Component({
   selector: 'app-cosmo-ticket',
@@ -319,12 +320,15 @@ export class CosmoTicketComponent implements OnInit {
       });
   }
 
+
   public print(ticket: any) {
+    let date = moment(new Date(), "YYYY-MM-DD").format("YYYY-MM-DD HH:MM");
+
     console.log(ticket)
     let popupWin;
     popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
     popupWin.document.open();
-    popupWin.document.write(this.PrintBadge.BuildInvoiceForCosmos(ticket));
+    popupWin.document.write(this.PrintBadge.BuildInvoiceForCosmos(ticket, date));
     popupWin.document.close();
   }
 
