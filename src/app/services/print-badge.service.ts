@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import * as moment from 'moment'; // add this 1 of 4
 
 
 @Injectable()
@@ -37,9 +36,9 @@ export class PrintBadge {
     }
 
 
-    public BuildInvoiceForCosmos(ticket: any) {
-        this.date = new Date();        
-        this.date = moment(new Date(), "YYYY-MM-DD").format("YYYY-MM-DD HH:MM");
+    public BuildInvoiceForCosmos(ticket: any, issuingDate:any) {
+        this.date = issuingDate;
+
 
         this.ticket = ticket;
 
@@ -61,7 +60,7 @@ export class PrintBadge {
                  <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 320px; height:30px;  text-align: left; ">
                  </div>
                  
-                 <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 280px; height:150px; text-align: left; ">
+                 <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 190px; height:150px; text-align: left; ">
                    <div style=" font-size:10px;  font-weight:bold">
                       Invoice ID #: ` + this.ticket.invoice_id + `
                    </div> 
