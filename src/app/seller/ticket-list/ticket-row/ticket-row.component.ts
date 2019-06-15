@@ -1,6 +1,7 @@
 import { PrintBadge } from './../../../services/print-badge.service';
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { SellerService } from '../../../api-services/seller.service';
+import * as moment from 'moment'; // add this 1 of 4
 
 @Component({
   selector: 'app-ticket-row',
@@ -42,10 +43,13 @@ export class TicketRowComponent implements OnInit {
 
 
   public print(ticket: any) {
-    let popupWin;
-    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
-    popupWin.document.open();
-    popupWin.document.write(this.PrintBadge.BuildInvoiceForCosmos(ticket));
-    popupWin.document.close();
+    let date = moment(new Date(), "YYYY-MM-DD").format("YYYY-MM-DD HH:MM");
+    
+        console.log(ticket)
+        let popupWin;
+        popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+        popupWin.document.open();
+        popupWin.document.write(this.PrintBadge.BuildInvoiceForCosmos(ticket, date));
+        popupWin.document.close();
   } 
 }
