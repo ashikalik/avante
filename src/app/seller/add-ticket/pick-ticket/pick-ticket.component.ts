@@ -70,7 +70,7 @@ export class PickTicketComponent implements OnInit {
             
         }
         
-        this.calcuateTotal();
+        // this.calcuateTotal();
 
         //emitter for the root component
         this.selectedPackage.emit(this.package);
@@ -88,11 +88,14 @@ export class PickTicketComponent implements OnInit {
         this.numbOfTickets = Number(this.payment.get('maleCount').value) + Number(this.payment.get('femaleCount').value) + Number(this.payment.get('childCount').value);
         this.payment.get('num_ticket').setValue(this.numbOfTickets);
         this.calcuateTotal();
-        this.payment.setControl('visitors', new FormArray([]));
-        for (let i = 0; i < this.numbOfTickets; i++) {
-            this.visitors = this.payment.get('visitors') as FormArray;
-            this.visitors.push(this.createVisitor());
-        }
+        // this.numbOfTickets = Number(this.payment.get('maleCount').value) + Number(this.payment.get('femaleCount').value) + Number(this.payment.get('childCount').value);
+        // this.payment.get('num_ticket').setValue(this.numbOfTickets);
+        // this.calcuateTotal();
+        // this.payment.setControl('visitors', new FormArray([]));
+        // for (let i = 0; i < this.numbOfTickets; i++) {
+        //     this.visitors = this.payment.get('visitors') as FormArray;
+        //     this.visitors.push(this.createVisitor());
+        // }
     }
 
 
@@ -106,6 +109,8 @@ export class PickTicketComponent implements OnInit {
     calcuateTotal() {
         this.numbOfTickets = this.payment.get('num_ticket').value;
         this.total = this.numbOfTickets * this.package.price;
+        console.log(this.numbOfTickets)
+        console.log(this.total)
     }
 
 

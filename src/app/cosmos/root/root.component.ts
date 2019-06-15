@@ -246,6 +246,7 @@ export class RootComponent implements OnInit {
   onChangeNumOfTickets(event) {
     this.numbOfTickets = Number(this.payment.get('maleCount').value) + Number(this.payment.get('femaleCount').value) + Number(this.payment.get('childCount').value);
     this.payment.get('num_ticket').setValue(this.numbOfTickets);
+    
     this.calculatTotal();
   }
 
