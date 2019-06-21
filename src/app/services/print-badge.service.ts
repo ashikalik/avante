@@ -37,7 +37,8 @@ export class PrintBadge {
 
 
     public BuildInvoiceForCosmos(ticket: any, issuingDate:any) {
-        this.date = issuingDate;
+        console.log(ticket)
+        this.date = ticket.current_date + ' ' + ticket.current_time;
 
 
         this.ticket = ticket;
@@ -62,10 +63,10 @@ export class PrintBadge {
                  
                  <div style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: center;  margin-left: 220px; height:150px; text-align: left; ">
                    <div style=" font-size:10px;  font-weight:bold">
-                      Invoice ID #: ` + this.ticket.invoice_id + `
+                      الفاتورة #: ` + this.ticket.invoice_id + `
                    </div> 
                      <div style=" padding-right:10px; font-size:10px;  font-weight:bold">
-                       Access Date: ` + this.date + `
+                       تاريخ الدخول: ` + this.date + `
                    </div> 
                    
                        <div style=" font-size:10px; padding-right:50px">
