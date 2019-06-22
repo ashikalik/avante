@@ -44,7 +44,7 @@
               المجموع</small></p>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex">
-          <h5 class="mr_auto">{{ p.span | currency:'SAR':true }}</h5>
+          <h5 class="mr_auto">{{ p.span + p.cash | currency:'SAR':true }}</h5>
           <h3 class="text-success"><i class="far fa-check-circle"></i></h3>
         </div>
       </div>
