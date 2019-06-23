@@ -111,6 +111,16 @@ export class OrganizerService {
         return this.httpClient.get<Report>(url);
     }
 
+    public getDailyEventReport(event_key: string): Observable<Report> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.REPORTS_DAILY + event_key;
+        return this.httpClient.get<Report>(url);
+    }
+
+    public getEventReportByPackage(event_key: string): Observable<Report> {
+        let url = NetworkConfig.BASE_URL + NetworkConfig.REPORTS_BY_PACKAGE + event_key;
+        return this.httpClient.get<Report>(url);
+    }
+
     public getSellerInvoices(seller_id: number, page: number, event_key: string): Observable<SellerInvoiceReport> {
         let url = NetworkConfig.BASE_URL + NetworkConfig.REPORTS_SELLER + event_key + '/' + seller_id + '?page=' + page;
         return this.httpClient.get<SellerInvoiceReport>(url);

@@ -42,7 +42,7 @@
             <li class="sidebar-list" *ngIf="isAdmin || isSellerSupervisor">
               <ul class="sidebar-item"  translate><img class="img-fluid ml-2 mr-2" src="assets/ReportsIcon.png" alt=""/>Reports</ul>
               <ul class="sidebar-nav">
-                <li class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['report']" (click)="onMenuHide()" translate>Statistics</a></li>
+                <li class="sidebar-sublist" routerLinkActive="active"><a [routerLink]="['general-report']" (click)="onMenuHide()" translate>Statistics</a></li>
               </ul>
             </li>
           </ul>

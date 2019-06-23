@@ -18,8 +18,8 @@ import { ApplicationCvComponent } from './requests/application-cv/application-cv
 import { RequestsInterviewComponent } from './requests-interview/requests-interview.component';
 import { RequestsRatingComponent } from './requests-rating/requests-rating.component';
 import { EventReportComponent } from './event-report/event-report.component';
-import { SellerRowComponent } from './event-report/seller-row/seller-row.component';
-import { SellerDetailsComponent } from './event-report/seller-details/seller-details.component';
+import { SellerRowComponent } from './event-report-salesmen/seller-row/seller-row.component';
+import { SellerDetailsComponent } from './event-report-salesmen/seller-details/seller-details.component';
 import { SupervisorRowComponent } from './event-supervisors/supervisor-row/supervisor-row.component';
 import { EventSoldTicketssComponent } from "./event-sold-tickets/event-sold-tickets.component";
 import { TicketRowComponent } from './event-sold-tickets/application-row/ticket-row.component';
@@ -28,7 +28,10 @@ import { SalesRowComponent } from './event-sales/sales-row/sales-row.component';
 import { EventPackagesComponent } from './event-packages/event-packages.component';
 import { PackageRowComponent } from './event-packages/package-row/package-row.component';
 import { PrintBadge } from '../../services/print-badge.service';
-import { SellerReportComponent } from './event-report/seller-report/seller-report.component';
+import { SellerReportComponent } from './event-report-salesmen/seller-report/seller-report.component';
+import { EventReportDailyComponent } from './event-report-daily/event-report-daily.component';
+import { EventReportPackagesComponent } from './event-report-packages/event-report-packages.component';
+import { EventReportSalesmenComponent } from './event-report-salesmen/event-report-salesmen.component';
 
 
 @NgModule({
@@ -58,7 +61,10 @@ import { SellerReportComponent } from './event-report/seller-report/seller-repor
         SalesRowComponent,
         EventPackagesComponent,
         PackageRowComponent,
-        SellerReportComponent
+        SellerReportComponent,
+        EventReportDailyComponent,
+        EventReportPackagesComponent,
+        EventReportSalesmenComponent
     ],
     imports: [
         ...BASE_MODULES,
