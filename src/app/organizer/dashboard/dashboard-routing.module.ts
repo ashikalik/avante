@@ -20,6 +20,9 @@ import { OrganizerSupervisorGuard } from '../../shared/auth-guards/organizer-sup
 import { OrganizerGuard } from '../../shared/auth-guards/organizer-guard';
 import { SupervisorRequestsGuard } from '../../shared/auth-guards/supervisor-requests.guard';
 import { SupervisorSellersGuard } from '../../shared/auth-guards/supervisor-sellers.guard';
+import { EventReportDailyComponent } from './event-report-daily/event-report-daily.component';
+import { EventReportPackagesComponent } from './event-report-packages/event-report-packages.component';
+import { EventReportSalesmenComponent } from './event-report-salesmen/event-report-salesmen.component';
 
 
 const routes: Routes = [
@@ -73,8 +76,26 @@ const routes: Routes = [
                 canActivate: [ OrganizerGuard],                
             },
             {
-                path: 'report',
+                path: 'general-report',
                 component: EventReportComponent,
+                canActivate: [ OrganizerSupervisorGuard],
+                
+            },
+            {
+                path: 'daily-report',
+                component: EventReportDailyComponent,
+                canActivate: [ OrganizerSupervisorGuard],
+                
+            },
+            {
+                path: 'report-packages',
+                component: EventReportPackagesComponent,
+                canActivate: [ OrganizerSupervisorGuard],
+                
+            },
+            {
+                path: 'report-salesmen',
+                component: EventReportSalesmenComponent,
                 canActivate: [ OrganizerSupervisorGuard],
                 
             },

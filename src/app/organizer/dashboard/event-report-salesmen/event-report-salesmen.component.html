@@ -1,0 +1,75 @@
+<div class="statistic-container">
+    <div class="text_left justify-content-center side-content">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-5 d-flex">
+                    <h4 translate>Statistics</h4>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs justify-content-start underline" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link bg-dark position-relative pt-1 pb-1" data-toggle="tab" [routerLink]="['/organizer/event/' + event_key + '/general-report']"
+                                        translate>Genral Reports</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link  bg-dark position-relative pt-1 pb-1" data-toggle="tab" [routerLink]="['/organizer/event/' + event_key + '/daily-report']"
+                                        translate>Daily Reports</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link bg-dark position-relative pt-1 pb-1" data-toggle="tab" [routerLink]="['/organizer/event/' + event_key + '/report-packages']"
+                                        translate>Reports by Packages</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active  bg-danger position-relative pt-1 pb-1" data-toggle="tab" [routerLink]="['/organizer/event/' + event_key + '/report-salesmen']"
+                                        translate>Reports by Salesmen</a>
+                                </li>
+                            </ul>
+                            <!-- Tab panels -->
+                            <div class="tab-event-content">
+                                <div class="content" id="event-details">
+                    
+                                    <ng-container *ngIf="report">
+                                        <div class="clearfix"></div>
+                                        <div class="clearfix"></div>
+                    
+                    
+                    
+                                        <div class=" application-container" *ngIf="report.data.seller.length > 0">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-center">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                                        <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
+                                                            <div class="pr-3 title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+                                                                Name
+                                                            </div>
+                                                            <div class="title col-lg-3 col-md-3 col-sm-12 col-12" translate>
+                                                                Phone Number
+                                                            </div>
+                                                            <div class="title col-lg-4 col-md-4 col-sm-12 col-12" translate>
+                                                                Gender
+                                                            </div>
+                                                            <div class="title col-lg-2 col-md-2 col-sm-12 col-12" translate>
+                                                                Total Revenue
+                                                            </div>
+                                                        </div>
+                                                        <app-seller-row *ngFor="let seller of report.data.seller" [seller]="seller"></app-seller-row>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+                                    </ng-container>
+                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

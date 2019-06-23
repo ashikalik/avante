@@ -1,0 +1,92 @@
+<div class="statistic-container">
+  <div class="text_left justify-content-center side-content">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-5 d-flex">
+          <h4 translate>Statistics</h4>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs justify-content-start underline" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link bg-dark position-relative pt-1 pb-1" data-toggle="tab" [routerLink]="['/organizer/event/' + event_key + '/general-report']"
+                  translate>Genral Reports</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  bg-dark position-relative pt-1 pb-1" data-toggle="tab" [routerLink]="['/organizer/event/' + event_key + '/daily-report']"
+                  translate>Daily Reports</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  active  bg-danger position-relative pt-1 pb-1" data-toggle="tab" [routerLink]="['/organizer/event/' + event_key + '/report-packages']"
+                  translate>Reports by Packages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link bg-dark position-relative pt-1 pb-1" data-toggle="tab" [routerLink]="['/organizer/event/' + event_key + '/report-salesmen']"
+                  translate>Reports by Salesmen</a>
+              </li>
+            </ul>
+            <!-- Tab panels -->
+            <div class="tab-event-content">
+              <div class="content" id="event-details">
+
+                <ng-container *ngIf="report">
+                  <div class="clearfix"></div>
+                  <div class="clearfix"></div>
+
+
+
+                  <div class=" application-container" *ngIf="report.data.length > 0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text_left justify-content-center">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-5">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                          <div class=" table-header col-lg-12 col-md-12 col-sm-12 col-12 mt-3  d-none d-sm-flex">
+                            <div class="pr-3 title col-lg-9 col-md-9 col-sm-12 col-12" translate>
+                              Package Name
+                            </div>
+                            <div class="title col-lg-1 col-md-1 col-sm-12 col-12" translate>
+                              Number of sold tickets
+                            </div>
+                            <div class="title col-lg-1 col-md-1 col-sm-12 col-12" translate>
+                              Price
+                            </div>
+                            <div class="title col-lg-1 col-md-1 col-sm-12 col-12" translate>
+                                Total Revenue
+                            </div>
+                          </div>
+
+                          <div *ngFor="let seller of report.data" class="table-row tr-stripe col-lg-12 col-md-12 col-sm-12 col-12  d-flex flex-wrap">
+                              <div class=" col-lg-9 col-md-9 col-sm-12 col-12">
+                                <span class="pr-3 d-md-none d-lg-none d-xl-none"> {{ 'Package Name' | translate }}:</span> {{ seller.name }} 
+                              </div>
+                              <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+                                <span class="pr-3 d-md-none d-lg-none d-xl-none" style="direction: ltr"> {{ 'Number of sold tickets' | translate }} :</span> {{ seller.num_ticket }}
+                              </div>
+                              <div class="title col-lg-1 col-md-1 col-sm-12 col-12">
+                                <ng-container>
+                                  <span class="pr-3 d-md-none d-lg-none d-xl-none"> {{ 'Price' | translate }}:</span> {{ seller.price }}
+                                </ng-container>
+                              </div>
+                              <div class="col-lg-1 col-md-1 col-sm-12 col-12">
+                                <ng-container >
+                                  <span class="d-md-none d-lg-none d-xl-none"> {{ 'Total Revenue' | translate }}:</span> {{seller.total_with_vat}}
+                                </ng-container>
+                              </div>
+                            </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </ng-container>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

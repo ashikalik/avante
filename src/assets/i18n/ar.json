@@ -447,5 +447,12 @@
   "Children Count": "عدد تذاكر الاطفال",
   "Total With VAT" : "الاجمالي مع الضريبة",
   "Refund": "استرجاع",
-  "NO of Tickets": "عدد التذاكر"
+  "NO of Tickets": "عدد التذاكر",
+  "Genral Reports":"تقارير عامة",
+  "Daily Reports":"تقرير يومي ",
+  "Reports by Packages":"تقرير تفصيلي عن الباقات",
+  "Reports by Salesmen":"تقرير تفصيلي عن الموظفين",
+  "Number of sold tickets":" عدد التذاكر المباعة",
+  "Date of sales":"تاريخ المبيعات",
+  "Total revenue":"إجمالي الدخل"
 }

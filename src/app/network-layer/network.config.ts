@@ -1,6 +1,6 @@
 export const NetworkConfig = {
     // BASE_URL: 'http://localhost:6021/api',
-    // BASE_URL                : 'https://www.development.evento.sa/api',
+    // BASE_URL                : 'https://www.evento.sa/api',
     // MERCHANT_ID              : '3000000016',          // DEV
     MERCHANT_ID              : '3000000011',          // Production
     // MERCHANT_JS             : "https://test-gateway.mastercard.com/checkout/version/51/checkout.js", // DEV
@@ -63,6 +63,8 @@ export const NetworkConfig = {
     ADVERTIZED_EVENTS       : '/home/adds',
     LATEST_EVENTS           : '/home/latest',
     REPORTS_OVERVIEW        : '/report/overview/',
+    REPORTS_DAILY           : '/report/groupByDate/',
+    REPORTS_BY_PACKAGE      : '/report/groupByPackage/',
     REPORTS_SELLER          : '/report/seller/',
     LIST_SUPERVISORS        : '/supervisor/getSupervisors/',
     CREATE_SUPERVISOR       : '/supervisor/createSupervisors/',
