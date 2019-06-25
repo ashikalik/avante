@@ -11,7 +11,7 @@
                 <p class="mt-3">{{ p.songer_name }}</p>
                 <p>{{ p.desc }}</p>
                 <p class="span-right mb-0 pb-0 red_des">
-                  تبدأ أسعار التذاكر من 100 ريال إلى 150 ريال
+                  تبدأ أسعار التذاكر من {{p.min}} ريال إلى {{p.max}} ريال
                 </p>
                 <button type="button" class="btn btn-success" (click)="selectPackageSongerFunc(p)" translate>Choose
                   &nbsp;<i class="fas fa-chevron-left"></i></button>
