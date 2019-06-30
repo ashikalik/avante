@@ -34,7 +34,8 @@ export class TicketReviewComponent implements OnInit {
     this.calculatTotal();
     this.addJsToElement(NetworkConfig.MERCHANT_JS).onload = () => {
       this.showSubmit = true;
-    }
+      console.log("dsfoasldkfj")
+    } 
 
 
   }

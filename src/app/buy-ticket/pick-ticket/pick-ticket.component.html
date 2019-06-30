@@ -12,9 +12,7 @@
       All Tickets are sold out
     </div>
 
-    <div *ngIf="cosmosOffer" class="alert alert-danger">
-      هذا العرض ساري من تاريخ 06/06/2019 وحتى تاريخ 09/06/2019
-    </div>
+
 
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center justify-content-center mt-3">
@@ -40,7 +38,7 @@
       </div>
 
       <!-- Male -->
-      <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut && package && package.package_id == 49" class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center  mt-3 justify-content-center">
+      <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut && package" class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center  mt-3 justify-content-center">
         <div class="form-group position-relative">
           <select class="form-control evento_input evento_select" name="sellist" formControlName="maleCount" (change)="onChangeNumOfTickets($event.target.value)">
             <option value="" translate>Male Count</option>
@@ -55,7 +53,7 @@
       </div>
 
       <!-- Female -->
-      <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut && package && package.package_id == 49" class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center  mt-3 justify-content-center">
+      <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut && package" class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center  mt-3 justify-content-center">
         <div class="form-group position-relative">
           <select class="form-control evento_input evento_select" name="sellist" formControlName="femaleCount" (change)="onChangeNumOfTickets($event.target.value)">
             <option value="" translate>Female Count</option>
@@ -70,7 +68,7 @@
       </div>
 
       <!-- // Children -->
-      <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut && package && (package.package_id == 50 || package.package_id == 51)"
+      <div *ngIf="validatePackageRes && validatePackageRes.left >= 1 && !isSoldOut && package"
         class="col-lg-4 col-md-4 col-sm-12 col-12 pr-3 pl-3 text-center  mt-3 justify-content-center">
         <div class="form-group position-relative">
           <select class="form-control evento_input evento_select" name="sellist" formControlName="childCount" (change)="onChangeNumOfTickets($event.target.value)">

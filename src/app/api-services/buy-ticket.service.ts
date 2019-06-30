@@ -50,7 +50,12 @@ export class BuyTicketService {
             num_ticket: form.num_ticket,
             access_date: access_date,
             list: form.visitors,
-            recaptcha: form.recaptcha
+            recaptcha: form.recaptcha, 
+            maleCount: form.maleCount || 0,
+            femaleCount: form.femaleCount || 0,
+            childCount: form.childCount || 0,
+            dateOfBirthGregorian:form.dateOfBirthGregorian.formatted,
+            audienceGender: form.audienceGender
         };
 
         const url = NetworkConfig.BASE_URL + NetworkConfig.CREATE_INVOICE_PAYMENT

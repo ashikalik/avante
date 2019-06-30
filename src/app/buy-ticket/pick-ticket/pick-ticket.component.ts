@@ -63,12 +63,6 @@ export class PickTicketComponent implements OnInit {
         this.myDatePickerOptions.disableUntil = new DisableDateUntilPipe().transform(this.eventDetail.data.details.from_date);
         this.myDatePickerOptions.disableSince = new DisableDateSincePipe().transform(this.eventDetail.data.details.end_date);
 
-        if(this.package.package_id == 51){
-            this.cosmosOffer = true;
-        }else{
-            this.cosmosOffer = false;
-        }
-
         this.isDateRequired = this.buyTicketService.isDateRequired(this.package);
 
 
